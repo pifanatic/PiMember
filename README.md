@@ -26,5 +26,5 @@
     To add some sample cards and categories type the following:
 
     ```
-        $ cat script/example_cards.sql | sqlite3 <db_name>
+        $ script/add_sample_data.sh
     ```
