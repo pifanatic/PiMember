@@ -12,7 +12,7 @@ make_schema_at(
     'PiMember::Schema',
     {
         debug => 1,
-        dump_directory => './',
+        dump_directory => './lib',
     },
     [
         "dbi:SQLite:$dbname"
