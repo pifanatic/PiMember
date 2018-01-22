@@ -15,7 +15,7 @@
     installed. If this is the case you can simply run
 
     ```
-        $ cat script/init.sql | sqlite3 <db_name>
+        $ script/create_db.sh
     ```
 
     to generate a new SQLite database that contains all necessary tables for
