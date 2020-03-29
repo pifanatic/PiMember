@@ -28,12 +28,7 @@ The root page (/)
 
 =cut
 
-sub index :Path :Args(0) {
-    my ( $self, $c ) = @_;
-
-    # Hello World
-    $c->response->body('Welcome to PiMember.');
-}
+sub index :Path :Args(0) {}
 
 =head2 default
 
