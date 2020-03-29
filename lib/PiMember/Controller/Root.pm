@@ -6,9 +6,9 @@ BEGIN { extends 'Catalyst::Controller' }
 
 __PACKAGE__->config(namespace => '');
 
-sub index :Path :Args(0) {}
+sub index : Path Args(0) {}
 
-sub default :Path {
+sub default : Path {
     my ( $self, $c ) = @_;
 
     $c->response->body( 'Page not found' );
