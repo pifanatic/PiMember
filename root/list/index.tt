@@ -1,3 +1,9 @@
+<p>
+    <a href="[% c.uri_for('/') %]">
+        <- Back to main menu.
+    </a>
+</p>
+
 <p>List of all [% count %] cards:<p>
 
 <table>

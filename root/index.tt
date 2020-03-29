@@ -1,1 +1,3 @@
 <p>Welcome to PiMember.</p>
+
+<p><a href="[% c.uri_for('list') %]">Here</a> is a list of all available cards.</p>
