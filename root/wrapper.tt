@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+    <link rel="stylesheet" href="[% c.uri_for('/static/styles.css') %]"/>
 </head>
 
 <body>
