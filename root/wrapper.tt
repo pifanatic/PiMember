@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+    <title>PiMember</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comic+Neue&display=swap"/>
     <link rel="stylesheet" href="[% c.uri_for('/static/styles.css') %]"/>
 </head>
