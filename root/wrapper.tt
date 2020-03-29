@@ -5,7 +5,7 @@
 </head>
 
 <body>
-    <div>PiMember</div>
+    <div id="header">PiMember</div>
 
     [% content %]
 </body>
