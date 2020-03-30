@@ -1,0 +1,17 @@
+
+<div class="login-wrapper">
+    Login
+    <form method="post">
+        <div class="row">
+            <label for="username">User</label>
+            <input id="username" name="username"/>
+        </div>
+
+        <div class="row">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password"/>
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+</div>

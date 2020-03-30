@@ -13,3 +13,50 @@ body {
     background-color: blue;
     color: white;
 }
+
+.login-wrapper {
+    margin: 100px auto;
+    width: 300px;
+    padding: 20px;
+
+    border: 1px solid lightgrey;
+    box-shadow: 4px 4px 5px 0px #aaa;
+}
+
+.login-wrapper .row {
+    margin: 20px 0;
+}
+
+.login-wrapper label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-wrapper input {
+    width: 100%;
+    margin-top: 5px;
+    padding: 8px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #aaa;
+    border-radius: 2px;
+}
+
+.login-wrapper button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 20px;
+
+    color: white;
+    background-color: #000080;
+
+    border: none;
+    border-radius: 2px;
+
+    cursor: pointer;
+}
+
+.login-wrapper button:hover {
+    background-color: #0080ff;
+}
