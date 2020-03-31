@@ -4,6 +4,14 @@ use namespace::autoclean;
 
 BEGIN { extends 'Catalyst::Controller'; }
 
+sub begin : Private {
+    my ($self, $c) = @_;
+
+    if ($c->user_exists) {
+        $c->response->redirect($c->uri_for("/"));
+    }
+}
+
 sub index : Path Args(0) {
     my ($self, $c) = @_;
 
