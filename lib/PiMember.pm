@@ -46,6 +46,19 @@ __PACKAGE__->config(
     # Disable deprecated behavior needed by old applications
     disable_component_resolution_regex_fallback => 1,
     enable_catalyst_header => 1, # Send X-Catalyst header
+    'Plugin::Authentication' => {
+        default => {
+            credential => {
+                class => 'Password',
+                password_type => 'hashed',
+                password_hash_type => 'SHA-512',
+            },
+            store => {
+                class => 'DBIx::Class',
+                user_model => 'DB::User',
+            }
+        }
+    },
 );
 
 # Start the application
