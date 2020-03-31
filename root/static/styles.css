@@ -26,6 +26,21 @@ body {
     color: #777;
 }
 
+.error-msg {
+    margin: 50px auto;
+    margin-bottom: -70px;
+    width: 300px;
+    padding: 20px;
+
+    text-align: center;
+
+    border: 1px solid #ff0000;
+    border-radius: 3px;
+    box-shadow: 4px 4px 5px 0px pink;
+    background-color: pink;
+    color: red;
+}
+
 .login-wrapper {
     margin: 100px auto;
     width: 300px;

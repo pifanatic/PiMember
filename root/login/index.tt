@@ -1,5 +1,9 @@
 <div class="login-title">Sign in to PiMember</div>
 
+[% IF error_msg %]
+    <div class="error-msg">[% error_msg %]</div>
+[% END %]
+
 <div class="login-wrapper">
     <form method="post">
         <div class="row">
