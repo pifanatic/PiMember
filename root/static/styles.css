@@ -1,6 +1,9 @@
 body {
-    font-family: 'Righteous';
     margin: 0;
+}
+
+* {
+    font-family: 'Righteous';
 }
 
 #header {
