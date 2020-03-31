@@ -7,7 +7,14 @@
 </head>
 
 <body>
-    <div id="header">PiMember</div>
+    <div id="header">
+        <div class="title">PiMember</div>
+        [% IF c.user_exists %]
+            <div class="menu-right">
+                <a href="[% c.uri_for('/logout') %]">Logout</a>
+            </div>
+        [% END %]
+    </div>
 
     [% content %]
 </body>
