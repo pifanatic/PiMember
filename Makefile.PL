@@ -10,7 +10,11 @@ name 'PiMember';
 all_from 'lib/PiMember.pm';
 
 requires 'Catalyst::Runtime' => '5.90117';
+requires 'Catalyst::Plugin::Authentication';
 requires 'Catalyst::Plugin::ConfigLoader';
+requires 'Catalyst::Plugin::Session';
+requires 'Catalyst::Plugin::Session::Store::File';
+requires 'Catalyst::Plugin::Session::State::Cookie';
 requires 'Catalyst::Plugin::Static::Simple';
 requires 'Catalyst::Action::RenderView';
 requires 'Moose';
