@@ -1,7 +1,15 @@
 -- generate the tables needed for PiMember
 
+DROP TABLE IF EXISTS 'Users';
 DROP TABLE IF EXISTS 'Cards';
 DROP TABLE IF EXISTS 'Categories';
+
+CREATE TABLE Users (
+    id            INTEGER   PRIMARY KEY,
+    username      TEXT,
+    password      TEXT,
+    first_name    TEXT
+);
 
 CREATE TABLE 'Cards' (
     id                      INTEGER     PRIMARY KEY,
