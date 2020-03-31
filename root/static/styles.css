@@ -17,6 +17,14 @@ body {
     color: white;
 }
 
+#header .menu-left {
+    position: absolute;
+    left: 40px;
+    top: 0px;
+
+    font-size: 18px;
+}
+
 #header .menu-right {
     position: absolute;
     right: 40px;
