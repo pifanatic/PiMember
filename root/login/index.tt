@@ -1,6 +1,6 @@
+<div class="login-title">Sign in to PiMember</div>
 
 <div class="login-wrapper">
-    Login
     <form method="post">
         <div class="row">
             <label for="username">User</label>
