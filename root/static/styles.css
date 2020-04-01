@@ -25,6 +25,11 @@ body {
     font-size: 18px;
 }
 
+#header .menu-left .fa-user {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
 #header .menu-right {
     position: absolute;
     right: 40px;

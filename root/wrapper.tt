@@ -11,6 +11,7 @@
     <div id="header">
         [% IF c.user_exists %]
             <div class="menu-left">
+                <i class="fas fa-user"></i>
                 Hello, [% c.user.first_name %]!
             </div>
         [% END %]
