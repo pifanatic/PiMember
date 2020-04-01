@@ -9,7 +9,7 @@ body {
 #header {
     height: 60px;
 
-    font-size: 40px;
+    font-size: 30px;
     text-align: center;
     line-height: 60px;
 
@@ -28,6 +28,10 @@ body {
 #header .menu-left .fa-user {
     margin-right: 10px;
     font-size: 20px;
+}
+
+#header .app-title {
+    margin: 0 20px;
 }
 
 #header .menu-right {

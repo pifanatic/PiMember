@@ -15,7 +15,11 @@
                 Hello, [% c.user.first_name %]!
             </div>
         [% END %]
-        <div class="title">PiMember</div>
+        <div class="title">
+            <i class="fas fa-cogs"></i>
+            <span class="app-title">PiMember</span>
+            <i class="fas fa-cogs"></i>
+        </div>
         [% IF c.user_exists %]
             <div class="menu-right">
                 <a href="[% c.uri_for('/logout') %]">
