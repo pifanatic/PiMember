@@ -1,4 +1,4 @@
-<div class="login-title">Sign in to PiMember</div>
+<h1 class="login-title">Sign in to PiMember</h1>
 
 [% IF error_msg %]
     <div class="error-msg">[% error_msg %]</div>
