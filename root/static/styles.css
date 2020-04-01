@@ -140,3 +140,92 @@ h1 {
     width: 100%;
     margin-top: 20px;
 }
+
+/* Cards - add */
+form#addForm {
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px;
+
+    border: 1px solid lightgrey;
+    box-shadow: 4px 4px 5px 0px #aaa;
+}
+
+.title-row {
+    width: 50%;
+    margin: 0px auto;
+
+    text-align: center;
+}
+
+.title-row label {
+    margin-right: 15px;
+}
+
+.title-row input {
+    width: 90%;
+
+    font-family: monospace;
+    font-size: 16px;
+}
+
+.form-wrapper {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.form-wrapper textarea {
+    display: block;
+
+    width: 95%;
+    height: 85%;
+    margin: 5px auto;
+
+    font-family: monospace;
+    font-size: 16px;
+    resize: none;
+}
+
+.front-preview,
+.back-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+
+    width: 95%;
+    height: 85%;
+    margin: 5px auto;
+
+    border: 1px dashed #aaa;
+    box-shadow: 4px 4px 5px 0px #aaa;
+
+    font-family: 'Comic Neue';
+    font-size: 20px;
+    text-align: center;
+}
+
+.front, .back {
+    display: flex;
+    flex: 1;
+    height: 300px;
+}
+
+.front-input-wrapper,
+.back-input-wrapper,
+.front-preview-wrapper,
+.back-preview-wrapper {
+    flex: 1;
+    box-sizing: border-box;
+    padding: 10px;
+    max-width: 50%;
+}
+
+.input-row {
+    text-align: center;
+}
+
+.input-row .btn {
+    width: 100px;
+    margin: 0 20px;
+}
