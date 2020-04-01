@@ -17,7 +17,9 @@
         <div class="title">PiMember</div>
         [% IF c.user_exists %]
             <div class="menu-right">
-                <a href="[% c.uri_for('/logout') %]">Logout</a>
+                <a href="[% c.uri_for('/logout') %]">
+                    Logout<i class="fas fa-sign-out-alt"></i>
+                </a>
             </div>
         [% END %]
     </div>
