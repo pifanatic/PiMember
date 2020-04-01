@@ -38,8 +38,8 @@ body {
     color: white;
 }
 
-#header .menu-right a:hover {
-    text-decoration: underline;
+#header .menu-right:hover {
+    transform: scale(1.05);
 }
 
 #header .menu-right .fa-sign-out-alt {
