@@ -4,7 +4,7 @@
     <div class="error-msg">[% error_msg %]</div>
 [% END %]
 
-<div class="login-wrapper">
+<div class="login-wrapper overlay">
     <form method="post">
         <div class="row">
             <label for="username">User</label>

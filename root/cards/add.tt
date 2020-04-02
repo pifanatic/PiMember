@@ -1,6 +1,6 @@
 <h1>Add a new card</h1>
 
-<form id="addForm" method="post">
+<form id="addForm" class="overlay" method="post">
     <div class="title-row">
         <label for="title">Title</label>
         <input id="title" name="title"/>

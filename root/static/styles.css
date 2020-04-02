@@ -37,6 +37,15 @@ h1 {
     background-color: #0080ff;
 }
 
+.overlay {
+    padding: 30px;
+
+    background-color: white;
+
+    border: 1px solid lightgrey;
+    box-shadow: 4px 4px 5px 0px #aaa;
+}
+
 #header {
     height: 60px;
 
@@ -109,10 +118,6 @@ h1 {
 .login-wrapper {
     margin: 100px auto;
     width: 300px;
-    padding: 20px;
-
-    border: 1px solid lightgrey;
-    box-shadow: 4px 4px 5px 0px #aaa;
 }
 
 .login-wrapper .row {
@@ -145,10 +150,6 @@ h1 {
 form#addForm {
     width: 80%;
     margin: 0 auto;
-    padding: 30px;
-
-    border: 1px solid lightgrey;
-    box-shadow: 4px 4px 5px 0px #aaa;
 }
 
 .title-row {
