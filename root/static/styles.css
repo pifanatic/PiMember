@@ -104,12 +104,14 @@ a {
 }
 
 .notification {
+    display: flex;
     position: absolute;
     left: 100vw;
     width: 300px;
     top: 200px;
     padding: 20px;
 
+    align-items: center;
     text-align: center;
 
     border: 1px solid #aaa;
@@ -125,8 +127,18 @@ a {
     animation-timing-function: ease-out;
 }
 
+.notification-icon {
+    margin: auto 15px auto 0px;
+
+    font-size: 25px;
+}
+
 .error {
     border-left-color: red;
+}
+
+.error .notification-icon {
+    color: red;
 }
 
 @keyframes slidein {
