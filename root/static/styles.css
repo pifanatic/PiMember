@@ -141,6 +141,14 @@ a {
     color: red;
 }
 
+.success {
+    border-left-color: lightgreen;
+}
+
+.success .notification-icon {
+    color: lightgreen;
+}
+
 @keyframes slidein {
     from { transform: translateX(0px); }
     to   { transform: translateX(-400px); }
