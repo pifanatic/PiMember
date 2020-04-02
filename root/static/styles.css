@@ -13,6 +13,30 @@ h1 {
     font-weight: normal;
 }
 
+.btn {
+    padding: 8px;
+
+    border: none;
+    border-radius: 2px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #bbb;
+}
+
+.btn-primary {
+    color: white;
+    background-color: #000080;
+}
+
+.btn-primary:hover {
+    background-color: #0080ff;
+}
+
 #header {
     height: 60px;
 
@@ -114,19 +138,5 @@ h1 {
 
 .login-wrapper button {
     width: 100%;
-    padding: 8px;
     margin-top: 20px;
-    font-size: 16px;
-
-    color: white;
-    background-color: #000080;
-
-    border: none;
-    border-radius: 2px;
-
-    cursor: pointer;
-}
-
-.login-wrapper button:hover {
-    background-color: #0080ff;
 }
