@@ -25,6 +25,10 @@ sub add : Local Args(0) {
             correctly_answered => 0,
             wrongly_answered   => 0,
         });
+
+        $c->stash({
+            success_msg => qq/"$title" has been created!/
+        });
     }
 }
 
