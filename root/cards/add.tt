@@ -3,13 +3,13 @@
 <form id="addForm" class="overlay" method="post">
     <div class="title-row">
         <label for="title">Title</label>
-        <input id="title" name="title"/>
+        <input id="title" name="title" required/>
     </div>
     <div class="form-wrapper">
         <div class="front">
             <div class="front-input-wrapper">
                 Frontside text
-                <textarea id="front-input" name="frontText"></textarea>
+                <textarea id="front-input" name="frontText" required></textarea>
             </div>
             <div class="front-preview-wrapper">
                 Frontside preview
@@ -20,7 +20,7 @@
         <div class="back">
             <div class="back-input-wrapper">
                 Backside text
-                <textarea id="back-input" name="backText"></textarea>
+                <textarea id="back-input" name="backText" required></textarea>
             </div>
             <div class="back-preview-wrapper">
                 Backside preview
