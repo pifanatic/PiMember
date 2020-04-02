@@ -30,8 +30,10 @@
     </div>
 
     <div class="input-row">
-        <button class="btn">Cancel</button>
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="button" class="btn" onclick="window.location='[% c.uri_for("/") %]'">
+            Cancel
+        </button>
+        <button class="btn btn-primary">Create</button>
     </div>
 </form>
 
