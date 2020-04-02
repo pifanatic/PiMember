@@ -98,6 +98,40 @@ h1 {
     font-size: 20px;
 }
 
+/* Home */
+.main-menu {
+    margin: 50px auto;
+    width: 20%;
+}
+
+.main-menu .menu-item {
+    display: flex;
+    align-items: center;
+
+    padding: 5px;
+
+    font-size: 22px;
+    text-decoration: none;
+    color: initial;
+}
+
+.main-menu .menu-item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.main-menu .menu-item:hover {
+    background-color: #eee;
+    transform: scale(1.02);
+}
+
+.main-menu .menu-item svg {
+    margin-right: 15px;
+
+    font-size: 30px;
+
+    color: #777;
+}
+
 .login-title {
     margin-top: 100px;
 }
