@@ -31,6 +31,15 @@
     </div>
 
     [% content %]
+
+    [% IF error_msg %]
+        <div class="notification error">
+            <div class="notification-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            [% error_msg %]
+        </div>
+    [% END %]
 </body>
 
 </html>

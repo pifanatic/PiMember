@@ -1,14 +1,5 @@
 <h1 class="login-title">Sign in to PiMember</h1>
 
-[% IF error_msg %]
-    <div class="notification error">
-        <div class="notification-icon">
-            <i class="fas fa-exclamation-triangle"></i>
-        </div>
-        [% error_msg %]
-    </div>
-[% END %]
-
 <div class="login-wrapper overlay">
     <form method="post">
         <div class="row">
