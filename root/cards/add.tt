@@ -13,7 +13,7 @@
             </div>
             <div class="front-preview-wrapper">
                 Frontside preview
-                <div id="front-preview" class="front-preview"></div>
+                <div id="front-preview" class="front-preview card"></div>
             </div>
         </div>
 
@@ -24,7 +24,7 @@
             </div>
             <div class="back-preview-wrapper">
                 Backside preview
-                <div id="back-preview" class="back-preview"></div>
+                <div id="back-preview" class="back-preview card"></div>
             </div>
         </div>
     </div>

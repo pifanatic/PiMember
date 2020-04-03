@@ -54,6 +54,20 @@ a {
     box-shadow: 4px 4px 5px 0px #aaa;
 }
 
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+
+    border: 1px dashed #aaa;
+    box-shadow: 4px 4px 5px 0px #aaa;
+
+    font-family: 'Comic Neue';
+    font-size: 20px;
+    text-align: center;
+}
+
 #header {
     height: 60px;
 
@@ -269,21 +283,9 @@ form#addForm {
 
 .front-preview,
 .back-preview {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow-x: hidden;
-
     width: 95%;
     height: 85%;
     margin: 5px auto;
-
-    border: 1px dashed #aaa;
-    box-shadow: 4px 4px 5px 0px #aaa;
-
-    font-family: 'Comic Neue';
-    font-size: 20px;
-    text-align: center;
 }
 
 .front, .back {
