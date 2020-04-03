@@ -18,8 +18,8 @@ CREATE TABLE 'Cards' (
     backside                TEXT        NOT NULL,
     category_id             INTEGER,
     rating                  INTEGER     NOT NULL,
-    last_seen               TEXT,
-    due                     TEXT,
+    last_seen               DATE,
+    due                     DATE,
     correctly_answered      INTEGER,
     wrongly_answered        INTEGER,
     FOREIGN KEY(category_id) REFERENCES Categories(id) ON UPDATE CASCADE ON DELETE RESTRICT

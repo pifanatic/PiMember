@@ -15,6 +15,18 @@ use warnings;
 
 use base 'DBIx::Class::Core';
 
+=head1 COMPONENTS LOADED
+
+=over 4
+
+=item * L<DBIx::Class::InflateColumn::DateTime>
+
+=back
+
+=cut
+
+__PACKAGE__->load_components("InflateColumn::DateTime");
+
 =head1 TABLE: C<Cards>
 
 =cut
@@ -57,12 +69,12 @@ __PACKAGE__->table("Cards");
 
 =head2 last_seen
 
-  data_type: 'text'
+  data_type: 'date'
   is_nullable: 1
 
 =head2 due
 
-  data_type: 'text'
+  data_type: 'date'
   is_nullable: 1
 
 =head2 correctly_answered
@@ -91,9 +103,9 @@ __PACKAGE__->add_columns(
   "rating",
   { data_type => "integer", is_nullable => 0 },
   "last_seen",
-  { data_type => "text", is_nullable => 1 },
+  { data_type => "date", is_nullable => 1 },
   "due",
-  { data_type => "text", is_nullable => 1 },
+  { data_type => "date", is_nullable => 1 },
   "correctly_answered",
   { data_type => "integer", is_nullable => 1 },
   "wrongly_answered",
@@ -135,8 +147,8 @@ __PACKAGE__->belongs_to(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07048 @ 2018-01-22 21:18:04
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:bG8fIztASQF4L3ltUG1wsg
+# Created by DBIx::Class::Schema::Loader v0.07048 @ 2020-04-03 10:27:38
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:waSQ5PO0+5ed82XByYZqeg
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
