@@ -13,7 +13,7 @@ sub add : Local Args(0) {
         my $title      = $c->req->params->{title};
         my $front_text = $c->req->params->{frontText};
         my $back_text  = $c->req->params->{backText};
-        my $now        = DateTime->now->dmy("/");
+        my $now        = DateTime->now;
 
         $c->model("DB::Card")->create({
             title              => $title,
