@@ -1,5 +1,10 @@
 <h1>Welcome to PiMember</h1>
 
+<button class="learn-button btn btn-primary" onclick="window.location='[% c.uri_for("learn") %]'">
+    <i class="fas fa-graduation-cap fa-fw"></i>
+    Start learning
+</button>
+
 <div class="main-menu overlay">
     <a class="menu-item" href="[% c.uri_for('list') %]">
         <i class="fas fa-list fa-fw"></i>
