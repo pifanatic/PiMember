@@ -7,7 +7,7 @@
     </div>
 
 
-    <div class="overlay button-row">
+    <div class="overlay learn-box">
         <button id="turn" class="btn btn-primary">
             <i class="fas fa-retweet"></i>
             Turn around
