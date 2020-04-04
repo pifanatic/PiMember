@@ -1,0 +1,7 @@
+<div class="learn">
+    <h1>[% card.title %]</h1>
+
+    <div id="card" class="overlay card">
+        <span class="front-text">[% card.frontside %]</span>
+    </div>
+</div>

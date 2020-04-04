@@ -312,3 +312,14 @@ form#addForm {
     width: 100px;
     margin: 0 20px;
 }
+
+/* Learn */
+.learn .card {
+    width: 40%;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.learn .card span {
+    font-family: inherit;
+}
