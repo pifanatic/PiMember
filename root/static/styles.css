@@ -318,8 +318,38 @@ form#addForm {
     width: 40%;
     height: 200px;
     margin: 0 auto;
+    transition: transform 0.8s linear;
+}
+
+.learn .card.turning {
+    transform: rotate3d(0, 1, 0, 180deg);
 }
 
 .learn .card span {
     font-family: inherit;
+}
+
+/* hide back text if card is not turned */
+.learn .card:not(.turned) span.back-text {
+    display: none;
+}
+
+.learn .card.turned span.front-text {
+    display: none;
+}
+
+.learn .card.turned span.back-text {
+    transform: rotateY(180deg);
+}
+
+.learn .button-row {
+    display: flex;
+    justify-content: center;
+
+    width: 40%;
+    margin: 30px auto;
+}
+
+.learn .button-row .button svg {
+    margin-right: 5px;
 }

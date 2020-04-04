@@ -3,5 +3,29 @@
 
     <div id="card" class="overlay card">
         <span class="front-text">[% card.frontside %]</span>
+        <span class="back-text">[% card.backside %]</span>
+    </div>
+
+
+    <div class="overlay button-row">
+        <button id="turn" class="btn btn-primary">
+            <i class="fas fa-retweet"></i>
+            Turn around
+        </button>
     </div>
 </div>
+
+<script>
+(function() {
+    let turnButton = document.getElementById("turn"),
+        cardEl     = document.getElementById("card");
+
+    turnButton.addEventListener("click", () => {
+        cardEl.classList.toggle("turning");
+
+        setTimeout(() => {
+            cardEl.classList.toggle("turned");
+        }, 400);
+    });
+}());
+</script>
