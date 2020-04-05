@@ -8,9 +8,10 @@ sub index : Path Args(0) {
     my ($self, $c) = @_;
 
     if ($c->req->method eq "GET") {
-        my $next_card_to_learn = $c->model("DB::Card")->search({
-            due => { "<=" => DateTime->now->ymd }
-        })->next;
+        my $next_card_to_learn = $c->model("DB::Card")->search(
+            { due      => { "<=" => DateTime->now->ymd } },
+            { order_by => { -asc => "last_seen" } }
+        )->next;
 
         if ($next_card_to_learn) {
             $c->stash({
