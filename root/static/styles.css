@@ -353,10 +353,28 @@ form#addForm {
 
 .learn .learn-box {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 
     width: 40%;
     margin: 30px auto;
+}
+
+.learn .learn-box .row {
+    display: flex;
+    justify-content: center;
+}
+
+.learn .learn-box .row-1 {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+}
+
+.learn .learn-box .row-2 {
+    margin: 30px auto;
+}
+
+.learn .learn-box .row-3 {
+    margin-top: 30px;
 }
 
 .learn .learn-box .button svg {
