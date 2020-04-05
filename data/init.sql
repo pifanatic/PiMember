@@ -18,7 +18,7 @@ CREATE TABLE 'Cards' (
     backside                TEXT        NOT NULL,
     category_id             INTEGER,
     rating                  INTEGER     NOT NULL,
-    last_seen               DATE,
+    last_seen               DATETIME,
     due                     DATE,
     correctly_answered      INTEGER,
     wrongly_answered        INTEGER,
