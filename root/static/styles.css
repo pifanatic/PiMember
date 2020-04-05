@@ -380,3 +380,49 @@ form#addForm {
 .learn .learn-box .button svg {
     margin-right: 5px;
 }
+
+.learn .learn-box label {
+    display: flex;
+    position: relative;
+
+    height: 24px;
+    margin: 0 15px;
+
+    color: #777;
+    cursor: pointer;
+}
+
+.learn .learn-box input {
+    position: absolute;
+
+    opacity: 0;
+    cursor: pointer;
+}
+
+.learn .learn-box .checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+
+    border: 1px solid #aaa;
+    border-radius: 2px;
+}
+
+.learn-box .checkmark {
+    display: none;
+
+    font-size: 14px;
+    color: white;
+}
+
+.learn-box input:checked + .checkbox > .checkmark {
+    display: block;
+}
+
+.learn-box input:checked + .checkbox {
+    background-color: #000080;
+}

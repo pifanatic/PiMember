@@ -16,11 +16,21 @@
         </div>
         <form id="learnForm" method="post">
             <div class="row row-2">
-                <label for="answerCorrect">Correct</label>
-                <input id="answerCorrect" type="radio" name="correct" value="1" required/>
+                <label for="answerCorrect">
+                    Correct
+                    <input id="answerCorrect" type="radio" name="correct" value="1" required/>
+                    <div class="checkbox">
+                        <div class="checkmark"><i class="fas fa-check"></i></div>
+                    </div>
+                </label>
 
-                <label for="answerWrong">Wrong</label>
-                <input id="answerWrong" type="radio" name="correct" value="0" required/>
+                <label for="answerWrong">
+                    Wrong
+                    <input id="answerWrong" type="radio" name="correct" value="0" required/>
+                    <div class="checkbox">
+                        <div class="checkmark"><i class="fas fa-check"></i></div>
+                    </div>
+                </label>
 
                 <input name="id" value="[% card.id %]" hidden/>
             </div>
