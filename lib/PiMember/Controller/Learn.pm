@@ -9,7 +9,7 @@ sub index : Path Args(0) {
 
     if ($c->req->method eq "GET") {
         my $next_card_to_learn = $c->model("DB::Card")->search(
-            { due      => { "<=" => DateTime->now->ymd } },
+            { due      => { "<=" => DateTime->now } },
             { order_by => { -asc => "last_seen" } }
         )->next;
 
