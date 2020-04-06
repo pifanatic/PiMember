@@ -118,6 +118,42 @@ a {
     font-size: 20px;
 }
 
+.main-menu {
+    position: absolute;
+    top: 75px;
+    left: 15px;
+    width: 15%;
+    height: calc(100vh - 90px);
+
+    box-sizing: border-box;
+}
+
+.main-menu .menu-item {
+    display: flex;
+    align-items: center;
+
+    padding: 5px;
+
+    font-size: 22px;
+}
+
+.main-menu .menu-item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.main-menu .menu-item:hover {
+    background-color: #eee;
+    transform: scale(1.02);
+}
+
+.main-menu .menu-item svg {
+    margin-right: 15px;
+
+    font-size: 30px;
+
+    color: #777;
+}
+
 .notification {
     display: flex;
     position: absolute;
@@ -181,37 +217,6 @@ a {
     padding: 10px 20px;
 
     font-size: 24px;
-}
-
-.main-menu {
-    margin: 50px auto;
-    width: 20%;
-}
-
-.main-menu .menu-item {
-    display: flex;
-    align-items: center;
-
-    padding: 5px;
-
-    font-size: 22px;
-}
-
-.main-menu .menu-item:not(:last-child) {
-    margin-bottom: 10px;
-}
-
-.main-menu .menu-item:hover {
-    background-color: #eee;
-    transform: scale(1.02);
-}
-
-.main-menu .menu-item svg {
-    margin-right: 15px;
-
-    font-size: 30px;
-
-    color: #777;
 }
 
 .login-title {
