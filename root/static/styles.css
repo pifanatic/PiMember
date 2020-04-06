@@ -142,8 +142,11 @@ a {
 }
 
 .main-menu .menu-item:hover {
-    background-color: #eee;
     transform: scale(1.02);
+}
+
+.main-menu .menu-item:not(.menu-item-primary):hover {
+    background-color: #eee;
 }
 
 .main-menu .menu-item svg {
@@ -152,6 +155,21 @@ a {
     font-size: 30px;
 
     color: #777;
+}
+
+.main-menu .menu-item-primary {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+    border-radius: 3px;
+
+    color: white;
+    background-color: #000080;
+}
+
+.main-menu .menu-item-primary svg {
+    color: white;
 }
 
 .main-menu .version-hint {
