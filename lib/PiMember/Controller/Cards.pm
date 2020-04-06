@@ -6,6 +6,17 @@ use DateTime;
 
 BEGIN { extends 'Catalyst::Controller'; }
 
+sub index : Path Args(0) {
+    my ($self, $c) = @_;
+
+    my @cards = $c->model('DB')->resultset('Card')->all;
+
+    $c->stash({
+        cards => \@cards,
+        count => scalar @cards
+    });
+}
+
 sub add : Local Args(0) {
     my ($self, $c) = @_;
 

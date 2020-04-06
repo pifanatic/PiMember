@@ -37,7 +37,7 @@
                 Home
             </a>
 
-            <a class="menu-item" href="[% c.uri_for('/list') %]">
+            <a class="menu-item" href="[% c.uri_for('/cards') %]">
                 <i class="fas fa-list fa-fw"></i>
                 Card list
             </a>
