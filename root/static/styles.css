@@ -154,6 +154,17 @@ a {
     color: #777;
 }
 
+.main-menu .version-hint {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 20px;
+    width: 100%;
+
+    color: #777;
+    text-align: center;
+}
+
 .notification {
     display: flex;
     position: absolute;
