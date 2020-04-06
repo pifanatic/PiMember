@@ -318,13 +318,10 @@ form#addForm {
     max-width: 50%;
 }
 
-.input-row {
-    text-align: center;
-}
-
-.input-row .btn {
+.create-button {
+    display: block;
     width: 100px;
-    margin: 0 20px;
+    margin: 0 auto;
 }
 
 /* Learn */
