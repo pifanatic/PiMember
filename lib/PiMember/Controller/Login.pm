@@ -8,7 +8,9 @@ sub begin : Private {
     my ($self, $c) = @_;
 
     if ($c->user_exists) {
-        $c->response->redirect($c->uri_for("/"));
+        $c->response->redirect(
+            $c->uri_for($c->controller('Root')->action_for("index"))
+        );
     }
 }
 
@@ -21,7 +23,9 @@ sub index : Path Args(0) {
 
         if ($username && $password) {
             if ($c->authenticate({ username => $username, password => $password })) {
-                $c->response->redirect($c->uri_for("/"));
+                $c->response->redirect(
+                    $c->uri_for($c->controller("Root")->action_for("index"))
+                );
             } else {
                 $c->stash({ error_msg => "Incorrect username or password." });
             }

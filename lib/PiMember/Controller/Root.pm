@@ -10,7 +10,9 @@ sub begin : Private {
     my ($self, $c) = @_;
 
     if (!$c->user_exists() && $c->req->path ne "login") {
-        $c->response->redirect($c->uri_for("/login"));
+        $c->response->redirect(
+            $c->uri_for($c->controller("Login")->action_for("index"))
+        );
     }
 }
 

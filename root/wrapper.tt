@@ -23,7 +23,7 @@
         </div>
         [% IF c.user_exists %]
             <div class="menu-right">
-                <a href="[% c.uri_for('/logout') %]">
+                <a href="[% c.uri_for(c.controller('Logout').action_for('index')) %]">
                     Logout<i class="fas fa-sign-out-alt"></i>
                 </a>
             </div>
@@ -32,22 +32,22 @@
 
     [% IF c.user_exists %]
         <div class="main-menu overlay">
-            <a class="menu-item" href="[% c.uri_for('/') %]">
+            <a class="menu-item" href="[% c.uri_for(c.controller('Root').action_for('index')) %]">
                 <i class="fas fa-home fa-fw"></i>
                 Home
             </a>
 
-            <a class="menu-item" href="[% c.uri_for('/cards') %]">
+            <a class="menu-item" href="[% c.uri_for(c.controller('Cards').action_for('index')) %]">
                 <i class="fas fa-list fa-fw"></i>
                 Card list
             </a>
 
-            <a class="menu-item" href="[% c.uri_for('/cards/add') %]">
+            <a class="menu-item" href="[% c.uri_for(c.controller('Cards').action_for('add')) %]">
                 <i class="fas fa-plus-square fa-fw"></i>
                 Add a new card
             </a>
 
-            <a class="menu-item menu-item-primary" href="[% c.uri_for('/cards/learn') %]">
+            <a class="menu-item menu-item-primary" href="[% c.uri_for(c.controller('Cards').action_for('learn')) %]">
                 <i class="fas fa-graduation-cap fa-fw"></i>
                 Learn
             </a>

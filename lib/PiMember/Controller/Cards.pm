@@ -85,7 +85,7 @@ sub learn : Local Args(0) {
             });
         }
 
-        $c->response->redirect("/cards/learn");
+        $c->response->redirect($c->uri_for($self->action_for('learn')));
     }
 }
 
