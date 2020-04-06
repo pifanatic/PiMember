@@ -134,11 +134,11 @@ a {
 
     padding: 5px;
 
-    font-size: 22px;
+    font-size: 18px;
 }
 
 .main-menu .menu-item:not(:last-child) {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .main-menu .menu-item:hover {
@@ -150,9 +150,9 @@ a {
 }
 
 .main-menu .menu-item svg {
-    margin-right: 15px;
+    margin-right: 10px;
 
-    font-size: 30px;
+    font-size: 24px;
 
     color: #777;
 }
