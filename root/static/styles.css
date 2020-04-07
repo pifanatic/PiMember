@@ -190,6 +190,7 @@ a {
 
 .content {
     flex: 9;
+    overflow-y: auto;
 }
 
 .notification {
