@@ -24,9 +24,10 @@ sub add : Local Args(0) {
         my $title      = $c->req->params->{title};
         my $front_text = $c->req->params->{frontText};
         my $back_text  = $c->req->params->{backText};
+        my @tags       = split " ", $c->req->params->{tags};
         my $now        = DateTime->now;
 
-        $c->model("DB::Card")->create({
+        my $new_card = $c->model("DB::Card")->create({
             title              => $title,
             frontside          => $front_text,
             backside           => $back_text,
@@ -36,6 +37,14 @@ sub add : Local Args(0) {
             correctly_answered => 0,
             wrongly_answered   => 0,
         });
+
+        if (@tags) {
+            @tags = map {
+                $c->model("DB::Tag")->find_or_create({ name => $_ });
+            } @tags;
+
+            $new_card->set_tags(@tags);
+        }
 
         $c->stash({
             success_msg => qq/"$title" has been created!/
