@@ -118,13 +118,18 @@ a {
     font-size: 20px;
 }
 
-.main-menu {
-    position: absolute;
-    top: 75px;
-    left: 15px;
-    width: 15%;
-    height: calc(100vh - 90px);
+.content-all {
+    display: flex;
+    height: calc(100vh - 60px);
+    padding: 15px;
 
+    box-sizing: border-box;
+}
+
+.main-menu {
+    flex: 1;
+    height: 100%;
+    position: relative;
     box-sizing: border-box;
 }
 
@@ -181,6 +186,10 @@ a {
 
     color: #777;
     text-align: center;
+}
+
+.content {
+    flex: 9;
 }
 
 .notification {
