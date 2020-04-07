@@ -56,12 +56,6 @@ __PACKAGE__->table("Cards");
   data_type: 'text'
   is_nullable: 0
 
-=head2 category_id
-
-  data_type: 'integer'
-  is_foreign_key: 1
-  is_nullable: 1
-
 =head2 rating
 
   data_type: 'integer'
@@ -98,8 +92,6 @@ __PACKAGE__->add_columns(
   { data_type => "text", is_nullable => 0 },
   "backside",
   { data_type => "text", is_nullable => 0 },
-  "category_id",
-  { data_type => "integer", is_foreign_key => 1, is_nullable => 1 },
   "rating",
   { data_type => "integer", is_nullable => 0 },
   "last_seen",
@@ -126,29 +118,24 @@ __PACKAGE__->set_primary_key("id");
 
 =head1 RELATIONS
 
-=head2 category
+=head2 cards_tags
 
-Type: belongs_to
+Type: has_many
 
-Related object: L<PiMember::Schema::Result::Category>
+Related object: L<PiMember::Schema::Result::CardsTag>
 
 =cut
 
-__PACKAGE__->belongs_to(
-  "category",
-  "PiMember::Schema::Result::Category",
-  { id => "category_id" },
-  {
-    is_deferrable => 0,
-    join_type     => "LEFT",
-    on_delete     => "RESTRICT",
-    on_update     => "CASCADE",
-  },
+__PACKAGE__->has_many(
+  "cards_tags",
+  "PiMember::Schema::Result::CardsTag",
+  { "foreign.card_id" => "self.id" },
+  { cascade_copy => 0, cascade_delete => 0 },
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07048 @ 2020-04-05 13:16:14
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:8vPSdHPYyGNzGDpzmVotcQ
+# Created by DBIx::Class::Schema::Loader v0.07048 @ 2020-04-07 09:46:45
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:32OCQiFFB4Eihy5lPg53CQ
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

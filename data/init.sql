@@ -2,7 +2,8 @@
 
 DROP TABLE IF EXISTS 'Users';
 DROP TABLE IF EXISTS 'Cards';
-DROP TABLE IF EXISTS 'Categories';
+DROP TABLE IF EXISTS 'Tags';
+DROP TABLE IF EXISTS 'CardsTags';
 
 CREATE TABLE 'Users' (
     id            INTEGER   PRIMARY KEY,
@@ -16,16 +17,22 @@ CREATE TABLE 'Cards' (
     title                   TEXT,
     frontside               TEXT        NOT NULL,
     backside                TEXT        NOT NULL,
-    category_id             INTEGER,
     rating                  INTEGER     NOT NULL,
     last_seen               DATETIME,
     due                     DATE,
     correctly_answered      INTEGER,
-    wrongly_answered        INTEGER,
-    FOREIGN KEY(category_id) REFERENCES Categories(id) ON UPDATE CASCADE ON DELETE RESTRICT
+    wrongly_answered        INTEGER
 );
 
-CREATE TABLE 'Categories' (
+CREATE TABLE 'Tags' (
     id                      INTEGER     PRIMARY KEY,
     name                    TEXT        NOT NULL
+);
+
+CREATE TABLE 'CardsTags' (
+    id                      INTEGER     PRIMARY KEY,
+    card_id                 INTEGER     NOT NULL,
+    tag_id                  INTEGER     NOT NULL,
+    FOREIGN KEY(card_id) REFERENCES Cards(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY(tag_id) REFERENCES Tags(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
