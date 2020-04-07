@@ -15,7 +15,7 @@
                 <td>[% card.frontside %]</td>
                 <td>[% card.backside %]</td>
                 <td>[% card.rating %]</td>
-                <td>[% card.last_seen %]</td>
+                <td>[% card.last_seen.dmy('.') %]</td>
             </tr>
         [% END %]
     </table>
