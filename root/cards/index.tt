@@ -1,20 +1,22 @@
-<p>List of all [% count %] cards:<p>
+<div class="cards-list overlay">
+    <p>List of all [% count %] cards:<p>
 
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Front</th>
-        <th>Back</th>
-        <th>Rating</th>
-        <th>Last learned on</th>
-    </tr>
-    [% FOREACH card IN cards %]
+    <table>
         <tr>
-            <td>[% card.title %]</td>
-            <td>[% card.frontside %]</td>
-            <td>[% card.backside %]</td>
-            <td>[% card.rating %]</td>
-            <td>[% card.last_seen %]</td>
+            <th>Title</th>
+            <th>Front</th>
+            <th>Back</th>
+            <th>Rating</th>
+            <th>Last learned on</th>
         </tr>
-    [% END %]
-</table>
+        [% FOREACH card IN cards %]
+            <tr>
+                <td>[% card.title %]</td>
+                <td>[% card.frontside %]</td>
+                <td>[% card.backside %]</td>
+                <td>[% card.rating %]</td>
+                <td>[% card.last_seen %]</td>
+            </tr>
+        [% END %]
+    </table>
+</div>

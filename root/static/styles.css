@@ -283,6 +283,12 @@ a {
     margin-top: 20px;
 }
 
+/* Cards */
+.cards-list {
+    width: 60%;
+    margin: 15px auto;
+}
+
 /* Cards - add */
 form#addForm {
     width: 60%;
