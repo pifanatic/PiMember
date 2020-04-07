@@ -304,18 +304,22 @@ form#addForm {
     margin: 0 auto;
 }
 
-.title-row {
+.title-row, .tags-row {
     width: 50%;
     margin: 0px auto;
 
     text-align: center;
 }
 
-.title-row label {
+.tags-row {
+    margin-bottom: 20px;
+}
+
+#addForm label {
     margin-right: 15px;
 }
 
-.title-row input {
+#addForm input {
     width: 90%;
 
     font-family: monospace;
@@ -349,7 +353,7 @@ form#addForm {
 .front, .back {
     display: flex;
     flex: 1;
-    height: 300px;
+    height: 280px;
 }
 
 .front-input-wrapper,

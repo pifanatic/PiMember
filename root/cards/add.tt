@@ -29,6 +29,11 @@
         </div>
     </div>
 
+    <div class="tags-row">
+        <label for="tags">Tags</label>
+        <input id="tags" name="tags"/>
+    </div>
+
     <button class="create-button btn btn-primary">Create</button>
 </form>
 
