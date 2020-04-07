@@ -8,6 +8,7 @@
             <th>Back</th>
             <th>Rating</th>
             <th>Last learned on</th>
+            <th>Tags</th>
         </tr>
         [% FOREACH card IN cards %]
             <tr>
@@ -16,6 +17,11 @@
                 <td>[% card.backside %]</td>
                 <td>[% card.rating %]</td>
                 <td>[% card.last_seen.dmy('.') %]</td>
+                <td>
+                    [% FOREACH tag IN card.tags %]
+                        [% tag.name %]
+                    [% END %]
+                </td>
             </tr>
         [% END %]
     </table>
