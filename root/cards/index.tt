@@ -1,6 +1,6 @@
-<div class="cards-list overlay">
-    <p>List of all [% count %] cards:<p>
+<h1>Card list ([% count %])</h1>
 
+<div class="cards-list overlay">
     <table>
         <tr>
             <th>Title</th>
