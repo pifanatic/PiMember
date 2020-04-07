@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS 'Users';
 DROP TABLE IF EXISTS 'Cards';
 DROP TABLE IF EXISTS 'Categories';
 
-CREATE TABLE Users (
+CREATE TABLE 'Users' (
     id            INTEGER   PRIMARY KEY,
     username      TEXT,
     password      TEXT,
