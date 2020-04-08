@@ -69,6 +69,43 @@ a {
     text-align: center;
 }
 
+span.tag {
+    position: relative;
+    margin-right: 12px;
+    padding: 2px 5px;
+
+    background-color: #ffe5c4;
+    font-family: monospace;
+}
+
+span.tag:before {
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    left: -6px;
+
+    content: "";
+
+    border-left: 6px solid transparent;
+    border-top: 9px solid #ffe5c4;
+    border-bottom: 10px solid #ffe5c4;
+}
+
+span.tag:after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    right: -6px;
+
+    content: "";
+
+    border-left: 6px solid #ffe5c4;
+    border-top: 9px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
 #header {
     height: 60px;
 

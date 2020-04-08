@@ -19,7 +19,7 @@
                 <td>[% card.last_seen.dmy('.') %]</td>
                 <td>
                     [% FOREACH tag IN card.tags %]
-                        [% tag.name %]
+                        <span class="tag">[% tag.name %]</span>
                     [% END %]
                 </td>
             </tr>
