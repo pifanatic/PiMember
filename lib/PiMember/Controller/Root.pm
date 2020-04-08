@@ -14,6 +14,14 @@ sub begin : Private {
             $c->uri_for($c->controller("Login")->action_for("index"))
         );
     }
+
+    my $number_of_due_cards = $c->model("DB::Card")->count({
+        due => { "<=" => DateTime->now }
+    });
+
+    $c->stash({
+        number_of_due_cards => $number_of_due_cards
+    });
 }
 
 sub index : Path Args(0) {}
