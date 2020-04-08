@@ -9,7 +9,7 @@
         <div class="front">
             <div class="front-input-wrapper">
                 Frontside text
-                <textarea id="front-input" name="frontText" required></textarea>
+                <textarea id="front-input" name="frontside" required></textarea>
             </div>
             <div class="front-preview-wrapper">
                 Frontside preview
@@ -20,7 +20,7 @@
         <div class="back">
             <div class="back-input-wrapper">
                 Backside text
-                <textarea id="back-input" name="backText" required></textarea>
+                <textarea id="back-input" name="backside" required></textarea>
             </div>
             <div class="back-preview-wrapper">
                 Backside preview

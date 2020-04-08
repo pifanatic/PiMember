@@ -21,16 +21,16 @@ sub add : Local Args(0) {
     my ($self, $c) = @_;
 
     if ($c->req->method eq "POST") {
-        my $title      = $c->req->params->{title};
-        my $front_text = $c->req->params->{frontText};
-        my $back_text  = $c->req->params->{backText};
-        my @tags       = split " ", $c->req->params->{tags};
-        my $now        = DateTime->now;
+        my $title     = $c->req->params->{title};
+        my $frontside = $c->req->params->{frontside};
+        my $backside  = $c->req->params->{backside};
+        my @tags      = split " ", $c->req->params->{tags};
+        my $now       = DateTime->now;
 
         my $new_card = $c->model("DB::Card")->create({
             title              => $title,
-            frontside          => $front_text,
-            backside           => $back_text,
+            frontside          => $frontside,
+            backside           => $backside,
             rating             => 0,
             last_seen          => $now,
             due                => $now,
