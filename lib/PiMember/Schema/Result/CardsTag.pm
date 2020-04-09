@@ -13,7 +13,10 @@ PiMember::Schema::Result::CardsTag
 use strict;
 use warnings;
 
-use base 'DBIx::Class::Core';
+use Moose;
+use MooseX::NonMoose;
+use MooseX::MarkAsMethods autoclean => 1;
+extends 'DBIx::Class::Core';
 
 =head1 COMPONENTS LOADED
 
@@ -109,9 +112,10 @@ __PACKAGE__->belongs_to(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07048 @ 2020-04-07 09:46:45
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:5PZ2hjVSt7sIMQ9D5XBmJg
+# Created by DBIx::Class::Schema::Loader v0.07048 @ 2020-04-09 12:25:39
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:0e3NcTZkd1kk62+IYrSSFA
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
+__PACKAGE__->meta->make_immutable;
 1;

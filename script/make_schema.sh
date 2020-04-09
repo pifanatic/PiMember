@@ -4,5 +4,6 @@ script/pimember_create.pl  \
     DBIC::Schema           \
     PiMember::Schema       \
     create=static          \
+    use_moose=1            \
     dbi:SQLite:pimember.db \
     on_connect_do="PRAGMA foreign_keys = ON"

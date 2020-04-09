@@ -13,7 +13,10 @@ PiMember::Schema::Result::User
 use strict;
 use warnings;
 
-use base 'DBIx::Class::Core';
+use Moose;
+use MooseX::NonMoose;
+use MooseX::MarkAsMethods autoclean => 1;
+extends 'DBIx::Class::Core';
 
 =head1 COMPONENTS LOADED
 
@@ -82,9 +85,10 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07048 @ 2020-04-03 10:27:38
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:kZTyqYO+TLEN8Qm7rzN+Bw
+# Created by DBIx::Class::Schema::Loader v0.07048 @ 2020-04-09 12:25:39
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:+5bjfh548Cod7wWoGuD/nw
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
+__PACKAGE__->meta->make_immutable;
 1;
