@@ -26,13 +26,7 @@
                         <span class="grey">
                             [% total = card.correctly_answered + card.wrongly_answered %]
                             [% card.correctly_answered %] of [% total %]
-                            [% IF total == 0 %]
-                                (0 %)
-                            [% ELSIF card.correctly_answered == total %]
-                                (100 %)
-                            [% ELSE %]
-                                ([% (100 * card.correctly_answered / total) % 100 %] %)
-                            [% END %]
+                            ([% card.success_rate %] %)
                         </span>
                     </div>
                 </div>

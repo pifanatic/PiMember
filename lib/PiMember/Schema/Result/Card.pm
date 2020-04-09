@@ -140,6 +140,23 @@ __PACKAGE__->has_many(
 # Created by DBIx::Class::Schema::Loader v0.07048 @ 2020-04-09 12:25:39
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:9m1oDzy27nxAkqMu3GV+Ew
 
+has success_rate => (
+    is      => "ro",
+    isa     => "Int",
+    lazy    => 1,
+    builder => "_build_success_rate"
+);
+
+sub _build_success_rate {
+    my ($self) = @_;
+
+    my $total = $self->correctly_answered + $self->wrongly_answered;
+
+    return 0 if $total == 0;
+
+    return int(100 * $self->correctly_answered / $total);
+}
+
 __PACKAGE__->many_to_many("tags", "cards_tags", "tag");
 
 __PACKAGE__->meta->make_immutable;
