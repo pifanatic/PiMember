@@ -24,7 +24,7 @@
                     <div class="success-rate">
                         Success rate
                         <span class="grey">
-                            [% card.correctly_answered %] of [% card.total_answers %]
+                            [% card.correct_answers %] of [% card.total_answers %]
                             ([% card.success_rate %] %)
                         </span>
                     </div>

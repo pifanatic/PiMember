@@ -28,14 +28,14 @@ sub add : Local Args(0) {
         my $now       = DateTime->now;
 
         my $new_card = $c->model("DB::Card")->create({
-            title              => $title,
-            frontside          => $frontside,
-            backside           => $backside,
-            rating             => 0,
-            last_seen          => $now,
-            due                => $now,
-            correctly_answered => 0,
-            wrongly_answered   => 0,
+            title           => $title,
+            frontside       => $frontside,
+            backside        => $backside,
+            rating          => 0,
+            last_seen       => $now,
+            due             => $now,
+            correct_answers => 0,
+            wrong_answers   => 0,
         });
 
         if (@tags) {
@@ -80,17 +80,17 @@ sub learn : Local Args(0) {
 
         if ($correct) {
             $card->update({
-                rating             => $card->rating + 1,
-                last_seen          => DateTime->now,
-                due                => DateTime->now->add({ days => $card->rating + 1 }),
-                correctly_answered => $card->correctly_answered + 1
+                rating          => $card->rating + 1,
+                last_seen       => DateTime->now,
+                due             => DateTime->now->add({ days => $card->rating + 1 }),
+                correct_answers => $card->correct_answers + 1
             });
         } else {
             $card->update({
-                rating           => 0,
-                last_seen        => DateTime->now,
-                due              => DateTime->now,
-                wrongly_answered => $card->wrongly_answered + 1
+                rating        => 0,
+                last_seen     => DateTime->now,
+                due           => DateTime->now,
+                wrong_answers => $card->wrong_answers + 1
             });
         }
 

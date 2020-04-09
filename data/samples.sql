@@ -13,7 +13,7 @@ VALUES
 ('multiple');
 
 INSERT INTO 'Cards'
-(title, frontside, backside, rating, last_seen, due, correctly_answered, wrongly_answered)
+(title, frontside, backside, rating, last_seen, due, correct_answers, wrong_answers)
 VALUES
 ('Capital of Germany', 'What''s the capital of Germany?', 'Berlin', 1, '2018-01-01', '2018-01-02', 1, 2),
 ('Capital of Spain', 'What''s the capital of Spain?', 'Madrid', 2, '2018-01-01', '2018-01-03', 3, 2),

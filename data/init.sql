@@ -20,8 +20,8 @@ CREATE TABLE 'Cards' (
     rating                  INTEGER     NOT NULL,
     last_seen               DATETIME,
     due                     DATE,
-    correctly_answered      INTEGER,
-    wrongly_answered        INTEGER
+    correct_answers         INTEGER,
+    wrong_answers           INTEGER
 );
 
 CREATE TABLE 'Tags' (

@@ -74,12 +74,12 @@ __PACKAGE__->table("Cards");
   data_type: 'date'
   is_nullable: 1
 
-=head2 correctly_answered
+=head2 correct_answers
 
   data_type: 'integer'
   is_nullable: 1
 
-=head2 wrongly_answered
+=head2 wrong_answers
 
   data_type: 'integer'
   is_nullable: 1
@@ -101,9 +101,9 @@ __PACKAGE__->add_columns(
   { data_type => "datetime", is_nullable => 1 },
   "due",
   { data_type => "date", is_nullable => 1 },
-  "correctly_answered",
+  "correct_answers",
   { data_type => "integer", is_nullable => 1 },
-  "wrongly_answered",
+  "wrong_answers",
   { data_type => "integer", is_nullable => 1 },
 );
 
@@ -137,8 +137,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07048 @ 2020-04-09 12:25:39
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:9m1oDzy27nxAkqMu3GV+Ew
+# Created by DBIx::Class::Schema::Loader v0.07048 @ 2020-04-09 13:20:42
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:VT2hriUXZV9+XEpnKTLiXg
 
 has success_rate => (
     is      => "ro",
@@ -152,7 +152,7 @@ sub _build_success_rate {
 
     return 0 if $self->total_answers == 0;
 
-    return int(100 * $self->correctly_answered / $self->total_answers);
+    return int(100 * $self->correct_answers / $self->total_answers);
 }
 
 has total_answers => (
@@ -165,7 +165,7 @@ has total_answers => (
 sub _build_total_answers {
     my ($self) = @_;
 
-    return $self->correctly_answered + $self->wrongly_answered;
+    return $self->correct_answers + $self->wrong_answers;
 }
 
 __PACKAGE__->many_to_many("tags", "cards_tags", "tag");
