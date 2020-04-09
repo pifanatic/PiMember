@@ -1,28 +1,43 @@
 <h1>Card list ([% count %])</h1>
 
-<div class="cards-list overlay">
-    <table>
-        <tr>
-            <th>Title</th>
-            <th>Front</th>
-            <th>Back</th>
-            <th>Rating</th>
-            <th>Last learned on</th>
-            <th>Tags</th>
-        </tr>
-        [% FOREACH card IN cards %]
-            <tr>
-                <td>[% card.title %]</td>
-                <td>[% card.frontside %]</td>
-                <td>[% card.backside %]</td>
-                <td>[% card.rating %]</td>
-                <td>[% card.last_seen.dmy('.') %]</td>
-                <td>
-                    [% FOREACH tag IN card.tags %]
-                        <span class="tag">[% tag.name %]</span>
-                    [% END %]
-                </td>
-            </tr>
-        [% END %]
-    </table>
+<div class="cards-list">
+    [% FOREACH card IN cards %]
+        <div class="cards-list-item overlay">
+            <div class="rows">
+                <div class="row-1">
+                    <div class="card-title"> [% card.title %] </div>
+                    <div class="last-seen">
+                        Last seen
+                        <span class="grey">[% card.last_seen.dmy('.') %]<span>
+                    </div>
+                    <div class="due">
+                        Due
+                        <span class="grey">[% card.due.dmy('.') %]</span>
+                    </div>
+                </div>
+                <div class="row-2">
+                    <div class="tags">
+                        [% FOREACH tag IN card.tags %]
+                            <span class="tag">[% tag.name %]</span>
+                        [% END %]
+                    </div>
+                    <div class="success-rate">
+                        Success rate
+                        <span class="grey">
+                            [% total = card.correctly_answered + card.wrongly_answered %]
+                            [% card.correctly_answered %] of [% total %]
+                            [% IF total == 0 %]
+                                (0 %)
+                            [% ELSIF card.correctly_answered == total %]
+                                (100 %)
+                            [% ELSE %]
+                                ([% (100 * card.correctly_answered / total) % 100 %] %)
+                            [% END %]
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="rating"> [% card.rating %] </div>
+        </div>
+    [% END %]
 </div>

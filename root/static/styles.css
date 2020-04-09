@@ -336,6 +336,58 @@ span.tag:after {
     margin: 15px auto;
 }
 
+.cards-list-item {
+    display: flex;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.cards-list-item .rows {
+    flex: 9;
+}
+
+.cards-list-item .row-1 {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.cards-list-item .row-1 .card-title {
+    flex: 6;
+}
+
+.cards-list-item .row-1 .last-seen {
+    flex: 2;
+}
+
+.cards-list-item .row-1 .due {
+    flex: 2;
+}
+
+.cards-list-item .row-2 {
+    display: flex;
+}
+
+.cards-list-item .row-2 .tags {
+    flex: 6;
+}
+
+.cards-list-item .row-2 .success-rate {
+    flex: 4;
+}
+
+
+.cards-list-item .rating {
+    display: flex;
+    flex: 1;
+    font-size: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards-list-item .grey {
+    color: #777;
+}
+
 /* Cards - add */
 form#addForm {
     width: 80%;
