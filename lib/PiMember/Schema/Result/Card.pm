@@ -150,11 +150,22 @@ has success_rate => (
 sub _build_success_rate {
     my ($self) = @_;
 
-    my $total = $self->correctly_answered + $self->wrongly_answered;
+    return 0 if $self->total_answers == 0;
 
-    return 0 if $total == 0;
+    return int(100 * $self->correctly_answered / $self->total_answers);
+}
 
-    return int(100 * $self->correctly_answered / $total);
+has total_answers => (
+    is      => "ro",
+    isa     => "Int",
+    lazy    => 1,
+    builder => "_build_total_answers"
+);
+
+sub _build_total_answers {
+    my ($self) = @_;
+
+    return $self->correctly_answered + $self->wrongly_answered;
 }
 
 __PACKAGE__->many_to_many("tags", "cards_tags", "tag");
