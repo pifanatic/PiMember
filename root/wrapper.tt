@@ -13,7 +13,10 @@
         [% IF c.user_exists %]
             <div class="menu-left">
                 <i class="fas fa-user"></i>
-                Hello, [% c.user.first_name %]!
+                Hello,
+                [% FILTER html %]
+                    [% c.user.first_name %]!
+                [% END %]
             </div>
         [% END %]
         <div class="title">
@@ -68,14 +71,18 @@
             <div class="notification-icon">
                 <i class="fas fa-exclamation-triangle"></i>
             </div>
-            [% error_msg %]
+            [% FILTER html %]
+                [% error_msg %]
+            [% END %]
         </div>
     [% ELSIF success_msg %]
         <div class="notification success">
             <div class="notification-icon">
                 <i class="fas fa-check-circle"></i>
             </div>
-            [% success_msg %]
+            [% FILTER html %]
+                [% success_msg %]
+            [% END %]
         </div>
     [% END %]
 </body>

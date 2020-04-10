@@ -1,9 +1,21 @@
 <div class="learn">
-    <h1>[% card.title %]</h1>
+    <h1>
+        [% FILTER html %]
+            [% card.title %]
+        [% END %]
+    </h1>
 
     <div id="card" class="overlay card">
-        <span class="front-text">[% card.frontside %]</span>
-        <span class="back-text">[% card.backside %]</span>
+        <span class="front-text">
+            [% FILTER html %]
+                [% card.frontside %]
+            [% END %]
+        </span>
+        <span class="back-text">
+            [% FILTER html %]
+                [% card.backside %]
+            [% END %]
+        </span>
     </div>
 
 

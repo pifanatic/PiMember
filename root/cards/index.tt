@@ -5,7 +5,11 @@
         <div class="cards-list-item overlay">
             <div class="rows">
                 <div class="row-1">
-                    <div class="card-title"> [% card.title %] </div>
+                    <div class="card-title">
+                        [% FILTER html %]
+                            [% card.title %]
+                        [% END %]
+                    </div>
                     <div class="last-seen">
                         Last seen
                         <span class="grey">[% card.last_seen.dmy('.') %]<span>
@@ -18,7 +22,11 @@
                 <div class="row-2">
                     <div class="tags">
                         [% FOREACH tag IN card.tags %]
-                            <span class="tag">[% tag.name %]</span>
+                            <span class="tag">
+                                [% FILTER html %]
+                                    [% tag.name %]
+                                [% END %]
+                            </span>
                         [% END %]
                     </div>
                     <div class="success-rate">
