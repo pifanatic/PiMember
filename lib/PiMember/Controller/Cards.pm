@@ -67,7 +67,7 @@ sub learn : Local Args(0) {
             });
         } else {
             $c->stash({
-                template => "nothing_to_learn.tt"
+                template => "cards/nothing_to_learn.tt"
             });
         }
     } elsif ($c->req->method eq "POST") {
