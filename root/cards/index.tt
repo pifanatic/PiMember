@@ -36,9 +36,19 @@
                             ([% card.success_rate %] %)
                         </span>
                     </div>
+                    <div class="rating">
+                        Rating
+                        <span class="grey">
+                            [% card.rating %]
+                        </span>
+                    </div>
                 </div>
             </div>
-            <div class="rating"> [% card.rating %] </div>
+            <div class="edit-link">
+                <a title="Edit card" href="[% c.uri_for(c.controller.action_for('edit'), card.id) %]">
+                    <i class="fas fa-edit"></i>
+                </a>
+            </div>
         </div>
     [% END %]
 </div>

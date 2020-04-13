@@ -372,16 +372,27 @@ span.tag:after {
 }
 
 .cards-list-item .row-2 .success-rate {
-    flex: 4;
+    flex: 2;
 }
 
+.cards-list-item .row-2 .rating {
+    flex: 2;
+}
 
-.cards-list-item .rating {
+.cards-list-item .edit-link {
     display: flex;
     flex: 1;
-    font-size: 30px;
+    font-size: 20px;
     justify-content: center;
     align-items: center;
+}
+
+.cards-list-item .edit-link a {
+    color: #000080;
+}
+
+.cards-list-item .edit-link a:hover {
+    transform: scale(1.05);
 }
 
 .cards-list-item .grey {
