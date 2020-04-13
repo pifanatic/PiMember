@@ -1,6 +1,6 @@
-<h1>Add a new card</h1>
+<h1>[% title %]</h1>
 
-<form id="addForm" class="overlay" method="post">
+<form id="cardForm" class="overlay" method="post">
     <div class="title-row">
         <label for="title">Title</label>
         <input id="title" name="title" required/>
@@ -34,7 +34,9 @@
         <input id="tags" name="tags"/>
     </div>
 
-    <button class="create-button btn btn-primary">Create</button>
+    <button class="submit-button btn btn-primary">
+        [% submit_button_text %]
+    </button>
 </form>
 
 <script>

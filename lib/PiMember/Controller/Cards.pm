@@ -52,7 +52,9 @@ sub add : Local Args(0) {
     }
 
     $c->stash({
-        template => "cards/add_edit.tt",
+        title              => "Add a new card",
+        submit_button_text => "Create",
+        template           => "cards/add_edit.tt"
     });
 }
 

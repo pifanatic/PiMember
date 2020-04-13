@@ -389,7 +389,7 @@ span.tag:after {
 }
 
 /* Cards - add */
-form#addForm {
+form#cardForm {
     width: 80%;
     margin: 0 auto;
 }
@@ -405,11 +405,11 @@ form#addForm {
     margin-bottom: 20px;
 }
 
-#addForm label {
+#cardForm label {
     margin-right: 15px;
 }
 
-#addForm input {
+#cardForm input {
     width: 90%;
 
     font-family: monospace;
@@ -456,7 +456,7 @@ form#addForm {
     max-width: 50%;
 }
 
-.create-button {
+.submit-button {
     display: block;
     width: 100px;
     margin: 0 auto;
