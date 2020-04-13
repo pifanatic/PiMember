@@ -69,6 +69,33 @@ sub edit : Local Args(1) {
         $c->go($c->controller("Root")->action_for("default"));
     }
 
+    if ($c->req->method eq "POST") {
+        my $title     = $c->req->param("title");
+        my $frontside = $c->req->param("frontside");
+        my $backside  = $c->req->param("backside");
+        my @tags      = split " ", $c->req->params->{tags};
+
+        $card->update({
+            title     => $title,
+            frontside => $frontside,
+            backside  => $backside
+        });
+
+        $card->cards_tags->delete;
+
+        if (@tags) {
+            @tags = map {
+                $c->model("DB::Tag")->find_or_create({ name => $_ });
+            } @tags;
+
+            $card->set_tags(@tags);
+        }
+
+        $c->stash({
+            success_msg => '"' . $card->title . '" edited successfully!'
+        });
+    }
+
     $c->stash({
         title              => 'Edit "' . $card->title . '"',
         card               => $card,
