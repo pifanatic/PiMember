@@ -32,7 +32,18 @@ sub default : Path {
     $c->response->status(404);
 }
 
-sub end : ActionClass('RenderView') {}
+sub end : ActionClass('RenderView') {
+    my ($self, $c) = @_;
+
+    if ($c->has_errors) {
+        $c->log->fatal($_) for @{$c->error};
+        $c->clear_errors;
+
+        $c->stash({
+            template => "error.tt"
+        });
+    }
+}
 
 __PACKAGE__->meta->make_immutable;
 
