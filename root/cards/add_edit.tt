@@ -1,15 +1,19 @@
-<h1>[% title %]</h1>
+<h1>
+    [% FILTER html %]
+        [% title %]
+    [% END %]
+</h1>
 
 <form id="cardForm" class="overlay" method="post">
     <div class="title-row">
         <label for="title">Title</label>
-        <input id="title" name="title" required/>
+        <input id="title" name="title" value="[% card.title %]"required/>
     </div>
     <div class="form-wrapper">
         <div class="front">
             <div class="front-input-wrapper">
                 Frontside text
-                <textarea id="front-input" name="frontside" required></textarea>
+                <textarea id="front-input" name="frontside" required>[% card.frontside %]</textarea>
             </div>
             <div class="front-preview-wrapper">
                 Frontside preview
@@ -20,7 +24,7 @@
         <div class="back">
             <div class="back-input-wrapper">
                 Backside text
-                <textarea id="back-input" name="backside" required></textarea>
+                <textarea id="back-input" name="backside" required>[% card.backside %]</textarea>
             </div>
             <div class="back-preview-wrapper">
                 Backside preview
@@ -31,7 +35,7 @@
 
     <div class="tags-row">
         <label for="tags">Tags</label>
-        <input id="tags" name="tags"/>
+        <input id="tags" name="tags" value="[% tags %]"/>
     </div>
 
     <button class="submit-button btn btn-primary">

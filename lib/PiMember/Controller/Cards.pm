@@ -58,6 +58,28 @@ sub add : Local Args(0) {
     });
 }
 
+sub edit : Local Args(1) {
+    my ($self, $c, $id) = @_;
+
+    my $card = $c->model("DB::Card")->search({
+        id => $id
+    })->next;
+
+    if (!$card) {
+        $c->go($c->controller("Root")->action_for("default"));
+    }
+
+    $c->stash({
+        title              => 'Edit "' . $card->title . '"',
+        card               => $card,
+        tags               => join(" ", map { $_->name } $card->tags),
+        submit_button_text => "Save",
+        template           => "cards/add_edit.tt"
+    });
+}
+
+
+
 sub learn : Local Args(0) {
     my ($self, $c) = @_;
 
