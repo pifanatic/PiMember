@@ -50,6 +50,10 @@ sub add : Local Args(0) {
             success_msg => qq/"$title" has been created!/
         });
     }
+
+    $c->stash({
+        template => "cards/add_edit.tt",
+    });
 }
 
 sub learn : Local Args(0) {
