@@ -25,7 +25,7 @@ sub add : Local Args(0) {
         my $frontside = $c->req->params->{frontside};
         my $backside  = $c->req->params->{backside};
         my @tags      = split " ", $c->req->params->{tags};
-        my $now       = DateTime->now;
+        my $now       = DateTime->now->iso8601;
 
         my $new_card = $c->model("DB::Card")->create({
             title           => $title,
@@ -112,7 +112,7 @@ sub learn : Local Args(0) {
 
     if ($c->req->method eq "GET") {
         my $next_card_to_learn = $c->model("DB::Card")->search(
-            { due      => { "<=" => DateTime->now->datetime } },
+            { due      => { "<=" => DateTime->now->iso8601 } },
             { order_by => { -asc => "last_seen" } }
         )->next;
 
@@ -136,15 +136,15 @@ sub learn : Local Args(0) {
         if ($correct) {
             $card->update({
                 rating          => $card->rating + 1,
-                last_seen       => DateTime->now,
-                due             => DateTime->now->add({ days => $card->rating + 1 }),
+                last_seen       => DateTime->now->iso8601,
+                due             => DateTime->now->add({ days => $card->rating + 1 })->iso8601,
                 correct_answers => $card->correct_answers + 1
             });
         } else {
             $card->update({
                 rating        => 0,
-                last_seen     => DateTime->now,
-                due           => DateTime->now,
+                last_seen     => DateTime->now->iso8601,
+                due           => DateTime->now->iso8601,
                 wrong_answers => $card->wrong_answers + 1
             });
         }
