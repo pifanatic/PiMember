@@ -112,7 +112,7 @@ sub learn : Local Args(0) {
 
     if ($c->req->method eq "GET") {
         my $next_card_to_learn = $c->model("DB::Card")->search(
-            { due      => { "<=" => DateTime->now } },
+            { due      => { "<=" => DateTime->now->datetime } },
             { order_by => { -asc => "last_seen" } }
         )->next;
 

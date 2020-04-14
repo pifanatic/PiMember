@@ -16,7 +16,7 @@ sub begin : Private {
     }
 
     my $number_of_due_cards = $c->model("DB::Card")->count({
-        due => { "<=" => DateTime->now }
+        due => { "<=" => DateTime->now->datetime }
     });
 
     $c->stash({
