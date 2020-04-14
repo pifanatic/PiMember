@@ -12,7 +12,7 @@
                     </div>
                     <div class="last-seen">
                         Last seen
-                        <span class="grey">[% card.last_seen.dmy('.') %]<span>
+                        <span class="grey">[% card.last_seen.dmy('.') %]</span>
                     </div>
                     <div class="due">
                         Due
