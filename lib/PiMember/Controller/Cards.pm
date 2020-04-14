@@ -32,7 +32,6 @@ sub add : Local Args(0) {
             frontside       => $frontside,
             backside        => $backside,
             rating          => 0,
-            last_seen       => $now,
             due             => $now,
             correct_answers => 0,
             wrong_answers   => 0,
