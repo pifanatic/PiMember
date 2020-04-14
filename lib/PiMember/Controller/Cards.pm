@@ -103,8 +103,6 @@ sub edit : Local Args(1) {
     });
 }
 
-
-
 sub learn : Local Args(0) {
     my ($self, $c) = @_;
 
