@@ -18,8 +18,8 @@ sub index : Path Args(0) {
     my ($self, $c) = @_;
 
     if ($c->req->method eq 'POST') {
-        my $username = $c->req->params->{"username"};
-        my $password = $c->req->params->{"password"};
+        my $username = $c->req->params->{username};
+        my $password = $c->req->params->{password};
 
         if ($username && $password) {
             if ($c->authenticate({ username => $username, password => $password })) {

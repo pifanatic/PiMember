@@ -68,9 +68,9 @@ sub edit : Local Args(1) {
     }
 
     if ($c->req->method eq "POST") {
-        my $title     = $c->req->params->{"title"};
-        my $frontside = $c->req->params->{"frontside"};
-        my $backside  = $c->req->params->{"backside"};
+        my $title     = $c->req->params->{title};
+        my $frontside = $c->req->params->{frontside};
+        my $backside  = $c->req->params->{backside};
         my @tags      = split " ", $c->req->params->{tags};
 
         $card->update({
@@ -122,8 +122,8 @@ sub learn : Local Args(0) {
             });
         }
     } elsif ($c->req->method eq "POST") {
-        my $id = $c->req->params->{"id"};
-        my $correct = $c->req->params->{"correct"};
+        my $id = $c->req->params->{id};
+        my $correct = $c->req->params->{correct};
 
         my $card = $c->model("DB::Card")->search({
             id => $id
