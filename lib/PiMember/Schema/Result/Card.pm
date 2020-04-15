@@ -168,6 +168,17 @@ sub _build_total_answers {
     return $self->correct_answers + $self->wrong_answers;
 }
 
+sub update_for_correct_answer {
+    my ($self) = @_;
+
+    $self->update({
+        rating          => $self->rating + 1,
+        last_seen       => DateTime->now->iso8601,
+        due             => DateTime->today->add({ days => $self->rating + 1 })->iso8601,
+        correct_answers => $self->correct_answers + 1
+    });
+}
+
 __PACKAGE__->many_to_many("tags", "cards_tags", "tag");
 
 __PACKAGE__->meta->make_immutable;

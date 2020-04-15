@@ -135,12 +135,7 @@ sub learn : Local Args(0) {
         })->next;
 
         if ($correct) {
-            $card->update({
-                rating          => $card->rating + 1,
-                last_seen       => DateTime->now->iso8601,
-                due             => DateTime->today->add({ days => $card->rating + 1 })->iso8601,
-                correct_answers => $card->correct_answers + 1
-            });
+            $card->update_for_correct_answer;
         } else {
             $card->update({
                 rating        => 0,
