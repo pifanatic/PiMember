@@ -9,7 +9,7 @@ BEGIN { extends 'Catalyst::Controller'; }
 sub index : Path Args(0) {
     my ($self, $c) = @_;
 
-    my @cards = $c->model('DB')->resultset('Card')->all;
+    my @cards = $c->model("DB::Card")->all;
 
     $c->stash({
         cards => \@cards,
