@@ -179,6 +179,17 @@ sub update_for_correct_answer {
     });
 }
 
+sub update_for_wrong_answer {
+    my ($self) = @_;
+
+    $self->update({
+        rating        => 0,
+        last_seen     => DateTime->now->iso8601,
+        due           => DateTime->today->iso8601,
+        wrong_answers => $self->wrong_answers + 1
+    });
+}
+
 __PACKAGE__->many_to_many("tags", "cards_tags", "tag");
 
 __PACKAGE__->meta->make_immutable;

@@ -137,12 +137,7 @@ sub learn : Local Args(0) {
         if ($correct) {
             $card->update_for_correct_answer;
         } else {
-            $card->update({
-                rating        => 0,
-                last_seen     => DateTime->now->iso8601,
-                due           => DateTime->today->iso8601,
-                wrong_answers => $card->wrong_answers + 1
-            });
+            $card->update_for_wrong_answer;
         }
 
         $c->response->redirect($c->uri_for($self->action_for('learn')));
