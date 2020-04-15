@@ -56,7 +56,7 @@ sub add : Local Args(0) {
     });
 }
 
-sub edit : Local Args(1) {
+sub find_card : Chained("/") PathPart("cards") CaptureArgs(1) {
     my ($self, $c, $id) = @_;
 
     my $card = $c->model("DB::Card")->search({
@@ -67,37 +67,42 @@ sub edit : Local Args(1) {
         $c->go($c->controller("Root")->action_for("default"));
     }
 
+    $c->stash({ card => $card });
+}
+
+sub edit : Chained("find_card") Args(0) {
+    my ($self, $c) = @_;
+
     if ($c->req->method eq "POST") {
         my $title     = $c->req->params->{title};
         my $frontside = $c->req->params->{frontside};
         my $backside  = $c->req->params->{backside};
         my @tags      = split " ", $c->req->params->{tags};
 
-        $card->update({
+        $c->stash->{card}->update({
             title     => $title,
             frontside => $frontside,
             backside  => $backside
         });
 
-        $card->cards_tags->delete;
+        $c->stash->{card}->cards_tags->delete;
 
         if (@tags) {
             @tags = map {
                 $c->model("DB::Tag")->find_or_create({ name => $_ });
             } @tags;
 
-            $card->set_tags(@tags);
+            $c->stash->{card}->set_tags(@tags);
         }
 
         $c->stash({
-            success_msg => '"' . $card->title . '" edited successfully!'
+            success_msg => '"' . $c->stash->{card}->title . '" edited successfully!'
         });
     }
 
     $c->stash({
-        title              => 'Edit "' . $card->title . '"',
-        card               => $card,
-        tags               => join(" ", map { $_->name } $card->tags),
+        title              => 'Edit "' . $c->stash->{card}->title . '"',
+        tags               => join(" ", map { $_->name } $c->stash->{card}->tags),
         submit_button_text => "Save",
         template           => "cards/add_edit.tt"
     });
