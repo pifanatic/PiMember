@@ -168,6 +168,14 @@ sub _build_total_answers {
     return $self->correct_answers + $self->wrong_answers;
 }
 
+sub give_answer {
+    my ($self, $answered_correctly) = @_;
+
+    $answered_correctly
+        ? $self->update_for_correct_answer
+        : $self->update_for_wrong_answer;
+}
+
 sub update_for_correct_answer {
     my ($self) = @_;
 

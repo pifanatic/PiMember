@@ -134,11 +134,7 @@ sub learn : Local Args(0) {
             id => $id
         })->next;
 
-        if ($correct) {
-            $card->update_for_correct_answer;
-        } else {
-            $card->update_for_wrong_answer;
-        }
+        $card->give_answer($correct);
 
         $c->response->redirect($c->uri_for($self->action_for('learn')));
     }
