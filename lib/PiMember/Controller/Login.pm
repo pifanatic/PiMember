@@ -2,14 +2,14 @@ package PiMember::Controller::Login;
 use Moose;
 use namespace::autoclean;
 
-BEGIN { extends 'Catalyst::Controller'; }
+BEGIN { extends "Catalyst::Controller"; }
 
 sub begin : Private {
     my ($self, $c) = @_;
 
     if ($c->user_exists) {
         $c->response->redirect(
-            $c->uri_for($c->controller('Root')->action_for("index"))
+            $c->uri_for($c->controller("Root")->action_for("index"))
         );
     }
 }
@@ -17,7 +17,7 @@ sub begin : Private {
 sub index : Path Args(0) {
     my ($self, $c) = @_;
 
-    if ($c->req->method eq 'POST') {
+    if ($c->req->method eq "POST") {
         my $username = $c->req->params->{username};
         my $password = $c->req->params->{password};
 
