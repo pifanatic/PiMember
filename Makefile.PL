@@ -16,6 +16,7 @@ requires 'Catalyst::Plugin::Session';
 requires 'Catalyst::Plugin::Session::Store::File';
 requires 'Catalyst::Plugin::Session::State::Cookie';
 requires 'Catalyst::Plugin::Static::Simple';
+requires 'Catalyst::Plugin::StatusMessage';
 requires 'Catalyst::Action::RenderView';
 requires 'DateTime::Format::SQLite';
 requires 'Moose';

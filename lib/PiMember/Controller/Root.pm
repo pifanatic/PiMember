@@ -15,6 +15,8 @@ sub begin : Private {
         );
     }
 
+    $c->load_status_msgs;
+
     $c->stash({
         number_of_due_cards => scalar $c->session->{queue}
     });

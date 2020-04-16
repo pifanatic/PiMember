@@ -75,13 +75,13 @@
                 [% error_msg %]
             [% END %]
         </div>
-    [% ELSIF success_msg %]
+    [% ELSIF status_msg %]
         <div class="notification success">
             <div class="notification-icon">
                 <i class="fas fa-check-circle"></i>
             </div>
             [% FILTER html %]
-                [% success_msg %]
+                [% status_msg %]
             [% END %]
         </div>
     [% END %]

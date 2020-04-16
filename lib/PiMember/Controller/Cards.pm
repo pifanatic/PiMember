@@ -41,11 +41,10 @@ sub add : Local Args(0) Does("UpdateQueue") {
             $new_card->set_tags(@tags);
         }
 
-        $c->stash({
-            success_msg => qq/"$title" has been created!/
-        });
-
-        $c->response->redirect($c->uri_for($c->controller->action_for("add")));
+        $c->response->redirect($c->uri_for(
+            $c->controller->action_for("add"),
+            { mid => $c->set_status_msg(qq/"$title" has been created!/) }
+        ));
     }
 
     $c->stash({
@@ -94,14 +93,15 @@ sub edit : Chained("find_card") Args(0) {
             $c->stash->{card}->set_tags(@tags);
         }
 
-        $c->stash({
-            success_msg => '"' . $c->stash->{card}->title . '" edited successfully!'
-        });
+        my $status_msg = '"' . $c->stash->{card}->title . '" edited successfully!';
 
-        $c->response->redirect($c->uri_for(
-            $c->controller->action_for("edit"),
-            [ $c->stash->{card}->id ]
-        ));
+        $c->response->redirect(
+            $c->uri_for(
+                $c->controller->action_for("edit"),
+                [ $c->stash->{card}->id ],
+                { mid => $c->set_status_msg($status_msg) }
+            )
+        );
     }
 
     $c->stash({
