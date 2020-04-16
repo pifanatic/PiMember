@@ -44,6 +44,8 @@ sub add : Local Args(0) Does("UpdateQueue") {
         $c->stash({
             success_msg => qq/"$title" has been created!/
         });
+
+        $c->response->redirect($c->uri_for($c->controller->action_for("add")));
     }
 
     $c->stash({
@@ -95,6 +97,11 @@ sub edit : Chained("find_card") Args(0) {
         $c->stash({
             success_msg => '"' . $c->stash->{card}->title . '" edited successfully!'
         });
+
+        $c->response->redirect($c->uri_for(
+            $c->controller->action_for("edit"),
+            [ $c->stash->{card}->id ]
+        ));
     }
 
     $c->stash({
