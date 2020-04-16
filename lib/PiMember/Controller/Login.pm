@@ -14,7 +14,7 @@ sub begin : Private {
     }
 }
 
-sub index : Path Args(0) {
+sub index : Path Args(0) Does("UpdateQueue") {
     my ($self, $c) = @_;
 
     if ($c->req->method eq "POST") {
