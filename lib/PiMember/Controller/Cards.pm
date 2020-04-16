@@ -17,7 +17,7 @@ sub index : Path Args(0) {
     });
 }
 
-sub add : Local Args(0) {
+sub add : Local Args(0) Does("UpdateQueue") {
     my ($self, $c) = @_;
 
     if ($c->req->method eq "POST") {
@@ -108,7 +108,7 @@ sub edit : Chained("find_card") Args(0) {
     });
 }
 
-sub learn : Local Args(0) {
+sub learn : Local Args(0) Does("UpdateQueue") {
     my ($self, $c) = @_;
 
     if ($c->req->method eq "GET") {
