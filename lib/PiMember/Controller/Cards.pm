@@ -11,10 +11,7 @@ sub index : Path Args(0) {
 
     my @cards = $c->model("DB::Card")->all;
 
-    $c->stash({
-        cards => \@cards,
-        count => scalar @cards
-    });
+    $c->stash({ cards => \@cards });
 }
 
 sub add : Local Args(0) Does("UpdateQueue") {

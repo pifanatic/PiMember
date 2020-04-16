@@ -1,4 +1,4 @@
-<h1>Card list ([% count %])</h1>
+<h1>Card list ([% cards.size %])</h1>
 
 <div class="cards-list">
     [% FOREACH card IN cards %]
