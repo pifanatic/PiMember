@@ -4,7 +4,7 @@ use namespace::autoclean;
 
 use DateTime;
 
-BEGIN { extends 'Catalyst::Controller'; }
+BEGIN { extends "Catalyst::Controller"; }
 
 sub index : Path Args(0) {
     my ($self, $c) = @_;
@@ -133,7 +133,7 @@ sub learn : Local Args(0) Does("UpdateQueue") {
 
         $card->give_answer($correct);
 
-        $c->response->redirect($c->uri_for($self->action_for('learn')));
+        $c->response->redirect($c->uri_for($self->action_for("learn")));
     }
 }
 
