@@ -13,7 +13,7 @@ after "execute" => sub {
             { order_by => { -asc => "last_seen" } }
         );
 
-        $c->session->{queue} = @cards_to_learn;
+        $c->session->{queue} = \@cards_to_learn;
     }
 };
 

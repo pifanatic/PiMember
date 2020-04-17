@@ -53,7 +53,7 @@
 
                 <a class="menu-item menu-item-primary" href="[% c.uri_for(c.controller('Cards').action_for('learn')) %]">
                     <i class="fas fa-graduation-cap fa-fw"></i>
-                    Learn ([% number_of_due_cards %])
+                    Learn ([% c.session.queue.size %])
                 </a>
 
                 <div class="version-hint">
