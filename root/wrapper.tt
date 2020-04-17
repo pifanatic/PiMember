@@ -51,7 +51,7 @@
                     Add a new card
                 </a>
 
-                <a class="menu-item menu-item-primary" href="[% c.uri_for(c.controller('Cards').action_for('learn')) %]">
+                <a class="menu-item menu-item-primary" href="[% c.uri_for(c.controller('Cards').action_for('go_to_next_card')) %]">
                     <i class="fas fa-graduation-cap fa-fw"></i>
                     Learn ([% c.session.queue.size %])
                 </a>

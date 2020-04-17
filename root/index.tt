@@ -1,6 +1,6 @@
 <h1>Welcome to PiMember</h1>
 
-<button class="learn-button btn btn-primary" onclick="window.location='[% c.uri_for(c.controller('Cards').action_for('learn')) %]'">
+<button class="learn-button btn btn-primary" onclick="window.location='[% c.uri_for(c.controller('Cards').action_for('go_to_next_card')) %]'">
     <i class="fas fa-graduation-cap fa-fw"></i>
     Start learning
 </button>

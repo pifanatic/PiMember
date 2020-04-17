@@ -112,32 +112,33 @@ sub edit : Chained("find_card") Args(0) {
     });
 }
 
-sub learn : Local Args(0) Does("UpdateQueue") {
+sub go_to_next_card : Path("learn") Args(0) {
     my ($self, $c) = @_;
 
-    if ($c->req->method eq "GET") {
-        my $next_card_to_learn = $c->session->{queue}->[0];
+    my $next_card_to_learn = $c->session->{queue}->[0];
 
-        if ($next_card_to_learn) {
-            $c->stash({
-                card => $next_card_to_learn
-            });
-        } else {
-            $c->stash({
-                template => "cards/nothing_to_learn.tt"
-            });
-        }
-    } elsif ($c->req->method eq "POST") {
-        my $id = $c->req->params->{id};
+    if ($next_card_to_learn) {
+        $c->go(
+            $self->action_for("learn"),
+            [ $next_card_to_learn->id ],
+            [ $c ]
+        );
+    } else {
+        $c->stash({ template => "cards/nothing_to_learn.tt" });
+    }
+}
+
+sub learn : Chained("find_card") Args(0) Does("UpdateQueue") {
+    my ($self, $c) = @_;
+
+    if ($c->req->method eq "POST") {
         my $correct = $c->req->params->{correct};
 
-        my $card = $c->model("DB::Card")->search({
-            id => $id
-        })->next;
+        $c->stash->{card}->give_answer($correct);
 
-        $card->give_answer($correct);
-
-        $c->response->redirect($c->uri_for($self->action_for("learn")));
+        $c->response->redirect(
+            $c->uri_for($self->action_for("go_to_next_card"))
+        );
     }
 }
 
