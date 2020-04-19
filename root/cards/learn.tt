@@ -26,7 +26,7 @@
                 Turn around
             </button>
         </div>
-        <form id="learnForm" method="post">
+        <form id="learnForm" method="post" action="[% c.uri_for(c.controller.action_for('learn'), [card.id]) %]">
             <div class="row row-2">
                 <label for="answerCorrect">
                     Correct
