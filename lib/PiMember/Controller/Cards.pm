@@ -54,7 +54,7 @@ sub add : Local Args(0) Does("UpdateQueue") {
     });
 }
 
-sub find_card : Chained("/") PathPart("cards") CaptureArgs(1) {
+sub get_card_by_id : Chained("/") PathPart("cards") CaptureArgs(1) {
     my ($self, $c, $id) = @_;
 
     my $card = $c->model("DB::Card")->search({
@@ -68,7 +68,7 @@ sub find_card : Chained("/") PathPart("cards") CaptureArgs(1) {
     $c->stash({ card => $card });
 }
 
-sub edit : Chained("find_card") Args(0) {
+sub edit : Chained("get_card_by_id") Args(0) {
     my ($self, $c) = @_;
 
     if ($c->req->method eq "POST") {
@@ -128,7 +128,7 @@ sub go_to_next_card : Path("learn") Args(0) {
     }
 }
 
-sub learn : Chained("find_card") Args(0) Does("UpdateQueue") {
+sub learn : Chained("get_card_by_id") Args(0) Does("UpdateQueue") {
     my ($self, $c) = @_;
 
     if ($c->req->method eq "POST") {
