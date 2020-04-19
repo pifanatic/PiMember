@@ -43,8 +43,6 @@
                         <div class="checkmark"><i class="fas fa-check"></i></div>
                     </div>
                 </label>
-
-                <input name="id" value="[% card.id %]" hidden/>
             </div>
             <div class="row row-3">
                 <button id="nextBtn" class="btn btn-primary">
