@@ -116,10 +116,7 @@ sub learn : Local Args(0) Does("UpdateQueue") {
     my ($self, $c) = @_;
 
     if ($c->req->method eq "GET") {
-        my $next_card_to_learn = $c->model("DB::Card")->search(
-            { due      => { "<=" => DateTime->now->iso8601 } },
-            { order_by => { -asc => "last_seen" } }
-        )->next;
+        my $next_card_to_learn = $c->session->{queue}->[0];
 
         if ($next_card_to_learn) {
             $c->stash({
