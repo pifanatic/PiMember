@@ -2,7 +2,7 @@ package PiMember::Controller::Logout;
 use Moose;
 use namespace::autoclean;
 
-BEGIN { extends 'Catalyst::Controller'; }
+BEGIN { extends "Catalyst::Controller"; }
 
 sub index : Path Args(0) {
     my ($self, $c) = @_;
