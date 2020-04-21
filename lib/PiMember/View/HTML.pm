@@ -2,12 +2,12 @@ package PiMember::View::HTML;
 use Moose;
 use namespace::autoclean;
 
-extends 'Catalyst::View::TT';
+extends "Catalyst::View::TT";
 
 __PACKAGE__->config(
-    TEMPLATE_EXTENSION => '.tt',
+    TEMPLATE_EXTENSION => ".tt",
     render_die => 1,
-    WRAPPER => 'wrapper.tt'
+    WRAPPER => "wrapper.tt"
 );
 
 1;
