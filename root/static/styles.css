@@ -577,3 +577,9 @@ form#cardForm {
 .learn-box input:checked + .checkbox {
     background-color: #000080;
 }
+
+/* Tag list */
+.tag-list {
+    margin: 0 auto;
+    width: 50%;
+}

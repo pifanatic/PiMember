@@ -1,0 +1,13 @@
+<h1>Tags</h1>
+
+<div class="tag-list overlay">
+    [% FOREACH tag IN tags %]
+        <p>
+            <span class="tag">
+                [% FILTER html %]
+                    [% tag.name %]
+                [% END %]
+            </span>
+        </p>
+    [% END %]
+</div>
