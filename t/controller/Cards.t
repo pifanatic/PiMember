@@ -3,8 +3,16 @@ use warnings;
 use Test::More;
 
 use Catalyst::Test "PiMember";
-use PiMember::Controller::Cards;
 
-ok(request("/cards")->is_success, "Request should succeed");
+ok(
+    request("/cards")->is_redirect,
+    "Request should redirect"
+);
+
+is(
+    request("/cards")->headers->{location},
+    "http://localhost/login",
+    "Request should redirect to /login"
+);
 
 done_testing();
