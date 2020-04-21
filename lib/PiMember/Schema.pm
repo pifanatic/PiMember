@@ -18,3 +18,24 @@ __PACKAGE__->load_namespaces;
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
 __PACKAGE__->meta->make_immutable(inline_constructor => 0);
 1;
+
+=encoding utf8
+
+=head1 NAME
+
+PiMember::Schema
+
+=head1 DESCRIPTION
+
+Schema to be used by DBIx::Class
+
+=head1 AUTHOR
+
+Kai Mörker
+
+=head1 LICENSE
+
+This library is free software. You can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
