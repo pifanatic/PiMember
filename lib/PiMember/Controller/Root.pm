@@ -2,9 +2,9 @@ package PiMember::Controller::Root;
 use Moose;
 use namespace::autoclean;
 
-BEGIN { extends 'Catalyst::Controller' }
+BEGIN { extends "Catalyst::Controller" }
 
-__PACKAGE__->config(namespace => '');
+__PACKAGE__->config(namespace => "");
 
 sub begin : Private {
     my ($self, $c) = @_;
@@ -26,7 +26,7 @@ sub default : Path {
     $c->response->status(404);
 }
 
-sub end : ActionClass('RenderView') {
+sub end : ActionClass("RenderView") {
     my ($self, $c) = @_;
 
     if ($c->has_errors) {
