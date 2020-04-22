@@ -52,14 +52,21 @@
         let frontInput = document.getElementById("front-input"),
             frontPreview = document.getElementById("front-preview"),
             backInput = document.getElementById("back-input"),
-            backPreview = document.getElementById("back-preview");
+            backPreview = document.getElementById("back-preview"),
+            form = document.getElementById("cardForm"),
+            inputPreviewMap = {
+                "front-input": frontPreview,
+                "back-input": backPreview
+            };
 
-        frontInput.addEventListener("keyup", function() {
-            setPreviewValue(frontPreview, this.value);
-        });
+        form.addEventListener("keyup", e => {
+            let previewEl = inputPreviewMap[e.target.id];
 
-        backInput.addEventListener("keyup", function() {
-            setPreviewValue(backPreview, this.value);
+            if (!previewEl) {
+                return;
+            }
+
+            setPreviewValue(previewEl, e.target.value);
         });
 
         setPreviewValue(frontPreview, frontInput.value);
