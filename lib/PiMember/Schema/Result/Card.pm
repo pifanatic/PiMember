@@ -140,6 +140,15 @@ __PACKAGE__->has_many(
 # Created by DBIx::Class::Schema::Loader v0.07048 @ 2020-04-09 13:20:42
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:VT2hriUXZV9+XEpnKTLiXg
 
+=head1 ADDITIONAL ACCESSORS
+
+=head2 success_rate
+
+Ratio of correct answers to this card.
+Rounded to an integer between 0 and 100.
+
+=cut
+
 has success_rate => (
     is      => "ro",
     isa     => "Int",
@@ -155,6 +164,12 @@ sub _build_success_rate {
     return int(100 * $self->correct_answers / $self->total_answers);
 }
 
+=head2 total_answers
+
+The sum of wrong and correct answers to this card.
+
+=cut
+
 has total_answers => (
     is      => "ro",
     isa     => "Int",
@@ -168,6 +183,18 @@ sub _build_total_answers {
     return $self->correct_answers + $self->wrong_answers;
 }
 
+
+=head1 METHODS
+
+=head2 give_answer
+
+Decides which of the two B<update_for_{correct|wrong}_answer> methods to apply
+to this card.
+
+Any true argument will update for a correct answer.
+
+=cut
+
 sub give_answer {
     my ($self, $answered_correctly) = @_;
 
@@ -175,6 +202,12 @@ sub give_answer {
         ? $self->update_for_correct_answer
         : $self->update_for_wrong_answer;
 }
+
+=head2 update_for_correct_answer
+
+Update the attributes of this card after a correct answer has been given.
+
+=cut
 
 sub update_for_correct_answer {
     my ($self) = @_;
@@ -188,6 +221,13 @@ sub update_for_correct_answer {
         correct_answers => $self->correct_answers + 1
     });
 }
+
+
+=head2 update_for_wrong_answer
+
+Update the attributes of this card after a wrong answer has been given.
+
+=cut
 
 sub update_for_wrong_answer {
     my ($self) = @_;
@@ -205,3 +245,16 @@ __PACKAGE__->many_to_many("tags", "cards_tags", "tag");
 __PACKAGE__->meta->make_immutable;
 
 1;
+
+=encoding utf8
+
+=head1 AUTHOR
+
+Kai Mörker
+
+=head1 LICENSE
+
+This library is free software. You can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
