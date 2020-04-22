@@ -4,7 +4,26 @@ use namespace::autoclean;
 
 use DateTime;
 
+=head1 NAME
+
+PiMember::Controller::Cards
+
+=head1 DESCRIPTION
+
+Handles all actions referring to cards.
+
+=cut
+
 BEGIN { extends "Catalyst::Controller"; }
+
+=head1 METHODS
+
+=head2 index
+
+Retrieve all cards from the database and stash them in order to show a list of
+all cards.
+
+=cut
 
 sub index : Path Args(0) {
     my ($self, $c) = @_;
@@ -13,6 +32,15 @@ sub index : Path Args(0) {
 
     $c->stash({ cards => \@cards });
 }
+
+
+=head2 add
+
+GET shows a form to enter all values for a new card.
+
+POST creates a new card in the database with the given form-data.
+
+=cut
 
 sub add : Local Args(0) Does("UpdateQueue") {
     my ($self, $c) = @_;
@@ -54,6 +82,16 @@ sub add : Local Args(0) Does("UpdateQueue") {
     });
 }
 
+
+=head2 get_card_by_id
+
+The base action for all actions that manipulate one single existing card.
+
+This action searches for a specific card by its id and stashes it if it could
+be found, and goes to the default 404 page if it could not be found.
+
+=cut
+
 sub get_card_by_id : Chained("/") PathPart("cards") CaptureArgs(1) {
     my ($self, $c, $id) = @_;
 
@@ -67,6 +105,20 @@ sub get_card_by_id : Chained("/") PathPart("cards") CaptureArgs(1) {
 
     $c->stash({ card => $card });
 }
+
+
+=head2 edit
+
+Changes the I<title>, I<frontside>, I<backside> or I<tags> of a card. Note that
+all other attributes (like I<rating> or I<due>) will not be affected by this.
+
+GET shows a form filled with the current values of this card in order to change
+them.
+
+POST will update the values of the card with the given form-data and redirect
+to the 'edit' page with the updated value afterwards.
+
+=cut
 
 sub edit : Chained("get_card_by_id") Args(0) {
     my ($self, $c) = @_;
@@ -112,6 +164,16 @@ sub edit : Chained("get_card_by_id") Args(0) {
     });
 }
 
+
+=head2 go_to_next_card
+
+Finds the next card to learn from the session and goes to the 'learn' action for
+that card.
+
+The 'Nothing to learn' page will be displayed if there is no card to learn.
+
+=cut
+
 sub go_to_next_card : Path("learn") Args(0) {
     my ($self, $c) = @_;
 
@@ -127,6 +189,18 @@ sub go_to_next_card : Path("learn") Args(0) {
         $c->stash({ template => "cards/nothing_to_learn.tt" });
     }
 }
+
+
+=head2 learn
+
+Learn a card.
+
+GET will show the learn form.
+
+POST will update the card according to the value of the given B<correct>
+form-data value. Redirect to the next due card afterwards.
+
+=cut
 
 sub learn : Chained("get_card_by_id") Args(0) Does("UpdateQueue") {
     my ($self, $c) = @_;
@@ -145,3 +219,16 @@ sub learn : Chained("get_card_by_id") Args(0) Does("UpdateQueue") {
 __PACKAGE__->meta->make_immutable;
 
 1;
+
+=encoding utf8
+
+=head1 AUTHOR
+
+Kai Mörker
+
+=head1 LICENSE
+
+This library is free software. You can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
