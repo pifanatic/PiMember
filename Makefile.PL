@@ -18,6 +18,7 @@ requires 'Catalyst::Plugin::Session::State::Cookie';
 requires 'Catalyst::Plugin::Static::Simple';
 requires 'Catalyst::Plugin::StatusMessage';
 requires 'Catalyst::Action::RenderView';
+requires 'Catalyst::Authentication::Store::DBIx::Class';
 requires 'DateTime::Format::SQLite';
 requires 'Moose';
 requires 'MooseX::NonMoose';
