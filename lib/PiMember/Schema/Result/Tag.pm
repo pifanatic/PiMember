@@ -91,8 +91,43 @@ __PACKAGE__->has_many(
 # Created by DBIx::Class::Schema::Loader v0.07048 @ 2020-04-09 12:25:39
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:tYfddQNQGdjC38CQY71PNQ
 
+=head1 ADDITIONAL ACCESSORS
+
+=head2 card_count
+
+Number of cards that have this tag
+
+=cut
+
+has card_count => (
+    is      => "ro",
+    isa     => "Int",
+    lazy    => 1,
+    builder => "_build_card_count"
+);
+
+sub _build_card_count {
+    my ($self) = @_;
+
+    return $self->cards->count;
+}
+
+
 __PACKAGE__->many_to_many("cards", "cards_tags", "card");
 
 __PACKAGE__->meta->make_immutable;
 
 1;
+
+=encoding utf8
+
+=head1 AUTHOR
+
+Kai Mörker
+
+=head1 LICENSE
+
+This library is free software. You can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
