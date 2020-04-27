@@ -1,7 +1,7 @@
 <h1>Tags</h1>
 
 <div class="tag-list overlay">
-    [% FOREACH tag IN tags %]
+    [% FOREACH tag IN tags.nsort("card_count").reverse %]
         <p>
             <span class="tag">
                 [% FILTER html %]
