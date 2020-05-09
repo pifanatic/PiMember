@@ -7,6 +7,7 @@ body {
 
 * {
     font-family: 'Righteous';
+    box-sizing: border-box;
 }
 
 h1 {
@@ -158,19 +159,15 @@ span.tag:after {
 .content-all {
     display: flex;
     height: calc(100vh - 60px);
-
-    box-sizing: border-box;
 }
 
 .main-menu-wrapper {
     padding: 15px;
-    box-sizing: border-box;
 }
 
 .main-menu {
     height: 100%;
     position: relative;
-    box-sizing: border-box;
 }
 
 .main-menu .menu-item {
@@ -304,7 +301,7 @@ span.tag:after {
 
 .login-wrapper {
     margin: 100px auto;
-    width: 300px;
+    width: 360px;
 }
 
 .login-wrapper .row {
@@ -321,8 +318,6 @@ span.tag:after {
     margin-top: 5px;
     padding: 8px;
     font-size: 16px;
-
-    box-sizing: border-box;
 
     border: 1px solid #aaa;
     border-radius: 2px;
@@ -465,7 +460,6 @@ form#cardForm {
 .front-preview-wrapper,
 .back-preview-wrapper {
     flex: 1;
-    box-sizing: border-box;
     padding: 10px;
     max-width: 50%;
 }
