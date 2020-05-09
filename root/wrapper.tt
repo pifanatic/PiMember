@@ -35,34 +35,36 @@
 
     <div class="content-all">
         [% IF c.user_exists %]
-            <div class="main-menu overlay">
-                <a class="menu-item" href="[% c.uri_for(c.controller('Root').action_for('index')) %]">
-                    <i class="fas fa-home fa-fw"></i>
-                    Home
-                </a>
+            <div class="main-menu-wrapper">
+                <div class="main-menu overlay">
+                    <a class="menu-item" href="[% c.uri_for(c.controller('Root').action_for('index')) %]">
+                        <i class="fas fa-home fa-fw"></i>
+                        Home
+                    </a>
 
-                <a class="menu-item" href="[% c.uri_for(c.controller('Cards').action_for('index')) %]">
-                    <i class="fas fa-list fa-fw"></i>
-                    Card list
-                </a>
+                    <a class="menu-item" href="[% c.uri_for(c.controller('Cards').action_for('index')) %]">
+                        <i class="fas fa-list fa-fw"></i>
+                        Card list
+                    </a>
 
-                <a class="menu-item" href="[% c.uri_for(c.controller('Cards').action_for('add')) %]">
-                    <i class="fas fa-plus-square fa-fw"></i>
-                    Add a new card
-                </a>
+                    <a class="menu-item" href="[% c.uri_for(c.controller('Cards').action_for('add')) %]">
+                        <i class="fas fa-plus-square fa-fw"></i>
+                        Add a new card
+                    </a>
 
-                <a class="menu-item" href="[% c.uri_for(c.controller('Tags').action_for('index')) %]">
-                    <i class="fas fa-tag fa-fw"></i>
-                    Tags
-                </a>
+                    <a class="menu-item" href="[% c.uri_for(c.controller('Tags').action_for('index')) %]">
+                        <i class="fas fa-tag fa-fw"></i>
+                        Tags
+                    </a>
 
-                <a class="menu-item menu-item-primary" href="[% c.uri_for(c.controller('Cards').action_for('go_to_next_card')) %]">
-                    <i class="fas fa-graduation-cap fa-fw"></i>
-                    Learn ([% c.session.queue.size %])
-                </a>
+                    <a class="menu-item menu-item-primary" href="[% c.uri_for(c.controller('Cards').action_for('go_to_next_card')) %]">
+                        <i class="fas fa-graduation-cap fa-fw"></i>
+                        Learn ([% c.session.queue.size %])
+                    </a>
 
-                <div class="version-hint">
-                    [% c.config.name %] v[% c.config.version %]
+                    <div class="version-hint">
+                        [% c.config.name %] v[% c.config.version %]
+                    </div>
                 </div>
             </div>
         [% END %]
