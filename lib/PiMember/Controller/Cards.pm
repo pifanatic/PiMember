@@ -46,32 +46,16 @@ sub add : Local Args(0) Does("UpdateQueue") {
     my ($self, $c) = @_;
 
     if ($c->req->method eq "POST") {
-        my $title     = $c->req->params->{title};
-        my $frontside = $c->req->params->{frontside};
-        my $backside  = $c->req->params->{backside};
-        my @tags      = split " ", $c->req->params->{tags};
-
-        my $new_card = $c->model("DB::Card")->create({
-            title           => $title,
-            frontside       => $frontside,
-            backside        => $backside,
-            rating          => 0,
-            due             => DateTime->today->iso8601,
-            correct_answers => 0,
-            wrong_answers   => 0,
+        my $new_card = $c->model("DB")->create_card({
+            frontside => $c->req->params->{frontside},
+            backside  => $c->req->params->{backside},
+            title     => $c->req->params->{title},
+            tags      => [split " ", $c->req->params->{tags} ]
         });
-
-        if (@tags) {
-            @tags = map {
-                $c->model("DB::Tag")->find_or_create({ name => $_ });
-            } @tags;
-
-            $new_card->set_tags(@tags);
-        }
 
         $c->response->redirect($c->uri_for(
             $c->controller->action_for("add"),
-            { mid => $c->set_status_msg(qq/"$title" has been created!/) }
+            { mid => $c->set_status_msg('"' . $new_card->title . '" has been created!') }
         ));
     }
 
