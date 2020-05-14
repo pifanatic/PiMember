@@ -19,6 +19,8 @@ requires 'Catalyst::Plugin::Static::Simple';
 requires 'Catalyst::Plugin::StatusMessage';
 requires 'Catalyst::Action::RenderView';
 requires 'Catalyst::Authentication::Store::DBIx::Class';
+requires 'Catalyst::View::TT';
+requires 'DateTime';
 requires 'DateTime::Format::SQLite';
 requires 'Moose';
 requires 'MooseX::NonMoose';
