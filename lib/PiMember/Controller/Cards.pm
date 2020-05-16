@@ -79,9 +79,7 @@ be found, and goes to the default 404 page if it could not be found.
 sub get_card_by_id : Chained("/") PathPart("cards") CaptureArgs(1) {
     my ($self, $c, $id) = @_;
 
-    my $card = $c->model("DB::Card")->search({
-        id => $id
-    })->next;
+    my $card = $c->model("DB::Card")->find($id);
 
     if (!$card) {
         $c->go($c->controller("Root")->action_for("default"));
