@@ -1,30 +1,51 @@
 # Installation
 
-1. Dependencies
+## Dependencies
 
-    All required dependencies for PiMember are listed in the cpanfile. In order to
-    install these you can run
+All required dependencies for PiMember are listed in `Makefile.PL`. In order to
+install these you can run
 
-    ```
-        $ cpanm --installdeps .
-        ```
+```
+    $ perl Makefile.PL
+    $ make
+    $ make test
+    $ make install
+```
 
-2. Database initialization
+**Note:** To get the full Catalyst experience during the development process
+you should also install `Catalyst::Devel`. See the [docs](https://metacpan.org/pod/Catalyst::Devel)
+for more information.
 
-    PiMember uses a SQLite database to store its cards so make sure you have sqlite3
-    installed. If this is the case you can simply run
+## Database initialization
 
-    ```
-        $ script/create_db.sh
-    ```
+PiMember uses a SQLite database to store its cards so make sure you have sqlite3
+installed. If this is the case you can simply run
 
-    to generate a new SQLite database that contains all necessary tables for
-    PiMember to work.
+```
+    $ script/create_db.sh
+```
 
-3. Add some example cards (optional)
+to generate a new SQLite database that contains all necessary tables for
+PiMember to work.
 
-    To add some sample cards and categories type the following:
+## Create a user
 
-    ```
-        $ script/add_sample_data.sh
-    ```
+Use the provided `create_user.pl` script to create a user for the application:
+
+```
+    $ script/create_user.pl
+```
+
+## Add some example cards (optional)
+
+To add some sample cards type the following:
+
+```
+    $ script/add_sample_data.sh
+```
+
+## Start the server
+
+```
+    $ script/pimember_server.pl
+```
