@@ -106,26 +106,15 @@ sub edit : Chained("get_card_by_id") Args(0) {
     my ($self, $c) = @_;
 
     if ($c->req->method eq "POST") {
-        my $title     = $c->req->params->{title};
-        my $frontside = $c->req->params->{frontside};
-        my $backside  = $c->req->params->{backside};
-        my @tags      = split " ", $c->req->params->{tags};
-
-        $c->stash->{card}->update({
-            title     => $title,
-            frontside => $frontside,
-            backside  => $backside
-        });
-
-        $c->stash->{card}->cards_tags->delete;
-
-        if (@tags) {
-            @tags = map {
-                $c->model("DB::Tag")->find_or_create({ name => $_ });
-            } @tags;
-
-            $c->stash->{card}->set_tags(@tags);
-        }
+        $c->stash->{card} = $c->model("DB")->update_card(
+            $c->stash->{card},
+            {
+                title     => $c->req->params->{title},
+                frontside => $c->req->params->{frontside},
+                backside  => $c->req->params->{backside},
+                tags      => [ split " ", $c->req->params->{tags} ]
+            }
+        );
 
         my $status_msg = '"' . $c->stash->{card}->title . '" edited successfully!';
 
