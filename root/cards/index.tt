@@ -24,6 +24,10 @@
                         Due
                         <span class="grey">[% card.due.dmy('.') %]</span>
                     </div>
+                    <div class="created">
+                        Created
+                        <span class="grey">[% card.created.dmy('.') %]</span>
+                    </div>
                 </div>
                 <div class="row-2">
                     <div class="tags">

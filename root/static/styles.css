@@ -361,6 +361,10 @@ span.tag:after {
     flex: 2;
 }
 
+.cards-list-item .row-1 .created {
+    flex: 2;
+}
+
 .cards-list-item .row-2 {
     display: flex;
 }
@@ -374,7 +378,7 @@ span.tag:after {
 }
 
 .cards-list-item .row-2 .rating {
-    flex: 2;
+    flex: 4;
 }
 
 .cards-list-item .edit-link {
