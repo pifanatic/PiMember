@@ -64,6 +64,11 @@ __PACKAGE__->table("Cards");
   data_type: 'integer'
   is_nullable: 0
 
+=head2 created
+
+  data_type: 'datetime'
+  is_nullable: 0
+
 =head2 last_seen
 
   data_type: 'datetime'
@@ -97,6 +102,8 @@ __PACKAGE__->add_columns(
   { data_type => "text", is_nullable => 0 },
   "rating",
   { data_type => "integer", is_nullable => 0 },
+  "created",
+  { data_type => "datetime", is_nullable => 0 },
   "last_seen",
   { data_type => "datetime", is_nullable => 1 },
   "due",
@@ -137,8 +144,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07048 @ 2020-04-09 13:20:42
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:VT2hriUXZV9+XEpnKTLiXg
+# Created by DBIx::Class::Schema::Loader v0.07049 @ 2020-05-22 18:36:32
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:26nMl7sh1AndmybeuD1AIg
 
 =head1 ADDITIONAL ACCESSORS
 

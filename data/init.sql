@@ -18,6 +18,7 @@ CREATE TABLE 'Cards' (
     frontside               TEXT        NOT NULL,
     backside                TEXT        NOT NULL,
     rating                  INTEGER     NOT NULL,
+    created                 DATETIME    NOT NULL,
     last_seen               DATETIME,
     due                     DATE,
     correct_answers         INTEGER,
