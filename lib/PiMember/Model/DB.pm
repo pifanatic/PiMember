@@ -57,6 +57,7 @@ sub create_card {
         backside        => $args->{backside},
         title           => $args->{title},
         rating          => 0,
+        created         => DateTime->today->iso8601,
         due             => DateTime->today->iso8601,
         correct_answers => 0,
         wrong_answers   => 0,
