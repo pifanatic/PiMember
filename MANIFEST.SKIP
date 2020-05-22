@@ -1,0 +1,8 @@
+blib/
+.git/
+data/samples.sql
+.gitignore
+script/add_sample_data.sh
+MYMETA.json
+MYMETA.yml
+Makefile

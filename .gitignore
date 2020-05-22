@@ -12,3 +12,4 @@ script/create_user.sh
 PiMember-*.tar.gz
 data/samples.sql
 script/add_sample_data.sh
+MANIFEST
