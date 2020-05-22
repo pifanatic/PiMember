@@ -10,3 +10,5 @@ pm_to_blib
 data/create_user.sql
 script/create_user.sh
 PiMember-*.tar.gz
+data/samples.sql
+script/add_sample_data.sh

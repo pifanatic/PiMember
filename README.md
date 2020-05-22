@@ -36,14 +36,6 @@ Use the provided `create_user.pl` script to create a user for the application:
     $ script/create_user.pl
 ```
 
-## Add some example cards (optional)
-
-To add some sample cards type the following:
-
-```
-    $ script/add_sample_data.sh
-```
-
 ## Start the server
 
 ```
