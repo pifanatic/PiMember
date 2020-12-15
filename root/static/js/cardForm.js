@@ -1,6 +1,6 @@
 (function() {
     function setPreviewValue(previewEl, value) {
-        previewEl.innerHTML = value;
+        previewEl.innerText = value;
     }
 
     let frontInput = document.getElementById("front-input"),
