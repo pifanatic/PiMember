@@ -89,6 +89,12 @@ __PACKAGE__->table("Cards");
   data_type: 'integer'
   is_nullable: 1
 
+=head2 in_trash
+
+  data_type: 'integer'
+  default_value: 0
+  is_nullable: 0
+
 =cut
 
 __PACKAGE__->add_columns(
@@ -112,6 +118,8 @@ __PACKAGE__->add_columns(
   { data_type => "integer", is_nullable => 1 },
   "wrong_answers",
   { data_type => "integer", is_nullable => 1 },
+  "in_trash",
+  { data_type => "integer", default_value => 0, is_nullable => 0 },
 );
 
 =head1 PRIMARY KEY
@@ -144,8 +152,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07049 @ 2020-05-22 18:36:32
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:26nMl7sh1AndmybeuD1AIg
+# Created by DBIx::Class::Schema::Loader v0.07048 @ 2020-04-09 13:20:42
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:VT2hriUXZV9+XEpnKTLiXg
 
 =head1 ADDITIONAL ACCESSORS
 

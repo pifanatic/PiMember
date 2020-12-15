@@ -22,7 +22,8 @@ CREATE TABLE 'Cards' (
     last_seen               DATETIME,
     due                     DATE,
     correct_answers         INTEGER,
-    wrong_answers           INTEGER
+    wrong_answers           INTEGER,
+    in_trash                INTEGER     NOT NULL    DEFAULT 0
 );
 
 CREATE TABLE 'Tags' (
