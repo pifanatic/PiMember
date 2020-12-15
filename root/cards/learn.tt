@@ -7,13 +7,17 @@
 
     <div id="card" class="overlay card">
         <span class="front-text">
-            [% FILTER html %]
-                [% card.frontside %]
+            [% FILTER html_line_break %]
+                [% FILTER html %]
+                    [% card.frontside %]
+                [% END %]
             [% END %]
         </span>
         <span class="back-text">
-            [% FILTER html %]
-                [% card.backside %]
+            [% FILTER html_line_break %]
+                [% FILTER html %]
+                    [% card.backside %]
+                [% END %]
             [% END %]
         </span>
     </div>
