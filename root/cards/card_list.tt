@@ -1,0 +1,65 @@
+<div class="cards-list">
+    [% FOREACH card IN cards %]
+        <div class="cards-list-item overlay">
+            <div class="rows">
+                <div class="row-1">
+                    <div class="card-title">
+                        [% FILTER html %]
+                            [% card.title %]
+                        [% END %]
+                    </div>
+                    <div class="last-seen">
+                        Last seen
+                        <span class="grey">
+                            [% IF card.last_seen %]
+                                [% card.last_seen.dmy('.') %]
+                            [% ELSE %]
+                                Never
+                            [% END %]
+                        </span>
+                    </div>
+                    <div class="due">
+                        Due
+                        <span class="grey">[% card.due.dmy('.') %]</span>
+                    </div>
+                    <div class="created">
+                        Created
+                        <span class="grey">[% card.created.dmy('.') %]</span>
+                    </div>
+                </div>
+                <div class="row-2">
+                    <div class="tags">
+                        [% FOREACH tag IN card.tags %]
+                            <span class="tag">
+                                [% FILTER html %]
+                                    [% tag.name %]
+                                [% END %]
+                            </span>
+                        [% END %]
+                    </div>
+                    <div class="success-rate">
+                        Success rate
+                        <span class="grey">
+                            [% card.correct_answers %] of [% card.total_answers %]
+                            ([% card.success_rate %] %)
+                        </span>
+                    </div>
+                    <div class="rating">
+                        Rating
+                        <span class="grey">
+                            [% card.rating %]
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="action-links">
+                <a title="Edit card" href="[% c.uri_for(c.controller.action_for('edit'), [card.id]) %]">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <a title="Move to trash" href="[% c.uri_for(c.controller.action_for('movetotrash'), [card.id]) %]">
+                    <i class="fas fa-trash"></i>
+                </a>
+            </div>
+        </div>
+    [% END %]
+</div>
