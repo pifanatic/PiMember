@@ -25,7 +25,9 @@ The logout routine
 sub index : Path Args(0) {
     my ($self, $c) = @_;
 
+    $c->delete_session;
     $c->logout;
+
     $c->response->redirect(
         $c->uri_for($c->controller("Login")->action_for("index"))
     );
