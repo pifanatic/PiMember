@@ -216,6 +216,42 @@ sub movetotrash : Chained("get_card_by_id") Args(0) {
     );
 }
 
+=head2 restore
+
+Restores a card that had been moved to trash
+
+=cut
+
+sub restore : Chained("get_card_by_id") Args(0) {
+    my ($self, $c) = @_;
+
+    if ($c->stash->{card}->in_trash ne 1) {
+        my $error_msg = "Could not restore card!";
+
+        $c->response->redirect(
+            $c->uri_for(
+                $self->action_for("index"),
+                { mid => $c->set_error_msg($error_msg) }
+            )
+        );
+
+        $c->detach;
+    } else {
+        $c->stash->{card}->update({ in_trash => 0 });
+
+        $c->forward($self->action_for("update_queue"));
+
+        my $status_msg = "'" . $c->stash->{card}->title . "' has been restored";
+
+        $c->response->redirect(
+            $c->uri_for(
+                $c->controller("Trash")->action_for("index"),
+                { mid => $c->set_status_msg($status_msg) }
+            )
+        );
+    }
+}
+
 =head2
 
 Update the queue of cards that are due
