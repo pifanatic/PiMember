@@ -187,6 +187,29 @@ sub learn : Chained("get_card_by_id") Args(0) Does("UpdateQueue") {
     }
 }
 
+=head2 movetotrash
+
+Move a card to trash and return to the card list
+
+=cut
+
+sub movetotrash : Chained("get_card_by_id") Args(0) {
+    my ($self, $c) = @_;
+
+    $c->stash->{card}->update({
+        in_trash => 1
+    });
+
+    my $status_msg = '"' . $c->stash->{card}->title . '" has been deleted';
+
+    $c->response->redirect(
+        $c->uri_for(
+            $self->action_for("index"),
+            { mid => $c->set_status_msg($status_msg) }
+        )
+    );
+}
+
 __PACKAGE__->meta->make_immutable;
 
 1;
