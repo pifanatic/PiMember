@@ -42,7 +42,7 @@ POST creates a new card in the database with the given form-data.
 
 =cut
 
-sub add : Local Args(0) Does("UpdateQueue") {
+sub add : Local Args(0) {
     my ($self, $c) = @_;
 
     if ($c->req->method eq "POST") {
@@ -52,6 +52,8 @@ sub add : Local Args(0) Does("UpdateQueue") {
             title     => $c->req->params->{title},
             tags      => [split " ", $c->req->params->{tags} ]
         });
+
+        $c->forward($self->action_for("update_queue"));
 
         $c->response->redirect($c->uri_for(
             $c->controller->action_for("add"),
@@ -173,13 +175,15 @@ form-data value. Redirect to the next due card afterwards.
 
 =cut
 
-sub learn : Chained("get_card_by_id") Args(0) Does("UpdateQueue") {
+sub learn : Chained("get_card_by_id") Args(0) {
     my ($self, $c) = @_;
 
     if ($c->req->method eq "POST") {
         my $correct = $c->req->params->{correct};
 
         $c->stash->{card}->give_answer($correct);
+
+        $c->forward($self->action_for("update_queue"));
 
         $c->response->redirect(
             $c->uri_for($self->action_for("go_to_next_card"))
@@ -200,6 +204,8 @@ sub movetotrash : Chained("get_card_by_id") Args(0) {
         in_trash => 1
     });
 
+    $c->forward($self->action_for("update_queue"));
+
     my $status_msg = '"' . $c->stash->{card}->title . '" has been deleted';
 
     $c->response->redirect(
@@ -208,6 +214,25 @@ sub movetotrash : Chained("get_card_by_id") Args(0) {
             { mid => $c->set_status_msg($status_msg) }
         )
     );
+}
+
+=head2
+
+Update the queue of cards that are due
+
+=cut
+
+sub update_queue : Private {
+    my ($self, $c) = @_;
+
+    my @cards_to_learn = $c->model("DB::Card")->search({
+            due      => { "<=" => DateTime->now->iso8601 },
+            in_trash => 0
+        },
+        { order_by => { -asc => "last_seen" } }
+    );
+
+    $c->session->{queue} = \@cards_to_learn;
 }
 
 __PACKAGE__->meta->make_immutable;

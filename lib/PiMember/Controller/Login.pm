@@ -39,7 +39,7 @@ The login routine
 
 =cut
 
-sub index : Path Args(0) Does("UpdateQueue") {
+sub index : Path Args(0) {
     my ($self, $c) = @_;
 
     if ($c->req->method eq "POST") {
@@ -53,6 +53,8 @@ sub index : Path Args(0) Does("UpdateQueue") {
         if (!$c->authenticate({ username => $username, password => $password })) {
             return $c->stash({ error_msg => "Incorrect username or password." });
         }
+
+        $c->forward($c->controller("Cards")->action_for("update_queue"));
 
         $c->response->redirect(
             $c->uri_for($c->controller("Root")->action_for("index"))
