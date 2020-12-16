@@ -389,8 +389,12 @@ span.tag:after {
     align-items: center;
 }
 
-.cards-list-item .action-links a {
+.cards-list-item:hover .action-links a {
     color: #000080;
+}
+
+.cards-list-item .action-links a {
+    color: #ddd;
     margin-left: 15px;
 }
 
