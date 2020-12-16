@@ -384,7 +384,7 @@ span.tag:after {
 .cards-list-item .action-links {
     display: flex;
     flex: 1;
-    font-size: 20px;
+    font-size: 24px;
     justify-content: center;
     align-items: center;
 }
