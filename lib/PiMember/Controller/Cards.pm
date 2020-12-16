@@ -28,7 +28,7 @@ all cards.
 sub index : Path Args(0) {
     my ($self, $c) = @_;
 
-    my @cards = $c->model("DB::Card")->all;
+    my @cards = $c->model("DB::Card")->search({ in_trash => 0 });
 
     $c->stash({ cards => \@cards });
 }
