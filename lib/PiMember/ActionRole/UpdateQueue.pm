@@ -20,8 +20,10 @@ after "execute" => sub {
     my ($self, $controller, $c) = @_;
 
     if ($c->req->method eq "POST") {
-        my @cards_to_learn = $c->model("DB::Card")->search(
-            { due      => { "<=" => DateTime->now->iso8601 } },
+        my @cards_to_learn = $c->model("DB::Card")->search({
+                due      => { "<=" => DateTime->now->iso8601 },
+                in_trash => 0
+            },
             { order_by => { -asc => "last_seen" } }
         );
 
