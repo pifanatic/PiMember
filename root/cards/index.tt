@@ -54,9 +54,12 @@
                     </div>
                 </div>
             </div>
-            <div class="edit-link">
+            <div class="action-links">
                 <a title="Edit card" href="[% c.uri_for(c.controller.action_for('edit'), [card.id]) %]">
                     <i class="fas fa-edit"></i>
+                </a>
+                <a title="Move to trash" href="[% c.uri_for(c.controller.action_for('movetotrash'), [card.id]) %]">
+                    <i class="fas fa-trash"></i>
                 </a>
             </div>
         </div>

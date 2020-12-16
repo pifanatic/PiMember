@@ -381,7 +381,7 @@ span.tag:after {
     flex: 4;
 }
 
-.cards-list-item .edit-link {
+.cards-list-item .action-links {
     display: flex;
     flex: 1;
     font-size: 20px;
@@ -389,11 +389,12 @@ span.tag:after {
     align-items: center;
 }
 
-.cards-list-item .edit-link a {
+.cards-list-item .action-links a {
     color: #000080;
+    margin-left: 15px;
 }
 
-.cards-list-item .edit-link a:hover {
+.cards-list-item .action-links a:hover {
     transform: scale(1.05);
 }
 
