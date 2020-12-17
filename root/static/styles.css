@@ -345,6 +345,7 @@ span.tag {
 
 .cards-list-item .row-2 .tags {
     flex: 6;
+    display: flex;
 }
 
 .cards-list-item .row-2 .success-rate {
