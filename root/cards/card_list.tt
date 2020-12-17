@@ -65,6 +65,10 @@
                     <a title="Restore" href="[% c.uri_for(c.controller('Cards').action_for('restore'), [card.id]) %]">
                         <i class="fas fa-trash-restore"></i>
                     </a>
+
+                    <a title="Delete permanently" href="[% c.uri_for(c.controller('Cards').action_for('delete'), [card.id]) %]">
+                        <i class="fas fa-trash"></i>
+                    </a>
                 [% END %]
             </div>
         </div>
