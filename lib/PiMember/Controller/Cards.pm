@@ -206,7 +206,7 @@ sub movetotrash : Chained("get_card_by_id") Args(0) {
 
     $c->forward($self->action_for("update_queue"));
 
-    my $status_msg = '"' . $c->stash->{card}->title . '" has been deleted';
+    my $status_msg = '"' . $c->stash->{card}->title . '" has been moved to trash';
 
     $c->response->redirect(
         $c->uri_for(
