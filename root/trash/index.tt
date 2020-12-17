@@ -1,3 +1,7 @@
 <h1><i class="fas fa-trash"></i> Trash</h1>
 
-[% INCLUDE cards/card_list.tt %]
+[% IF cards.size > 0 %]
+    [% INCLUDE cards/card_list.tt %]
+[% ELSE %]
+    <div class="empty-list">Trash is empty</div>
+[% END %]

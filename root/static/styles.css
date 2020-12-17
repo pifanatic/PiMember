@@ -381,6 +381,14 @@ span.tag {
     color: #777;
 }
 
+.empty-list {
+    display: flex;
+    justify-content: center;
+    margin-top: 300px;
+    color: #777;
+    font-size: 25px;
+}
+
 /* Cards - add */
 form#cardForm {
     width: 80%;

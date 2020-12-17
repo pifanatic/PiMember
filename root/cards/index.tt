@@ -1,3 +1,7 @@
 <h1>Card list ([% cards.size %])</h1>
 
-[% INCLUDE cards/card_list.tt %]
+[% IF cards.size > 0 %]
+    [% INCLUDE cards/card_list.tt %]
+[% ELSE %]
+    <div class="empty-list">No cards found</div>
+[% END %]
