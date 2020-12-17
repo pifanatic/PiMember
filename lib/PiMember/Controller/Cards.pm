@@ -252,6 +252,29 @@ sub restore : Chained("get_card_by_id") Args(0) {
     }
 }
 
+=head2 delete
+
+Delete a card permanently
+
+=cut
+
+sub delete : Chained("get_card_by_id") Args(0) {
+    my ($self, $c) = @_;
+
+    $c->stash->{card}->delete;
+
+    $c->forward($self->action_for("update_queue"));
+
+    my $status_msg = "'" . $c->stash->{card}->title . "' has been deleted";
+
+    $c->response->redirect(
+        $c->uri_for(
+            $c->controller("Trash")->action_for("index"),
+            { mid => $c->set_status_msg($status_msg) }
+        )
+    );
+}
+
 =head2
 
 Update the queue of cards that are due
