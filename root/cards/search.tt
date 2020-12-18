@@ -1,4 +1,10 @@
-<h1>Search results for "[% query %]"</h1>
+<h1>Search result</h1>
+
+<div class="sub-header">
+    <span>[% cards.size %] cards found for "[% query %]"</span>
+
+    [% INCLUDE cards/search_form.tt %]
+</div>
 
 [% IF cards.size > 0 %]
     [% INCLUDE cards/card_list.tt %]
