@@ -1,4 +1,8 @@
-<h1><i class="fas fa-trash"></i> Trash</h1>
+<div class="sub-header">
+    <span></span>
+    <div class="sub-header-title"><i class="fas fa-trash"></i> Trash</div>
+    <span></span>
+</div>
 
 [% IF cards.size > 0 %]
     [% INCLUDE cards/card_list.tt %]

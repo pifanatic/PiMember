@@ -1,7 +1,7 @@
-<h1>Search result</h1>
-
 <div class="sub-header">
     <span>[% cards.size %] cards found for "[% query %]"</span>
+
+    <div class="sub-header-title">Search result</div>
 
     [% INCLUDE cards/search_form.tt %]
 </div>

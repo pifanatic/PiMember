@@ -1,7 +1,7 @@
-<h1>Cards</h1>
-
 <div class="sub-header">
     [% cards.size %] cards total
+
+    <div class="sub-header-title">Cards</div>
 
     [% INCLUDE cards/search_form.tt %]
 </div>

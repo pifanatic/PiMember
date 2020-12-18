@@ -386,13 +386,18 @@ span.tag {
     justify-content: space-between;
     align-items: center;
 
+    color: #777;
     font-size: 18px;
 
-    margin: 0 50px;
+    margin: 20px 50px;
     padding: 10px 5px;
 
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
+}
+
+.sub-header-title {
+    font-size: 30px;
 }
 
 .empty-list {
@@ -594,7 +599,6 @@ form#cardForm {
 }
 
 .search-form .search-icon {
-    color: #777;
     font-size: 24px;
     margin-right: 10px;
 }
