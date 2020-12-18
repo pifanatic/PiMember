@@ -1,5 +1,11 @@
 <h1>Card list ([% cards.size %])</h1>
 
+<div class="sub-header">
+    [% cards.size %] cards total
+
+    [% INCLUDE cards/search_form.tt %]
+</div>
+
 [% IF cards.size > 0 %]
     [% INCLUDE cards/card_list.tt %]
 [% ELSE %]

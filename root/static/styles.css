@@ -381,6 +381,20 @@ span.tag {
     color: #777;
 }
 
+.sub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 18px;
+
+    margin: 0 50px;
+    padding: 10px 5px;
+
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+}
+
 .empty-list {
     display: flex;
     justify-content: center;
