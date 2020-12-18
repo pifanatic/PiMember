@@ -327,6 +327,8 @@ span.tag {
 .cards-list-item .cell {
     padding: 5px 10px;
     flex: 1;
+    flex-wrap: wrap;
+
     text-align: center;
 }
 
