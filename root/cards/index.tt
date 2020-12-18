@@ -1,4 +1,4 @@
-<h1>Card list ([% cards.size %])</h1>
+<h1>Cards</h1>
 
 <div class="sub-header">
     [% cards.size %] cards total
