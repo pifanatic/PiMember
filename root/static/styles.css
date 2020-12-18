@@ -221,9 +221,9 @@ span.tag {
     box-shadow: 4px 4px 5px 0px #aaa;
     background-color: white;
 
-    animation-duration: 0.75s, 1.5s;
-    animation-name: slidein, fadeout;
-    animation-delay: 0s, 4s;
+    animation-duration: 0.75s, 1.5s, 0s;
+    animation-name: slidein, fadeout, slideout;
+    animation-delay: 0s, 4s, 5.5s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
 }
@@ -258,6 +258,11 @@ span.tag {
 @keyframes fadeout {
     from { opacity: 1; }
     to   { opacity: 0; }
+}
+
+@keyframes slideout {
+    from { transform: translateX(-400px); }
+    to   { transform: translateX(0px); }
 }
 
 /* Home */
