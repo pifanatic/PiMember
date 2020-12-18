@@ -1,5 +1,5 @@
 <div class="sub-header">
-    <span></span>
+    <span>[% cards.size %] cards total</span>
     <div class="sub-header-title"><i class="fas fa-trash"></i> Trash</div>
     <span></span>
 </div>
