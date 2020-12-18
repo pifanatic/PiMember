@@ -1,0 +1,6 @@
+<div class="search-form">
+    <span class="fas fa-search search-icon"></span>
+    <form action="[% c.uri_for(c.controller('Cards').action_for('search')) %]">
+        <input name="q" placeholder="Search for cards..." required/>
+    </form>
+</div>
