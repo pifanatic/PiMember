@@ -275,7 +275,7 @@ sub delete : Chained("get_card_by_id") Args(0) {
     );
 }
 
-=head2
+=head2 update_queue
 
 Update the queue of cards that are due
 
