@@ -191,6 +191,34 @@ sub learn : Chained("get_card_by_id") Args(0) {
     }
 }
 
+=head2 search
+
+Search for cards whose title/frontside/backside matches a given query string
+
+=cut
+
+sub search : Local Args(0) {
+    my ($self, $c) = @_;
+
+    my @cards;
+    my $query = $c->req->query_parameters->{q};
+
+    if ($query) {
+        @cards = $c->model("DB::Card")->search({
+            -or => {
+                title     => { "like" => "%$query%" },
+                frontside => { "like" => "%$query%" },
+                backside  => { "like" => "%$query%" },
+            }
+        });
+    }
+
+    $c->stash({
+        query => $query,
+        cards => \@cards
+    });
+}
+
 =head2 movetotrash
 
 Move a card to trash and return to the card list

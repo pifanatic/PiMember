@@ -1,0 +1,7 @@
+<h1>Search results for "[% query %]"</h1>
+
+[% IF cards.size > 0 %]
+    [% INCLUDE cards/card_list.tt %]
+[% ELSE %]
+    <div class="empty-list">No cards found</div>
+[% END %]
