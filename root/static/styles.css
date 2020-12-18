@@ -71,7 +71,6 @@ a {
 }
 
 span.tag {
-    margin-right: 12px;
     padding: 2px 5px;
 
     background-color: #ffe5c4;
@@ -335,6 +334,10 @@ span.tag {
     display: flex;
     font-size: 12px;
     justify-content: center;
+}
+
+.cards-list-item .card-tags .tag:not(:last-child) {
+    margin-right: 6px;
 }
 
 .cards-list-item .action-links {
