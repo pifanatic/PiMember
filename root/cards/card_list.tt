@@ -1,4 +1,11 @@
 <div class="cards-list">
+    <div class="cards-list-item cards-list-header">
+        <div class="cell">Title</div>
+        <div class="cell">Frontside</div>
+        <div class="cell">Backside</div>
+        <div class="cell">Tags</div>
+        <div class="cell">Actions</div>
+    </div>
     [% FOREACH card IN cards %]
         <div class="cards-list-item">
             <div class="cell">
