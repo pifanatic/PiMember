@@ -1,4 +1,6 @@
-<h1>Tags</h1>
+<div class="sub-header">
+    <div class="sub-header-title"><i class="fas fa-tag"></i> Tags</div>
+</div>
 
 <div class="list">
     <div class="list-item list-header">
