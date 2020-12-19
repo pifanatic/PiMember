@@ -373,7 +373,6 @@ span.tag {
 
 .sub-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 
     color: #777;
@@ -386,8 +385,13 @@ span.tag {
     border-bottom: 1px solid #aaa;
 }
 
+.sub-header > * {
+    flex: 1;
+}
+
 .sub-header-title {
     font-size: 30px;
+    text-align: center;
 }
 
 .empty-list {
