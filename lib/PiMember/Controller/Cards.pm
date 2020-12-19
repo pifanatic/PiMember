@@ -209,7 +209,8 @@ sub search : Local Args(0) {
                 title     => { "like" => "%$query%" },
                 frontside => { "like" => "%$query%" },
                 backside  => { "like" => "%$query%" },
-            }
+            },
+            in_trash => 0
         });
     }
 
