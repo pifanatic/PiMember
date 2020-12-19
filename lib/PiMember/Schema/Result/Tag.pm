@@ -112,6 +112,27 @@ sub _build_card_count {
     return $self->cards->count;
 }
 
+=head2 due_cards
+
+Cards with this tag that are due
+
+=cut
+
+has due_cards => (
+    is      => "ro",
+    isa     => "ArrayRef[PiMember::Schema::Result::Card]",
+    lazy    => 1,
+    builder => "_build_due_cards"
+);
+
+sub _build_due_cards {
+    my ($self) = @_;
+
+    my @due_cards = grep { $_->is_due } $self->cards;
+
+    return \@due_cards;
+}
+
 
 __PACKAGE__->many_to_many("cards", "cards_tags", "card");
 
