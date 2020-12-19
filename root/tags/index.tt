@@ -1,14 +1,22 @@
 <h1>Tags</h1>
 
-<div class="tag-list overlay">
+<div class="cards-list">
+    <div class="cards-list-item cards-list-header">
+        <div class="cell">Tag</div>
+        <div class="cell">Count</div>
+    </div>
     [% FOREACH tag IN tags.nsort("card_count").reverse %]
-        <p>
-            <span class="tag">
-                [% FILTER html %]
-                    [% tag.name %]
-                [% END %]
-            </span>
-            ([% tag.card_count %]x)
-        </p>
+        <div class="cards-list-item">
+            <div class="cell">
+                <span class="tag">
+                    [% FILTER html %]
+                        [% tag.name %]
+                    [% END %]
+                </span>
+            </div>
+            <div class="cell">
+                [% tag.card_count %]
+            </div>
+        </div>
     [% END %]
 </div>
