@@ -360,6 +360,9 @@ span.tag {
 
 .list-item .action-links a {
     color: #ddd;
+}
+
+.list-item .action-links a:not(:first-child) {
     margin-left: 15px;
 }
 
