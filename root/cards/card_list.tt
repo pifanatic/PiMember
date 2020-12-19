@@ -6,6 +6,16 @@
                     [% card.title %]
                 [% END %]
             </div>
+            <div class="cell">
+                [% FILTER html %]
+                    [% card.frontside %]
+                [% END %]
+            </div>
+            <div class="cell">
+                [% FILTER html %]
+                    [% card.backside %]
+                [% END %]
+            </div>
             <div class="cell tags">
                 [% FOREACH tag IN card.tags %]
                     <span class="tag">
