@@ -198,6 +198,25 @@ sub _build_total_answers {
     return $self->correct_answers + $self->wrong_answers;
 }
 
+=head2 is_due
+
+Is this card due?
+
+=cut
+
+has is_due => (
+    is      => "ro",
+    isa     => "Bool",
+    lazy    => 1,
+    builder => "_build_is_due"
+);
+
+sub _build_is_due {
+    my ($self) = @_;
+
+    return DateTime->compare($self->due, DateTime->now) eq -1;
+}
+
 
 =head1 METHODS
 
