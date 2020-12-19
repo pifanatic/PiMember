@@ -6,6 +6,7 @@
     <div class="list-item list-header">
         <div class="cell">Tag</div>
         <div class="cell">Count</div>
+        <div class="cell">Due</div>
     </div>
     [% FOREACH tag IN tags.nsort("card_count").reverse %]
         <div class="list-item">
@@ -18,6 +19,9 @@
             </div>
             <div class="cell">
                 [% tag.card_count %]
+            </div>
+            <div class="cell">
+                [% tag.due_cards.size %]
             </div>
         </div>
     [% END %]
