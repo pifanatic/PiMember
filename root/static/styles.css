@@ -316,9 +316,13 @@ span.tag {
 .cards-list-item {
     display: flex;
     align-items: center;
+    font-size: 14px;
 
-    padding: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 4px;
+
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
 }
 
 .cards-list-item .cell {
@@ -329,12 +333,13 @@ span.tag {
 
 .cards-list-item .tags {
     display: flex;
+    font-size: 12px;
     justify-content: center;
 }
 
 .cards-list-item .action-links {
     display: flex;
-    font-size: 24px;
+    font-size: 18px;
     justify-content: center;
 }
 

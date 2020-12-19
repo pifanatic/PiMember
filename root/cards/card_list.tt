@@ -1,6 +1,6 @@
 <div class="cards-list">
     [% FOREACH card IN cards %]
-        <div class="cards-list-item overlay">
+        <div class="cards-list-item">
             <div class="cell">
                 [% FILTER html %]
                     [% card.title %]
