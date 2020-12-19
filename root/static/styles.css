@@ -332,18 +332,6 @@ span.tag {
     flex: 6;
 }
 
-.cards-list-item .row-1 .last-seen {
-    flex: 2;
-}
-
-.cards-list-item .row-1 .due {
-    flex: 2;
-}
-
-.cards-list-item .row-1 .created {
-    flex: 2;
-}
-
 .cards-list-item .row-2 {
     display: flex;
 }
@@ -351,14 +339,6 @@ span.tag {
 .cards-list-item .row-2 .tags {
     flex: 6;
     display: flex;
-}
-
-.cards-list-item .row-2 .success-rate {
-    flex: 2;
-}
-
-.cards-list-item .row-2 .rating {
-    flex: 4;
 }
 
 .cards-list-item .action-links {

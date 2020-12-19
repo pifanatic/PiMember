@@ -8,24 +8,6 @@
                             [% card.title %]
                         [% END %]
                     </div>
-                    <div class="last-seen">
-                        Last seen
-                        <span class="grey">
-                            [% IF card.last_seen %]
-                                [% card.last_seen.dmy('.') %]
-                            [% ELSE %]
-                                Never
-                            [% END %]
-                        </span>
-                    </div>
-                    <div class="due">
-                        Due
-                        <span class="grey">[% card.due.dmy('.') %]</span>
-                    </div>
-                    <div class="created">
-                        Created
-                        <span class="grey">[% card.created.dmy('.') %]</span>
-                    </div>
                 </div>
                 <div class="row-2">
                     <div class="tags">
@@ -36,19 +18,6 @@
                                 [% END %]
                             </span>
                         [% END %]
-                    </div>
-                    <div class="success-rate">
-                        Success rate
-                        <span class="grey">
-                            [% card.correct_answers %] of [% card.total_answers %]
-                            ([% card.success_rate %] %)
-                        </span>
-                    </div>
-                    <div class="rating">
-                        Rating
-                        <span class="grey">
-                            [% card.rating %]
-                        </span>
                     </div>
                 </div>
             </div>
