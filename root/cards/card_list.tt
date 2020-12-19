@@ -1,27 +1,21 @@
 <div class="cards-list">
     [% FOREACH card IN cards %]
         <div class="cards-list-item overlay">
-            <div class="rows">
-                <div class="row-1">
-                    <div class="card-title">
-                        [% FILTER html %]
-                            [% card.title %]
-                        [% END %]
-                    </div>
-                </div>
-                <div class="row-2">
-                    <div class="tags">
-                        [% FOREACH tag IN card.tags %]
-                            <span class="tag">
-                                [% FILTER html %]
-                                    [% tag.name %]
-                                [% END %]
-                            </span>
-                        [% END %]
-                    </div>
-                </div>
+            <div class="cell">
+                [% FILTER html %]
+                    [% card.title %]
+                [% END %]
             </div>
-            <div class="action-links">
+            <div class="cell tags">
+                [% FOREACH tag IN card.tags %]
+                    <span class="tag">
+                        [% FILTER html %]
+                            [% tag.name %]
+                        [% END %]
+                    </span>
+                [% END %]
+            </div>
+            <div class="cell action-links">
                 [% IF card.in_trash == 0 %]
                     <a title="Edit card" href="[% c.uri_for(c.controller('Cards').action_for('edit'), [card.id]) %]">
                         <i class="fas fa-edit"></i>
