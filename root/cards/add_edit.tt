@@ -1,8 +1,10 @@
-<h1>
-    [% FILTER html %]
-        [% title %]
-    [% END %]
-</h1>
+<div class="sub-header">
+    <div class="sub-header-title">
+        [% FILTER html %]
+            [% title %]
+        [% END %]
+    </div>
+</div>
 
 <form id="cardForm" class="overlay" method="post">
     <div class="title-row">
