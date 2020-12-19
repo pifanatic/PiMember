@@ -307,12 +307,12 @@ span.tag {
 }
 
 /* Cards */
-.cards-list {
+.list {
     width: 90%;
     margin: 15px auto;
 }
 
-.cards-list-item {
+.list-item {
     display: flex;
     align-items: center;
     font-size: 14px;
@@ -324,13 +324,13 @@ span.tag {
     border-radius: 10px;
 }
 
-.cards-list-item.cards-list-header {
+.list-item.list-header {
     font-size: 16px;
     background-color: #ddd;
     border: 1px solid #111;
 }
 
-.cards-list-item .cell {
+.list-item .cell {
     padding: 5px 10px;
     flex: 1;
     flex-wrap: wrap;
@@ -338,36 +338,36 @@ span.tag {
     text-align: center;
 }
 
-.cards-list-item .tags {
+.list-item .tags {
     display: flex;
     font-size: 12px;
     justify-content: center;
 }
 
-.cards-list-item .card-tags .tag:not(:last-child) {
+.list-item .card-tags .tag:not(:last-child) {
     margin-right: 6px;
 }
 
-.cards-list-item .action-links {
+.list-item .action-links {
     display: flex;
     font-size: 18px;
     justify-content: center;
 }
 
-.cards-list-item:hover .action-links a {
+.list-item:hover .action-links a {
     color: #000080;
 }
 
-.cards-list-item .action-links a {
+.list-item .action-links a {
     color: #ddd;
     margin-left: 15px;
 }
 
-.cards-list-item .action-links a:hover {
+.list-item .action-links a:hover {
     transform: scale(1.05);
 }
 
-.cards-list-item .grey {
+.list-item .grey {
     color: #777;
 }
 

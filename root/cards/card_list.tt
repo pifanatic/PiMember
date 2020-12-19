@@ -1,5 +1,5 @@
-<div class="cards-list">
-    <div class="cards-list-item cards-list-header">
+<div class="list">
+    <div class="list-item list-header">
         <div class="cell">Title</div>
         <div class="cell">Frontside</div>
         <div class="cell">Backside</div>
@@ -7,7 +7,7 @@
         <div class="cell">Actions</div>
     </div>
     [% FOREACH card IN cards %]
-        <div class="cards-list-item">
+        <div class="list-item">
             <div class="cell">
                 [% FILTER html %]
                     [% card.title %]
