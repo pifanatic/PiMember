@@ -21,7 +21,10 @@
         [% END %]
         <div class="title">
             <i class="fas fa-cogs"></i>
-            <span class="app-title">PiMember</span>
+            <a class="app-title"
+               href="[% c.uri_for(c.controller('Root').action_for('index')) %]">
+               PiMember
+            </a>
             <i class="fas fa-cogs"></i>
         </div>
         [% IF c.user_exists %]
