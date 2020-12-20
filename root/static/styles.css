@@ -340,7 +340,7 @@ span.tag {
     justify-content: center;
 }
 
-.list-item .card-tags .tag:not(:last-child) {
+.list-item .tags .tag:not(:last-child) {
     margin-right: 6px;
 }
 
