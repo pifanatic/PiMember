@@ -120,6 +120,8 @@ sub edit : Chained("get_card_by_id") Args(0) {
 
         my $status_msg = '"' . $c->stash->{card}->title . '" edited successfully!';
 
+        $c->forward($c->controller("Tags")->action_for("remove_unused_tags"));
+
         $c->response->redirect(
             $c->uri_for(
                 $c->controller->action_for("edit"),
@@ -293,6 +295,8 @@ sub delete : Chained("get_card_by_id") Args(0) {
     $c->stash->{card}->delete;
 
     $c->forward($self->action_for("update_queue"));
+
+    $c->forward($c->controller("Tags")->action_for("remove_unused_tags"));
 
     my $status_msg = "'" . $c->stash->{card}->title . "' has been deleted";
 
