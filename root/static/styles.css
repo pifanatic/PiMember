@@ -123,10 +123,6 @@ span.tag {
     color: white;
 }
 
-#header .menu-right:hover {
-    transform: scale(1.05);
-}
-
 #header .menu-right .fa-sign-out-alt {
     margin-left: 10px;
     font-size: 20px;
