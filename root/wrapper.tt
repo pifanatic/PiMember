@@ -29,6 +29,8 @@
         </div>
         [% IF c.user_exists %]
             <div class="menu-right">
+                [% INCLUDE cards/search_form.tt %]
+
                 <a href="[% c.uri_for(c.controller('Logout').action_for('index')) %]">
                     Logout<i class="fas fa-sign-out-alt"></i>
                 </a>

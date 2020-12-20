@@ -117,6 +117,10 @@ span.tag {
     color: white;
 }
 
+#header .menu-right .search-form {
+    margin-right: 100px;
+}
+
 #header .menu-right a {
     display: flex;
     align-items: center;
