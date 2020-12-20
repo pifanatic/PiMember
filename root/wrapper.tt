@@ -40,11 +40,6 @@
         [% IF c.user_exists %]
             <div class="main-menu-wrapper">
                 <div class="main-menu overlay">
-                    <a class="menu-item" href="[% c.uri_for(c.controller('Root').action_for('index')) %]">
-                        <i class="fas fa-home fa-fw"></i>
-                        Home
-                    </a>
-
                     <a class="menu-item" href="[% c.uri_for(c.controller('Cards').action_for('index')) %]">
                         <i class="fas fa-list fa-fw"></i>
                         Card list
