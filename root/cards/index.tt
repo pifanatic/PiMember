@@ -3,7 +3,7 @@
 
     <div class="sub-header-title">Cards</div>
 
-    [% INCLUDE cards/search_form.tt %]
+    <span></span>
 </div>
 
 [% IF cards.size > 0 %]

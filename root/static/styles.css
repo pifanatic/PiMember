@@ -396,10 +396,6 @@ span.tag {
     text-align: center;
 }
 
-.sub-header .search-form {
-    justify-content: flex-end;
-}
-
 .empty-list {
     display: flex;
     justify-content: center;
