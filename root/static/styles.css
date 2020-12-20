@@ -81,22 +81,30 @@ span.tag {
 }
 
 #header {
+    display: flex;
+    align-items: center;
     height: 60px;
+    padding: 0 40px;
 
     font-size: 30px;
-    text-align: center;
-    line-height: 60px;
 
     background-color: #000080;
     color: white;
 }
 
-#header .menu-left {
-    position: absolute;
-    left: 40px;
-    top: 0px;
-
+#header .menu-left, .menu-right {
+    display: flex;
+    flex: 1;
     font-size: 18px;
+}
+
+#header .title {
+    flex: 1;
+    text-align: center;
+}
+
+#header .menu-right {
+    justify-content: flex-end;
 }
 
 #header .menu-left .fa-user {
@@ -109,15 +117,9 @@ span.tag {
     color: white;
 }
 
-#header .menu-right {
-    position: absolute;
-    right: 40px;
-    top: 0px;
-
-    font-size: 18px;
-}
-
 #header .menu-right a {
+    display: flex;
+    align-items: center;
     color: white;
 }
 
