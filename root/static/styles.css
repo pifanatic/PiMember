@@ -396,6 +396,11 @@ span.tag {
     text-align: center;
 }
 
+.sub-header-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .empty-list {
     display: flex;
     justify-content: center;

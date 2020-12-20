@@ -3,7 +3,13 @@
 
     <div class="sub-header-title">Cards</div>
 
-    <span></span>
+    <div class="sub-header-right">
+        <a class="btn btn-primary"
+           href="[% c.uri_for(c.controller('Cards').action_for('add')) %]">
+           <span class="fas fa-plus"></span>
+           Create card
+        </a>
+    </div>
 </div>
 
 [% IF cards.size > 0 %]

@@ -47,11 +47,6 @@
                         Card list
                     </a>
 
-                    <a class="menu-item" href="[% c.uri_for(c.controller('Cards').action_for('add')) %]">
-                        <i class="fas fa-plus-square fa-fw"></i>
-                        Add a new card
-                    </a>
-
                     <a class="menu-item" href="[% c.uri_for(c.controller('Tags').action_for('index')) %]">
                         <i class="fas fa-tag fa-fw"></i>
                         Tags
