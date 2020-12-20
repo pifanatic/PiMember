@@ -4,27 +4,31 @@
     <span></span>
 </div>
 
-<div class="list">
-    <div class="list-item list-header">
-        <div class="cell">Tag</div>
-        <div class="cell">Count</div>
-        <div class="cell">Due</div>
-    </div>
-    [% FOREACH tag IN tags.nsort("card_count").reverse %]
-        <div class="list-item">
-            <div class="cell">
-                <span class="tag">
-                    [% FILTER html %]
-                        [% tag.name %]
-                    [% END %]
-                </span>
-            </div>
-            <div class="cell">
-                [% tag.card_count %]
-            </div>
-            <div class="cell">
-                [% tag.due_cards.size %]
-            </div>
+[% IF tags.size > 0 %]
+    <div class="list">
+        <div class="list-item list-header">
+            <div class="cell">Tag</div>
+            <div class="cell">Count</div>
+            <div class="cell">Due</div>
         </div>
-    [% END %]
-</div>
+        [% FOREACH tag IN tags.nsort("card_count").reverse %]
+            <div class="list-item">
+                <div class="cell">
+                    <span class="tag">
+                        [% FILTER html %]
+                            [% tag.name %]
+                        [% END %]
+                    </span>
+                </div>
+                <div class="cell">
+                    [% tag.card_count %]
+                </div>
+                <div class="cell">
+                    [% tag.due_cards.size %]
+                </div>
+            </div>
+        [% END %]
+    </div>
+[% ELSE %]
+    <div class="empty-list">No tags found</div>
+[% END %]
