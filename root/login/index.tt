@@ -1,4 +1,6 @@
-<h1 class="login-title">Sign in to PiMember</h1>
+<div class="sub-header">
+    <div class="sub-header-title">Sign in to PiMember</div>
+</div>
 
 <div class="login-wrapper overlay">
     <form method="post">
