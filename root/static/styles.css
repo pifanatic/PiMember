@@ -151,6 +151,14 @@ span.tag {
     background-color: #0080ff;
 }
 
+#header .header-item-learn {
+    background-color: limegreen;
+}
+
+#header .header-item-learn:hover {
+    background-color: lightgreen;
+}
+
 .content {
     height: calc(100vh - 60px);
     overflow-y: auto;

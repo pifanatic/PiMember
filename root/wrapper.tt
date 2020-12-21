@@ -31,7 +31,8 @@
                     <i class="fas fa-trash-alt fa-fw"></i>
                     Trash
                 </a>
-                <a class="header-item" href="[% c.uri_for(c.controller('Cards').action_for('go_to_next_card')) %]">
+                <a class="header-item header-item-learn"
+                   href="[% c.uri_for(c.controller('Cards').action_for('go_to_next_card')) %]">
                     <i class="fas fa-graduation-cap fa-fw"></i>
                     Learn ([% c.session.queue.size %])
                 </a>
