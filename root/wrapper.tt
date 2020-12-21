@@ -28,7 +28,7 @@
                     Tags
                 </a>
                 <a class="header-item" href="[% c.uri_for(c.controller('Trash').action_for('index')) %]">
-                    <i class="fas fa-trash fa-fw"></i>
+                    <i class="fas fa-trash-alt fa-fw"></i>
                     Trash
                 </a>
             </div>
