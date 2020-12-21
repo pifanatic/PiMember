@@ -94,6 +94,7 @@ span.tag {
 
 #header .header-left, .header-right {
     display: flex;
+    align-items: center;
     flex: 1;
     font-size: 18px;
 }
@@ -110,6 +111,10 @@ span.tag {
 #header .header-left .fa-user {
     margin-right: 5px;
     font-size: 20px;
+}
+
+#header .header-left .username {
+    margin-right: 40px;
 }
 
 #header .app-title {
@@ -130,6 +135,20 @@ span.tag {
 #header .header-right .fa-sign-out-alt {
     margin-left: 10px;
     font-size: 20px;
+}
+
+#header .header-item {
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+#header .header-item:not(:last-child) {
+    margin-right: 5px;
+}
+
+#header .header-item:hover {
+    background-color: #0080ff;
 }
 
 .content-all {
