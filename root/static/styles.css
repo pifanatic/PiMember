@@ -151,13 +151,8 @@ span.tag {
     background-color: #0080ff;
 }
 
-.content-all {
-    display: flex;
-    height: calc(100vh - 60px);
-}
-
 .content {
-    flex: 9;
+    height: calc(100vh - 60px);
     overflow-y: auto;
 }
 

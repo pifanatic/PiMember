@@ -56,11 +56,10 @@
         [% END %]
     </div>
 
-    <div class="content-all">
-        <div class="content">
-            [% content %]
-        </div>
+    <div class="content">
+        [% content %]
     </div>
+
     [% IF error_msg %]
         <div class="notification error">
             <div class="notification-icon">
