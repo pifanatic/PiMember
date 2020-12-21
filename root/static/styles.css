@@ -153,10 +153,24 @@ span.tag {
 
 #header .header-item-learn {
     background-color: limegreen;
+    display: flex;
+    align-items: center;
 }
 
 #header .header-item-learn:hover {
     background-color: lightgreen;
+}
+
+#header .header-item-learn .header-item-learn-label {
+    margin: 0 7px;
+}
+
+#header .header-item-learn .queue-size {
+    background-color: white;
+    color: limegreen;
+    border-radius: 10px;
+    padding: 0px 5px;
+    font-size: 12px;
 }
 
 .content {
