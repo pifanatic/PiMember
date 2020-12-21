@@ -92,22 +92,22 @@ span.tag {
     color: white;
 }
 
-#header .menu-left, .menu-right {
+#header .header-left, .header-right {
     display: flex;
     flex: 1;
     font-size: 18px;
 }
 
-#header .title {
+#header .header-center {
     flex: 1;
     text-align: center;
 }
 
-#header .menu-right {
+#header .header-right {
     justify-content: flex-end;
 }
 
-#header .menu-left .fa-user {
+#header .header-left .fa-user {
     margin-right: 10px;
     font-size: 20px;
 }
@@ -117,17 +117,17 @@ span.tag {
     color: white;
 }
 
-#header .menu-right .search-form {
+#header .header-right .search-form {
     margin-right: 100px;
 }
 
-#header .menu-right a {
+#header .header-right a {
     display: flex;
     align-items: center;
     color: white;
 }
 
-#header .menu-right .fa-sign-out-alt {
+#header .header-right .fa-sign-out-alt {
     margin-left: 10px;
     font-size: 20px;
 }

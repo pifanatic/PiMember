@@ -11,7 +11,7 @@
 <body>
     <div id="header">
         [% IF c.user_exists %]
-            <div class="menu-left">
+            <div class="header-left">
                 <i class="fas fa-user"></i>
                 Hello,
                 [% FILTER html %]
@@ -19,7 +19,7 @@
                 [% END %]
             </div>
         [% END %]
-        <div class="title">
+        <div class="header-center">
             <i class="fas fa-cogs"></i>
             <a class="app-title"
                href="[% c.uri_for(c.controller('Root').action_for('index')) %]">
@@ -28,7 +28,7 @@
             <i class="fas fa-cogs"></i>
         </div>
         [% IF c.user_exists %]
-            <div class="menu-right">
+            <div class="header-right">
                 [% INCLUDE cards/search_form.tt %]
 
                 <a href="[% c.uri_for(c.controller('Logout').action_for('index')) %]">
