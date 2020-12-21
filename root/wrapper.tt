@@ -24,7 +24,7 @@
                     Cards
                 </a>
                 <a class="header-item" href="[% c.uri_for(c.controller('Tags').action_for('index')) %]">
-                    <i class="fas fa-tag fa-fw"></i>
+                    <i class="fas fa-tags fa-fw"></i>
                     Tags
                 </a>
             </div>
