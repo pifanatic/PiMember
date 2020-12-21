@@ -23,6 +23,10 @@
                     <i class="far fa-clone fa-fw"></i>
                     Cards
                 </a>
+                <a class="header-item" href="[% c.uri_for(c.controller('Tags').action_for('index')) %]">
+                    <i class="fas fa-tag fa-fw"></i>
+                    Tags
+                </a>
             </div>
         [% END %]
         <div class="header-center">
@@ -48,11 +52,6 @@
         [% IF c.user_exists %]
             <div class="main-menu-wrapper">
                 <div class="main-menu overlay">
-                    <a class="menu-item" href="[% c.uri_for(c.controller('Tags').action_for('index')) %]">
-                        <i class="fas fa-tag fa-fw"></i>
-                        Tags
-                    </a>
-
                     <a class="menu-item" href="[% c.uri_for(c.controller('Trash').action_for('index')) %]">
                         <i class="fas fa-trash fa-fw"></i>
                         Trash
