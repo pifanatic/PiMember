@@ -21,7 +21,7 @@
                 </div>
                 <a class="header-item" href="[% c.uri_for(c.controller('Cards').action_for('index')) %]">
                     <i class="far fa-clone fa-fw"></i>
-                    Card list
+                    Cards
                 </a>
             </div>
         [% END %]
