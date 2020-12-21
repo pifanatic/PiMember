@@ -20,7 +20,7 @@
                     [% END %]
                 </div>
                 <a class="header-item" href="[% c.uri_for(c.controller('Cards').action_for('index')) %]">
-                    <i class="fas fa-list fa-fw"></i>
+                    <i class="far fa-clone fa-fw"></i>
                     Card list
                 </a>
             </div>
