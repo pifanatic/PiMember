@@ -57,16 +57,6 @@
     </div>
 
     <div class="content-all">
-        [% IF c.user_exists %]
-            <div class="main-menu-wrapper">
-                <div class="main-menu overlay">
-                    <div class="version-hint">
-                        [% c.config.name %] v[% c.config.version %]
-                    </div>
-                </div>
-            </div>
-        [% END %]
-
         <div class="content">
             [% content %]
         </div>
