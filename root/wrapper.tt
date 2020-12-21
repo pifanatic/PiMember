@@ -33,7 +33,7 @@
                 </a>
                 <a class="header-item header-item-learn"
                    href="[% c.uri_for(c.controller('Cards').action_for('go_to_next_card')) %]">
-                    <i class="fas fa-graduation-cap fa-fw"></i>
+                    <i class="far fa-lightbulb fa-fw"></i>
                     <span class="header-item-learn-label">Learn</span>
                     <span class="queue-size">[% c.session.queue.size %]</span>
                 </a>
