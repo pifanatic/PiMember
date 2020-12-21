@@ -31,6 +31,10 @@
                     <i class="fas fa-trash-alt fa-fw"></i>
                     Trash
                 </a>
+                <a class="header-item" href="[% c.uri_for(c.controller('Cards').action_for('go_to_next_card')) %]">
+                    <i class="fas fa-graduation-cap fa-fw"></i>
+                    Learn ([% c.session.queue.size %])
+                </a>
             </div>
         [% END %]
         <div class="header-center">
@@ -56,11 +60,6 @@
         [% IF c.user_exists %]
             <div class="main-menu-wrapper">
                 <div class="main-menu overlay">
-                    <a class="menu-item menu-item-primary" href="[% c.uri_for(c.controller('Cards').action_for('go_to_next_card')) %]">
-                        <i class="fas fa-graduation-cap fa-fw"></i>
-                        Learn ([% c.session.queue.size %])
-                    </a>
-
                     <div class="version-hint">
                         [% c.config.name %] v[% c.config.version %]
                     </div>

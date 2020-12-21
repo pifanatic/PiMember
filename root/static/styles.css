@@ -95,7 +95,7 @@ span.tag {
 #header .header-left, .header-right {
     display: flex;
     align-items: center;
-    flex: 1;
+    flex: 2;
     font-size: 18px;
 }
 
