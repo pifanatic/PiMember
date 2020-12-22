@@ -1,7 +1,16 @@
 <div class="sub-header">
     <span>[% cards.size %] cards total</span>
     <div class="sub-header-title"><i class="fas fa-trash"></i> Trash</div>
-    <span></span>
+
+    <div class="sub-header-right">
+        [% IF cards.size > 0 %]
+            <a class="btn btn-primary"
+               href="[% c.uri_for(c.controller.action_for('empty')) %]">
+               <span class="fas fa-trash-alt"></span>
+               Empty trash
+            </a>
+        [% END %]
+    </div>
 </div>
 
 [% IF cards.size > 0 %]
