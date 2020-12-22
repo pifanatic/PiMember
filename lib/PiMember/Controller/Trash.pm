@@ -40,6 +40,28 @@ Show all cards that are in trash as of now.
 
 sub index : Path Args(0) {}
 
+
+=head2 empty
+
+Permanently delete all cards from trash
+
+=cut
+
+sub empty : Local Args(0) {
+    my ($self, $c) = @_;
+
+    map { $_->delete } @{ $c->stash->{cards} };
+
+    $c->forward($c->controller("Tags")->action_for("remove_unused_tags"));
+
+    $c->response->redirect(
+        $c->uri_for(
+            $self->action_for("index"),
+            { mid => $c->set_status_msg("Trash has been emptied") }
+        )
+    );
+}
+
 __PACKAGE__->meta->make_immutable;
 
 1;
