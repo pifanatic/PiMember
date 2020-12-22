@@ -1,62 +1,67 @@
-<div class="learn">
-    <h1>
-        [% FILTER html %]
-            [% card.title %]
-        [% END %]
-    </h1>
 
-    <div id="card" class="overlay card">
-        <span class="front-text">
-            [% FILTER html_line_break %]
-                [% FILTER html %]
-                    [% card.frontside %]
-                [% END %]
+[% IF card %]
+    <div class="learn">
+        <h1>
+            [% FILTER html %]
+                [% card.title %]
             [% END %]
-        </span>
-        <span class="back-text">
-            [% FILTER html_line_break %]
-                [% FILTER html %]
-                    [% card.backside %]
+        </h1>
+
+        <div id="card" class="overlay card">
+            <span class="front-text">
+                [% FILTER html_line_break %]
+                    [% FILTER html %]
+                        [% card.frontside %]
+                    [% END %]
                 [% END %]
-            [% END %]
-        </span>
-    </div>
-
-
-    <div class="overlay learn-box">
-        <div class="row row-1">
-            <button id="turn" class="btn btn-primary">
-                <i class="fas fa-retweet"></i>
-                Turn around
-            </button>
+            </span>
+            <span class="back-text">
+                [% FILTER html_line_break %]
+                    [% FILTER html %]
+                        [% card.backside %]
+                    [% END %]
+                [% END %]
+            </span>
         </div>
-        <form id="learnForm" method="post" action="[% c.uri_for(c.controller.action_for('learn')) %]">
-            <div class="row row-2">
-                <label for="answerCorrect">
-                    Correct
-                    <input id="answerCorrect" type="radio" name="correct" value="1" required/>
-                    <div class="checkbox">
-                        <div class="checkmark"><i class="fas fa-check"></i></div>
-                    </div>
-                </label>
 
-                <label for="answerWrong">
-                    Wrong
-                    <input id="answerWrong" type="radio" name="correct" value="0" required/>
-                    <div class="checkbox">
-                        <div class="checkmark"><i class="fas fa-check"></i></div>
-                    </div>
-                </label>
-            </div>
-            <div class="row row-3">
-                <input name="id" value="[% card.id %]" hidden/>
-                <button id="nextBtn" class="btn btn-primary">
-                    Next card
-                    <i class="fas fa-forward"></i>
+
+        <div class="overlay learn-box">
+            <div class="row row-1">
+                <button id="turn" class="btn btn-primary">
+                    <i class="fas fa-retweet"></i>
+                    Turn around
                 </button>
             </div>
-        </form>
-    </div>
-</div>
+            <form id="learnForm" method="post" action="[% c.uri_for(c.controller.action_for('learn')) %]">
+                <div class="row row-2">
+                    <label for="answerCorrect">
+                        Correct
+                        <input id="answerCorrect" type="radio" name="correct" value="1" required/>
+                        <div class="checkbox">
+                            <div class="checkmark"><i class="fas fa-check"></i></div>
+                        </div>
+                    </label>
 
-<script src="[% c.uri_for('/static/js/learn.js') %]"></script>
+                    <label for="answerWrong">
+                        Wrong
+                        <input id="answerWrong" type="radio" name="correct" value="0" required/>
+                        <div class="checkbox">
+                            <div class="checkmark"><i class="fas fa-check"></i></div>
+                        </div>
+                    </label>
+                </div>
+                <div class="row row-3">
+                    <input name="id" value="[% card.id %]" hidden/>
+                    <button id="nextBtn" class="btn btn-primary">
+                        Next card
+                        <i class="fas fa-forward"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="[% c.uri_for('/static/js/learn.js') %]"></script>
+[% ELSE %]
+    <h1>You have learned all cards for today!</h1>
+[% END %]

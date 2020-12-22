@@ -144,7 +144,8 @@ sub edit : Chained("get_card_by_id") Args(0) {
 
 Learn a card.
 
-GET will show the learn form for the next card in queue.
+GET will show the learn form for the next card in queue or a hint that all cards
+have been learned already
 
 POST will update the card according to the value of the given B<correct>
 form-data value. Redirect to the next due card afterwards.
@@ -155,14 +156,7 @@ sub learn : Local Args(0) {
     my ($self, $c) = @_;
 
     if ($c->req->method eq "GET") {
-        my $next_due_card = $c->session->{queue}->[0];
-
-        if (!$next_due_card) {
-            $c->stash({ template => "cards/nothing_to_learn.tt" });
-        } else {
-            $c->stash({ card => $next_due_card });
-        }
-
+        $c->stash({ card => $c->session->{queue}->[0] });
         $c->detach;
     }
 
