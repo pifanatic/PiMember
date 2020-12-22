@@ -8,7 +8,7 @@ PiMember::Controller::Trash
 
 =head1 DESCRIPTION
 
-Handles the trash 
+Handles the trash
 
 =cut
 
@@ -16,19 +16,29 @@ BEGIN { extends "Catalyst::Controller"; }
 
 =head1 METHODS
 
-=head2 index
+=head2 auto
 
-Show all cards that are in trash as of now.
+Get all cards that are in trash
+
+This is an operation that is needed for all actions in this controller
 
 =cut
 
-sub index : Path Args(0) {
+sub auto : Private {
     my ($self, $c) = @_;
 
     my @cards_in_trash = $c->model("DB::Card")->search({ in_trash => 1 });
 
     $c->stash({ cards => \@cards_in_trash });
 }
+
+=head2 index
+
+Show all cards that are in trash as of now.
+
+=cut
+
+sub index : Path Args(0) {}
 
 __PACKAGE__->meta->make_immutable;
 
