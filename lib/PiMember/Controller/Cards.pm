@@ -140,55 +140,44 @@ sub edit : Chained("get_card_by_id") Args(0) {
 }
 
 
-=head2 go_to_next_card
-
-Finds the next card to learn from the session and goes to the 'learn' action for
-that card.
-
-The 'Nothing to learn' page will be displayed if there is no card to learn.
-
-=cut
-
-sub go_to_next_card : Path("learn") Args(0) {
-    my ($self, $c) = @_;
-
-    my $next_card_to_learn = $c->session->{queue}->[0];
-
-    if ($next_card_to_learn) {
-        $c->go(
-            $self->action_for("learn"),
-            [ $next_card_to_learn->id ],
-            [ $c ]
-        );
-    } else {
-        $c->stash({ template => "cards/nothing_to_learn.tt" });
-    }
-}
-
-
 =head2 learn
 
 Learn a card.
 
-GET will show the learn form.
+GET will show the learn form for the next card in queue.
 
 POST will update the card according to the value of the given B<correct>
 form-data value. Redirect to the next due card afterwards.
 
 =cut
 
-sub learn : Chained("get_card_by_id") Args(0) {
+sub learn : Local Args(0) {
     my ($self, $c) = @_;
+
+    if ($c->req->method eq "GET") {
+        my $next_due_card = $c->session->{queue}->[0];
+
+        if (!$next_due_card) {
+            $c->stash({ template => "cards/nothing_to_learn.tt" });
+        } else {
+            $c->stash({ card => $next_due_card });
+        }
+
+        $c->detach;
+    }
 
     if ($c->req->method eq "POST") {
         my $correct = $c->req->params->{correct};
+        my $card_id = $c->req->params->{id};
 
-        $c->stash->{card}->give_answer($correct);
+        my $card = $c->model("DB::Card")->find($card_id);
+
+        $card->give_answer($correct);
 
         $c->forward($self->action_for("update_queue"));
 
         $c->response->redirect(
-            $c->uri_for($self->action_for("go_to_next_card"))
+            $c->uri_for($self->action_for("learn"))
         );
     }
 }

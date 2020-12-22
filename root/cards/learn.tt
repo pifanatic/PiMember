@@ -30,7 +30,7 @@
                 Turn around
             </button>
         </div>
-        <form id="learnForm" method="post" action="[% c.uri_for(c.controller.action_for('learn'), [card.id]) %]">
+        <form id="learnForm" method="post" action="[% c.uri_for(c.controller.action_for('learn')) %]">
             <div class="row row-2">
                 <label for="answerCorrect">
                     Correct
@@ -49,6 +49,7 @@
                 </label>
             </div>
             <div class="row row-3">
+                <input name="id" value="[% card.id %]" hidden/>
                 <button id="nextBtn" class="btn btn-primary">
                     Next card
                     <i class="fas fa-forward"></i>
