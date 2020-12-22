@@ -161,12 +161,20 @@ span.tag {
     align-items: center;
 }
 
-#header .header-item-learn:hover {
+#header .header-item.disabled {
+    background-color: #aaa;
+}
+
+#header .header-item-learn:not(.disabled):hover {
     background-color: lightgreen;
 }
 
-#header .header-item-learn .header-item-learn-label {
+#header .header-item .header-item-learn-label {
     margin-left: 7px;
+}
+
+#header .header-item.disabled .header-item-learn-label {
+    cursor: default;
 }
 
 #header .header-item-learn .queue-size {
