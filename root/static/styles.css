@@ -151,6 +151,10 @@ span.tag {
     background-color: #0080ff;
 }
 
+#header .header-item .header-item-icon {
+    margin-right: 3px;
+}
+
 #header .header-item-learn {
     background-color: limegreen;
     display: flex;
