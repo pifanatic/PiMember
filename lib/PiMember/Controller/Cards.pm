@@ -277,8 +277,6 @@ sub delete : Chained("get_card_by_id") Args(0) {
 
     $c->stash->{card}->delete;
 
-    $c->forward($self->action_for("update_queue"));
-
     $c->forward($c->controller("Tags")->action_for("remove_unused_tags"));
 
     my $status_msg = "'" . $c->stash->{card}->title . "' has been deleted";
