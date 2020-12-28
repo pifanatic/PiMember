@@ -63,5 +63,12 @@
 
     <script src="[% c.uri_for('/static/js/learn.js') %]"></script>
 [% ELSE %]
-    <h1>You have learned all cards for today!</h1>
+    <div class="center-message">
+        <span class="fas fa-flag-checkered flag"></span>
+        [% IF tag %]
+            You have learned all cards with the "[% tag %]" tag!
+        [% ELSE %]
+            You have learned all cards for today!
+        [% END %]
+    </div>
 [% END %]

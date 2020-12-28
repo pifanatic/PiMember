@@ -191,6 +191,21 @@ span.tag {
     overflow-y: auto;
 }
 
+.center-message {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    color: #777;
+    font-size: 25px;
+}
+
+.center-message .flag {
+    font-size: 80px;
+    margin-bottom: 40px;
+}
+
 .notification {
     display: flex;
     position: absolute;
