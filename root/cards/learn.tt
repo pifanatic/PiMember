@@ -66,7 +66,16 @@
     <div class="center-message">
         <span class="fas fa-flag-checkered flag"></span>
         [% IF tag %]
-            You have learned all cards with the "[% tag %]" tag!
+            <p>You have learned all cards with the "[% tag %]" tag!</p>
+
+            [% IF c.session.queue_size > 0 %]
+                <p>However there are [% c.session.queue_size %] other cards due:</p>
+                <a class="learn-link"
+                   href="[% c.uri_for(c.controller.action_for('learn'))%]">
+                    <span class="far fa-lightbulb"></span>
+                    Learn
+                </a>
+            [% END %]
         [% ELSE %]
             You have learned all cards for today!
         [% END %]

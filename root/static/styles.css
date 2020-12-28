@@ -206,6 +206,17 @@ span.tag {
     margin-bottom: 40px;
 }
 
+.center-message .learn-link {
+    background-color: #000080;
+    color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+
+.center-message .learn-link:hover {
+    background-color: #0080ff;
+}
+
 .notification {
     display: flex;
     position: absolute;
