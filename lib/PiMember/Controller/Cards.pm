@@ -188,7 +188,7 @@ sub learn : Local Args(0) {
         $c->forward($self->action_for("update_queue"));
 
         $c->response->redirect(
-            $c->uri_for($self->action_for("learn"))
+            $c->uri_for($self->action_for("learn"), $c->req->query_parameters)
         );
     }
 }
