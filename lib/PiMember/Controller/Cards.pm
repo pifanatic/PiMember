@@ -155,10 +155,25 @@ form-data value. Redirect to the next due card afterwards.
 sub learn : Local Args(0) {
     my ($self, $c) = @_;
 
+    my $tag = $c->req->query_parameters->{tag};
+
     if ($c->req->method eq "GET") {
-        $c->stash({
-            card => $c->model("DB")->get_due_cards->first
-        });
+        my $due_cards_rs = $c->model("DB")->get_due_cards;
+        my $card;
+
+        if ($tag) {
+            $card = $due_cards_rs->search({
+                "tag.name" => $tag
+            }, {
+                "join" => { "cards_tags" => { "tag" => "cards_tags" } }
+            })->first;
+
+            $c->stash({ tag => $tag });
+        } else {
+            $card = $due_cards_rs->first;
+        }
+
+        $c->stash({ card => $card });
         $c->detach;
     }
 
