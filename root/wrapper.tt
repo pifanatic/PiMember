@@ -31,7 +31,7 @@
                     <i class="fas fa-trash-alt header-item-icon"></i>
                     Trash
                 </a>
-                [% IF c.session.queue.size > 0 %]
+                [% IF c.session.queue_size > 0 %]
                     <a class="header-item header-item-learn"
                        href="[% c.uri_for(c.controller('Cards').action_for('learn')) %]">
                 [% ELSE %]
@@ -41,8 +41,8 @@
                         <i class="far fa-lightbulb"></i>
                         <span class="header-item-learn-label">Learn</span>
 
-                [% IF c.session.queue.size > 0 %]
-                        <span class="queue-size">[% c.session.queue.size %]</span>
+                [% IF c.session.queue_size > 0 %]
+                        <span class="queue-size">[% c.session.queue_size %]</span>
                     </a>
                 [% ELSE %]
                     </span>
