@@ -10,6 +10,7 @@
             <div class="cell">Tag</div>
             <div class="cell">Count</div>
             <div class="cell">Due</div>
+            <div class="cell"></div>
         </div>
         [% FOREACH tag IN tags.nsort("card_count").reverse %]
             <div class="list-item">
@@ -25,6 +26,15 @@
                 </div>
                 <div class="cell">
                     [% tag.due_cards.size %]
+                </div>
+                <div class="cell link">
+                    [% IF tag.due_cards.size > 0 %]
+                        <a href="[% c.uri_for(c.controller('Cards').action_for('learn'), { 'tag' => tag.name }) %]"
+                           title="Learn this tag">
+                            <span class="far fa-lightbulb lightbulb"></span>
+                            Learn
+                        </a>
+                    [% END %]
                 </div>
             </div>
         [% END %]
