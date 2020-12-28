@@ -156,17 +156,9 @@ sub learn : Local Args(0) {
     my ($self, $c) = @_;
 
     if ($c->req->method eq "GET") {
-        my $card = $c->model("DB::Card")->search(
-            {
-                due      => { "<=" => DateTime->now->iso8601 },
-                in_trash => 0
-            },
-            {
-                order_by => { -asc => "last_seen" }
-            }
-        )->first;
-
-        $c->stash({ card => $card });
+        $c->stash({
+            card => $c->model("DB")->get_due_cards->first
+        });
         $c->detach;
     }
 
@@ -308,12 +300,7 @@ Update the queue of cards that are due
 sub update_queue : Private {
     my ($self, $c) = @_;
 
-    my $queue_size = $c->model("DB::Card")->count({
-        due      => { "<=" => DateTime->now->iso8601 },
-        in_trash => 0
-    });
-
-    $c->session->{queue_size} = $queue_size;
+    $c->session->{queue_size} = $c->model("DB")->get_due_cards->count;
 }
 
 __PACKAGE__->meta->make_immutable;
