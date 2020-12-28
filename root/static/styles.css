@@ -311,6 +311,10 @@ span.tag {
     margin: 15px auto;
 }
 
+.list.tag-list {
+    width: 40%;
+}
+
 .list-item {
     display: flex;
     align-items: center;

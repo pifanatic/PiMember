@@ -5,7 +5,7 @@
 </div>
 
 [% IF tags.size > 0 %]
-    <div class="list">
+    <div class="list tag-list">
         <div class="list-item list-header">
             <div class="cell">Tag</div>
             <div class="cell">Count</div>
