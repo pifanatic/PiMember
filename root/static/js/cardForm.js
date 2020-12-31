@@ -1,6 +1,8 @@
+import PIML from "./piml.min.js";
+
 (function() {
     function setPreviewValue(previewEl, value) {
-        previewEl.innerText = value;
+        previewEl.innerHTML = PIML.parse(value);
     }
 
     let frontInput = document.getElementById("front-input"),

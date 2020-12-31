@@ -45,4 +45,4 @@
     </button>
 </form>
 
-<script src="[% c.uri_for('/static/js/cardForm.js') %]"></script>
+<script src="[% c.uri_for('/static/js/cardForm.js') %]" type="module"></script>
