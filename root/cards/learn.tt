@@ -27,7 +27,7 @@
 
         <div class="overlay learn-box">
             <form id="learnForm" method="post">
-                <button id="answerCorrect" name="correct" value="0" class="btn">
+                <button id="answerCorrect" name="correct" value="0" class="btn btn-red">
                     Wrong
                 </button>
 
@@ -36,7 +36,7 @@
                     Turn around
                 </button>
 
-                <button id="answerWrong" name="correct" value="1" class="btn">
+                <button id="answerWrong" name="correct" value="1" class="btn btn-green">
                     Correct
                 </button>
 

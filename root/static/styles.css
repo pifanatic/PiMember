@@ -47,6 +47,24 @@ a {
     background-color: #0080ff;
 }
 
+.btn-green {
+    color: white;
+    background-color: limegreen;
+}
+
+.btn-green:hover {
+    background-color: lightgreen;
+}
+
+.btn-red {
+    color: white;
+    background-color: red;
+}
+
+.btn-red:hover {
+    background-color: #ff7070;
+}
+
 .overlay {
     padding: 30px;
 
