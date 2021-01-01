@@ -1,8 +1,7 @@
 (function() {
     let turnButton = document.getElementById("turn"),
-        correctBox = document.getElementById("answerCorrect"),
-        wrongBox   = document.getElementById("answerWrong"),
-        nextButton = document.getElementById("nextBtn"),
+        correctBtn = document.getElementById("answerCorrect"),
+        wrongBtn   = document.getElementById("answerWrong"),
         cardEl     = document.getElementById("card");
 
     turnButton.addEventListener("click", () => {
@@ -14,12 +13,11 @@
     });
 
     document.body.addEventListener("keyup", e => {
-        let allowedKeys = /[jknt]/,
+        let allowedKeys = /[jkl]/,
             keyToElementMap = {
-                "t": turnButton,
-                "j": correctBox,
-                "k": wrongBox,
-                "n": nextButton
+                "k": turnButton,
+                "l": correctBtn,
+                "j": wrongBtn
             };
 
         if (allowedKeys.test(e.key)) {

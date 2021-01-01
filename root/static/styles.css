@@ -542,79 +542,17 @@ form#cardForm {
 }
 
 .learn .learn-box {
-    display: flex;
-    flex-direction: column;
-
     width: 40%;
     margin: 30px auto;
-}
-
-.learn .learn-box .row {
-    display: flex;
-    justify-content: center;
-}
-
-.learn .learn-box .row-1 {
-    padding-bottom: 30px;
-    border-bottom: 1px solid #ccc;
-}
-
-.learn .learn-box .row-2 {
-    margin: 30px auto;
-}
-
-.learn .learn-box .row-3 {
-    margin-top: 30px;
 }
 
 .learn .learn-box .button svg {
     margin-right: 5px;
 }
 
-.learn .learn-box label {
+.learn .learn-box #learnForm {
     display: flex;
-    position: relative;
-
-    height: 24px;
-    margin: 0 15px;
-
-    color: #777;
-    cursor: pointer;
-}
-
-.learn .learn-box input {
-    position: absolute;
-
-    opacity: 0;
-    cursor: pointer;
-}
-
-.learn .learn-box .checkbox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 20px;
-    height: 20px;
-    margin-left: 10px;
-
-    border: 1px solid #aaa;
-    border-radius: 2px;
-}
-
-.learn-box .checkmark {
-    display: none;
-
-    font-size: 14px;
-    color: white;
-}
-
-.learn-box input:checked + .checkbox > .checkmark {
-    display: block;
-}
-
-.learn-box input:checked + .checkbox {
-    background-color: #000080;
+    justify-content: space-between;
 }
 
 /* Tag list */

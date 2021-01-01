@@ -26,37 +26,21 @@
 
 
         <div class="overlay learn-box">
-            <div class="row row-1">
-                <button id="turn" class="btn btn-primary">
+            <form id="learnForm" method="post">
+                <button id="answerCorrect" name="correct" value="0" class="btn">
+                    Wrong
+                </button>
+
+                <button id="turn" class="btn btn-primary" type="button">
                     <i class="fas fa-retweet"></i>
                     Turn around
                 </button>
-            </div>
-            <form id="learnForm" method="post">
-                <div class="row row-2">
-                    <label for="answerCorrect">
-                        Correct
-                        <input id="answerCorrect" type="radio" name="correct" value="1" required/>
-                        <div class="checkbox">
-                            <div class="checkmark"><i class="fas fa-check"></i></div>
-                        </div>
-                    </label>
 
-                    <label for="answerWrong">
-                        Wrong
-                        <input id="answerWrong" type="radio" name="correct" value="0" required/>
-                        <div class="checkbox">
-                            <div class="checkmark"><i class="fas fa-check"></i></div>
-                        </div>
-                    </label>
-                </div>
-                <div class="row row-3">
-                    <input name="id" value="[% card.id %]" hidden/>
-                    <button id="nextBtn" class="btn btn-primary">
-                        Next card
-                        <i class="fas fa-forward"></i>
-                    </button>
-                </div>
+                <button id="answerWrong" name="correct" value="1" class="btn">
+                    Correct
+                </button>
+
+                <input name="id" value="[% card.id %]" hidden/>
             </form>
         </div>
     </div>
