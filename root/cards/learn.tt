@@ -28,6 +28,7 @@
         <div class="overlay learn-box">
             <form id="learnForm" method="post">
                 <button id="answerCorrect" name="correct" value="0" class="btn btn-red">
+                    <span class="fas fa-times"></span>
                     Wrong
                 </button>
 
@@ -37,6 +38,7 @@
                 </button>
 
                 <button id="answerWrong" name="correct" value="1" class="btn btn-green">
+                    <span class="fas fa-check"></span>
                     Correct
                 </button>
 
