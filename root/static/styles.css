@@ -3,10 +3,10 @@ body {
     overflow: hidden;
 
     background-color: #eee;
+    font-family: 'Righteous';
 }
 
 * {
-    font-family: 'Righteous';
     box-sizing: border-box;
 }
 
@@ -29,6 +29,7 @@ a {
     border-radius: 2px;
 
     font-size: 16px;
+    font-family: inherit;
 
     cursor: pointer;
 }
@@ -321,6 +322,7 @@ span.tag {
     margin-top: 5px;
     padding: 8px;
     font-size: 16px;
+    font-family: inherit;
 
     border: 1px solid #aaa;
     border-radius: 2px;
@@ -589,6 +591,7 @@ form#cardForm {
 
 .search-form input {
     font-size: 16px;
+    font-family: inherit;
     padding: 2px;
     width: 250px;
 }
