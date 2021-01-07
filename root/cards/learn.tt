@@ -8,14 +8,14 @@
         </h1>
 
         <div id="card" class="overlay card">
-            <span class="front-text">
+            <span id="front-text" class="front-text">
                 [% FILTER html_line_break %]
                     [% FILTER html %]
                         [% card.frontside %]
                     [% END %]
                 [% END %]
             </span>
-            <span class="back-text">
+            <span id="back-text" class="back-text">
                 [% FILTER html_line_break %]
                     [% FILTER html %]
                         [% card.backside %]
@@ -47,7 +47,7 @@
         </div>
     </div>
 
-    <script src="[% c.uri_for('/static/js/learn.js') %]"></script>
+    <script src="[% c.uri_for('/static/js/learn.js') %]" type="module"></script>
 [% ELSE %]
     <div class="center-message">
         <span class="fas fa-flag-checkered flag"></span>

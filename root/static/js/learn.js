@@ -1,27 +1,34 @@
-(function() {
-    let turnButton = document.getElementById("turn"),
-        correctBtn = document.getElementById("answerCorrect"),
-        wrongBtn   = document.getElementById("answerWrong"),
-        cardEl     = document.getElementById("card");
+import PIML from "./piml.min.js";
 
-    turnButton.addEventListener("click", () => {
-        cardEl.classList.toggle("turning");
+let turnButton = document.getElementById("turn"),
+    correctBtn = document.getElementById("answerCorrect"),
+    wrongBtn   = document.getElementById("answerWrong"),
+    cardEl     = document.getElementById("card");
 
-        setTimeout(() => {
-            cardEl.classList.toggle("turned");
-        }, 400);
-    });
+turnButton.addEventListener("click", () => {
+    cardEl.classList.toggle("turning");
 
-    document.body.addEventListener("keyup", e => {
-        let allowedKeys = /[jkl]/,
-            keyToElementMap = {
-                "k": turnButton,
-                "l": correctBtn,
-                "j": wrongBtn
-            };
+    setTimeout(() => {
+        cardEl.classList.toggle("turned");
+    }, 400);
+});
 
-        if (allowedKeys.test(e.key)) {
-            keyToElementMap[e.key].click();
-        }
-    });
-}());
+document.body.addEventListener("keyup", e => {
+    let allowedKeys = /[jkl]/,
+        keyToElementMap = {
+            "k": turnButton,
+            "l": correctBtn,
+            "j": wrongBtn
+        };
+
+    if (allowedKeys.test(e.key)) {
+        keyToElementMap[e.key].click();
+    }
+});
+
+
+let front = document.getElementById("front-text"),
+    back  = document.getElementById("back-text");
+
+front.innerHTML = PIML.parse(front.innerText);
+back.innerHTML  = PIML.parse(back.innerText);
