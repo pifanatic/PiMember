@@ -76,6 +76,7 @@ a {
 }
 
 .card {
+    display: table;
     overflow-x: hidden;
 
     border: 1px dashed #aaa;
@@ -84,6 +85,11 @@ a {
     font-family: 'Comic Neue';
     font-size: 20px;
     text-align: center;
+}
+
+.card-content {
+    display: table-cell;
+    vertical-align: middle;
 }
 
 span.tag {
