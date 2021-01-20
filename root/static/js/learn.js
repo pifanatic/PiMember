@@ -30,5 +30,5 @@ document.body.addEventListener("keyup", e => {
 let front = document.getElementById("front-text"),
     back  = document.getElementById("back-text");
 
-front.innerHTML = PIML.parse(front.innerText);
-back.innerHTML  = PIML.parse(back.innerText);
+front.innerHTML = PIML.parse(front.innerText.trim());
+back.innerHTML  = PIML.parse(back.innerText.trim());
