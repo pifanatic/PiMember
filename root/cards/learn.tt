@@ -8,20 +8,20 @@
         </h1>
 
         <div id="card" class="overlay card">
-            <span id="front-text" class="front-text">
+            <div id="front-text" class="front-text">
                 [% FILTER html_line_break %]
                     [% FILTER html %]
                         [% card.frontside %]
                     [% END %]
                 [% END %]
-            </span>
-            <span id="back-text" class="back-text">
+            </div>
+            <div id="back-text" class="back-text">
                 [% FILTER html_line_break %]
                     [% FILTER html %]
                         [% card.backside %]
                     [% END %]
                 [% END %]
-            </span>
+            </div>
         </div>
 
 

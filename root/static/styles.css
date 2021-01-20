@@ -552,15 +552,15 @@ form#cardForm {
 }
 
 /* hide back text if card is not turned */
-.learn .card:not(.turned) span.back-text {
+.learn .card:not(.turned) div.back-text {
     display: none;
 }
 
-.learn .card.turned span.front-text {
+.learn .card.turned div.front-text {
     display: none;
 }
 
-.learn .card.turned span.back-text {
+.learn .card.turned div.back-text {
     transform: rotateY(180deg);
 }
 
