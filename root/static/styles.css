@@ -79,6 +79,10 @@ a {
     display: table;
     overflow-x: hidden;
 
+    width: 500px;
+    height: 280px;
+    padding: 20px;
+
     border: 1px dashed #aaa;
     box-shadow: 4px 4px 5px 0px #aaa;
 
@@ -509,8 +513,6 @@ form#cardForm {
 
 .front-preview,
 .back-preview {
-    width: 95%;
-    height: 85%;
     margin: 5px auto;
 }
 
@@ -537,8 +539,6 @@ form#cardForm {
 
 /* Learn */
 .learn .card {
-    width: 40%;
-    height: 200px;
     margin: 0 auto;
     transition: transform 0.8s linear;
 }
