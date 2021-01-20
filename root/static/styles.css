@@ -86,6 +86,7 @@ a {
     border: 1px dashed #aaa;
     box-shadow: 4px 4px 5px 0px #aaa;
 
+    background-color: white;
     font-family: 'Comic Neue';
     font-size: 20px;
     text-align: center;
@@ -500,36 +501,34 @@ form#cardForm {
 }
 
 .form-wrapper textarea {
-    display: block;
+    width: 500px;
 
-    width: 95%;
-    height: 85%;
-    margin: 5px auto;
-
-    font-family: monospace;
     font-size: 16px;
     resize: none;
 }
 
-.front-preview,
-.back-preview {
-    margin: 5px auto;
-}
-
 .front, .back {
     display: flex;
-    flex: 1;
-    height: 280px;
+    position: relative;
+    align-items: center;
+    justify-content: space-evenly;
+
+    background-color: #eee;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px 0;
 }
 
-.front-input-wrapper,
-.back-input-wrapper,
-.front-preview-wrapper,
-.back-preview-wrapper {
-    flex: 1;
-    padding: 10px;
-    max-width: 50%;
+.front::before, .back::before {
+    position: absolute;
+    left: 10px;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-size: 28px;
 }
+
+.front::before { content: "FRONT"; }
+.back::before { content: "BACK"; }
 
 .submit-button {
     display: block;

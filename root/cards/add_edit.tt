@@ -13,28 +13,16 @@
     </div>
     <div class="form-wrapper">
         <div class="front">
-            <div class="front-input-wrapper">
-                Frontside text
-                <textarea id="front-input" name="frontside" required>[% card.frontside %]</textarea>
-            </div>
-            <div class="front-preview-wrapper">
-                Frontside preview
-                <div class="front-preview card">
-                    <div id="front-preview" class="card-content"></div>
-                </div>
+            <textarea id="front-input" name="frontside" rows="10" required>[% card.frontside %]</textarea>
+            <div class="card">
+                <div id="front-preview" class="card-content"></div>
             </div>
         </div>
 
         <div class="back">
-            <div class="back-input-wrapper">
-                Backside text
-                <textarea id="back-input" name="backside" required>[% card.backside %]</textarea>
-            </div>
-            <div class="back-preview-wrapper">
-                Backside preview
-                <div class="back-preview card">
-                    <div id="back-preview" class="card-content"></div>
-                </div>
+            <textarea id="back-input" name="backside" rows="10" required>[% card.backside %]</textarea>
+            <div class="card">
+                <div id="back-preview" class="card-content"></div>
             </div>
         </div>
     </div>
