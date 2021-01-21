@@ -1,7 +1,7 @@
 <div class="sub-header">
     <div class="sub-header-title">
         [% FILTER html %]
-            [% title %]
+            Edit "[% card.title %]"
         [% END %]
     </div>
 </div>
@@ -10,7 +10,7 @@
     [% INCLUDE cards/card_form_content.tt %]
 
     <button class="submit-button btn btn-primary">
-        [% submit_button_text %]
+        Edit
     </button>
 </form>
 

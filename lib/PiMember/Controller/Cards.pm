@@ -60,12 +60,6 @@ sub add : Local Args(0) {
             { mid => $c->set_status_msg('"' . $new_card->title . '" has been created!') }
         ));
     }
-
-    $c->stash({
-        title              => "Add a new card",
-        submit_button_text => "Create",
-        template           => "cards/add_edit.tt"
-    });
 }
 
 
@@ -132,10 +126,7 @@ sub edit : Chained("get_card_by_id") Args(0) {
     }
 
     $c->stash({
-        title              => 'Edit "' . $c->stash->{card}->title . '"',
-        tags               => join(" ", map { $_->name } $c->stash->{card}->tags),
-        submit_button_text => "Save",
-        template           => "cards/add_edit.tt"
+        tags => join(" ", map { $_->name } $c->stash->{card}->tags)
     });
 }
 

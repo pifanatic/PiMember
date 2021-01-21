@@ -1,0 +1,15 @@
+<div class="sub-header">
+    <div class="sub-header-title">
+        Add a new card
+    </div>
+</div>
+
+<form id="cardForm" method="post">
+    [% INCLUDE cards/card_form_content.tt %]
+
+    <button class="submit-button btn btn-primary">
+        Create
+    </button>
+</form>
+
+<script src="[% c.uri_for('/static/js/cardForm.js') %]" type="module"></script>
