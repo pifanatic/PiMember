@@ -11,3 +11,6 @@
 [% ELSE %]
     <div class="empty-list">No cards found</div>
 [% END %]
+
+
+<script src="[% c.uri_for('/static/js/search.js') %]" type="module"></script>

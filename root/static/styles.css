@@ -605,3 +605,7 @@ form#cardForm {
     padding: 2px;
     width: 250px;
 }
+
+span.highlight {
+    background-color: yellow;
+}
