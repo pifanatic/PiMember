@@ -6,7 +6,7 @@
     </div>
 </div>
 
-<form id="cardForm" class="overlay" method="post">
+<form id="cardForm" method="post">
     <div class="title-row">
         <label for="title">Title</label>
         <input id="title" name="title" value="[% card.title %]"required/>
