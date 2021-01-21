@@ -4,7 +4,7 @@
 </div>
 <div class="form-wrapper">
     <div class="front">
-        <textarea id="front-input" name="frontside" rows="10" required>[% card.frontside %]</textarea>
+        <textarea id="front-input" name="frontside" rows="10" placeholder="Enter frontside text..." required>[% card.frontside %]</textarea>
         <div class="card">
             <div class="card-content-wrapper">
                 <div id="front-preview" class="card-content"></div>
@@ -13,7 +13,7 @@
     </div>
 
     <div class="back">
-        <textarea id="back-input" name="backside" rows="10" required>[% card.backside %]</textarea>
+        <textarea id="back-input" name="backside" rows="10" placeholder="Enter backside text..." required>[% card.backside %]</textarea>
         <div class="card">
             <div class="card-content-wrapper">
                 <div id="back-preview" class="card-content"></div>
