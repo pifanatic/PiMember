@@ -8,19 +8,21 @@
         </h1>
 
         <div id="card" class="overlay card">
-            <div id="front-text" class="front-text card-content">
-                [% FILTER html_line_break %]
-                    [% FILTER html %]
-                        [% card.frontside %]
+            <div class="card-content-wrapper">
+                <div id="front-text" class="front-text card-content">
+                    [% FILTER html_line_break %]
+                        [% FILTER html %]
+                            [% card.frontside %]
+                        [% END %]
                     [% END %]
-                [% END %]
-            </div>
-            <div id="back-text" class="back-text card-content">
-                [% FILTER html_line_break %]
-                    [% FILTER html %]
-                        [% card.backside %]
+                </div>
+                <div id="back-text" class="back-text card-content">
+                    [% FILTER html_line_break %]
+                        [% FILTER html %]
+                            [% card.backside %]
+                        [% END %]
                     [% END %]
-                [% END %]
+                </div>
             </div>
         </div>
 

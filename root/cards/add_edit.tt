@@ -15,14 +15,18 @@
         <div class="front">
             <textarea id="front-input" name="frontside" rows="10" required>[% card.frontside %]</textarea>
             <div class="card">
-                <div id="front-preview" class="card-content"></div>
+                <div class="card-content-wrapper">
+                    <div id="front-preview" class="card-content"></div>
+                </div>
             </div>
         </div>
 
         <div class="back">
             <textarea id="back-input" name="backside" rows="10" required>[% card.backside %]</textarea>
             <div class="card">
-                <div id="back-preview" class="card-content"></div>
+                <div class="card-content-wrapper">
+                    <div id="back-preview" class="card-content"></div>
+                </div>
             </div>
         </div>
     </div>
