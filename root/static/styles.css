@@ -112,6 +112,10 @@ span.tag {
     border-radius: 20px;
 }
 
+span.tag > a:hover {
+    text-decoration: underline;
+}
+
 #header {
     display: flex;
     align-items: center;

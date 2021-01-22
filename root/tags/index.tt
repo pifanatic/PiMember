@@ -16,9 +16,11 @@
             <div class="list-item">
                 <div class="cell">
                     <span class="tag">
-                        [% FILTER html %]
-                            [% tag.name %]
-                        [% END %]
+                        <a href="[% c.uri_for(c.controller('Cards').action_for('index'), { 'tag' => tag.name }) %]">
+                            [% FILTER html %]
+                                [% tag.name %]
+                            [% END %]
+                        </a>
                     </span>
                 </div>
                 <div class="cell">
