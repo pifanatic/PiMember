@@ -23,12 +23,32 @@ BEGIN { extends "Catalyst::Controller"; }
 Retrieve all cards from the database and stash them in order to show a list of
 all cards.
 
+Show only cards with a specific tag if the I<tag> URL parameter is given.
+
 =cut
 
 sub index : Path Args(0) {
     my ($self, $c) = @_;
 
-    my @cards = $c->model("DB::Card")->search({ in_trash => 0 });
+    my $tag = $c->req->params->{tag};
+
+    my @cards;
+    my $cards_rs = $c->model("DB::Card")->search({ in_trash => 0 });
+
+    if ($tag) {
+        $tag = lc $tag;
+
+        @cards = $cards_rs->search({
+            "tag.name" => $tag
+        }, {
+            "join" => { "cards_tags" => { "tag" => "cards_tags" } },
+            "collapse" => 1
+        });
+
+        $c->stash({ tag => $tag });
+    } else {
+        @cards = $cards_rs->all;
+    }
 
     $c->stash({ cards => \@cards });
 }

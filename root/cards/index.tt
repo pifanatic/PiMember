@@ -2,8 +2,13 @@
     <span>[% cards.size %] cards total</span>
 
     <div class="sub-header-title">
-        <i class="far fa-clone"></i>
-        Cards
+        [% IF tag %]
+            <i class="fas fa-tag"></i>
+            [% tag %]
+        [% ELSE %]
+            <i class="far fa-clone"></i>
+            Cards
+        [% END %]
     </div>
 
     <div class="sub-header-right">
