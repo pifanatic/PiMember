@@ -12,6 +12,14 @@
     </div>
 
     <div class="sub-header-right">
+        [% IF tag %]
+            <a class="list-link"
+               href="[% c.uri_for(c.controller('Cards').action_for('index')) %]">
+                <i class="far fa-clone"></i>
+                See all cards
+            </a>
+        [% END %]
+
         <a class="btn btn-primary"
            href="[% c.uri_for(c.controller('Cards').action_for('add')) %]">
            <span class="fas fa-plus"></span>

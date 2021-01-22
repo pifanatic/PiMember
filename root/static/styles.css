@@ -462,6 +462,16 @@ span.tag {
 .sub-header-right {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+}
+
+.sub-header-right > a.list-link {
+    color: #777;
+    margin-right: 50px;
+}
+
+.sub-header-right > a.list-link:hover {
+    text-decoration: underline;
 }
 
 .empty-list {
