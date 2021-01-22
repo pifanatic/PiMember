@@ -64,6 +64,8 @@ sub create_card {
     });
 
     if (@tags > 0) {
+        @tags = map { lc } @tags;
+
         @tags = map {
             $self->resultset("Tag")->find_or_create({ name => $_ });
         } @tags;
