@@ -419,28 +419,6 @@ span.tag > a:hover {
     margin-right: 6px;
 }
 
-.list-item .action-links {
-    display: flex;
-    font-size: 18px;
-    justify-content: center;
-}
-
-.list-item:hover .action-links a {
-    color: #000080;
-}
-
-.list-item .action-links a {
-    color: #ddd;
-}
-
-.list-item .action-links a:not(:first-child) {
-    margin-left: 15px;
-}
-
-.list-item .action-links a:hover {
-    transform: scale(1.05);
-}
-
 .list-item .grey {
     color: #777;
 }

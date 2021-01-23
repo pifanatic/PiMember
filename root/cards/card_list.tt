@@ -4,7 +4,6 @@
         <div class="cell">Frontside</div>
         <div class="cell">Backside</div>
         <div class="cell">Tags</div>
-        <div class="cell">Actions</div>
     </div>
     [% FOREACH card IN cards %]
         <div card_id="[% card.id %]" class="list-item">
@@ -32,25 +31,6 @@
                             [% END %]
                         </a>
                     </span>
-                [% END %]
-            </div>
-            <div class="cell action-links">
-                [% IF card.in_trash == 0 %]
-                    <a title="Edit card" href="[% c.uri_for(c.controller('Cards').action_for('edit'), [card.id]) %]">
-                        <i class="fas fa-edit"></i>
-                    </a>
-
-                    <a title="Move to trash" href="[% c.uri_for(c.controller('Cards').action_for('movetotrash'), [card.id]) %]">
-                        <i class="fas fa-trash"></i>
-                    </a>
-                [% ELSE %]
-                    <a title="Restore" href="[% c.uri_for(c.controller('Cards').action_for('restore'), [card.id]) %]">
-                        <i class="fas fa-trash-restore"></i>
-                    </a>
-
-                    <a title="Delete permanently" href="[% c.uri_for(c.controller('Cards').action_for('delete'), [card.id]) %]">
-                        <i class="fas fa-trash"></i>
-                    </a>
                 [% END %]
             </div>
         </div>
