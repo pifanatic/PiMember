@@ -160,19 +160,14 @@ sub learn : Local Args(0) {
     my $tag = $c->req->query_parameters->{tag};
 
     if ($c->req->method eq "GET") {
-        my $due_cards_rs = $c->model("DB")->get_due_cards;
         my $card;
 
         if ($tag) {
-            $card = $due_cards_rs->search({
-                "tag.name" => $tag
-            }, {
-                "join" => { "cards_tags" => { "tag" => "cards_tags" } }
-            })->first;
+            $card = $c->model("DB")->get_due_cards_by_tag($tag)->first;
 
             $c->stash({ tag => $tag });
         } else {
-            $card = $due_cards_rs->first;
+            $card = $c->model("DB")->get_due_cards->first;
         }
 
         $c->stash({ card => $card });
