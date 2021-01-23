@@ -633,10 +633,6 @@ span.highlight {
     margin-bottom: 10px;
 }
 
-.stats .tags {
-    margin-top: 5px;
-}
-
 .stats .tag:not(:last-child) {
     display: inline-block;
     margin-right: 10px;
@@ -656,5 +652,14 @@ span.highlight {
 }
 
 .stats .label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
     color: black;
+}
+
+.stats .label .icon {
+    color: #666;
+    font-size: 18px;
+    margin-right: 0.4em;
 }

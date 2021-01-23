@@ -62,9 +62,10 @@
     <div class="row">
         <div class="stat-row-item">
             <span class="label">
+                <i class="icon fas fa-tags"></i>
                 Tags
             </span>
-            <div class="tags">
+            <div>
                 [% IF card.tags %]
                     [% FOREACH tag IN card.tags %]
                         <span class="tag">
@@ -83,22 +84,32 @@
     </div>
     <div class="row">
         <span class="stat-row-item">
-            <span class="label">Created on</span>
+            <span class="label">
+                <i class="icon far fa-calendar"></i>
+                Created on
+            </span>
             [% card.created.dmy('.') %]
         </span>
 
         <span class="stat-row-item">
-            <span class="label">Last learned on</span>
+            <span class="label">
+                <i class="icon far fa-calendar-check"></i>
+                Last learned on
+            </span>
             [% card.last_seen.dmy('.') %]
         </span>
 
         <span class="stat-row-item">
-            <span class="label">Due</span>
+            <span class="label">
+                <i class="icon far fa-clock"></i>
+                Due
+            </span>
             [% card.due.dmy('.') %]
         </span>
 
         <span class="stat-row-item">
             <span class="label">
+                <i class="icon far fa-lightbulb"></i>
                 Learn success
             </span>
             [% card.correct_answers %] of [% card.total_answers %]
@@ -106,7 +117,10 @@
         </span>
 
         <span class="stat-row-item">
-            <span class="label">Rating</span>
+            <span class="label">
+                <i class="icon far fa-star"></i>
+                Rating
+            </span>
             [% card.rating %]
         </span>
     </div>
