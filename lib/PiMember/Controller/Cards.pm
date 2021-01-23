@@ -31,23 +31,14 @@ sub index : Path Args(0) {
     my ($self, $c) = @_;
 
     my $tag = $c->req->params->{tag};
-
     my @cards;
-    my $cards_rs = $c->model("DB::Card")->search({ in_trash => 0 });
 
     if ($tag) {
-        $tag = lc $tag;
-
-        @cards = $cards_rs->search({
-            "tag.name" => $tag
-        }, {
-            "join" => { "cards_tags" => { "tag" => "cards_tags" } },
-            "collapse" => 1
-        });
+        @cards = $c->model("DB")->get_cards_by_tag($tag);
 
         $c->stash({ tag => $tag });
     } else {
-        @cards = $cards_rs->all;
+        @cards = $c->model("DB::Card")->search({ in_trash => 0 });
     }
 
     $c->stash({ cards => \@cards });
