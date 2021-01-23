@@ -452,12 +452,12 @@ span.tag > a:hover {
     align-items: center;
 }
 
-.sub-header-right > a.sub-header-link {
+.sub-header a.sub-header-link {
     color: #777;
     margin-right: 50px;
 }
 
-.sub-header-right > a.sub-header-link:hover {
+.sub-header a.sub-header-link:hover {
     text-decoration: underline;
 }
 
