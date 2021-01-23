@@ -14,17 +14,31 @@
     <div class="sub-header-title">[% card.title %]</div>
 
     <div class="sub-header-right">
-        <a class="sub-header-link"
-           href="[% c.uri_for(c.controller.action_for("movetotrash"), [card.id]) %]">
-           <i class="fas fa-trash-alt"></i>
-           Move to trash
-        </a>
+        [% IF card.in_trash == 0 %]
+            <a class="sub-header-link"
+               href="[% c.uri_for(c.controller.action_for("movetotrash"), [card.id]) %]">
+               <i class="fas fa-trash-alt"></i>
+               Move to trash
+            </a>
 
-        <a class="btn btn-primary"
-           href="[% c.uri_for(c.controller.action_for("edit"), [card.id]) %]">
-           <i class="fas fa-pen-alt"></i>
-           Edit
-        </a>
+            <a class="btn btn-primary"
+               href="[% c.uri_for(c.controller.action_for("edit"), [card.id]) %]">
+               <i class="fas fa-pen-alt"></i>
+               Edit
+            </a>
+        [% ELSE %]
+            <a class="sub-header-link"
+               href="[% c.uri_for(c.controller.action_for("restore"), [card.id]) %]">
+               <i class="fas fa-trash-restore"></i>
+               Restore
+            </a>
+
+            <a class="btn btn-red"
+               href="[% c.uri_for(c.controller.action_for("delete"), [card.id]) %]">
+               <i class="fas fa-trash-alt"></i>
+               Delete
+            </a>
+        [% END %]
     </div>
 </div>
 
