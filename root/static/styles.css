@@ -608,25 +608,41 @@ span.highlight {
 }
 
 /* Card view */
-.sub-header-left .tag:not(:last-child) {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-.card-row, .stat-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+.card-row, .stats {
     margin: 20px 15%;
     padding: 10px;
 }
 
-.stat-row {
-    color: #777;
+.card-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.stat-row .stat-row-item {
+.stats {
+    color: #777;
+    flex-direction: column;
+}
+
+.stats .row {
+    display: flex;
+}
+
+.stats .row:not(:last-child) {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: 10px;
+}
+
+.stats .tags {
+    margin-top: 5px;
+}
+
+.stats .tag:not(:last-child) {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.stats .stat-row-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -635,10 +651,10 @@ span.highlight {
     padding: 10px;
 }
 
-.stat-row .stat-row-item:not(:last-child) {
+.stats .stat-row-item:not(:last-child) {
     border-right: 1px solid #aaa;
 }
 
-.stat-row .label {
+.stats .label {
     color: black;
 }

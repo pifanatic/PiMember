@@ -1,15 +1,5 @@
 <div class="sub-header">
-    <div class="sub-header-left">
-        [% FOREACH tag IN card.tags %]
-            <span class="tag">
-                <a href="[% c.uri_for(c.controller('Cards').action_for('index'), { 'tag' => tag.name }) %]">
-                    [% FILTER html %]
-                        [% tag.name %]
-                    [% END %]
-                </a>
-            </span>
-        [% END %]
-    </div>
+    <span></span>
 
     <div class="sub-header-title">[% card.title %]</div>
 
@@ -68,34 +58,58 @@
     </div>
 </div>
 
-<div class="stat-row overlay">
-    <span class="stat-row-item">
-        <span class="label">Created on</span>
-        [% card.created.dmy('.') %]
-    </span>
-
-    <span class="stat-row-item">
-        <span class="label">Last learned on</span>
-        [% card.last_seen.dmy('.') %]
-    </span>
-
-    <span class="stat-row-item">
-        <span class="label">Due</span>
-        [% card.due.dmy('.') %]
-    </span>
-
-    <span class="stat-row-item">
-        <span class="label">
-            Learn success
+<div class="stats overlay">
+    <div class="row">
+        <div class="stat-row-item">
+            <span class="label">
+                Tags
+            </span>
+            <div class="tags">
+                [% IF card.tags %]
+                    [% FOREACH tag IN card.tags %]
+                        <span class="tag">
+                            <a href="[% c.uri_for(c.controller('Cards').action_for('index'), { 'tag' => tag.name }) %]">
+                                [% FILTER html %]
+                                    [% tag.name %]
+                                [% END %]
+                            </a>
+                        </span>
+                    [% END %]
+                [% ELSE %]
+                    None
+                [% END %]
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <span class="stat-row-item">
+            <span class="label">Created on</span>
+            [% card.created.dmy('.') %]
         </span>
-        [% card.correct_answers %] of [% card.total_answers %]
-        ([% card.success_rate %] %)
-    </span>
 
-    <span class="stat-row-item">
-        <span class="label">Rating</span>
-        [% card.rating %]
-    </span>
+        <span class="stat-row-item">
+            <span class="label">Last learned on</span>
+            [% card.last_seen.dmy('.') %]
+        </span>
+
+        <span class="stat-row-item">
+            <span class="label">Due</span>
+            [% card.due.dmy('.') %]
+        </span>
+
+        <span class="stat-row-item">
+            <span class="label">
+                Learn success
+            </span>
+            [% card.correct_answers %] of [% card.total_answers %]
+            ([% card.success_rate %] %)
+        </span>
+
+        <span class="stat-row-item">
+            <span class="label">Rating</span>
+            [% card.rating %]
+        </span>
+    </div>
 </div>
 
 <script src="[% c.uri_for('/static/js/view.js') %]" type="module"></script>
