@@ -30,6 +30,9 @@ a {
 
     font-size: 16px;
     font-family: inherit;
+    text-align: center;
+
+    background-color: #ccc;
 
     cursor: pointer;
 }
@@ -532,10 +535,17 @@ form#cardForm {
 .front::before { content: "FRONT"; }
 .back::before { content: "BACK"; }
 
-.submit-button {
-    display: block;
+#cardForm .button-row {
+    display: flex;
+    justify-content: center;
+}
+
+#cardForm .button-row .btn {
     width: 100px;
-    margin: 0 auto;
+}
+
+.submit-button {
+    margin-left: 50px;
 }
 
 /* Learn */

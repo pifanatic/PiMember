@@ -9,9 +9,15 @@
 <form id="cardForm" method="post">
     [% INCLUDE cards/card_form_content.tt %]
 
-    <button class="submit-button btn btn-primary">
-        Save
-    </button>
+    <div class="button-row">
+        <a class="btn"
+           href="[% c.uri_for(c.controller.action_for('view'), [card.id]) %]">
+           Cancel
+        </a>
+        <button class="submit-button btn btn-primary">
+            Save
+        </button>
+    </div>
 </form>
 
 <script src="[% c.uri_for('/static/js/cardForm.js') %]" type="module"></script>
