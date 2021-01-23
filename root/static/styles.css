@@ -381,6 +381,11 @@ span.tag > a:hover {
     border: 1px solid #111;
 }
 
+.list-item:not(.list-header):hover {
+    cursor: pointer;
+    background-color: #eee;
+}
+
 .list-item .cell {
     padding: 5px 10px;
     flex: 1;

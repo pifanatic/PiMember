@@ -1,4 +1,4 @@
-<div class="list">
+<div id="list" class="list">
     <div class="list-item list-header">
         <div class="cell">Title</div>
         <div class="cell">Frontside</div>
@@ -7,7 +7,7 @@
         <div class="cell">Actions</div>
     </div>
     [% FOREACH card IN cards %]
-        <div class="list-item">
+        <div card_id="[% card.id %]" class="list-item">
             <div class="cell" highlightable>
                 [% FILTER html %]
                     [% card.title %]
@@ -56,3 +56,15 @@
         </div>
     [% END %]
 </div>
+
+<script type="module">
+    let list = document.getElementById("list");
+
+    list.addEventListener("click", e => {
+        let listItem = e.path.find(el => el.attributes && el.attributes.card_id);
+
+        if (listItem) {
+            window.location.href = `/cards/${listItem.attributes.card_id.value}`;
+        }
+    });
+</script>
