@@ -13,7 +13,7 @@
 
     <div class="sub-header-right">
         [% IF tag %]
-            <a class="list-link"
+            <a class="sub-header-link"
                href="[% c.uri_for(c.controller('Cards').action_for('index')) %]">
                 <i class="far fa-clone"></i>
                 See all cards

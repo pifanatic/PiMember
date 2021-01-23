@@ -469,12 +469,12 @@ span.tag > a:hover {
     align-items: center;
 }
 
-.sub-header-right > a.list-link {
+.sub-header-right > a.sub-header-link {
     color: #777;
     margin-right: 50px;
 }
 
-.sub-header-right > a.list-link:hover {
+.sub-header-right > a.sub-header-link:hover {
     text-decoration: underline;
 }
 
