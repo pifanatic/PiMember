@@ -623,3 +623,39 @@ form#cardForm {
 span.highlight {
     background-color: yellow;
 }
+
+/* Card view */
+.sub-header-left .tag:not(:last-child) {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.card-row, .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 20px 15%;
+    padding: 10px;
+}
+
+.stat-row {
+    color: #777;
+}
+
+.stat-row .stat-row-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    flex: 1;
+    padding: 10px;
+}
+
+.stat-row .stat-row-item:not(:last-child) {
+    border-right: 1px solid #aaa;
+}
+
+.stat-row .label {
+    color: black;
+}

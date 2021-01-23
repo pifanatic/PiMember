@@ -95,6 +95,14 @@ sub get_card_by_id : Chained("/") PathPart("cards") CaptureArgs(1) {
     $c->stash({ card => $card });
 }
 
+=head2 view
+
+Show all information about a card.
+
+=cut
+
+sub view : Chained("get_card_by_id") PathPart("") { }
+
 
 =head2 edit
 
