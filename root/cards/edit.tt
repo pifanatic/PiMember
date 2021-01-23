@@ -10,7 +10,7 @@
     [% INCLUDE cards/card_form_content.tt %]
 
     <button class="submit-button btn btn-primary">
-        Edit
+        Save
     </button>
 </form>
 
