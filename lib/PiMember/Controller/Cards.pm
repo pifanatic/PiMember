@@ -137,7 +137,7 @@ sub edit : Chained("get_card_by_id") Args(0) {
 
         $c->response->redirect(
             $c->uri_for(
-                $c->controller->action_for("edit"),
+                $c->controller->action_for("view"),
                 [ $c->stash->{card}->id ],
                 { mid => $c->set_status_msg($status_msg) }
             )
