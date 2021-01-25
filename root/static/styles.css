@@ -90,7 +90,7 @@ a {
 
     background-color: white;
     font-family: 'Comic Neue';
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
 }
 
@@ -115,6 +115,10 @@ a {
     border: 1px dashed #ccc;
     background-color: #eee;
     color: #777;
+}
+
+.card pre, tt {
+    font-size: 16px;
 }
 
 span.tag {
