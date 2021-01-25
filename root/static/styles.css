@@ -103,6 +103,18 @@ a {
 .card-content {
     display: table-cell;
     vertical-align: middle;
+    white-space: pre-line;
+}
+
+.card pre {
+    text-align: left;
+
+    margin-bottom: 0;
+    padding: 0.1em;
+
+    border: 1px dashed #ccc;
+    background-color: #eee;
+    color: #777;
 }
 
 span.tag {

@@ -47,10 +47,8 @@
     <div class="card">
         <div class="card-content-wrapper">
             <div id="front-text" class="card-content">
-                [% FILTER html_line_break %]
-                    [% FILTER html %]
-                        [% card.frontside %]
-                    [% END %]
+                [% FILTER html %]
+                    [% card.frontside %]
                 [% END %]
             </div>
         </div>
@@ -59,10 +57,8 @@
     <div class="card">
         <div class="card-content-wrapper">
             <div id="back-text" class="card-content">
-                [% FILTER html_line_break %]
-                    [% FILTER html %]
-                        [% card.backside %]
-                    [% END %]
+                [% FILTER html %]
+                    [% card.backside %]
                 [% END %]
             </div>
         </div>
