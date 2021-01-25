@@ -7,9 +7,11 @@
 <form id="cardForm" method="post">
     [% INCLUDE cards/card_form_content.tt %]
 
-    <button class="submit-button btn btn-primary">
-        Create
-    </button>
+    <div class="button-row">
+        <button class="submit-button btn btn-primary">
+            Create
+        </button>
+    </div>
 </form>
 
 <script src="[% c.uri_for('/static/js/cardForm.js') %]" type="module"></script>
