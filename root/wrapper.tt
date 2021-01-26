@@ -2,6 +2,7 @@
 <html lang="en-US">
 <head>
     <title>PiMember</title>
+    <link rel="icon" href="/static/favicon.png"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Righteous&display=swap"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comic+Neue&display=swap"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
