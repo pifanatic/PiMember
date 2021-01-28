@@ -2,17 +2,29 @@ use strict;
 use warnings;
 use Test::More;
 
-use Catalyst::Test "PiMember";
+BEGIN {
+    $ENV{PIMEMBER_CONFIG_LOCAL_SUFFIX} = "testing";
+}
 
-ok(
-    request("/cards")->is_redirect,
-    "Request should redirect"
+eval "use Test::WWW::Mechanize::Catalyst 'PiMember'";
+plan $@
+    ? (skip_all => "Test::WWW::Mechanize::Catalyst required")
+    : (tests => 3);
+
+ok(my $mech = Test::WWW::Mechanize::Catalyst->new(max_redirect => 0),
+    "Created mech object");
+
+
+$mech->get("/cards");
+
+$mech->header_is(
+    "Status",
+    302,
+    "redirects when accessing /cards without login"
 );
 
-is(
-    request("/cards")->headers->{location},
+$mech->header_is(
+    "Location",
     "http://localhost/login",
-    "Request should redirect to /login"
+    "redirects to login when access /cards without login"
 );
-
-done_testing();
