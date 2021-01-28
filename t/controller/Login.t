@@ -21,29 +21,44 @@ $mech->content_contains("Sign in to PiMember");
 
 
 
-$mech->submit_form_ok({
+$mech->submit_form((
         fields      => {},
-    }
+    )
+);
+$mech->header_is(
+    "Status",
+    400,
+    "no form-data is a Bad Request"
 );
 $mech->content_contains("Username and password required.");
 
 
 
-$mech->submit_form_ok({
+$mech->submit_form((
         fields      => {
             password => "PASSWORD"
         },
-    }
+    )
+);
+$mech->header_is(
+    "Status",
+    400,
+    "no username is a Bad Request"
 );
 $mech->content_contains("Username and password required.");
 
 
 
-$mech->submit_form_ok({
+$mech->submit_form((
         fields      => {
             username => "USERNAME"
         },
-    }
+    )
+);
+$mech->header_is(
+    "Status",
+    400,
+    "no password is a Bad Request"
 );
 $mech->content_contains("Username and password required.");
 

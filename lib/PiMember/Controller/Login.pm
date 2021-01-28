@@ -47,6 +47,7 @@ sub index : Path Args(0) {
         my $password = $c->req->params->{password};
 
         if (!$username || !$password) {
+            $c->res->status(400);
             return $c->stash({ error_msg => "Username and password required." });
         }
 
