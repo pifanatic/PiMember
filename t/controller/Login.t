@@ -1,40 +1,11 @@
 use strict;
 use warnings;
-use Test::More;
-use DBIx::Class::Fixtures;
-use PiMember::Schema;
-
-my $schema;
-my $mech;
-my $fixtures;
+use FindBin;
+use Test::More "no_plan";
 
 BEGIN {
-    $ENV{PIMEMBER_CONFIG_LOCAL_SUFFIX} = "testing";
+    require "$FindBin::Bin/../lib/inc.pl";
 }
-
-END {
-    map { $schema->resultset($_)->delete_all; } $schema->sources;
-}
-
-eval "use Test::WWW::Mechanize::Catalyst 'PiMember'";
-plan $@
-    ? (skip_all => "Test::WWW::Mechanize::Catalyst required")
-    : (tests => 15);
-
-ok($mech = Test::WWW::Mechanize::Catalyst->new(max_redirect => 0),
-    "Created mech object");
-
-$schema = PiMember::Schema->connect("dbi:SQLite:t/lib/db/pimember.db");
-
-$fixtures = DBIx::Class::Fixtures->new({
-    config_dir => "t/lib/fixtures"
-});
-
-$fixtures->populate({
-    directory => "t/lib/fixtures",
-    schema    => $schema,
-    no_deploy => 1
-});
 
 
 
