@@ -1,0 +1,4 @@
+$HASH1 = {
+    id   => 2,
+    name => '<span>tag_02</span>'
+};

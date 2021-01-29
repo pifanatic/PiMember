@@ -30,6 +30,7 @@ requires 'Config::General'; # This should reflect the config file format you've 
                  # See Catalyst::Plugin::ConfigLoader for supported formats
 test_requires 'Test::More' => '0.88';
 test_requires 'Test::WWW:Mechanize::Catalyst';
+test_requires 'DBIx::Class::Fixtures';
 catalyst;
 
 install_script glob('script/*.pl');
