@@ -48,7 +48,6 @@
                 [% ELSE %]
                     </span>
                 [% END %]
-                </a>
             </div>
         [% END %]
         <div class="header-center">
