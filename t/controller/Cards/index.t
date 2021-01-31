@@ -5,7 +5,7 @@ use Test::More "no_plan";
 use Test::XPath;
 
 BEGIN {
-    require "$FindBin::Bin/../lib/inc.pl";
+    require "$FindBin::Bin/../../lib/inc.pl";
 }
 
 
