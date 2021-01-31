@@ -36,7 +36,7 @@ sub index : Path Args(0) {
     if ($tag) {
         @cards = $c->model("DB")->get_cards_by_tag($tag);
 
-        $c->stash({ tag => $tag });
+        $c->stash({ tag => lc $tag });
     } else {
         @cards = $c->model("DB::Card")->search({ in_trash => 0 });
     }
