@@ -4,7 +4,9 @@
     <div class="sub-header-title">
         [% IF tag %]
             <i class="fas fa-tag"></i>
-            [% tag %]
+            [% FILTER html %]
+                [% tag %]
+            [% END %]
         [% ELSE %]
             <i class="far fa-clone"></i>
             Cards
