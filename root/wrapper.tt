@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comic+Neue&amp;display=swap"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
     <link rel="stylesheet" href="[% c.uri_for('/static/styles.css') %]"/>
+
+    <script>
+        window.MathJax = {
+            loader: {
+                load: ["input/tex-base", "output/chtml"]
+            }
+        }
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/startup.js"></script>
 </head>
 
 <body>
