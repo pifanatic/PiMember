@@ -29,7 +29,7 @@
 </head>
 
 <body>
-    <div id="header">
+    <header>
         [% IF c.user_exists %]
             <div class="header-left">
                 <div class="username">
@@ -87,7 +87,7 @@
                 </a>
             </div>
         [% END %]
-    </div>
+    </header>
 
     <div class="content">
         [% content %]

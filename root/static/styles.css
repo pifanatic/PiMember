@@ -135,7 +135,7 @@ span.tag > a:hover {
     text-decoration: underline;
 }
 
-#header {
+header {
     display: flex;
     align-items: center;
     height: 60px;
@@ -147,92 +147,92 @@ span.tag > a:hover {
     color: white;
 }
 
-#header .header-left, .header-right {
+header .header-left, .header-right {
     display: flex;
     align-items: center;
     flex: 2;
     font-size: 18px;
 }
 
-#header .header-center {
+header .header-center {
     flex: 1;
     text-align: center;
 }
 
-#header .header-right {
+header .header-right {
     justify-content: flex-end;
 }
 
-#header .header-left .fa-user {
+header .header-left .fa-user {
     margin-right: 5px;
     font-size: 20px;
 }
 
-#header .header-left .username {
+header .header-left .username {
     margin-right: 40px;
 }
 
-#header .app-title {
+header .app-title {
     margin: 0 20px;
     color: white;
 }
 
-#header .header-right .search-form {
+header .header-right .search-form {
     margin-right: 100px;
 }
 
-#header .header-right a {
+header .header-right a {
     display: flex;
     align-items: center;
     color: white;
 }
 
-#header .header-right .fa-sign-out-alt {
+header .header-right .fa-sign-out-alt {
     margin-left: 10px;
     font-size: 20px;
 }
 
-#header .header-item {
+header .header-item {
     color: white;
     padding: 5px 15px;
     border-radius: 5px;
 }
 
-#header .header-item:not(:last-child) {
+header .header-item:not(:last-child) {
     margin-right: 5px;
 }
 
-#header .header-item:hover {
+header .header-item:hover {
     background-color: #0080ff;
 }
 
-#header .header-item .header-item-icon {
+header .header-item .header-item-icon {
     margin-right: 3px;
 }
 
-#header .header-item-learn {
+header .header-item-learn {
     background-color: limegreen;
     display: flex;
     align-items: center;
 }
 
-#header .header-item.disabled {
+header .header-item.disabled {
     background-color: #aaa;
 }
 
-#header .header-item-learn:not(.disabled):hover {
+header .header-item-learn:not(.disabled):hover {
     background-color: lightgreen;
 }
 
-#header .header-item .header-item-learn-label {
+header .header-item .header-item-learn-label {
     margin-left: 7px;
 }
 
-#header .header-item.disabled .header-item-learn-label {
+header .header-item.disabled .header-item-learn-label {
     cursor: default;
 }
 
-#header .header-item-learn .queue-size {
+header .header-item-learn .queue-size {
     margin-left: 7px;
     background-color: white;
     color: limegreen;
