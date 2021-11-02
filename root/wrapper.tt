@@ -12,6 +12,15 @@
         window.MathJax = {
             loader: {
                 load: ["input/tex-base", "output/chtml"]
+            },
+            startup: {
+                typeset: false,
+                ready: () => {
+                    MathJax.startup.defaultReady();
+                    MathJax.startup.promise.then(() => {
+                        MathJax.typeset([".card"]);
+                    });
+                }
             }
         }
     </script>
