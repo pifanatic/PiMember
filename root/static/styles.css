@@ -241,7 +241,7 @@ header .header-item-learn .queue-size {
     font-size: 12px;
 }
 
-.content {
+main {
     height: calc(100vh - 60px);
     overflow-y: auto;
 }
