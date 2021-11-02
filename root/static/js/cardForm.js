@@ -23,6 +23,11 @@ import PIML from "./piml.min.js";
         }
 
         setPreviewValue(previewEl, e.target.value);
+
+        if (window.MathJax) {
+            window.MathJax.typesetClear();
+            window.MathJax.typeset([".card"]);
+        }
     });
 
     setPreviewValue(frontPreview, frontInput.value);
