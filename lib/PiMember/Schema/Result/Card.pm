@@ -95,6 +95,12 @@ __PACKAGE__->table("Cards");
   default_value: 0
   is_nullable: 0
 
+=head2 user_id
+
+  data_type: 'integer'
+  is_foreign_key: 1
+  is_nullable: 0
+
 =cut
 
 __PACKAGE__->add_columns(
@@ -120,6 +126,8 @@ __PACKAGE__->add_columns(
   { data_type => "integer", is_nullable => 1 },
   "in_trash",
   { data_type => "integer", default_value => 0, is_nullable => 0 },
+  "user_id",
+  { data_type => "integer", is_foreign_key => 1, is_nullable => 0 },
 );
 
 =head1 PRIMARY KEY
@@ -151,9 +159,24 @@ __PACKAGE__->has_many(
   { cascade_copy => 0, cascade_delete => 0 },
 );
 
+=head2 user
 
-# Created by DBIx::Class::Schema::Loader v0.07048 @ 2020-04-09 13:20:42
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:VT2hriUXZV9+XEpnKTLiXg
+Type: belongs_to
+
+Related object: L<PiMember::Schema::Result::User>
+
+=cut
+
+__PACKAGE__->belongs_to(
+  "user",
+  "PiMember::Schema::Result::User",
+  { id => "user_id" },
+  { is_deferrable => 0, on_delete => "CASCADE", on_update => "CASCADE" },
+);
+
+
+# Created by DBIx::Class::Schema::Loader v0.07049 @ 2022-02-27 21:49:28
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:8Pb1v1DnJTYAsbSbUXWOWw
 
 =head1 ADDITIONAL ACCESSORS
 

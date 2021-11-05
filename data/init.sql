@@ -23,7 +23,9 @@ CREATE TABLE 'Cards' (
     due                     DATE,
     correct_answers         INTEGER,
     wrong_answers           INTEGER,
-    in_trash                INTEGER     NOT NULL    DEFAULT 0
+    in_trash                INTEGER     NOT NULL    DEFAULT 0,
+    user_id                 INTEGER     NOT NULL,
+    FOREIGN KEY(user_id) REFERENCES Users(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE 'Tags' (

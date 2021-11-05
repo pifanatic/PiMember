@@ -84,9 +84,26 @@ __PACKAGE__->add_columns(
 
 __PACKAGE__->set_primary_key("id");
 
+=head1 RELATIONS
 
-# Created by DBIx::Class::Schema::Loader v0.07048 @ 2020-04-09 12:25:39
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:+5bjfh548Cod7wWoGuD/nw
+=head2 cards
+
+Type: has_many
+
+Related object: L<PiMember::Schema::Result::Card>
+
+=cut
+
+__PACKAGE__->has_many(
+  "cards",
+  "PiMember::Schema::Result::Card",
+  { "foreign.user_id" => "self.id" },
+  { cascade_copy => 0, cascade_delete => 0 },
+);
+
+
+# Created by DBIx::Class::Schema::Loader v0.07049 @ 2021-11-05 16:51:04
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:qtPbsANKVgEqnL5PBLLbIg
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
