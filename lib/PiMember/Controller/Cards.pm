@@ -61,7 +61,8 @@ sub add : Local Args(0) {
             frontside => $c->req->params->{frontside},
             backside  => $c->req->params->{backside},
             title     => $c->req->params->{title},
-            tags      => [split " ", $c->req->params->{tags} ]
+            tags      => [split " ", $c->req->params->{tags} ],
+            user_id   => $c->user->id
         });
 
         $c->forward($self->action_for("update_queue"));

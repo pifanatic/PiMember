@@ -61,6 +61,7 @@ sub create_card {
         due             => DateTime->today->iso8601,
         correct_answers => 0,
         wrong_answers   => 0,
+        user_id         => $args->{user_id}
     });
 
     if (@tags > 0) {
