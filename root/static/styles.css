@@ -147,6 +147,12 @@ header {
     color: white;
 }
 
+@media (max-width: 1000px) {
+    header {
+        padding: 0 15px;
+    }
+}
+
 header .header-left-desktop, .header-right {
     display: flex;
     align-items: center;
