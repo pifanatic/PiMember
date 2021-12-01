@@ -280,6 +280,11 @@ header .header-right .fa-sign-out-alt {
     header .header-right .logout-text {
         display: none;
     }
+
+    header .header-right .fa-sign-out-alt {
+        margin-left: 0px;
+        font-size: 25px;
+    }
 }
 
 header .nav-item,
