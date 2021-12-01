@@ -154,6 +154,12 @@ header .header-left-desktop, .header-right {
     font-size: 18px;
 }
 
+@media (max-width: 1000px) {
+    header .header-left-desktop {
+        display: none;
+    }
+}
+
 header .header-center {
     flex: 1;
     text-align: center;
