@@ -255,6 +255,16 @@ header .header-right .search-form {
     margin-right: 100px;
 }
 
+@media (max-width: 1000px) {
+    header .header-right .search-form {
+        margin-right: 10px;
+    }
+
+    header .header-right .search-form input {
+        display: none;
+    }
+}
+
 header .header-right a {
     display: flex;
     align-items: center;
@@ -700,6 +710,7 @@ form#cardForm {
 }
 
 .search-form .search-icon {
+    cursor: pointer;
     font-size: 24px;
     margin-right: 10px;
 }
@@ -709,6 +720,31 @@ form#cardForm {
     font-family: inherit;
     padding: 2px;
     width: 250px;
+}
+
+@media (max-width: 1000px) {
+    header.search-focused .header-left-mobile {
+        flex: 0;
+    }
+
+    header.search-focused input#searchInput {
+        display: block;
+        width: 100%;
+    }
+
+    header.search-focused .search-form {
+        flex: 1;
+        padding-left: 20px;
+        padding-right: 5px;
+    }
+
+    header.search-focused .search-form form {
+        flex: 1;
+    }
+
+    header.search-focused .header-center {
+        display: none;
+    }
 }
 
 span.highlight {

@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    <header>
+    <header id="header">
         [% IF c.user_exists %]
             <nav class="header-left-desktop">
                 [% INCLUDE navigation_items.tt %]
