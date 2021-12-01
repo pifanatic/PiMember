@@ -231,6 +231,12 @@ header .header-center {
     text-align: center;
 }
 
+@media (max-width: 1000px) {
+    header .header-center .header-center-icon {
+        display: none;
+    }
+}
+
 header .header-right {
     justify-content: flex-end;
 }
