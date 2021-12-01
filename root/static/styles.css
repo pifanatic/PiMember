@@ -147,7 +147,7 @@ header {
     color: white;
 }
 
-header .header-left, .header-right {
+header .header-left-desktop, .header-right {
     display: flex;
     align-items: center;
     flex: 2;
@@ -163,12 +163,12 @@ header .header-right {
     justify-content: flex-end;
 }
 
-header .header-left .fa-user {
+header .header-left-desktop .fa-user {
     margin-right: 5px;
     font-size: 20px;
 }
 
-header .header-left .username {
+header .header-left-desktop .username {
     margin-right: 40px;
 }
 
