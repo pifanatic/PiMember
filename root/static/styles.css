@@ -160,6 +160,72 @@ header .header-left-desktop, .header-right {
     }
 }
 
+header .header-left-mobile {
+    display: none;
+}
+
+header .header-left-mobile details summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+header .header-left-mobile nav {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    padding: 5px 10px;
+    left: 0;
+    top: 60px;
+    background-color: white;
+    border-bottom: 1px solid #aaa;
+    box-shadow: 0px 4px 5px 0px #aaa;
+}
+
+header .header-left-mobile nav .nav-item {
+    border-radius: 0px;
+    font-size: 20px;
+    color: #777;
+}
+
+header .header-left-mobile nav .nav-item:hover {
+    background-color: #ddd;
+}
+
+header .header-left-mobile nav .nav-item .nav-item-icon {
+    width: 1.25em;
+}
+
+header .header-left-mobile nav .nav-item:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+    margin-right: 0px;
+}
+
+header .header-left-mobile nav .nav-item-learn {
+    color: #777;
+    background-color: white;
+}
+
+header .header-left-mobile nav .nav-item-learn.disabled {
+    color: #bbb;
+}
+
+header .header-left-mobile nav .nav-item-learn .queue-size {
+    position: absolute;
+    right: 20px;
+    color: white;
+    background-color: limegreen;
+    padding: 0px 8px;
+    font-size: 14px;
+}
+
+@media (max-width: 1000px) {
+    header .header-left-mobile {
+        display: flex;
+        flex: 2;
+    }
+}
+
 header .header-center {
     flex: 1;
     text-align: center;

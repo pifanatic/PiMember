@@ -35,6 +35,17 @@
             <nav class="header-left-desktop">
                 [% INCLUDE navigation_items.tt %]
             </nav>
+
+            <div class="header-left-mobile">
+                <details>
+                    <summary>
+                        <i class="fas fa-bars"></i>
+                    </summary>
+                    <nav>
+                        [% INCLUDE navigation_items.tt %]
+                    </nav>
+                </details>
+            </div>
         [% END %]
         <div class="header-center">
             <i class="fas fa-cogs"></i>
