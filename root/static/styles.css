@@ -262,6 +262,10 @@ header .header-right .search-form {
 }
 
 @media (max-width: 1000px) {
+    header .header-right .header-item {
+        padding: 5px 0px;
+    }
+
     header .header-right .search-form {
         margin-right: 10px;
     }
