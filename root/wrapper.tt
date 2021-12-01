@@ -61,7 +61,8 @@
 
                 <a class="header-item"
                    href="[% c.uri_for(c.controller('Logout').action_for('index')) %]">
-                   Logout<i class="fas fa-sign-out-alt"></i>
+                   <span class="logout-text">Logout</span>
+                   <i class="fas fa-sign-out-alt"></i>
                 </a>
             </div>
         [% END %]

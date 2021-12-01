@@ -266,6 +266,12 @@ header .header-right .fa-sign-out-alt {
     font-size: 20px;
 }
 
+@media (max-width: 1000px) {
+    header .header-right .logout-text {
+        display: none;
+    }
+}
+
 header .nav-item,
 header .header-item {
     color: white;
