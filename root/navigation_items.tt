@@ -1,9 +1,9 @@
-<div class="username">
-    <i class="fas fa-user"></i>
+<a class="header-item" href="#">
+    <i class="fas fa-user header-item-icon"></i>
     [% FILTER html %]
         [% c.user.first_name %]
     [% END %]
-</div>
+</a>
 <a class="header-item" href="[% c.uri_for(c.controller('Cards').action_for('index')) %]">
     <i class="far fa-clone header-item-icon"></i>
     Cards
