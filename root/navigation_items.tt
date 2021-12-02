@@ -1,28 +1,28 @@
-<a class="header-item" href="#">
-    <i class="fas fa-user header-item-icon"></i>
+<a class="nav-item" href="#">
+    <i class="fas fa-user nav-item-icon"></i>
     Profile
 </a>
-<a class="header-item" href="[% c.uri_for(c.controller('Cards').action_for('index')) %]">
-    <i class="far fa-clone header-item-icon"></i>
+<a class="nav-item" href="[% c.uri_for(c.controller('Cards').action_for('index')) %]">
+    <i class="far fa-clone nav-item-icon"></i>
     Cards
 </a>
-<a class="header-item" href="[% c.uri_for(c.controller('Tags').action_for('index')) %]">
-    <i class="fas fa-tags header-item-icon"></i>
+<a class="nav-item" href="[% c.uri_for(c.controller('Tags').action_for('index')) %]">
+    <i class="fas fa-tags nav-item-icon"></i>
     Tags
 </a>
-<a class="header-item" href="[% c.uri_for(c.controller('Trash').action_for('index')) %]">
-    <i class="fas fa-trash-alt header-item-icon"></i>
+<a class="nav-item" href="[% c.uri_for(c.controller('Trash').action_for('index')) %]">
+    <i class="fas fa-trash-alt nav-item-icon"></i>
     Trash
 </a>
 [% IF c.session.queue_size > 0 %]
-    <a class="header-item header-item-learn"
+    <a class="nav-item nav-item-learn"
        href="[% c.uri_for(c.controller('Cards').action_for('learn')) %]">
 [% ELSE %]
-    <span class="header-item header-item-learn disabled"
+    <span class="nav-item nav-item-learn disabled"
           title="No cards are due to learn!">
 [% END %]
         <i class="far fa-lightbulb"></i>
-        <span class="header-item-learn-label">Learn</span>
+        <span class="nav-item-learn-label">Learn</span>
 
 [% IF c.session.queue_size > 0 %]
         <span class="queue-size">[% c.session.queue_size %]</span>

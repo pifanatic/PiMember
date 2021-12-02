@@ -194,47 +194,49 @@ header .header-right .fa-sign-out-alt {
     font-size: 20px;
 }
 
+header .nav-item,
 header .header-item {
     color: white;
     padding: 5px 15px;
     border-radius: 5px;
 }
 
-header .header-item:not(:last-child) {
+header .nav-item:not(:last-child) {
     margin-right: 5px;
 }
 
+header .nav-item:hover,
 header .header-item:hover {
     background-color: #0080ff;
 }
 
-header .header-item .header-item-icon {
+header .nav-item .nav-item-icon {
     margin-right: 3px;
 }
 
-header .header-item-learn {
+header .nav-item-learn {
     background-color: limegreen;
     display: flex;
     align-items: center;
 }
 
-header .header-item.disabled {
+header .nav-item.disabled {
     background-color: #aaa;
 }
 
-header .header-item-learn:not(.disabled):hover {
+header .nav-item-learn:not(.disabled):hover {
     background-color: lightgreen;
 }
 
-header .header-item .header-item-learn-label {
+header .nav-item .nav-item-learn-label {
     margin-left: 7px;
 }
 
-header .header-item.disabled .header-item-learn-label {
+header .nav-item.disabled .nav-item-learn-label {
     cursor: default;
 }
 
-header .header-item-learn .queue-size {
+header .nav-item-learn .queue-size {
     margin-left: 7px;
     background-color: white;
     color: limegreen;
