@@ -32,9 +32,9 @@
 <body>
     <header>
         [% IF c.user_exists %]
-            <div class="header-left-desktop">
+            <nav class="header-left-desktop">
                 [% INCLUDE navigation_items.tt %]
-            </div>
+            </nav>
         [% END %]
         <div class="header-center">
             <i class="fas fa-cogs"></i>
