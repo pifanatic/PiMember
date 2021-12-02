@@ -1,8 +1,7 @@
 <div class="username">
     <i class="fas fa-user"></i>
-    Hello,
     [% FILTER html %]
-        [% c.user.first_name %]!
+        [% c.user.first_name %]
     [% END %]
 </div>
 <a class="header-item" href="[% c.uri_for(c.controller('Cards').action_for('index')) %]">
