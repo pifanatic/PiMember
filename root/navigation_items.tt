@@ -21,7 +21,7 @@
     <span class="nav-item nav-item-learn disabled"
           title="No cards are due to learn!">
 [% END %]
-        <i class="far fa-lightbulb"></i>
+        <i class="far fa-lightbulb nav-item-icon"></i>
         <span class="nav-item-learn-label">Learn</span>
 
 [% IF c.session.queue_size > 0 %]
