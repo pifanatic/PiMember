@@ -41,6 +41,11 @@
                 <details>
                     <summary>
                         <i class="fas fa-bars"></i>
+                        [% IF c.session.queue_size > 0 %]
+                            <span class="summary-queue-size">
+                                [% c.session.queue_size %]
+                            </span>
+                        [% END %]
                     </summary>
                     <nav>
                         [% INCLUDE navigation_items.tt %]

@@ -173,6 +173,21 @@ header .header-left-mobile {
 header .header-left-mobile details summary {
     list-style: none;
     cursor: pointer;
+    position: relative;
+}
+
+header .header-left-mobile details summary .summary-queue-size {
+    position: absolute;
+    background-color: limegreen;
+    border-radius: 36px;
+    padding: 0px 5px;
+    font-size: 12px;
+    top: 0px;
+    right: -10px;
+}
+
+header .header-left-mobile details[open] summary .summary-queue-size {
+    display: none;
 }
 
 header .header-left-mobile nav {
