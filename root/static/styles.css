@@ -207,10 +207,13 @@ header .header-left-mobile nav .nav-item {
     border-radius: 0px;
     font-size: 20px;
     color: #777;
+    transform: translateX(0px);
+    transition: transform 0.2s;
 }
 
 header .header-left-mobile nav .nav-item:hover {
-    background-color: #ddd;
+    transform: translateX(5px);
+    transition: transform 0.2s;
 }
 
 header .header-left-mobile nav .nav-item .nav-item-icon {
@@ -342,7 +345,7 @@ header .nav-item.disabled {
     background-color: #aaa;
 }
 
-header .nav-item-learn:not(.disabled):hover {
+header .header-left-desktop .nav-item-learn:not(.disabled):hover {
     background-color: lightgreen;
     transform: none;
 }
