@@ -323,9 +323,9 @@ header .nav-item:not(:last-child) {
     margin-right: 5px;
 }
 
-header .nav-item:hover,
+header .header-left-desktop .nav-item:hover,
 header .header-item:hover {
-    background-color: #0080ff;
+    transform: scale(1.1);
 }
 
 header .nav-item .nav-item-icon {
@@ -344,6 +344,7 @@ header .nav-item.disabled {
 
 header .nav-item-learn:not(.disabled):hover {
     background-color: lightgreen;
+    transform: none;
 }
 
 header .nav-item .nav-item-learn-label {
@@ -743,6 +744,10 @@ form#cardForm {
     cursor: pointer;
     font-size: 24px;
     margin-right: 10px;
+}
+
+.search-form .search-icon:hover {
+    transform: scale(1.1);
 }
 
 .search-form input {
