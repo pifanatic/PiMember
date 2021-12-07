@@ -1,6 +1,6 @@
 <div class="search-form">
-    <label for="searchInput">
-        <span id="searchIcon" class="fas fa-search search-icon" onclick="focusSearch()"></span>
+    <label id="searchLabel" for="searchInput">
+        <span class="fas fa-search search-icon"></span>
     </label>
     <form action="[% c.uri_for(c.controller('Cards').action_for('search')) %]">
         <input id="searchInput" name="q" placeholder="Search for cards..." title="Search for cards..." required/>
@@ -8,7 +8,7 @@
 </div>
 
 <script>
-function focusSearch() {
+document.getElementById("searchLabel").onclick = function() {
     document.getElementById("header").classList.add("search-focused");
 }
 
