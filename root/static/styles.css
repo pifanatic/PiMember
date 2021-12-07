@@ -207,12 +207,18 @@ header .header-left-mobile nav .nav-item {
     border-radius: 0px;
     font-size: 20px;
     color: #777;
-    transform: translateX(0px);
+}
+
+header .header-left-mobile nav .nav-item:hover:not(.disabled) .nav-item-icon,
+header .header-left-mobile nav .nav-item:hover:not(.disabled) .nav-item-text {
+    transform: translateX(5px);
     transition: transform 0.2s;
 }
 
-header .header-left-mobile nav .nav-item:hover {
-    transform: translateX(5px);
+header .header-left-mobile nav .nav-item .nav-item-icon,
+header .header-left-mobile nav .nav-item .nav-item-text {
+    display: inline-block;
+    transform: translateX(0px);
     transition: transform 0.2s;
 }
 

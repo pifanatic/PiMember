@@ -1,18 +1,18 @@
 <a class="nav-item" href="#">
     <i class="fas fa-user nav-item-icon"></i>
-    Profile
+    <span class="nav-item-text">Profile</span>
 </a>
 <a class="nav-item" href="[% c.uri_for(c.controller('Cards').action_for('index')) %]">
     <i class="far fa-clone nav-item-icon"></i>
-    Cards
+    <span class="nav-item-text">Cards</span>
 </a>
 <a class="nav-item" href="[% c.uri_for(c.controller('Tags').action_for('index')) %]">
     <i class="fas fa-tags nav-item-icon"></i>
-    Tags
+    <span class="nav-item-text">Tags</span>
 </a>
 <a class="nav-item" href="[% c.uri_for(c.controller('Trash').action_for('index')) %]">
     <i class="fas fa-trash-alt nav-item-icon"></i>
-    Trash
+    <span class="nav-item-text">Trash</span>
 </a>
 [% IF c.session.queue_size > 0 %]
     <a class="nav-item nav-item-learn"
@@ -22,7 +22,7 @@
           title="No cards are due to learn!">
 [% END %]
         <i class="far fa-lightbulb nav-item-icon"></i>
-        <span class="nav-item-learn-label">Learn</span>
+        <span class="nav-item-text nav-item-learn-label">Learn</span>
 
 [% IF c.session.queue_size > 0 %]
         <span class="queue-size">[% c.session.queue_size %]</span>
