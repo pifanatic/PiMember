@@ -771,13 +771,20 @@ form#cardForm {
     }
 
     header.search-focused .search-form {
+        justify-content: flex-end;
         flex: 1;
         padding-left: 20px;
         padding-right: 5px;
     }
 
     header.search-focused .search-form form {
-        flex: 1;
+        animation: expand 0.5s ease-in-out;
+        width: 100%;
+    }
+
+    @keyframes expand {
+        from { width:   0%; }
+        to   { width: 100%; }
     }
 
     header.search-focused .header-center {
