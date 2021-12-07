@@ -8,11 +8,13 @@
 </div>
 
 <script>
-document.getElementById("searchLabel").onclick = function() {
-    document.getElementById("header").classList.add("search-focused");
-}
+(function(){
+    document.getElementById("searchLabel").onclick = function() {
+        document.getElementById("header").classList.add("search-focused");
+    }
 
-document.getElementById("searchInput").onblur = function() {
-    document.getElementById("header").classList.remove("search-focused");
-}
+    document.getElementById("searchInput").onblur = function() {
+        document.getElementById("header").classList.remove("search-focused");
+    }
+}());
 </script>
