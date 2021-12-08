@@ -47,7 +47,10 @@ $mech->get_ok(
 
 $tx = Test::XPath->new(
     xml     => $mech->content,
-    is_html => 1
+    is_html => 1,
+    options => {
+        recover => 2
+    }
 );
 
 $tx->like(
@@ -174,7 +177,10 @@ $mech->get_ok("/cards?tag=tag_01");
 
 $tx = Test::XPath->new(
     xml     => $mech->content,
-    is_html => 1
+    is_html => 1,
+    options => {
+        recover => 2
+    }
 );
 
 $tx->like(
@@ -215,7 +221,10 @@ $mech->get_ok("/cards?tag=TAG_01");
 
 $tx = Test::XPath->new(
     xml     => $mech->content,
-    is_html => 1
+    is_html => 1,
+    options => {
+        recover => 2
+    }
 );
 
 $tx->like(
@@ -235,7 +244,10 @@ $mech->get_ok("/cards?tag=<span>tag_02</span>");
 
 $tx = Test::XPath->new(
     xml     => $mech->content,
-    is_html => 1
+    is_html => 1,
+    options => {
+        recover => 2
+    }
 );
 
 $tx->like(
@@ -249,7 +261,10 @@ $mech->get_ok("/cards?tag=i_dont_exist");
 
 $tx = Test::XPath->new(
     xml     => $mech->content,
-    is_html => 1
+    is_html => 1,
+    options => {
+        recover => 2
+    }
 );
 
 $tx->like(
@@ -281,7 +296,10 @@ $mech->get_ok("/cards");
 
 $tx = Test::XPath->new(
     xml     => $mech->content,
-    is_html => 1
+    is_html => 1,
+    options => {
+        recover => 2
+    }
 );
 
 $tx->like(
