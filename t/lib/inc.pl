@@ -3,6 +3,7 @@ use warnings;
 use DBIx::Class::Fixtures;
 use PiMember::Schema;
 use vars qw/$schema $mech $fixtures/;
+use Test::XPath;
 
 BEGIN {
     $ENV{PIMEMBER_CONFIG_LOCAL_SUFFIX} = "testing";
@@ -23,6 +24,16 @@ $fixtures->populate({
     schema    => $schema,
     no_deploy => 1
 });
+
+sub prepare_html_tests {
+    Test::XPath->new(
+        xml     => $mech->content,
+        is_html => 1,
+        options => {
+            recover => 2
+        }
+    );
+}
 
 END {
     map { $schema->resultset($_)->delete_all; } $schema->sources;

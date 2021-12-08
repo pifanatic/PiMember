@@ -2,7 +2,6 @@ use strict;
 use warnings;
 use FindBin;
 use Test::More "no_plan";
-use Test::XPath;
 
 BEGIN {
     require "$FindBin::Bin/../../lib/inc.pl";
@@ -45,13 +44,7 @@ $mech->get_ok(
     "can GET /cards when logged in"
 );
 
-$tx = Test::XPath->new(
-    xml     => $mech->content,
-    is_html => 1,
-    options => {
-        recover => 2
-    }
-);
+$tx = prepare_html_tests;
 
 $tx->like(
     '//div[@class="sub-header-title"]',
@@ -175,13 +168,7 @@ $tx->not_ok(
 
 $mech->get_ok("/cards?tag=tag_01");
 
-$tx = Test::XPath->new(
-    xml     => $mech->content,
-    is_html => 1,
-    options => {
-        recover => 2
-    }
-);
+$tx = prepare_html_tests;
 
 $tx->like(
     '//div[@class="sub-header-title"]',
@@ -219,13 +206,7 @@ $tx->not_ok(
 
 $mech->get_ok("/cards?tag=TAG_01");
 
-$tx = Test::XPath->new(
-    xml     => $mech->content,
-    is_html => 1,
-    options => {
-        recover => 2
-    }
-);
+$tx = prepare_html_tests;
 
 $tx->like(
     '//div[@class="sub-header-title"]',
@@ -242,13 +223,7 @@ $tx->is(
 
 $mech->get_ok("/cards?tag=<span>tag_02</span>");
 
-$tx = Test::XPath->new(
-    xml     => $mech->content,
-    is_html => 1,
-    options => {
-        recover => 2
-    }
-);
+$tx = prepare_html_tests;
 
 $tx->like(
     '//div[@class="sub-header-title"]',
@@ -259,13 +234,7 @@ $tx->like(
 
 $mech->get_ok("/cards?tag=i_dont_exist");
 
-$tx = Test::XPath->new(
-    xml     => $mech->content,
-    is_html => 1,
-    options => {
-        recover => 2
-    }
-);
+$tx = prepare_html_tests;
 
 $tx->like(
     '//div[@class="sub-header-title"]',
@@ -294,13 +263,7 @@ $schema->resultset("Card")->delete_all;
 
 $mech->get_ok("/cards");
 
-$tx = Test::XPath->new(
-    xml     => $mech->content,
-    is_html => 1,
-    options => {
-        recover => 2
-    }
-);
+$tx = prepare_html_tests;
 
 $tx->like(
     '//div[@class="sub-header"]//span',
