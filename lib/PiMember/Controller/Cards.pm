@@ -34,9 +34,11 @@ sub index : Path Args(0) {
     my $cards = $c->model("DB::Card")->search({ in_trash => 0 });
 
     if ($tag) {
+        $tag = lc $tag;
+
         $cards = $cards->search(
             {
-                "tag.name" => lc $tag
+                "tag.name" => $tag
             },
             {
                 join     => { cards_tags => { tag => "cards_tags" } },
@@ -44,7 +46,7 @@ sub index : Path Args(0) {
             }
         );
 
-        $c->stash({ tag => lc $tag });
+        $c->stash({ tag => $tag });
     }
 
     $c->stash({ cards => [$cards->all] });
