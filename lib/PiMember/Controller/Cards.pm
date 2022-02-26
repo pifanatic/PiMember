@@ -232,7 +232,8 @@ sub search : Local Args(0) {
                 frontside => { "like" => "%$query%" },
                 backside  => { "like" => "%$query%" },
             },
-            in_trash => 0
+            in_trash => 0,
+            user_id  => $c->user->id
         });
     }
 
