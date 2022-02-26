@@ -31,7 +31,10 @@ sub index : Path Args(0) {
     my ($self, $c) = @_;
 
     my $tag = $c->req->params->{tag};
-    my $cards = $c->model("DB::Card")->search({ in_trash => 0 });
+    my $cards = $c->model("DB::Card")->search({
+        user_id  => $c->user->id,
+        in_trash => 0
+    });
 
     if ($tag) {
         $tag = lc $tag;
