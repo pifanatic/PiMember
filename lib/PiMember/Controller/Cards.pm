@@ -339,6 +339,24 @@ sub update_queue : Private {
     $c->session->{queue_size} = $c->model("DB")->get_due_cards->count;
 }
 
+=head2 get_cards
+
+Gets a resultset for all cards of the current user that are not in trash
+
+=cut
+
+sub get_cards : Private {
+    my ($self, $c) = @_;
+
+    my $cards_rs = $c->model("DB::Card")->search({
+        in_trash => 0,
+        user_id  => $c->user->id
+    });
+
+    $c->stash({ cards_rs => $cards_rs });
+}
+
+
 __PACKAGE__->meta->make_immutable;
 
 1;
