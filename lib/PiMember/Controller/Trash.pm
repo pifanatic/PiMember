@@ -27,7 +27,10 @@ This is an operation that is needed for all actions in this controller
 sub auto : Private {
     my ($self, $c) = @_;
 
-    my @cards_in_trash = $c->model("DB::Card")->search({ in_trash => 1 });
+    my @cards_in_trash = $c->model("DB::Card")->search({
+        user_id  => $c->user->id,
+        in_trash => 1
+    });
 
     $c->stash({ cards => \@cards_in_trash });
 }
