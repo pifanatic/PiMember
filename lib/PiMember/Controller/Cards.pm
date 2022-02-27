@@ -31,15 +31,13 @@ sub index : Path Args(0) {
     my ($self, $c) = @_;
 
     my $tag = $c->req->params->{tag};
-    my $cards = $c->model("DB::Card")->search({
-        user_id  => $c->user->id,
-        in_trash => 0
-    });
+
+    $c->forward($self->action_for("get_cards"));
 
     if ($tag) {
         $tag = lc $tag;
 
-        $cards = $cards->search(
+        $c->stash->{cards_rs} = $c->stash->{cards_rs}->search(
             {
                 "tag.name" => $tag
             },
@@ -52,7 +50,7 @@ sub index : Path Args(0) {
         $c->stash({ tag => $tag });
     }
 
-    $c->stash({ cards => [$cards->all] });
+    $c->stash({ cards => [$c->stash->{cards_rs}->all] });
 }
 
 
