@@ -140,7 +140,8 @@ sub edit : Chained("get_card_by_id") Args(0) {
                 title     => $c->req->params->{title},
                 frontside => $c->req->params->{frontside},
                 backside  => $c->req->params->{backside},
-                tags      => [ split " ", $c->req->params->{tags} ]
+                tags      => [ split " ", $c->req->params->{tags} ],
+                user_id   => $c->user->id
             }
         );
 

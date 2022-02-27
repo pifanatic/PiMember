@@ -68,7 +68,10 @@ sub create_card {
         @tags = map { lc } @tags;
 
         @tags = map {
-            $self->resultset("Tag")->find_or_create({ name => $_ });
+            $self->resultset("Tag")->find_or_create({
+                name    => $_,
+                user_id => $args->{user_id}
+            });
         } @tags;
 
         $new_card->set_tags(@tags);
@@ -102,7 +105,10 @@ sub update_card {
 
     if (@tags > 0) {
         @tags = map {
-            $self->resultset("Tag")->find_or_create({ name => $_ });
+            $self->resultset("Tag")->find_or_create({
+                name    => $_,
+                user_id => $args->{user_id}
+            });
         } @tags;
 
         $card->set_tags(@tags);
