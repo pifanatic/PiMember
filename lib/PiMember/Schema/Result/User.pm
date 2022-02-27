@@ -101,9 +101,24 @@ __PACKAGE__->has_many(
   { cascade_copy => 0, cascade_delete => 0 },
 );
 
+=head2 tags
 
-# Created by DBIx::Class::Schema::Loader v0.07049 @ 2021-11-05 16:51:04
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:qtPbsANKVgEqnL5PBLLbIg
+Type: has_many
+
+Related object: L<PiMember::Schema::Result::Tag>
+
+=cut
+
+__PACKAGE__->has_many(
+  "tags",
+  "PiMember::Schema::Result::Tag",
+  { "foreign.user_id" => "self.id" },
+  { cascade_copy => 0, cascade_delete => 0 },
+);
+
+
+# Created by DBIx::Class::Schema::Loader v0.07049 @ 2022-02-27 20:59:11
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:pbQ0UsfIn+ke1HFdGDDFRA
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

@@ -49,6 +49,12 @@ __PACKAGE__->table("Tags");
   data_type: 'text'
   is_nullable: 0
 
+=head2 user_id
+
+  data_type: 'integer'
+  is_foreign_key: 1
+  is_nullable: 0
+
 =cut
 
 __PACKAGE__->add_columns(
@@ -56,6 +62,8 @@ __PACKAGE__->add_columns(
   { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
   "name",
   { data_type => "text", is_nullable => 0 },
+  "user_id",
+  { data_type => "integer", is_foreign_key => 1, is_nullable => 0 },
 );
 
 =head1 PRIMARY KEY
@@ -87,9 +95,23 @@ __PACKAGE__->has_many(
   { cascade_copy => 0, cascade_delete => 0 },
 );
 
+=head2 user
 
-# Created by DBIx::Class::Schema::Loader v0.07048 @ 2020-04-09 12:25:39
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:tYfddQNQGdjC38CQY71PNQ
+Type: belongs_to
+
+Related object: L<PiMember::Schema::Result::User>
+
+=cut
+
+__PACKAGE__->belongs_to(
+  "user",
+  "PiMember::Schema::Result::User",
+  { id => "user_id" },
+  { is_deferrable => 0, on_delete => "CASCADE", on_update => "CASCADE" },
+);
+
+# Created by DBIx::Class::Schema::Loader v0.07049 @ 2022-02-27 20:59:11
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:IZAdvhIqPBRcjFcJr6NJOw
 
 =head1 ADDITIONAL ACCESSORS
 

@@ -30,7 +30,9 @@ CREATE TABLE 'Cards' (
 
 CREATE TABLE 'Tags' (
     id                      INTEGER     PRIMARY KEY,
-    name                    TEXT        NOT NULL
+    name                    TEXT        NOT NULL,
+    user_id                 INTEGER     NOT NULL,
+    FOREIGN KEY(user_id) REFERENCES Users(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE 'CardsTags' (
