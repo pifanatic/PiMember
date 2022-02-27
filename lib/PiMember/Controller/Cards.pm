@@ -180,18 +180,24 @@ sub learn : Local Args(0) {
 
     my $tag = $c->req->query_parameters->{tag};
 
+
     if ($c->req->method eq "GET") {
-        my $card;
+        $c->forward($self->action_for("get_due_cards"));
 
         if ($tag) {
-            $card = $c->model("DB")->get_due_cards_by_tag($tag)->first;
+            $c->stash->{cards_rs} = $c->stash->{cards_rs}->search(
+                {
+                    "tag.name" => lc $tag
+                },
+                {
+                    join => { cards_tags => { tag => "cards_tags" } }
+                }
+            );
 
             $c->stash({ tag => $tag });
-        } else {
-            $card = $c->model("DB")->get_due_cards->first;
         }
 
-        $c->stash({ card => $card });
+        $c->stash({ card => $c->stash->{cards_rs}->first });
         $c->detach;
     }
 
@@ -334,7 +340,9 @@ Update the queue of cards that are due
 sub update_queue : Private {
     my ($self, $c) = @_;
 
-    $c->session->{queue_size} = $c->model("DB")->get_due_cards->count;
+    $c->forward($self->action_for("get_due_cards"));
+
+    $c->session->{queue_size} = $c->stash->{cards_rs}->count;
 }
 
 =head2 get_cards
@@ -352,6 +360,24 @@ sub get_cards : Private {
     });
 
     $c->stash({ cards_rs => $cards_rs });
+}
+
+=head2 get_due_cards
+
+Gets a resultset for all cards of the current user that are not in trash and are
+due to learn
+
+=cut
+
+sub get_due_cards : Private {
+    my ($self, $c) = @_;
+
+    $c->forward($self->action_for("get_cards"));
+
+    $c->stash->{cards_rs} = $c->stash->{cards_rs}->search(
+        { due      => { "<=" => DateTime->now->iso8601 } },
+        { order_by => { -asc => "last_seen" } }
+    );
 }
 
 
