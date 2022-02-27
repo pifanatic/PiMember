@@ -26,7 +26,7 @@ all tags.
 sub index : Path Args(0) {
     my ($self, $c) = @_;
 
-    my @tags = $c->model("DB::Tag")->all;
+    my @tags = $c->model("DB::Tag")->search({ user_id => $c->user->id });
 
     $c->stash({
         tags => \@tags
@@ -42,7 +42,7 @@ Remove all tags that are not used by any card
 sub remove_unused_tags : Private {
     my ($self, $c) = @_;
 
-    my @tags = $c->model("DB::Tag")->all;
+    my @tags = $c->model("DB::Tag")->search({ user_id => $c->user->id });
 
     foreach my $tag (@tags) {
         if ($tag->cards->count eq 0) {
