@@ -356,8 +356,8 @@ sub get_cards : Private {
     my ($self, $c) = @_;
 
     my $cards_rs = $c->model("DB::Card")->search({
-        in_trash => 0,
-        user_id  => $c->user->id
+        in_trash     => 0,
+        "me.user_id" => $c->user->id
     });
 
     $c->stash({ cards_rs => $cards_rs });
