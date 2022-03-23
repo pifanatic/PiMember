@@ -25,19 +25,16 @@
 
         <div class="overlay learn-box">
             <form id="learnForm" method="post">
-                <button id="answerCorrect" name="correct" value="0" class="btn btn-red">
+                <button id="answerCorrect" name="correct" value="0" class="icon-button icon-button-warning">
                     <span class="fas fa-times"></span>
-                    Wrong
                 </button>
 
-                <button id="turn" class="btn btn-primary" type="button">
+                <button id="turn" class="icon-button icon-button-primary" type="button">
                     <i class="fas fa-retweet"></i>
-                    Turn around
                 </button>
 
-                <button id="answerWrong" name="correct" value="1" class="btn btn-green">
+                <button id="answerWrong" name="correct" value="1" class="icon-button icon-button-success">
                     <span class="fas fa-check"></span>
-                    Correct
                 </button>
 
                 <input name="id" value="[% card.id %]" hidden/>
