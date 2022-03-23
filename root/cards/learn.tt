@@ -23,15 +23,15 @@
         </div>
 
         <form id="learnForm" method="post">
-            <button id="answerCorrect" name="correct" value="0" class="icon-button icon-button-warning">
+            <button id="answerCorrect" name="correct" value="0" class="icon-button icon-button-warning" title="Wrong answer">
                 <span class="fas fa-times"></span>
             </button>
 
-            <button id="turn" class="icon-button icon-button-primary" type="button">
+            <button id="turn" class="icon-button icon-button-primary" type="button" title="Turn card">
                 <span class="fas fa-retweet"></span>
             </button>
 
-            <button id="answerWrong" name="correct" value="1" class="icon-button icon-button-success">
+            <button id="answerWrong" name="correct" value="1" class="icon-button icon-button-success" title="Correct answer">
                 <span class="fas fa-check"></span>
             </button>
 
