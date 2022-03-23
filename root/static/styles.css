@@ -744,7 +744,7 @@ form#cardForm {
 
 /* Learn */
 .learn .card {
-    margin: 0 auto;
+    margin: 70px auto;
     transition: transform 0.8s linear;
 }
 
@@ -778,14 +778,15 @@ form#cardForm {
     transform: rotateY(180deg);
 }
 
-.learn .learn-box {
-    width: 40%;
-    margin: 30px auto;
+.learn #learnForm {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
 }
 
-.learn .learn-box #learnForm {
-    display: flex;
-    justify-content: space-between;
+.learn #learnForm .icon-button {
+    margin: 0 1em;
+    font-size: 24px;
 }
 
 /* Tag list */
