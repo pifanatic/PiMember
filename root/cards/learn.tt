@@ -28,7 +28,7 @@
             </button>
 
             <button id="turn" class="icon-button icon-button-primary" type="button">
-                <i class="fas fa-retweet"></i>
+                <span class="fas fa-retweet"></span>
             </button>
 
             <button id="answerWrong" name="correct" value="1" class="icon-button icon-button-success">
