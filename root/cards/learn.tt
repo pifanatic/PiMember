@@ -23,7 +23,7 @@
         </div>
 
         <form id="learnForm" method="post">
-            <button id="answerCorrect" name="correct" value="0" class="icon-button icon-button-warning" title="Wrong answer">
+            <button id="answerWrong" name="correct" value="0" class="icon-button icon-button-warning" title="Wrong answer">
                 <span class="fas fa-times"></span>
             </button>
 
@@ -31,7 +31,7 @@
                 <span class="fas fa-retweet"></span>
             </button>
 
-            <button id="answerWrong" name="correct" value="1" class="icon-button icon-button-success" title="Correct answer">
+            <button id="answerCorrect" name="correct" value="1" class="icon-button icon-button-success" title="Correct answer">
                 <span class="fas fa-check"></span>
             </button>
 
