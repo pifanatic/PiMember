@@ -702,6 +702,15 @@ form#cardForm {
     transition: transform 0.8s linear;
 }
 
+@media (max-width: 500px) {
+    .learn .card {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: initial;
+        height: calc(0.56 * 100vw);
+    }
+}
+
 .learn .card.turning {
     transform: rotate3d(0, 1, 0, 180deg);
 }
