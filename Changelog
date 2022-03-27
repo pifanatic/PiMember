@@ -1,0 +1,15 @@
+v0.01 2022-03-27
+================
+
+- added login/logout mechanism
+- added list of all cards
+- added forms to create and cards
+- added feature to create and edit tags for cards
+- added trash
+- added search feature
+- added learn mechanism
+- added tag-specific learn mechanism
+- added script to create the database needed for PiMember
+- added script to create users in the database
+- added script to create DBIx::Class schemas
+- added README
