@@ -639,6 +639,7 @@ main {
 }
 
 .sub-header-title {
+    flex: 5;
     font-size: 30px;
     text-align: center;
 }
