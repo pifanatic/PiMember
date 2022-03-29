@@ -634,6 +634,13 @@ main {
     border-bottom: 1px solid #aaa;
 }
 
+@media (max-width: 1000px) {
+    .sub-header {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
 .sub-header > * {
     flex: 1;
 }
