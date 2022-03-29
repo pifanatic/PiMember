@@ -887,7 +887,8 @@ span.highlight {
 
 /* Card view */
 .card-row, .stats {
-    margin: 20px 15%;
+    margin: 20px auto;
+    max-width: 1100px;
     padding: 10px;
 }
 
@@ -895,6 +896,16 @@ span.highlight {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+@media (max-width: 1000px) {
+    .card-row {
+        flex-direction: column;
+    }
+
+    .card-row .card {
+        margin-bottom: 20px;
+    }
 }
 
 .stats {
