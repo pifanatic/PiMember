@@ -1,3 +1,13 @@
+v0.02 2022-03-29
+================
+
+- visual improvements sub header bar:
+    - icon buttons replacing action links
+    - header becomes multiline on small screens
+- visual improvements to card's view page:
+    - cards are shown on top of each other on small screens
+    - statistic box becomes responsive on small screens
+
 v0.01 2022-03-27
 ================
 
