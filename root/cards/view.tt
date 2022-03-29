@@ -73,7 +73,7 @@
     <div class="row">
         <div class="stat-row-item">
             <span class="label">
-                <i class="icon fas fa-tags"></i>
+                <i class="icon fas fa-tags fa-fw"></i>
                 Tags
             </span>
             <div>
@@ -96,7 +96,7 @@
     <div class="row">
         <span class="stat-row-item">
             <span class="label">
-                <i class="icon far fa-calendar"></i>
+                <i class="icon far fa-calendar fa-fw"></i>
                 Created on
             </span>
             [% card.created.dmy('.') %]
@@ -104,7 +104,7 @@
 
         <span class="stat-row-item">
             <span class="label">
-                <i class="icon far fa-calendar-check"></i>
+                <i class="icon far fa-calendar-check fa-fw"></i>
                 Last learned on
             </span>
             [% card.last_seen.dmy('.') %]
@@ -112,7 +112,7 @@
 
         <span class="stat-row-item">
             <span class="label">
-                <i class="icon far fa-clock"></i>
+                <i class="icon far fa-clock fa-fw"></i>
                 Due
             </span>
             [% card.due.dmy('.') %]
@@ -120,7 +120,7 @@
 
         <span class="stat-row-item">
             <span class="label">
-                <i class="icon far fa-lightbulb"></i>
+                <i class="icon far fa-lightbulb fa-fw"></i>
                 Learn success
             </span>
             [% card.correct_answers %] of [% card.total_answers %]
@@ -129,7 +129,7 @@
 
         <span class="stat-row-item">
             <span class="label">
-                <i class="icon far fa-star"></i>
+                <i class="icon far fa-star fa-fw"></i>
                 Rating
             </span>
             [% card.rating %]
