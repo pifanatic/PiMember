@@ -5,10 +5,10 @@
         [% ELSE %]
             [% back_link = c.uri_for(c.controller('Cards').action_for('index')) %]
         [% END %]
-        <a class="sub-header-link"
+        <a class="icon-button"
+           title="Back"
            href="[% back_link %]">
            <i class="fas fa-arrow-left"></i>
-           Back
         </a>
     </div>
 
@@ -20,28 +20,28 @@
 
     <div class="sub-header-right">
         [% IF card.in_trash == 0 %]
-            <a class="sub-header-link"
+            <a class="icon-button"
+               title="Move to trash"
                href="[% c.uri_for(c.controller.action_for("movetotrash"), [card.id]) %]">
                <i class="fas fa-trash-alt"></i>
-               Move to trash
             </a>
 
-            <a class="btn btn-primary"
+            <a class="icon-button icon-button-primary"
+               title="Edit"
                href="[% c.uri_for(c.controller.action_for("edit"), [card.id]) %]">
                <i class="fas fa-pen-alt"></i>
-               Edit
             </a>
         [% ELSE %]
-            <a class="sub-header-link"
+            <a class="icon-button"
+               title="Restore"
                href="[% c.uri_for(c.controller.action_for("restore"), [card.id]) %]">
                <i class="fas fa-trash-restore"></i>
-               Restore
             </a>
 
-            <a class="btn btn-red"
+            <a class="icon-button icon-button-warning"
+               title="Delete"
                href="[% c.uri_for(c.controller.action_for("delete"), [card.id]) %]">
                <i class="fas fa-trash-alt"></i>
-               Delete
             </a>
         [% END %]
     </div>

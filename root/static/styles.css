@@ -649,6 +649,10 @@ main {
     align-items: center;
 }
 
+.sub-header a.icon-button {
+    margin: 0 10px;
+}
+
 .sub-header a.sub-header-link {
     color: #777;
     margin-right: 50px;
