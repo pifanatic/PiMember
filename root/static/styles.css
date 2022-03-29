@@ -908,6 +908,15 @@ span.highlight {
     }
 }
 
+@media (max-width: 500px) {
+    .card-row .card {
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+        height: calc(100vw * 0.56);
+    }
+}
+
 .stats {
     color: #777;
     flex-direction: column;
