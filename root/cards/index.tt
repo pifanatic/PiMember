@@ -1,5 +1,5 @@
 <div class="sub-header">
-    <span>[% cards.size %] cards total</span>
+    <div class="sub-header-left">[% cards.size %] cards total</div>
 
     <div class="sub-header-title">
         [% IF tag %]

@@ -1,5 +1,5 @@
 <div class="sub-header">
-    <span>[% tags.size %] tags total</span>
+    <div class="sub-header-left">[% tags.size %] tags total</div>
     <div class="sub-header-title"><i class="fas fa-tag"></i> Tags</div>
     <span></span>
 </div>

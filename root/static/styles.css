@@ -638,6 +638,21 @@ main {
     .sub-header {
         margin-left: 0px;
         margin-right: 0px;
+        flex-wrap: wrap;
+    }
+
+    .sub-header-title {
+        order: 1;
+        min-width: 100%;
+        margin-bottom: 0.5em;
+    }
+
+    .sub-header-left {
+        order: 2;
+    }
+
+    .sub-header-right {
+        order: 3;
     }
 }
 

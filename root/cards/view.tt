@@ -1,5 +1,5 @@
 <div class="sub-header">
-    <div>
+    <div class="sub-header-left">
         [% IF card.in_trash == 1 %]
             [% back_link = c.uri_for(c.controller('Trash').action_for('index')) %]
         [% ELSE %]
