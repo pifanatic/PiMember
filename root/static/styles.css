@@ -699,14 +699,11 @@ form#cardForm {
     margin: 0 auto;
 }
 
-.title-row, .tags-row {
+.tags-row {
     width: 50%;
     margin: 0px auto;
 
     text-align: center;
-}
-
-.tags-row {
     margin-bottom: 20px;
 }
 

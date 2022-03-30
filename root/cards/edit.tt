@@ -1,8 +1,6 @@
 <div class="sub-header">
     <div class="sub-header-title">
-        [% FILTER html %]
-            Edit "[% card.title %]"
-        [% END %]
+        Edit card
     </div>
 </div>
 

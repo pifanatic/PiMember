@@ -1,7 +1,3 @@
-<div class="title-row">
-    <label for="title">Title</label>
-    <input id="title" name="title" value="[% card.title %]"required/>
-</div>
 <div class="form-wrapper">
     <div class="front">
         <textarea id="front-input" name="frontside" rows="10" placeholder="Enter frontside text..." required>[% card.frontside %]</textarea>

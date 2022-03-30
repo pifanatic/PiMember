@@ -1,17 +1,11 @@
 <div id="list" class="list">
     <div class="list-item list-header">
-        <div class="cell">Title</div>
         <div class="cell">Frontside</div>
         <div class="cell">Backside</div>
         <div class="cell">Tags</div>
     </div>
     [% FOREACH card IN cards %]
         <div card_id="[% card.id %]" class="list-item">
-            <div class="cell" highlightable>
-                [% FILTER html %]
-                    [% card.title %]
-                [% END %]
-            </div>
             <div class="cell" highlightable>
                 [% FILTER html %]
                     [% card.frontside %]

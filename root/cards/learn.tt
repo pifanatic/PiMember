@@ -1,12 +1,6 @@
 
 [% IF card %]
     <div class="learn">
-        <h1>
-            [% FILTER html %]
-                [% card.title %]
-            [% END %]
-        </h1>
-
         <div id="card" class="overlay card">
             <div class="card-content-wrapper">
                 <div id="front-text" class="front-text card-content">

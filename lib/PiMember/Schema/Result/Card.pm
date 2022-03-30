@@ -44,11 +44,6 @@ __PACKAGE__->table("Cards");
   is_auto_increment: 1
   is_nullable: 0
 
-=head2 title
-
-  data_type: 'text'
-  is_nullable: 1
-
 =head2 frontside
 
   data_type: 'text'
@@ -106,8 +101,6 @@ __PACKAGE__->table("Cards");
 __PACKAGE__->add_columns(
   "id",
   { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
-  "title",
-  { data_type => "text", is_nullable => 1 },
   "frontside",
   { data_type => "text", is_nullable => 0 },
   "backside",
@@ -175,8 +168,8 @@ __PACKAGE__->belongs_to(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07049 @ 2022-02-27 21:49:28
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:8Pb1v1DnJTYAsbSbUXWOWw
+# Created by DBIx::Class::Schema::Loader v0.07049 @ 2022-03-30 16:52:32
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:N6b+mhIrVeIOYvvyhWCeDw
 
 =head1 ADDITIONAL ACCESSORS
 

@@ -39,7 +39,6 @@ Parameters must be given as a hashref like this:
 {
     frontside => "...",
     backside  => "...",
-    title     => "...",
     tags      => [...]
 }
 
@@ -55,7 +54,6 @@ sub create_card {
     my $new_card = $self->resultset("Card")->create({
         frontside       => $args->{frontside},
         backside        => $args->{backside},
-        title           => $args->{title},
         rating          => 0,
         created         => DateTime->today->iso8601,
         due             => DateTime->today->iso8601,
@@ -83,7 +81,7 @@ sub create_card {
 
 =head2 update_card
 
-Update the I<title>, I<frontside>, I<backside> and I<tags> attributes of a given
+Update the I<frontside>, I<backside> and I<tags> attributes of a given
 card.
 
 Returns the updated card.
@@ -96,7 +94,6 @@ sub update_card {
     my @tags = @{ $args->{tags} };
 
     $card->update({
-        title     => $args->{title},
         frontside => $args->{frontside},
         backside  => $args->{backside}
     });

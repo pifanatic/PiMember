@@ -1,6 +1,5 @@
 $HASH1 = {
     id              => 2,
-    title           => '<span>Test Card 2</span>',
     frontside       => "<div>Test Card 2 Frontside</div>",
     backside        => "<p>Test Card 2 Backside</p>",
     due             => '2021-01-01T00:00:00',

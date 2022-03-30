@@ -14,7 +14,6 @@ CREATE TABLE 'Users' (
 
 CREATE TABLE 'Cards' (
     id                      INTEGER     PRIMARY KEY,
-    title                   TEXT,
     frontside               TEXT        NOT NULL,
     backside                TEXT        NOT NULL,
     rating                  INTEGER     NOT NULL,

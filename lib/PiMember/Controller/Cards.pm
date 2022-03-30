@@ -69,7 +69,6 @@ sub add : Local Args(0) {
         my $new_card = $c->model("DB")->create_card({
             frontside => $c->req->params->{frontside},
             backside  => $c->req->params->{backside},
-            title     => $c->req->params->{title},
             tags      => [split " ", $c->req->params->{tags} ],
             user_id   => $c->user->id
         });
@@ -78,7 +77,7 @@ sub add : Local Args(0) {
 
         $c->response->redirect($c->uri_for(
             $c->controller->action_for("add"),
-            { mid => $c->set_status_msg('"' . $new_card->title . '" has been created!') }
+            { mid => $c->set_status_msg('New card has been created!') }
         ));
     }
 }
@@ -119,7 +118,7 @@ sub view : Chained("get_card_by_id") PathPart("") { }
 
 =head2 edit
 
-Changes the I<title>, I<frontside>, I<backside> or I<tags> of a card. Note that
+Changes the I<frontside>, I<backside> or I<tags> of a card. Note that
 all other attributes (like I<rating> or I<due>) will not be affected by this.
 
 GET shows a form filled with the current values of this card in order to change
@@ -137,7 +136,6 @@ sub edit : Chained("get_card_by_id") Args(0) {
         $c->stash->{card} = $c->model("DB")->update_card(
             $c->stash->{card},
             {
-                title     => $c->req->params->{title},
                 frontside => $c->req->params->{frontside},
                 backside  => $c->req->params->{backside},
                 tags      => [ split " ", $c->req->params->{tags} ],
@@ -145,7 +143,7 @@ sub edit : Chained("get_card_by_id") Args(0) {
             }
         );
 
-        my $status_msg = '"' . $c->stash->{card}->title . '" edited successfully!';
+        my $status_msg = 'Card edited successfully!';
 
         $c->forward($c->controller("Tags")->action_for("remove_unused_tags"));
 
@@ -220,7 +218,7 @@ sub learn : Local Args(0) {
 
 =head2 search
 
-Search for cards whose title/frontside/backside matches a given query string
+Search for cards whose frontside/backside matches a given query string
 
 =cut
 
@@ -233,7 +231,6 @@ sub search : Local Args(0) {
     if ($query) {
         @cards = $c->model("DB::Card")->search({
             -or => {
-                title     => { "like" => "%$query%" },
                 frontside => { "like" => "%$query%" },
                 backside  => { "like" => "%$query%" },
             },
@@ -263,7 +260,7 @@ sub movetotrash : Chained("get_card_by_id") Args(0) {
 
     $c->forward($self->action_for("update_queue"));
 
-    my $status_msg = '"' . $c->stash->{card}->title . '" has been moved to trash';
+    my $status_msg = 'Card has been moved to trash';
 
     $c->response->redirect(
         $c->uri_for(
@@ -298,7 +295,7 @@ sub restore : Chained("get_card_by_id") Args(0) {
 
         $c->forward($self->action_for("update_queue"));
 
-        my $status_msg = "'" . $c->stash->{card}->title . "' has been restored";
+        my $status_msg = "Card has been restored";
 
         $c->response->redirect(
             $c->uri_for(
@@ -322,7 +319,7 @@ sub delete : Chained("get_card_by_id") Args(0) {
 
     $c->forward($c->controller("Tags")->action_for("remove_unused_tags"));
 
-    my $status_msg = "'" . $c->stash->{card}->title . "' has been deleted";
+    my $status_msg = "Card has been deleted";
 
     $c->response->redirect(
         $c->uri_for(

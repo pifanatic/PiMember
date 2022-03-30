@@ -77,18 +77,12 @@ $tx->is(
 
 $tx->like(
     '//div[@card_id="1"]//div[@class="cell"][1]',
-    qr/Test Card 1/,
-    "contains title of first card"
-);
-
-$tx->like(
-    '//div[@card_id="1"]//div[@class="cell"][2]',
     qr/Test Card 1 Frontside/,
     "contains frontside of first card"
 );
 
 $tx->like(
-    '//div[@card_id="1"]//div[@class="cell"][3]',
+    '//div[@card_id="1"]//div[@class="cell"][2]',
     qr/Test Card 1 Backside/,
     "contains backside of first card"
 );
@@ -109,18 +103,12 @@ $tx->like(
 
 $tx->like(
     '//div[@card_id="2"]//div[@class="cell"][1]',
-    qr/<span>Test Card 2<\/span>/,
-    "contains title of second card"
-);
-
-$tx->like(
-    '//div[@card_id="2"]//div[@class="cell"][2]',
     qr/<div>Test Card 2 Frontside<\/div>/,
     "contains frontside of second card"
 );
 
 $tx->like(
-    '//div[@card_id="2"]//div[@class="cell"][3]',
+    '//div[@card_id="2"]//div[@class="cell"][2]',
     qr/<p>Test Card 2 Backside<\/p>/,
     "contains backside of second card"
 );
@@ -134,18 +122,12 @@ $tx->like(
 
 $tx->like(
     '//div[@card_id="3"]//div[@class="cell"][1]',
-    qr/Test Card 3/,
-    "contains title of third card"
-);
-
-$tx->like(
-    '//div[@card_id="3"]//div[@class="cell"][2]',
     qr/Test Card 3 Frontside/,
     "contains frontside of third card"
 );
 
 $tx->like(
-    '//div[@card_id="3"]//div[@class="cell"][3]',
+    '//div[@card_id="3"]//div[@class="cell"][2]',
     qr/Test Card 3 Backside/,
     "contains backside of third card"
 );
