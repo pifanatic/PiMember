@@ -1,4 +1,5 @@
 $HASH1 = {
-    id   => 2,
-    name => '<span>tag_02</span>'
+    id      => 2,
+    name    => '<span>tag_02</span>',
+    user_id => 1
 };

@@ -9,5 +9,6 @@ $HASH1 = {
     rating          => 6,
     correct_answers => 2,
     wrong_answers   => 1,
-    in_trash        => 0
+    in_trash        => 0,
+    user_id         => 1
 };
