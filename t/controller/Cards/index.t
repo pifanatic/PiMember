@@ -53,7 +53,7 @@ $tx->like(
 );
 
 $tx->like(
-    '//div[@class="sub-header"]/span',
+    '//div[@class="sub-header-left"]',
     qr/3 cards total/,
     "sub-header contains correct number of cards"
 );
@@ -266,7 +266,7 @@ $mech->get_ok("/cards");
 $tx = prepare_html_tests;
 
 $tx->like(
-    '//div[@class="sub-header"]//span',
+    '//div[@class="sub-header-left"]',
     qr/0 cards total/,
     "sub-header contains correct number of cards"
 );
