@@ -33,6 +33,7 @@ sub begin : Private {
         $c->response->redirect(
             $c->uri_for($c->controller("Login")->action_for("index"))
         );
+        $c->detach;
     }
 
     $c->load_status_msgs;
