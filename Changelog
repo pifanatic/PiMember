@@ -1,3 +1,13 @@
+v0.03 2022-03-30
+================
+
+- fixed tests by adding user_id to fixtures
+- fixed two broken tests by correcting selector
+- removed 'title' attribute from cards
+- fixed error messages when no user was logged in by detaching from Root
+  Controller action
+- added testing database to repository
+
 v0.02 2022-03-29
 ================
 
