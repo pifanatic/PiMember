@@ -1,3 +1,10 @@
+v0.04 2022-03-31
+================
+
+- fixed time zone in application (now using the local time zone instead of UTC)
+- removed testing database from repository (instead we now re-create the
+  database before the tests are executed)
+
 v0.03 2022-03-30
 ================
 
