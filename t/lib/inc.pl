@@ -13,7 +13,10 @@ use Test::WWW::Mechanize::Catalyst "PiMember";
 
 $mech = Test::WWW::Mechanize::Catalyst->new(max_redirect => 0);
 
-$schema = PiMember::Schema->connect("dbi:SQLite:t/lib/db/pimember.db.testing");
+$schema = PiMember::Schema->connect("dbi:SQLite:t/lib/db/pimember.db");
+$schema->deploy({
+    add_drop_table => 1,
+});
 
 $fixtures = DBIx::Class::Fixtures->new({
     config_dir => "t/lib/fixtures"
