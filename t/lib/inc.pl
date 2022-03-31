@@ -38,8 +38,4 @@ sub prepare_html_tests {
     );
 }
 
-END {
-    map { $schema->resultset($_)->delete_all; } $schema->sources;
-}
-
 1;
