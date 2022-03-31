@@ -230,7 +230,10 @@ has is_due => (
 sub _build_is_due {
     my ($self) = @_;
 
-    return DateTime->compare($self->due, DateTime->now) eq -1;
+    return DateTime->compare(
+               $self->due,
+               DateTime->now(time_zone => "local")
+           ) eq -1;
 }
 
 
@@ -266,8 +269,10 @@ sub update_for_correct_answer {
 
     $self->update({
         rating          => $new_rating,
-        last_seen       => DateTime->now->iso8601,
-        due             => DateTime->today->add({ days => $new_rating })->iso8601,
+        last_seen       => DateTime->now(time_zone => "local")->iso8601,
+        due             => DateTime->today(time_zone => "local")
+                                   ->add({ days => $new_rating })
+                                   ->iso8601,
         correct_answers => $self->correct_answers + 1
     });
 }
@@ -284,8 +289,8 @@ sub update_for_wrong_answer {
 
     $self->update({
         rating        => 0,
-        last_seen     => DateTime->now->iso8601,
-        due           => DateTime->today->iso8601,
+        last_seen     => DateTime->now(time_zone => "local")->iso8601,
+        due           => DateTime->today(time_zone => "local")->iso8601,
         wrong_answers => $self->wrong_answers + 1
     });
 }

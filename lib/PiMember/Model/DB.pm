@@ -55,8 +55,8 @@ sub create_card {
         frontside       => $args->{frontside},
         backside        => $args->{backside},
         rating          => 0,
-        created         => DateTime->today->iso8601,
-        due             => DateTime->today->iso8601,
+        created         => DateTime->today(time_zone => "local")->iso8601,
+        due             => DateTime->today(time_zone => "local")->iso8601,
         correct_answers => 0,
         wrong_answers   => 0,
         user_id         => $args->{user_id}

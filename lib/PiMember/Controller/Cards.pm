@@ -373,7 +373,7 @@ sub get_due_cards : Private {
     $c->forward($self->action_for("get_cards"));
 
     $c->stash->{cards_rs} = $c->stash->{cards_rs}->search(
-        { due      => { "<=" => DateTime->now->iso8601 } },
+        { due      => { "<=" => DateTime->now(time_zone => "local")->iso8601 } },
         { order_by => { -asc => "last_seen" } }
     );
 }
