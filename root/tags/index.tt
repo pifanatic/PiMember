@@ -7,14 +7,14 @@
 [% IF tags.size > 0 %]
     <div class="list tag-list">
         <div class="list-item list-header">
-            <div class="cell">Tag</div>
+            <div class="cell tag-cell">Tag</div>
             <div class="cell">Count</div>
             <div class="cell">Due</div>
             <div class="cell"></div>
         </div>
         [% FOREACH tag IN tags.nsort("card_count").reverse %]
             <div class="list-item">
-                <div class="cell">
+                <div class="cell tag-cell">
                     <span class="tag">
                         <a href="[% c.uri_for(c.controller('Cards').action_for('index'), { 'tag' => tag.name }) %]">
                             [% FILTER html %]

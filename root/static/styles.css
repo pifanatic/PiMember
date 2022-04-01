@@ -752,6 +752,10 @@ form#cardForm {
     max-width: 500px;
 }
 
+.tag-list .cell.tag-cell {
+    flex: 5;
+}
+
 /* Learn */
 .learn .card {
     margin: 70px auto;
