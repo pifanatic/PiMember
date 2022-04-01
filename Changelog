@@ -1,3 +1,14 @@
+v0.05 2022-04-01
+================
+
+- fixed test crash when directory for test database does not exist yet
+- added .proverc to simplify test execution
+- used icon-button for learn link in tag list
+- defined behaviour for tag list on small screens
+- added new icon for tag list header (now matches the icon in the navigation)
+- added 'title' attribute to all tags
+- extracted template for tag into separate file
+
 v0.04 2022-03-31
 ================
 
