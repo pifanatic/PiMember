@@ -556,10 +556,6 @@ main {
     margin: 15px auto;
 }
 
-.list.tag-list {
-    max-width: 500px;
-}
-
 .list-item {
     display: flex;
     align-items: center;
@@ -749,6 +745,11 @@ form#cardForm {
 
 .submit-button {
     margin-left: 50px;
+}
+
+/* Tag list */
+.list.tag-list {
+    max-width: 500px;
 }
 
 /* Learn */
