@@ -18,13 +18,7 @@
             </div>
             <div class="cell tags">
                 [% FOREACH tag IN card.tags %]
-                    <span class="tag" title="[% tag.name %]">
-                        <a href="[% c.uri_for(c.controller('Cards').action_for('index'), { 'tag' => tag.name }) %]">
-                            [% FILTER html %]
-                                [% tag.name %]
-                            [% END %]
-                        </a>
-                    </span>
+                    [% INCLUDE tag.tt %]
                 [% END %]
             </div>
         </div>

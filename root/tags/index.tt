@@ -15,13 +15,7 @@
         [% FOREACH tag IN tags.nsort("card_count").reverse %]
             <div class="list-item">
                 <div class="cell tag-cell">
-                    <span class="tag" title="[% tag.name %]">
-                        <a href="[% c.uri_for(c.controller('Cards').action_for('index'), { 'tag' => tag.name }) %]">
-                            [% FILTER html %]
-                                [% tag.name %]
-                            [% END %]
-                        </a>
-                    </span>
+                    [% INCLUDE tag.tt %]
                 </div>
                 <div class="cell">
                     [% tag.card_count %]
