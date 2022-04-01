@@ -552,12 +552,12 @@ main {
 
 /* Cards */
 .list {
-    width: 90%;
+    max-width: 90%;
     margin: 15px auto;
 }
 
 .list.tag-list {
-    width: 40%;
+    max-width: 500px;
 }
 
 .list-item {
@@ -800,12 +800,6 @@ form#cardForm {
 .learn #learnForm .icon-button {
     margin: 0 1em;
     font-size: 24px;
-}
-
-/* Tag list */
-.tag-list {
-    margin: 0 auto;
-    width: 50%;
 }
 
 /* Search form */
