@@ -591,21 +591,6 @@ main {
     text-align: center;
 }
 
-.list-item .cell.link a {
-    color: white;
-    background-color: #000080;
-    padding: 3px 10px;
-    border-radius: 12px;
-}
-
-.list-item .cell.link a:hover {
-    background-color: #0080ff;
-}
-
-.list-item .cell.link a .lightbulb {
-    margin-right: 0.2em;
-}
-
 .list-item .tags {
     display: flex;
     font-size: 12px;

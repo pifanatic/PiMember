@@ -29,12 +29,12 @@
                 <div class="cell">
                     [% tag.due_cards.size %]
                 </div>
-                <div class="cell link">
+                <div class="cell">
                     [% IF tag.due_cards.size > 0 %]
                         <a href="[% c.uri_for(c.controller('Cards').action_for('learn'), { 'tag' => tag.name }) %]"
-                           title="Learn this tag">
-                            <span class="far fa-lightbulb lightbulb"></span>
-                            Learn
+                           title="Learn this tag"
+                           class="icon-button icon-button-primary">
+                            <span class="far fa-lightbulb"></span>
                         </a>
                     [% END %]
                 </div>
