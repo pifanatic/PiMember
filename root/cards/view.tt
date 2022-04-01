@@ -73,7 +73,7 @@
             <div>
                 [% IF card.tags %]
                     [% FOREACH tag IN card.tags %]
-                        <span class="tag">
+                        <span class="tag" title="[% tag.name %]">
                             <a href="[% c.uri_for(c.controller('Cards').action_for('index'), { 'tag' => tag.name }) %]">
                                 [% FILTER html %]
                                     [% tag.name %]

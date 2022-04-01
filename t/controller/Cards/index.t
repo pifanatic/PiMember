@@ -94,11 +94,31 @@ $tx->like(
     "contains first tag of first card"
 );
 
+$tx->ok(
+    '//div[@card_id="1"]//span[@class="tag"][1]',
+    sub {
+        shift->is('./@title', "tag_01", "contains correct title for first tag");
+    },
+    "correct attributes of first tag of first card"
+);
+
 $tx->like(
     '//div[@card_id="1"]//div[@class="cell tags"]//span[@class="tag"]' .
         '//a[@href="http://localhost/cards?tag=%3Cspan%3Etag_02%3C%2Fspan%3E"]',
     qr/<span>tag_02<\/span>/,
     "contains second tag of first card"
+);
+
+$tx->ok(
+    '//div[@card_id="1"]//span[@class="tag"][2]',
+    sub {
+        shift->is(
+            './@title',
+            "<span>tag_02</span>",
+            "contains correct title for second tag"
+        );
+    },
+    "correct attributes of second tag of first card"
 );
 
 $tx->like(
@@ -118,6 +138,14 @@ $tx->like(
         '//a[@href="http://localhost/cards?tag=tag_01"]',
     qr/tag_01/,
     "contains tag of second card"
+);
+
+$tx->ok(
+    '//div[@card_id="2"]//span[@class="tag"][1]',
+    sub {
+        shift->is('./@title', "tag_01", "contains correct title");
+    },
+    "correct attributes of second card's tag"
 );
 
 $tx->like(
