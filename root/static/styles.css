@@ -754,6 +754,8 @@ form#cardForm {
 
 .tag-list .cell.tag-cell {
     flex: 5;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Learn */
