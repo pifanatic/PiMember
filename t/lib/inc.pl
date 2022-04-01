@@ -11,9 +11,16 @@ BEGIN {
 
 use Test::WWW::Mechanize::Catalyst "PiMember";
 
+my $TEST_DB_DIR = "t/lib/db/";
+my $TEST_DB_NAME = "pimember.db";
+
+unless (-d $TEST_DB_DIR) {
+    mkdir $TEST_DB_DIR;
+}
+
 $mech = Test::WWW::Mechanize::Catalyst->new(max_redirect => 0);
 
-$schema = PiMember::Schema->connect("dbi:SQLite:t/lib/db/pimember.db");
+$schema = PiMember::Schema->connect("dbi:SQLite:$TEST_DB_DIR$TEST_DB_NAME");
 $schema->deploy({
     add_drop_table => 1,
 });
