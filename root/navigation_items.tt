@@ -1,16 +1,24 @@
-<a class="nav-item" href="#">
+<a class="nav-item"
+   href="#"
+   title="Profile">
     <i class="fas fa-user nav-item-icon"></i>
     <span class="nav-item-text">Profile</span>
 </a>
-<a class="nav-item" href="[% c.uri_for(c.controller('Cards').action_for('index')) %]">
+<a class="nav-item"
+   href="[% c.uri_for(c.controller('Cards').action_for('index')) %]"
+   title="Cards">
     <i class="far fa-clone nav-item-icon"></i>
     <span class="nav-item-text">Cards</span>
 </a>
-<a class="nav-item" href="[% c.uri_for(c.controller('Tags').action_for('index')) %]">
+<a class="nav-item"
+   href="[% c.uri_for(c.controller('Tags').action_for('index')) %]"
+   title="Tags">
     <i class="fas fa-tags nav-item-icon"></i>
     <span class="nav-item-text">Tags</span>
 </a>
-<a class="nav-item" href="[% c.uri_for(c.controller('Trash').action_for('index')) %]">
+<a class="nav-item"
+   href="[% c.uri_for(c.controller('Trash').action_for('index')) %]"
+   title="Trash">
     <i class="fas fa-trash-alt nav-item-icon"></i>
     <span class="nav-item-text">Trash</span>
 </a>
