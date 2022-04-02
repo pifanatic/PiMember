@@ -328,7 +328,7 @@ header .app-title {
 }
 
 header .header-right .search-form {
-    margin-right: 100px;
+    margin-right: 20px;
 }
 
 @media (max-width: 1000px) {
