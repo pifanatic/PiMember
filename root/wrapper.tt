@@ -54,12 +54,10 @@
             </div>
         [% END %]
         <div class="header-center">
-            <i class="fas fa-cogs header-center-icon"></i>
             <a class="app-title"
                href="[% c.uri_for(c.controller('Root').action_for('index')) %]">
                PiMember
             </a>
-            <i class="fas fa-cogs header-center-icon"></i>
         </div>
         [% IF c.user_exists %]
             <div class="header-right">
