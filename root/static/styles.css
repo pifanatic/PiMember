@@ -255,6 +255,12 @@ header .header-left-mobile nav .nav-item {
     color: #777;
 }
 
+@media (max-width: 1500px) {
+    header .header-left-desktop .nav-item-text {
+        display: none;
+    }
+}
+
 header .header-left-mobile nav .nav-item:hover:not(.disabled) .nav-item-icon,
 header .header-left-mobile nav .nav-item:hover:not(.disabled) .nav-item-text {
     transform: translateX(5px);
