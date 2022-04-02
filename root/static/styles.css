@@ -378,7 +378,7 @@ header .nav-item:not(:last-child) {
     margin-right: 5px;
 }
 
-header .header-left-desktop .nav-item:hover,
+header .header-left-desktop .nav-item:hover:not(.disabled),
 header .header-item:hover {
     transform: scale(1.1);
 }
