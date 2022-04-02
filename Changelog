@@ -1,3 +1,11 @@
+v0.06 2022-04-02
+================
+
+- added view and edit button to learn page
+- fixed mis-aligned center text on learn page when all cards have been learned
+- fixed Schema::Result::Card::is_due (a card in trash should not be due)
+- improved styles of header so that it looks good on any screen size
+
 v0.05 2022-04-01
 ================
 
