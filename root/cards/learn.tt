@@ -1,5 +1,22 @@
 
 [% IF card %]
+    <div class="sub-header">
+        <div class="sub-header-right">
+            <a class="icon-button"
+               title="View card"
+               href="[% c.uri_for(c.controller('Cards').action_for('view'), [card.id]) %]"
+            >
+                <span class="fas fa-eye"></span>
+            </a>
+            <a class="icon-button icon-button-primary"
+               title="Edit card"
+               href="[% c.uri_for(c.controller('Cards').action_for('edit'), [card.id]) %]"
+            >
+                <span class="fas fa-pen-alt"></span>
+            </a>
+        </div>
+    </div>
+
     <div class="learn">
         <div id="card" class="overlay card">
             <div class="card-content-wrapper">
