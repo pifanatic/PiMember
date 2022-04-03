@@ -559,8 +559,7 @@ main {
 }
 
 .card-list {
-    max-width: 90%;
-    margin: 15px auto;
+    margin: 15px 50px;
 }
 
 .list-item {
@@ -753,6 +752,7 @@ form#cardForm {
 /* Tag list */
 .list.tag-list {
     max-width: 500px;
+    margin: 0 auto;
 }
 
 .tag-list .cell.tag-cell {
