@@ -555,6 +555,9 @@ main {
 .list {
     max-width: 90%;
     margin: 15px auto;
+    box-shadow: 4px 4px 5px 0px #aaa;
+    background-color: white;
+    padding: 10px;
 }
 
 .list-item {
