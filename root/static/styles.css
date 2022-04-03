@@ -562,17 +562,13 @@ main {
     align-items: center;
     font-size: 14px;
 
-    margin-bottom: 4px;
-
     background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+    border-bottom: 1px solid #ddd;
 }
 
 .list-item.list-header {
     font-size: 16px;
-    background-color: #ddd;
-    border: 1px solid #111;
+    border-bottom: 1px solid #111;
 }
 
 .list-item:not(.list-header):hover {
@@ -581,7 +577,7 @@ main {
 }
 
 .list-item .cell {
-    padding: 5px 10px;
+    padding: 10px 10px;
     flex: 1;
     flex-wrap: wrap;
 
