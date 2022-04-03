@@ -1,4 +1,4 @@
-<div id="list" class="list">
+<div id="list" class="list card-list">
     <div class="list-item list-header">
         <div class="cell">Frontside</div>
         <div class="cell">Backside</div>
