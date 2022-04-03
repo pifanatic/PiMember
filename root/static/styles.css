@@ -175,6 +175,8 @@ span.tag {
 
     border: 1px solid #aaa;
     border-radius: 20px;
+
+    white-space: nowrap;
 }
 
 span.tag > a:hover {
