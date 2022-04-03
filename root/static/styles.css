@@ -606,8 +606,12 @@ main {
 
 .list-item .tags {
     display: flex;
-    font-size: 12px;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    row-gap: 4px;
+    font-size: 11px;
+    overflow: hidden;
 }
 
 .list-item .tags .tag:not(:last-child) {
