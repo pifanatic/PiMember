@@ -562,6 +562,12 @@ main {
     margin: 15px 50px;
 }
 
+@media (max-width: 1000px) {
+    .card-list {
+        margin: 15px auto;
+    }
+}
+
 .list-item {
     display: flex;
     align-items: center;
