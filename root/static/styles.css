@@ -595,6 +595,11 @@ main {
     text-align: center;
 }
 
+.card-list .list-item .cell:nth-of-type(1),
+.card-list .list-item .cell:nth-of-type(2) {
+    flex: 2;
+}
+
 .list-item .tags {
     display: flex;
     font-size: 12px;
