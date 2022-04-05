@@ -1,5 +1,7 @@
 <div class="sub-header">
-    <span>[% cards.size %] cards found for "[% query %]"</span>
+    <span class="sub-header-left">
+        [% cards.size %] cards found for "[% query %]"
+    </span>
 
     <div class="sub-header-title">Search result</div>
 
