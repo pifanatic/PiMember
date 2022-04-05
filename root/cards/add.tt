@@ -4,11 +4,11 @@
     </div>
 </div>
 
-<form id="cardForm" method="post">
+<form id="cardForm" class="overlay" method="post">
     [% INCLUDE cards/card_form_content.tt %]
 
     <div class="button-row">
-        <button class="submit-button btn btn-primary">
+        <button class="btn btn-primary">
             Create
         </button>
     </div>
