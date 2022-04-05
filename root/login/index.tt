@@ -1,5 +1,5 @@
 <div class="sub-header">
-    <div class="sub-header-title">Sign in to PiMember</div>
+    <h1 class="sub-header-title">Sign in to PiMember</h1>
 </div>
 
 <div class="login-wrapper overlay">

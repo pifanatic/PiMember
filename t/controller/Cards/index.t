@@ -47,7 +47,7 @@ $mech->get_ok(
 $tx = prepare_html_tests;
 
 $tx->like(
-    '//div[@class="sub-header-title"]',
+    '//h1[@class="sub-header-title"]',
     qr/Cards/,
     "sub-header-title contains correct text"
 );
@@ -181,7 +181,7 @@ $mech->get_ok("/cards?tag=tag_01");
 $tx = prepare_html_tests;
 
 $tx->like(
-    '//div[@class="sub-header-title"]',
+    '//h1[@class="sub-header-title"]',
     qr/tag_01/,
     "sub-header-title contains tag name"
 );
@@ -219,7 +219,7 @@ $mech->get_ok("/cards?tag=TAG_01");
 $tx = prepare_html_tests;
 
 $tx->like(
-    '//div[@class="sub-header-title"]',
+    '//h1[@class="sub-header-title"]',
     qr/tag_01/,
     "sub-header-title contains tag name in lower-case"
 );
@@ -236,7 +236,7 @@ $mech->get_ok("/cards?tag=<span>tag_02</span>");
 $tx = prepare_html_tests;
 
 $tx->like(
-    '//div[@class="sub-header-title"]',
+    '//h1[@class="sub-header-title"]',
     qr/<span>tag_02<\/span>/,
     "sub-header-title contains tag name with HTML entities escaped"
 );
@@ -247,7 +247,7 @@ $mech->get_ok("/cards?tag=i_dont_exist");
 $tx = prepare_html_tests;
 
 $tx->like(
-    '//div[@class="sub-header-title"]',
+    '//h1[@class="sub-header-title"]',
     qr/i_dont_exist/,
     "sub-header-title contains tag name even if tag does not exist"
 );

@@ -3,7 +3,7 @@
         [% cards.size %] cards found for "[% query %]"
     </span>
 
-    <div class="sub-header-title">Search result</div>
+    <h1 class="sub-header-title">Search result</h1>
 
     <span></span>
 </div>
