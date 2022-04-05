@@ -746,17 +746,6 @@ form#cardForm {
     margin: 20px 0;
 }
 
-.front::before, .back::before {
-    position: absolute;
-    left: 10px;
-    writing-mode: vertical-lr;
-    text-orientation: upright;
-    font-size: 28px;
-}
-
-.front::before { content: "FRONT"; }
-.back::before { content: "BACK"; }
-
 #cardForm .button-row {
     display: flex;
     justify-content: center;
