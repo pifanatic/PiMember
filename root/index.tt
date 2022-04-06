@@ -1,4 +1,6 @@
-<h1>Welcome to PiMember</h1>
+<div class="sub-header">
+    <h1>Welcome to PiMember</h1>
+</div>
 
 <button class="learn-button btn btn-primary" onclick="window.location='[% c.uri_for(c.controller('Cards').action_for('learn')) %]'">
     <i class="fas fa-graduation-cap fa-fw"></i>
