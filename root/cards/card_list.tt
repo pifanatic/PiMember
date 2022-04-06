@@ -5,7 +5,7 @@
         <div class="cell">Tags</div>
     </div>
     [% FOREACH card IN cards %]
-        <div card_id="[% card.id %]" class="list-item">
+        <div class="list-item">
             <a class="cell" href="[% c.uri_for(c.controller.action_for('view'), [ card.id ]) %]" highlightable>
                 [% FILTER html %]
                     [% card.frontside %]

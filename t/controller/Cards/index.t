@@ -112,14 +112,14 @@ $tx->ok(
 );
 
 $tx->like(
-    '//div[@card_id="1"]//div[@class="cell tags"]//span[@class="tag"]' .
+    '//div[@class="cell tags"][1]//span[@class="tag"]' .
         '//a[@href="http://localhost/cards?tag=tag_01"]',
     qr/tag_01/,
     "contains first tag of first card"
 );
 
 $tx->ok(
-    '//div[@card_id="1"]//span[@class="tag"][1]',
+    '//div[@class="cell tags"][1]//span[@class="tag"][1]',
     sub {
         shift->is('./@title', "tag_01", "contains correct title for first tag");
     },
@@ -127,14 +127,14 @@ $tx->ok(
 );
 
 $tx->like(
-    '//div[@card_id="1"]//div[@class="cell tags"]//span[@class="tag"]' .
+    '//div[@class="cell tags"][1]//span[@class="tag"]' .
         '//a[@href="http://localhost/cards?tag=%3Cspan%3Etag_02%3C%2Fspan%3E"]',
     qr/<span>tag_02<\/span>/,
     "contains second tag of first card"
 );
 
 $tx->ok(
-    '//div[@card_id="1"]//span[@class="tag"][2]',
+    '//div[@class="cell tags"][1]//span[@class="tag"][2]',
     sub {
         shift->is(
             './@title',
@@ -182,14 +182,14 @@ $tx->ok(
 );
 
 $tx->like(
-    '//div[@card_id="1"]//div[@class="cell tags"]//span[@class="tag"]' .
+    '//div[@class="cell tags"]//span[@class="tag"]' .
         '//a[@href="http://localhost/cards?tag=tag_01"]',
     qr/tag_01/,
     "contains tag of second card"
 );
 
 $tx->ok(
-    '//div[@card_id="2"]//span[@class="tag"][1]',
+    '//div[@class="list-item"][2]//span[@class="tag"][1]',
     sub {
         shift->is('./@title', "tag_01", "contains correct title");
     },
@@ -233,7 +233,7 @@ $tx->ok(
 );
 
 $tx->not_ok(
-    '//div[@card_id="3"]//div[@class="tags"]//tag',
+    '//div[@class="list-item"]//div[@class="tags"]//tag',
     "contains no tags for third card"
 );
 
@@ -270,19 +270,16 @@ $tx->is(
     "tag-filtered cards list contains two list-items"
 );
 
-$tx->ok(
-    '//div[@card_id="1"]',
+$tx->like(
+    '//div[@class="list-item"][1]//a[1]',
+    qr/Test Card 1 Frontside/,
     "contains first card with the 'tag_01' tag"
 );
 
-$tx->ok(
-    '//div[@card_id="2"]',
+$tx->like(
+    '//div[@class="list-item"][2]//a[1]',
+    qr/Test Card 2 Frontside/,
     "contains second card with the 'tag_01' tag"
-);
-
-$tx->not_ok(
-    '//div[@card_id="3"]',
-    "does not contain card without the 'tag_01' tag"
 );
 
 
