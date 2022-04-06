@@ -75,15 +75,14 @@ $tx->is(
     "contains three list-item elements (all that are not in trash)"
 );
 
-$tx->like(
-    '//div[@class="list-item"][1]//a[1]',
-    qr/Test Card 1 Frontside/,
-    "contains frontside of first card"
-);
-
 $tx->ok(
     '//div[@class="list-item"][1]//a[@class="cell"][1]',
     sub {
+        like(
+            $tx->node->textContent,
+            qr/Test Card 1 Frontside/,
+            "correct text content"
+        );
         is(
             $tx->node->getAttribute("href"),
             "http://localhost/cards/1",
@@ -93,15 +92,14 @@ $tx->ok(
     "first frontside cell has correct attributes"
 );
 
-$tx->like(
-    '//div[@class="list-item"][1]//a[@class="cell"][2]',
-    qr/Test Card 1 Backside/,
-    "contains backside of first card"
-);
-
 $tx->ok(
     '//div[@class="list-item"][1]//a[@class="cell"][2]',
     sub {
+        like(
+            $tx->node->textContent,
+            qr/Test Card 1 Backside/,
+            "correct text content"
+        );
         is(
             $tx->node->getAttribute("href"),
             "http://localhost/cards/1",
@@ -145,15 +143,14 @@ $tx->ok(
     "correct attributes of second tag of first card"
 );
 
-$tx->like(
-    '//div[@class="list-item"][2]//a[@class="cell"][1]',
-    qr/<div>Test Card 2 Frontside<\/div>/,
-    "contains frontside of second card"
-);
-
 $tx->ok(
     '//div[@class="list-item"][2]//a[@class="cell"][1]',
     sub {
+        like(
+            $tx->node->textContent,
+            qr/<div>Test Card 2 Frontside<\/div>/,
+            "correct text content"
+        );
         is(
             $tx->node->getAttribute("href"),
             "http://localhost/cards/2",
@@ -163,15 +160,14 @@ $tx->ok(
     "second frontside cell has correct attributes"
 );
 
-$tx->like(
-    '//div[@class="list-item"][2]//a[@class="cell"][2]',
-    qr/<p>Test Card 2 Backside<\/p>/,
-    "contains backside of second card"
-);
-
 $tx->ok(
     '//div[@class="list-item"][2]//a[@class="cell"][2]',
     sub {
+        like(
+            $tx->node->textContent,
+            qr/<p>Test Card 2 Backside<\/p>/,
+            "correct text content"
+        );
         is(
             $tx->node->getAttribute("href"),
             "http://localhost/cards/2",
@@ -196,15 +192,14 @@ $tx->ok(
     "correct attributes of second card's tag"
 );
 
-$tx->like(
-    '//div[@class="list-item"][3]//a[@class="cell"][1]',
-    qr/Test Card 3 Frontside/,
-    "contains frontside of third card"
-);
-
 $tx->ok(
     '//div[@class="list-item"][3]//a[@class="cell"][1]',
     sub {
+        like(
+            $tx->node->textContent,
+            qr/Test Card 3 Frontside/,
+            "correct text content"
+        );
         is(
             $tx->node->getAttribute("href"),
             "http://localhost/cards/3",
@@ -214,15 +209,14 @@ $tx->ok(
     "third frontside cell has correct attributes"
 );
 
-$tx->like(
-    '//div[@class="list-item"][3]//a[@class="cell"][2]',
-    qr/Test Card 3 Backside/,
-    "contains backside of third card"
-);
-
 $tx->ok(
     '//div[@class="list-item"][3]//a[@class="cell"][2]',
     sub {
+        like(
+            $tx->node->textContent,
+            qr/Test Card 3 Backside/,
+            "correct text content"
+        );
         is(
             $tx->node->getAttribute("href"),
             "http://localhost/cards/3",
