@@ -1,7 +1,5 @@
 <div class="sub-header">
-    <h1 class="sub-header-title">
-        Edit card
-    </h1>
+    <h1>Edit card</h1>
 </div>
 
 <form id="cardForm" class="overlay" method="post">

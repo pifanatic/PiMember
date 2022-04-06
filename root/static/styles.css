@@ -648,7 +648,7 @@ main {
         row-gap: 0.5em;
     }
 
-    .sub-header-title {
+    .sub-header > h1 {
         order: 1;
         min-width: 100%;
     }
@@ -666,7 +666,7 @@ main {
     flex: 1;
 }
 
-.sub-header-title {
+.sub-header > h1 {
     flex: 5;
 }
 

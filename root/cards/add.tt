@@ -1,7 +1,5 @@
 <div class="sub-header">
-    <h1 class="sub-header-title">
-        Add a new card
-    </h1>
+    <h1>Add a new card</h1>
 </div>
 
 <form id="cardForm" class="overlay" method="post">

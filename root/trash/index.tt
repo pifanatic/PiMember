@@ -1,6 +1,6 @@
 <div class="sub-header">
     <div class="sub-header-left">[% cards.size %] cards total</div>
-    <h1 class="sub-header-title"><i class="fas fa-trash"></i> Trash</h1>
+    <h1><i class="fas fa-trash"></i> Trash</h1>
 
     <div class="sub-header-right">
         [% IF cards.size > 0 %]

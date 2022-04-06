@@ -1,7 +1,7 @@
 <div class="sub-header">
     <div class="sub-header-left">[% cards.size %] cards total</div>
 
-    <h1 class="sub-header-title">
+    <h1>
         [% IF tag %]
             <i class="fas fa-tag"></i>
             [% FILTER html %]
