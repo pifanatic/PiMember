@@ -6,16 +6,16 @@
     </div>
     [% FOREACH card IN cards %]
         <div card_id="[% card.id %]" class="list-item">
-            <div class="cell" highlightable>
+            <a class="cell" href="[% c.uri_for(c.controller.action_for('view'), [ card.id ]) %]" highlightable>
                 [% FILTER html %]
                     [% card.frontside %]
                 [% END %]
-            </div>
-            <div class="cell" highlightable>
+            </a>
+            <a class="cell" href="[% c.uri_for(c.controller.action_for('view'), [ card.id ]) %]" highlightable>
                 [% FILTER html %]
                     [% card.backside %]
                 [% END %]
-            </div>
+            </a>
             <div class="cell tags">
                 [% FOREACH tag IN card.tags %]
                     [% INCLUDE tag.tt %]

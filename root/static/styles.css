@@ -591,7 +591,6 @@ main {
 }
 
 .list-item:not(.list-header):hover {
-    cursor: pointer;
     background-color: #eee;
 }
 
@@ -603,8 +602,8 @@ main {
     text-align: center;
 }
 
-.card-list .list-item .cell:nth-of-type(1),
-.card-list .list-item .cell:nth-of-type(2) {
+.card-list .cell:nth-child(1),
+.card-list .cell:nth-child(2) {
     flex: 2;
 }
 

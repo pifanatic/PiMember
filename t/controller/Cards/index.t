@@ -76,15 +76,39 @@ $tx->is(
 );
 
 $tx->like(
-    '//div[@card_id="1"]//div[@class="cell"][1]',
+    '//div[@class="list-item"][1]//a[1]',
     qr/Test Card 1 Frontside/,
     "contains frontside of first card"
 );
 
+$tx->ok(
+    '//div[@class="list-item"][1]//a[@class="cell"][1]',
+    sub {
+        is(
+            $tx->node->getAttribute("href"),
+            "http://localhost/cards/1",
+            "correct href"
+        );
+    },
+    "first frontside cell has correct attributes"
+);
+
 $tx->like(
-    '//div[@card_id="1"]//div[@class="cell"][2]',
+    '//div[@class="list-item"][1]//a[@class="cell"][2]',
     qr/Test Card 1 Backside/,
     "contains backside of first card"
+);
+
+$tx->ok(
+    '//div[@class="list-item"][1]//a[@class="cell"][2]',
+    sub {
+        is(
+            $tx->node->getAttribute("href"),
+            "http://localhost/cards/1",
+            "correct href"
+        );
+    },
+    "first backside cell has correct attributes"
 );
 
 $tx->like(
@@ -122,15 +146,39 @@ $tx->ok(
 );
 
 $tx->like(
-    '//div[@card_id="2"]//div[@class="cell"][1]',
+    '//div[@class="list-item"][2]//a[@class="cell"][1]',
     qr/<div>Test Card 2 Frontside<\/div>/,
     "contains frontside of second card"
 );
 
+$tx->ok(
+    '//div[@class="list-item"][2]//a[@class="cell"][1]',
+    sub {
+        is(
+            $tx->node->getAttribute("href"),
+            "http://localhost/cards/2",
+            "correct href"
+        );
+    },
+    "second frontside cell has correct attributes"
+);
+
 $tx->like(
-    '//div[@card_id="2"]//div[@class="cell"][2]',
+    '//div[@class="list-item"][2]//a[@class="cell"][2]',
     qr/<p>Test Card 2 Backside<\/p>/,
     "contains backside of second card"
+);
+
+$tx->ok(
+    '//div[@class="list-item"][2]//a[@class="cell"][2]',
+    sub {
+        is(
+            $tx->node->getAttribute("href"),
+            "http://localhost/cards/2",
+            "correct href"
+        );
+    },
+    "second backside cell has correct attributes"
 );
 
 $tx->like(
@@ -149,15 +197,39 @@ $tx->ok(
 );
 
 $tx->like(
-    '//div[@card_id="3"]//div[@class="cell"][1]',
+    '//div[@class="list-item"][3]//a[@class="cell"][1]',
     qr/Test Card 3 Frontside/,
     "contains frontside of third card"
 );
 
+$tx->ok(
+    '//div[@class="list-item"][3]//a[@class="cell"][1]',
+    sub {
+        is(
+            $tx->node->getAttribute("href"),
+            "http://localhost/cards/3",
+            "correct href"
+        );
+    },
+    "third frontside cell has correct attributes"
+);
+
 $tx->like(
-    '//div[@card_id="3"]//div[@class="cell"][2]',
+    '//div[@class="list-item"][3]//a[@class="cell"][2]',
     qr/Test Card 3 Backside/,
     "contains backside of third card"
+);
+
+$tx->ok(
+    '//div[@class="list-item"][3]//a[@class="cell"][2]',
+    sub {
+        is(
+            $tx->node->getAttribute("href"),
+            "http://localhost/cards/3",
+            "correct href"
+        );
+    },
+    "third backside cell has correct attributes"
 );
 
 $tx->not_ok(
