@@ -24,15 +24,3 @@
         </div>
     [% END %]
 </div>
-
-<script type="module">
-    let list = document.getElementById("list");
-
-    list.addEventListener("click", e => {
-        let listItem = e.composedPath().find(el => el.attributes && el.attributes.card_id);
-
-        if (listItem) {
-            window.location.href = `/cards/${listItem.attributes.card_id.value}`;
-        }
-    });
-</script>
