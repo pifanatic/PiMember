@@ -298,3 +298,78 @@ ok(
     $schema->resultset("CardsTag")->find({ card_id => 6, tag_id => 3 }),
     "created the correct cards_tag row for the second tag"
 );
+
+$mech->submit_form(
+    form_id => "cardForm",
+    fields => {
+        backside  => "New Card Backside",
+        tags      => "tag_01 new_tag"
+    }
+);
+
+$mech->header_is(
+    "Status",
+    302,
+    "redirects after trying to add a new card without frontside"
+);
+
+$mech->header_like(
+    "Location",
+    qr|^http://localhost/cards/add\?mid=\d{8}$|,
+    "redirects to the correct location"
+);
+
+$mech->get($mech->res->header("Location"));
+$mech->content_contains(
+    "Could not create card!",
+    "shows error notification after trying to add a new card without frontside"
+);
+
+$mech->submit_form(
+    form_id => "cardForm",
+    fields => {
+        frontside  => "New Card Frontside",
+        tags       => "tag_01 new_tag"
+    }
+);
+
+$mech->header_is(
+    "Status",
+    302,
+    "redirects after trying to add a new card without backside"
+);
+
+$mech->header_like(
+    "Location",
+    qr|^http://localhost/cards/add\?mid=\d{8}$|,
+    "redirects to the correct location"
+);
+
+$mech->get($mech->res->header("Location"));
+$mech->content_contains(
+    "Could not create card!",
+    "shows error notification after trying to add a new card without backside"
+);
+
+$mech->submit_form(
+    form_id => "cardForm",
+    fields => {}
+);
+
+$mech->header_is(
+    "Status",
+    302,
+    "redirects after trying to add a new card without any form data"
+);
+
+$mech->header_like(
+    "Location",
+    qr|^http://localhost/cards/add\?mid=\d{8}$|,
+    "redirects to the correct location"
+);
+
+$mech->get($mech->res->header("Location"));
+$mech->content_contains(
+    "Could not create card!",
+    "shows error notification when adding a new card without any form data"
+);

@@ -2,6 +2,7 @@ package PiMember::Model::DB;
 
 use strict;
 use base 'Catalyst::Model::DBIC::Schema';
+use Data::FormValidator;
 
 __PACKAGE__->config(
     schema_class => 'PiMember::Schema',
@@ -14,6 +15,11 @@ __PACKAGE__->config(
         sqlite_unicode => 1
     }
 );
+
+my $profile = {
+    required => ["frontside", "backside"],
+    optional => ["tags"],
+};
 
 =head1 NAME
 
@@ -48,6 +54,8 @@ Returns the newly created card
 
 sub create_card {
     my ($self, $args) = @_;
+
+    return if Data::FormValidator->check($args, $profile)->has_missing;
 
     my @tags = @{ $args->{tags} };
 

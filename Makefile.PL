@@ -21,6 +21,7 @@ requires 'Catalyst::Plugin::StatusMessage';
 requires 'Catalyst::Action::RenderView';
 requires 'Catalyst::Authentication::Store::DBIx::Class';
 requires 'Catalyst::View::TT';
+requires 'Data::FormValidator';
 requires 'DateTime';
 requires 'DateTime::Format::SQLite';
 requires 'Moose';

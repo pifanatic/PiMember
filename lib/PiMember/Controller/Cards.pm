@@ -66,6 +66,8 @@ sub add : Local Args(0) {
     my ($self, $c) = @_;
 
     if ($c->req->method eq "POST") {
+        my $msg;
+
         my $new_card = $c->model("DB")->create_card({
             frontside => $c->req->params->{frontside},
             backside  => $c->req->params->{backside},
@@ -73,11 +75,14 @@ sub add : Local Args(0) {
             user_id   => $c->user->id
         });
 
-        $c->forward($self->action_for("update_queue"));
+        $c->forward($self->action_for("update_queue")) if $new_card;
+
+        $msg = $new_card ? $c->set_status_msg("New card has been created!")
+                         : $c->set_error_msg("Could not create card!");
 
         $c->response->redirect($c->uri_for(
             $c->controller->action_for("add"),
-            { mid => $c->set_status_msg('New card has been created!') }
+            { mid => $msg }
         ));
     }
 }
