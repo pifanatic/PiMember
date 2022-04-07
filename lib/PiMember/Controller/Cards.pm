@@ -65,26 +65,26 @@ POST creates a new card in the database with the given form-data.
 sub add : Local Args(0) {
     my ($self, $c) = @_;
 
-    if ($c->req->method eq "POST") {
-        my $msg;
+    $c->detach unless $c->req->method eq "POST";
 
-        my $new_card = $c->model("DB")->create_card({
-            frontside => $c->req->params->{frontside},
-            backside  => $c->req->params->{backside},
-            tags      => [split " ", $c->req->params->{tags} ],
-            user_id   => $c->user->id
-        });
+    my $msg;
 
-        $c->forward($self->action_for("update_queue")) if $new_card;
+    my $new_card = $c->model("DB")->create_card({
+        frontside => $c->req->params->{frontside},
+        backside  => $c->req->params->{backside},
+        tags      => [split " ", $c->req->params->{tags} ],
+        user_id   => $c->user->id
+    });
 
-        $msg = $new_card ? $c->set_status_msg("New card has been created!")
-                         : $c->set_error_msg("Could not create card!");
+    $c->forward($self->action_for("update_queue")) if $new_card;
 
-        $c->response->redirect($c->uri_for(
-            $c->controller->action_for("add"),
-            { mid => $msg }
-        ));
-    }
+    $msg = $new_card ? $c->set_status_msg("New card has been created!")
+                     : $c->set_error_msg("Could not create card!");
+
+    $c->response->redirect($c->uri_for(
+        $c->controller->action_for("add"),
+        { mid => $msg }
+    ));
 }
 
 
