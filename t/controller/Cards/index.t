@@ -27,15 +27,7 @@ $mech->header_is(
 
 
 
-$mech->get("/login");
-
-$mech->submit_form((
-        fields      => {
-            username => "admin",
-            password => "admin"
-        },
-    )
-);
+login_mech;
 
 
 

@@ -35,6 +35,18 @@ $fixtures->populate({
     no_deploy => 1
 });
 
+sub login_mech {
+    $mech->get("/login");
+
+    $mech->submit_form((
+            fields      => {
+                username => "admin",
+                password => "admin"
+            },
+        )
+    );
+}
+
 sub prepare_html_tests {
     Test::XPath->new(
         xml     => $mech->content,
