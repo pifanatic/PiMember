@@ -455,6 +455,10 @@ main {
     background-color: #0080ff;
 }
 
+.center-message > h1 {
+    font-size: 80px;
+}
+
 .notification {
     display: flex;
     position: absolute;
