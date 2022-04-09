@@ -6,12 +6,12 @@
     </div>
     [% FOREACH card IN cards %]
         <div class="list-item">
-            <a class="cell" href="[% c.uri_for(c.controller.action_for('view'), [ card.id ]) %]" highlightable>
+            <a class="cell" href="[% c.uri_for(c.controller('Cards').action_for('view'), [ card.id ]) %]" highlightable>
                 [% FILTER html %]
                     [% card.frontside %]
                 [% END %]
             </a>
-            <a class="cell" href="[% c.uri_for(c.controller.action_for('view'), [ card.id ]) %]" highlightable>
+            <a class="cell" href="[% c.uri_for(c.controller('Cards').action_for('view'), [ card.id ]) %]" highlightable>
                 [% FILTER html %]
                     [% card.backside %]
                 [% END %]
