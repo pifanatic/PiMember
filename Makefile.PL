@@ -33,6 +33,7 @@ test_requires 'Test::More' => '0.88';
 test_requires 'Test::WWW::Mechanize::Catalyst';
 test_requires 'Test::XPath';
 test_requires 'DBIx::Class::Fixtures';
+test_requires 'Devel::Cover';
 catalyst;
 
 install_script glob('script/*.pl');
