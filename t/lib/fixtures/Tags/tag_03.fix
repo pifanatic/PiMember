@@ -1,0 +1,5 @@
+$HASH1 = {
+    id      => 3,
+    name    => 'tag_to_be_deleted',
+    user_id => 1
+};

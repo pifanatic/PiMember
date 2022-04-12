@@ -267,7 +267,7 @@ ok(
 
 is(
     $tag->id,
-    3,
+    4,
     "set correct id for new tag in database"
 );
 
@@ -295,7 +295,7 @@ ok(
 );
 
 ok(
-    $schema->resultset("CardsTag")->find({ card_id => 6, tag_id => 3 }),
+    $schema->resultset("CardsTag")->find({ card_id => 6, tag_id => 4 }),
     "created the correct cards_tag row for the second tag"
 );
 
