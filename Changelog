@@ -1,3 +1,11 @@
+v0.11 2022-04-12
+================
+
+- added script to measure test coverage
+- fixed wrong link to cards in trash
+- added tests for GET /trash
+- added tests for GET /trash/empty
+
 v0.10 2022-04-07
 ================
 
