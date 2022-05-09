@@ -1,3 +1,9 @@
+v0.12 2022-05-09
+================
+
+- include latest version of the PI Markup Language (PIML v0.3.0)
+- fixed buttons in cardForm on mobile devices not reachable
+
 v0.11 2022-04-12
 ================
 
