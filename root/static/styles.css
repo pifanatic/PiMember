@@ -169,6 +169,13 @@ a {
     font-size: 16px;
 }
 
+.card ul {
+    display: inline-block;
+    text-align: left;
+    margin-block: 0;
+    white-space: normal;
+}
+
 span.tag {
     padding: 2px 5px;
 
