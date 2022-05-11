@@ -711,7 +711,6 @@ main {
 #cardForm {
     max-width: 1100px;
     margin: 0 auto;
-    margin-bottom: 60px;
 }
 
 @media (max-width: 500px) {
