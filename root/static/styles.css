@@ -433,6 +433,7 @@ header .nav-item-learn .queue-size {
 main {
     height: calc(100vh - 60px);
     overflow-y: auto;
+    padding-bottom: 60px;
 }
 
 .center-message {
