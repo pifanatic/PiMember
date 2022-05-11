@@ -1,4 +1,4 @@
-import PIML from "./piml.min.js";
+import PIML from "./piml-v030.min.js";
 
 let turnButton = document.getElementById("turn"),
     correctBtn = document.getElementById("answerCorrect"),

@@ -1,4 +1,4 @@
-import PIML from "./piml.min.js";
+import PIML from "./piml-v030.min.js";
 
 (function() {
     function setPreviewValue(previewEl, value) {

@@ -151,7 +151,20 @@ $tx->like(
 );
 
 $tx->ok(
-    '//script[@src="http://localhost/static/js/cardForm.js"][@type="module"]',
+    '//script[@id="cardFormScript"]',
+    sub {
+        my $node = $tx->node;
+        is(
+            $node->getAttribute("type"),
+            "module",
+            "script is of type 'module'"
+        );
+        like(
+            $node->getAttribute("src"),
+            qr#http://localhost/static/js/cardForm\.js\?v=\d\.\d*#,
+            "script has correct src attribute"
+        );
+    },
     "contains script to load cardForm.js"
 );
 

@@ -16,4 +16,4 @@
     </div>
 </form>
 
-<script src="[% c.uri_for('/static/js/cardForm.js') %]" type="module"></script>
+<script src="[% c.uri_for('/static/js/cardForm.js', { v => c.config.version }) %]" type="module"></script>

@@ -125,4 +125,4 @@
     </div>
 </div>
 
-<script src="[% c.uri_for('/static/js/view.js') %]" type="module"></script>
+<script src="[% c.uri_for('/static/js/view.js', { v => c.config.version }) %]" type="module"></script>
