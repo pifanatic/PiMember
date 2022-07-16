@@ -1,5 +1,5 @@
 <a class="nav-item"
-   href="#"
+   href="[% c.uri_for(c.controller('Profile').action_for('index')) %]"
    title="Profile">
     <i class="fas fa-user nav-item-icon"></i>
     <span class="nav-item-text">Profile</span>
