@@ -40,7 +40,7 @@ sub login_mech {
 
     $mech->submit_form((
             fields      => {
-                username => "admin",
+                username => "<b>admin</b>",
                 password => "admin"
             },
         )

@@ -70,7 +70,7 @@ $mech->content_contains("Incorrect username or password.");
 
 $mech->submit_form((
         fields      => {
-            username => "admin",
+            username => "<b>admin</b>",
             password => "admin"
         },
     )
