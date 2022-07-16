@@ -1,0 +1,28 @@
+<div class="sub-header">
+    <h1><i class="fas fa-user"></i> Profile</h1>
+</div>
+
+<div class="overlay profile-overlay">
+    <section class="profile-username">
+        <h2 class="profile-attribute-heading">Username</h2>
+        <div class="profile-attribute-value">
+            [% FILTER html %]
+                [% c.user.username %]
+            [% END %]
+        </div>
+    </section>
+
+    <section class="profile-displayname">
+        <h2 class="profile-attribute-heading">Display name</h2>
+        <div class="profile-attribute-value">
+            [% FILTER html %]
+                [% c.user.first_name %]
+            [% END %]
+        </div>
+    </section>
+
+    <section class="profile-password">
+        <h2 class="profile-attribute-heading">Password</h2>
+        <div class="profile-attribute-value">************</div>
+    </section>
+</div>

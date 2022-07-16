@@ -1,0 +1,21 @@
+
+/* Profile */
+.profile-overlay {
+    max-width: 500px;
+    margin: 0 auto;
+
+    section:not(:last-child) {
+        margin-bottom: 3em;
+    }
+
+    h2.profile-attribute-heading {
+        font-size: 1.25em;
+        font-weight: normal;
+    }
+
+    .profile-attribute-value {
+        color: #777;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
