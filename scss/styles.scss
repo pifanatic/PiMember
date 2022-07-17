@@ -2,22 +2,6 @@
 @import "button";
 @import "card";
 
-span.tag {
-    padding: 2px 5px;
-
-    background-color: #ffe5c4;
-    font-family: monospace;
-
-    border: 1px solid #aaa;
-    border-radius: 20px;
-
-    white-space: nowrap;
-}
-
-span.tag > a:hover {
-    text-decoration: underline;
-}
-
 header {
     display: flex;
     align-items: center;
