@@ -14,3 +14,4 @@ data/samples.sql
 script/add_sample_data.sh
 MANIFEST
 cover_db
+root/static/styles.css

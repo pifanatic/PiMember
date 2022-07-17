@@ -3,6 +3,8 @@ use Moose;
 use namespace::autoclean;
 
 use Catalyst::Runtime 5.80;
+use CSS::Sass;
+
 
 # Set flags and add plugins for the application.
 #
@@ -62,6 +64,18 @@ __PACKAGE__->config(
         }
     },
 );
+
+# compile SCSS to CSS
+my $sass = CSS::Sass->new(
+    output_style => SASS_STYLE_COMPRESSED
+);
+
+my $css = $sass->compile_file("scss/styles.scss");
+
+open my $fh, ">", "root/static/styles.css";
+print $fh $css;
+close $fh;
+
 
 # Start the application
 __PACKAGE__->setup();
