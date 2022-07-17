@@ -12,38 +12,38 @@
     background-color: #ccc;
 
     cursor: pointer;
-}
 
-.btn:hover {
-    transform: scale(1.05);
-    background-color: #bbb;
+    &:hover {
+        transform: scale(1.05);
+        background-color: #bbb;
+    }
 }
 
 .btn-primary {
     color: white;
     background-color: #000080;
-}
 
-.btn-primary:hover {
-    background-color: #0080ff;
+    &:hover {
+        background-color: #0080ff;
+    }
 }
 
 .btn-green {
     color: white;
     background-color: limegreen;
-}
 
-.btn-green:hover {
-    background-color: lightgreen;
+    &:hover {
+        background-color: lightgreen;
+    }
 }
 
 .btn-red {
     color: white;
     background-color: red;
-}
 
-.btn-red:hover {
-    background-color: #ff7070;
+    &:hover {
+        background-color: #ff7070;
+    }
 }
 
 .icon-button {
@@ -59,35 +59,35 @@
     border-radius: 50%;
     box-shadow: 2px 2px 4px 1px #ccc;
     cursor: pointer;
-}
 
-.icon-button:hover {
-    transform: scale(1.05);
+    &:hover {
+        transform: scale(1.05);
+    }
 }
 
 .icon-button-primary {
     background-color: #000080;
     color: white;
-}
 
-.icon-button-primary:hover {
-    background-color: #0080ff;
+    &:hover{
+        background-color: #0080ff;
+    }
 }
 
 .icon-button-warning {
     background-color: red;
     color: white;
-}
 
-.icon-button-warning:hover {
-    background-color: #ff7070;
+    &:hover{
+        background-color: #ff7070;
+    }
 }
 
 .icon-button-success {
     background-color: limegreen;
     color: white;
-}
 
-.icon-button-success:hover {
-    background-color: lightgreen;
+    &:hover {
+        background-color: lightgreen;
+    }
 }
