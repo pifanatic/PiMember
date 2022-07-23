@@ -21,41 +21,41 @@
     animation-delay: 0s, 4s, 5.5s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
-}
 
-.notification-icon {
-    margin: auto 15px auto 0px;
+    .notification-icon {
+        margin: auto 15px auto 0px;
 
-    font-size: 25px;
-}
+        font-size: 25px;
+    }
 
-.error {
-    border-left-color: red;
-}
+    &.error {
+        border-left-color: red;
 
-.error .notification-icon {
-    color: red;
-}
+        .notification-icon {
+            color: red;
+        }
+    }
 
-.success {
-    border-left-color: lightgreen;
-}
+    &.success {
+        border-left-color: lightgreen;
 
-.success .notification-icon {
-    color: lightgreen;
-}
+        .notification-icon {
+            color: lightgreen;
+        }
+    }
 
-@keyframes slidein {
-    from { transform: translateX(0px); }
-    to   { transform: translateX(-400px); }
-}
+    @keyframes slidein {
+        from { transform: translateX(0px); }
+        to   { transform: translateX(-400px); }
+    }
 
-@keyframes fadeout {
-    from { opacity: 1; }
-    to   { opacity: 0; }
-}
+    @keyframes fadeout {
+        from { opacity: 1; }
+        to   { opacity: 0; }
+    }
 
-@keyframes slideout {
-    from { transform: translateX(-400px); }
-    to   { transform: translateX(0px); }
+    @keyframes slideout {
+        from { transform: translateX(-400px); }
+        to   { transform: translateX(0px); }
+    }
 }
