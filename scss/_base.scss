@@ -69,24 +69,24 @@ span.tag {
     color: #777;
     font-size: 25px;
     text-align: center;
-}
 
-.center-message .flag {
-    font-size: 80px;
-    margin-bottom: 40px;
-}
+    .flag {
+        font-size: 80px;
+        margin-bottom: 40px;
+    }
 
-.center-message .learn-link {
-    background-color: #000080;
-    color: white;
-    border-radius: 20px;
-    padding: 5px 15px;
-}
+    .learn-link {
+        background-color: #000080;
+        color: white;
+        border-radius: 20px;
+        padding: 5px 15px;
 
-.center-message .learn-link:hover {
-    background-color: #0080ff;
-}
+        &:hover {
+            background-color: #0080ff;
+        }
+    }
 
-.center-message > h1 {
-    font-size: 80px;
+    > h1 {
+        font-size: 80px;
+    }
 }
