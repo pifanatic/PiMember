@@ -3,12 +3,6 @@
 @import "card";
 @import "header";
 
-main {
-    height: calc(100vh - 60px);
-    overflow-y: auto;
-    padding-bottom: 60px;
-}
-
 .center-message {
     display: flex;
     justify-content: center;
