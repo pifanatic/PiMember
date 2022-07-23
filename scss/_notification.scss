@@ -1,0 +1,61 @@
+
+.notification {
+    display: flex;
+    position: absolute;
+    left: 100vw;
+    width: 300px;
+    top: 200px;
+    padding: 20px;
+
+    align-items: center;
+    text-align: center;
+
+    border: 1px solid #aaa;
+    border-left: 5px solid;
+    border-radius: 3px;
+    box-shadow: 4px 4px 5px 0px #aaa;
+    background-color: white;
+
+    animation-duration: 0.75s, 1.5s, 0s;
+    animation-name: slidein, fadeout, slideout;
+    animation-delay: 0s, 4s, 5.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+.notification-icon {
+    margin: auto 15px auto 0px;
+
+    font-size: 25px;
+}
+
+.error {
+    border-left-color: red;
+}
+
+.error .notification-icon {
+    color: red;
+}
+
+.success {
+    border-left-color: lightgreen;
+}
+
+.success .notification-icon {
+    color: lightgreen;
+}
+
+@keyframes slidein {
+    from { transform: translateX(0px); }
+    to   { transform: translateX(-400px); }
+}
+
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@keyframes slideout {
+    from { transform: translateX(-400px); }
+    to   { transform: translateX(0px); }
+}
