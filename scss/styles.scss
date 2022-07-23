@@ -3,15 +3,7 @@
 @import "card";
 @import "header";
 @import "notification";
-
-/* Home */
-.learn-button {
-    display: block;
-    margin: 50px auto;
-    padding: 10px 20px;
-
-    font-size: 24px;
-}
+@import "home";
 
 .login-wrapper {
     margin: 100px auto;
