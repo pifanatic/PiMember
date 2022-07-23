@@ -4,36 +4,7 @@
 @import "header";
 @import "notification";
 @import "home";
-
-.login-wrapper {
-    margin: 100px auto;
-    width: 360px;
-}
-
-.login-wrapper .row {
-    margin-bottom: 20px;
-}
-
-.login-wrapper label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.login-wrapper input {
-    width: 100%;
-    margin-top: 5px;
-    padding: 8px;
-    font-size: 16px;
-    font-family: inherit;
-
-    border: 1px solid #aaa;
-    border-radius: 2px;
-}
-
-.login-wrapper button {
-    width: 100%;
-    margin-top: 20px;
-}
+@import "login";
 
 /* Cards */
 .list {
