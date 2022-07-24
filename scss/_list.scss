@@ -3,35 +3,35 @@
     background-color: white;
     padding: 10px;
     padding-top: 0px;
-}
 
-.list-item {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
+    .list-item {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
 
-    background-color: white;
-    border-bottom: 1px solid #ddd;
-}
+        background-color: white;
+        border-bottom: 1px solid #ddd;
 
-.list-item.list-header {
-    font-size: 16px;
-    border-bottom: none;
-    background-color: #000080;
-    color: white;
-    box-shadow: 10px 0 0 0 #000080, -10px 0 0 0 #000080;
-}
+        &.list-header {
+            font-size: 16px;
+            border-bottom: none;
+            background-color: #000080;
+            color: white;
+            box-shadow: 10px 0 0 0 #000080, -10px 0 0 0 #000080;
+        }
 
-.list-item:not(.list-header):hover {
-    background-color: #eee;
-}
+        &:not(.list-header):hover {
+            background-color: #eee;
+        }
 
-.list-item .cell {
-    padding: 10px 10px;
-    flex: 1;
-    flex-wrap: wrap;
+        .cell {
+            padding: 10px 10px;
+            flex: 1;
+            flex-wrap: wrap;
 
-    text-align: center;
+            text-align: center;
+        }
+    }
 }
 
 .empty-list {
