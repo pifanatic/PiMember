@@ -1,0 +1,12 @@
+
+/* Tag list */
+.list.tag-list {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.tag-list .cell.tag-cell {
+    flex: 5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

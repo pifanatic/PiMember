@@ -8,18 +8,7 @@
 @import "list";
 @import "card_list";
 @import "card_form";
-
-/* Tag list */
-.list.tag-list {
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.tag-list .cell.tag-cell {
-    flex: 5;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+@import "tag_list";
 
 /* Learn */
 .learn .card {
