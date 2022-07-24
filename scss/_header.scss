@@ -232,4 +232,59 @@ header {
             }
         }
     }
+
+    .search-form {
+        display: flex;
+        align-items: center;
+
+        .search-icon {
+            cursor: pointer;
+            font-size: 24px;
+            margin-right: 10px;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        input {
+            font-size: 16px;
+            font-family: inherit;
+            padding: 2px;
+            width: 250px;
+        }
+    }
+
+    @media (max-width: 1000px) {
+        &.search-focused {
+            .header-left-mobile {
+                flex: 0;
+            }
+
+            input#searchInput {
+                display: block;
+                width: 100%;
+            }
+
+            .search-form {
+                justify-content: flex-end;
+                flex: 1;
+                padding-left: 20px;
+                padding-right: 5px;
+
+                form {
+                    animation: expand 0.5s ease-in-out;
+                    width: 100%;
+                }
+                @keyframes expand {
+                    from { width:   0%; }
+                    to   { width: 100%; }
+                }
+            }
+
+            .header-center {
+                display: none;
+            }
+        }
+    }
 }
