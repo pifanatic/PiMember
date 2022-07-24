@@ -5,14 +5,7 @@
 @import "notification";
 @import "home";
 @import "login";
-
-/* Cards */
-.list {
-    box-shadow: 4px 4px 5px 0px #aaa;
-    background-color: white;
-    padding: 10px;
-    padding-top: 0px;
-}
+@import "list";
 
 .card-list {
     margin: 15px 50px;
@@ -22,35 +15,6 @@
     .card-list {
         margin: 15px auto;
     }
-}
-
-.list-item {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-
-    background-color: white;
-    border-bottom: 1px solid #ddd;
-}
-
-.list-item.list-header {
-    font-size: 16px;
-    border-bottom: none;
-    background-color: #000080;
-    color: white;
-    box-shadow: 10px 0 0 0 #000080, -10px 0 0 0 #000080;
-}
-
-.list-item:not(.list-header):hover {
-    background-color: #eee;
-}
-
-.list-item .cell {
-    padding: 10px 10px;
-    flex: 1;
-    flex-wrap: wrap;
-
-    text-align: center;
 }
 
 .card-list .cell:nth-child(1),
@@ -137,14 +101,6 @@
 
 .sub-header a.sub-header-link:hover {
     text-decoration: underline;
-}
-
-.empty-list {
-    display: flex;
-    justify-content: center;
-    margin-top: 300px;
-    color: #777;
-    font-size: 25px;
 }
 
 /* Cards - add */
