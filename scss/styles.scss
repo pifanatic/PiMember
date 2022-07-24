@@ -36,69 +36,6 @@
     margin-right: 6px;
 }
 
-.sub-header {
-    display: flex;
-    align-items: center;
-
-    color: #777;
-    font-size: 18px;
-
-    margin: 20px 50px;
-    padding: 10px 5px;
-
-    border-top: 1px solid #aaa;
-    border-bottom: 1px solid #aaa;
-}
-
-@media (max-width: 1000px) {
-    .sub-header {
-        margin-left: 0px;
-        margin-right: 0px;
-        flex-wrap: wrap;
-        row-gap: 0.5em;
-    }
-
-    .sub-header > h1 {
-        order: 1;
-        min-width: 100%;
-    }
-
-    .sub-header-left {
-        order: 2;
-    }
-
-    .sub-header-right {
-        order: 3;
-    }
-}
-
-.sub-header > * {
-    flex: 1;
-}
-
-.sub-header > h1 {
-    flex: 5;
-}
-
-.sub-header-right {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.sub-header a.icon-button {
-    margin: 0 10px;
-}
-
-.sub-header a.sub-header-link {
-    color: #777;
-    margin-right: 50px;
-}
-
-.sub-header a.sub-header-link:hover {
-    text-decoration: underline;
-}
-
 /* Cards - add */
 #cardForm {
     max-width: 1100px;
