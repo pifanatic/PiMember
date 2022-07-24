@@ -1,0 +1,28 @@
+.card-list {
+    margin: 15px 50px;
+}
+
+@media (max-width: 1000px) {
+    .card-list {
+        margin: 15px auto;
+    }
+}
+
+.card-list .cell:nth-child(1),
+.card-list .cell:nth-child(2) {
+    flex: 2;
+}
+
+.list-item .tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    row-gap: 4px;
+    font-size: 11px;
+    overflow: hidden;
+}
+
+.list-item .tags .tag:not(:last-child) {
+    margin-right: 6px;
+}
