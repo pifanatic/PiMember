@@ -1,50 +1,50 @@
 /* Learn */
-.learn .card {
-    margin: 70px auto;
-    transition: transform 0.8s linear;
-}
+.learn {
+    .card {
+        margin: 70px auto;
+        transition: transform 0.8s linear;
 
-@media (max-width: 500px) {
-    .learn .card {
-        margin-left: 10px;
-        margin-right: 10px;
-        width: initial;
-        height: calc(0.56 * 100vw);
+        span {
+            font-family: inherit;
+        }
+
+        @media (max-width: 500px) {
+            margin-left: 10px;
+            margin-right: 10px;
+            width: initial;
+            height: calc(0.56 * 100vw);
+        }
+
+        &.turning {
+            transform: rotate3d(0, 1, 0, 180deg);
+        }
+
+        /* hide back text if card is not turned */
+        &:not(.turned) div.back-text {
+            display: none;
+        }
+
+        &.turned {
+            box-shadow: -4px 4px 5px 0px #aaa;
+
+            div.front-text {
+                display: none;
+            }
+
+            div.back-text {
+                transform: rotateY(180deg);
+            }
+        }
     }
-}
 
-.learn .card.turning {
-    transform: rotate3d(0, 1, 0, 180deg);
-}
+    #learnForm {
+        display: flex;
+        margin: 0 auto;
+        justify-content: center;
 
-.learn .card span {
-    font-family: inherit;
-}
-
-/* hide back text if card is not turned */
-.learn .card:not(.turned) div.back-text {
-    display: none;
-}
-
-.learn .card.turned div.front-text {
-    display: none;
-}
-
-.learn .card.turned div.back-text {
-    transform: rotateY(180deg);
-}
-
-.learn .card.turned {
-    box-shadow: -4px 4px 5px 0px #aaa;
-}
-
-.learn #learnForm {
-    display: flex;
-    margin: 0 auto;
-    justify-content: center;
-}
-
-.learn #learnForm .icon-button {
-    margin: 0 1em;
-    font-size: 24px;
+        .icon-button {
+            margin: 0 1em;
+            font-size: 24px;
+        }
+    }
 }
