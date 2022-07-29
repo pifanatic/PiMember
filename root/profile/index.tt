@@ -1,5 +1,13 @@
 <div class="sub-header">
+    <span></span>
     <h1><i class="fas fa-user"></i> Profile</h1>
+
+    <div class="sub-header-right">
+        <a class="icon-button icon-button-primary"
+           href="[% c.uri_for(c.controller.action_for('edit')) %]">
+           <span class="fas fa-pen-alt"></span>
+        </a>
+    </div>
 </div>
 
 <div class="overlay profile-overlay">
