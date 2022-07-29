@@ -1,5 +1,12 @@
 <div class="sub-header">
+    <div class="sub-header-left">
+        <a class="icon-button"
+           href="[% c.uri_for(c.controller.action_for('index')) %]">
+           <span class="fas fa-arrow-left"></span>
+        </a>
+    </div>
     <h1><i class="fas fa-user"></i> Edit Profile</h1>
+    <span></span>
 </div>
 
 <form id="profileForm" class="overlay profile-overlay" method="post">

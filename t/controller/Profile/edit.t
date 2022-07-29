@@ -42,6 +42,18 @@ subtest "GET /profile/edit with login" => sub {
     );
 
     $tx->ok(
+        '//div[@class="sub-header-left"]/a',
+        sub {
+            is(
+                $tx->node->getAttribute("href"),
+                "http://localhost/profile",
+                "correct href attribute"
+            )
+        },
+        "contains link back to profile page"
+    );
+
+    $tx->ok(
         '//section[@class="profile-username"]',
         "contains section for username"
     );
