@@ -1,0 +1,25 @@
+<div class="sub-header">
+    <h1><i class="fas fa-user"></i> Edit Profile</h1>
+</div>
+
+<form id="profileForm" class="overlay profile-overlay" method="post">
+    <section class="profile-username">
+        <h2 class="profile-attribute-heading">Username</h2>
+        <input value="[% c.user.username %]"
+               name="username"
+               required
+        />
+    </section>
+
+    <section class="profile-displayname">
+        <h2 class="profile-attribute-heading">Display name</h2>
+        <input value="[% c.user.first_name %]"
+               name="display_name"
+               required
+        />
+    </section>
+
+    <button class="btn btn-primary">
+        Save
+    </button>
+</form>

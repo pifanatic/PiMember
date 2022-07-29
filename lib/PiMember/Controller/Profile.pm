@@ -24,6 +24,13 @@ Show the user's profile
 
 sub index : Path Args(0) {}
 
+=head2 edit
+
+Allow user to edit their profile
+
+=cut
+
+sub edit: Local Args(0) {}
 
 __PACKAGE__->meta->make_immutable;
 

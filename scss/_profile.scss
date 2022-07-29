@@ -18,4 +18,14 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
+    input {
+        width: 100%;
+    }
+
+    button {
+        display: block;
+        margin: 0 auto;
+        width: 100px;
+    }
 }
