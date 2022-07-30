@@ -30,7 +30,32 @@ Allow user to edit their profile
 
 =cut
 
-sub edit: Local Args(0) {}
+sub edit: Local Args(0) {
+    my ($self, $c) = @_;
+
+    if ($c->req->method eq "POST") {
+        $c->forward($c->controller("Validator")->action_for("profile"));
+
+        if (!$c->stash->{validation}) {
+            $c->res->status(400);
+            $c->stash({
+                error_msg => "Profile update failed!"
+            });
+            return;
+        }
+
+        $c->model("DB::User")->find($c->user->id)->update({
+            username   => $c->req->params->{username},
+            first_name => $c->req->params->{display_name}
+        });
+
+        $c->res->redirect(
+            $c->uri_for($c->controller->action_for("index"),
+                { mid => $c->set_status_msg("Profile updated!") }
+            )
+        );
+    }
+}
 
 __PACKAGE__->meta->make_immutable;
 

@@ -87,3 +87,120 @@ subtest "GET /profile/edit with login" => sub {
         "contains input for displayname"
     );
 };
+
+subtest "POST /profile/edit" => sub {
+    login_mech;
+
+    subtest "no form-data at all" => sub {
+        $mech->get("/profile/edit");
+
+        $mech->submit_form((
+            form_id => "profileForm",
+            fields  => {
+                username     => undef,
+                display_name => undef
+            },
+        ));
+
+        $mech->header_is(
+            "Status",
+            400,
+            "has correct status"
+        );
+
+        $mech->content_contains("Profile update failed!");
+    };
+
+    subtest "missing display_name" => sub {
+        $mech->submit_form((
+                form_id => "profileForm",
+                fields  => {
+                    username     => "foo",
+                    display_name => undef
+                },
+            )
+        );
+        $mech->header_is(
+            "Status",
+            400,
+            "has correct status"
+        );
+        $mech->content_contains("Profile update failed!");
+    };
+
+    subtest "missing username" => sub {
+        $mech->submit_form((
+                form_id => "profileForm",
+                fields  => {
+                    username     => undef,
+                    display_name => "FOO"
+                },
+            )
+        );
+
+        $mech->header_is(
+            "Status",
+            400,
+            "has correct status"
+        );
+
+        $mech->content_contains("Profile update failed!");
+    };
+
+    subtest "correct form-data" => sub {
+        $mech->submit_form((
+                form_id => "profileForm",
+                fields  => {
+                    username     => "new",
+                    display_name => "New"
+                },
+            )
+        );
+
+        $mech->header_is(
+            "Status",
+            302,
+            "redirects"
+        );
+
+        $mech->header_like(
+            "Location",
+            qr|^http://localhost/profile\?mid=\d{8}$|,
+            "redirects to correct location"
+        );
+
+        $mech->get($mech->res->header("Location"));
+        $mech->content_contains(
+            "Profile updated!",
+            "shows success hint"
+        );
+
+        is(
+            $schema->resultset("User")->find(1)->username,
+            "new",
+            "updated username correctly"
+        );
+
+        is(
+            $schema->resultset("User")->find(1)->first_name,
+            "New",
+            "updated display_name correctly"
+        );
+
+        $tx = prepare_html_tests;
+
+        $tx->like(
+            '//section[@class="profile-username"]' .
+                '/div[@class="profile-attribute-value"]',
+            qr/new/,
+            "contains correct new value for username"
+        );
+
+        $tx->like(
+            '//section[@class="profile-displayname"]' .
+                '/div[@class="profile-attribute-value"]',
+            qr|New|,
+            "contains correct new value for displayname"
+        );
+    };
+};
