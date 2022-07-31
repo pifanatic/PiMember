@@ -1,6 +1,7 @@
 package PiMember::Controller::Validator;
 use Moose;
 use Data::FormValidator;
+use Data::FormValidator::Constraints qw/ FV_length_between /;
 
 =head1 NAME
 
@@ -27,7 +28,13 @@ sub profile : Private {
     my ($self, $c) = @_;
 
     my $profile = {
-        required => ["username", "display_name"]
+        required => [
+            "username",
+            "display_name"
+        ],
+        constraint_methods => {
+            username => FV_length_between(1, 30)
+        }
     };
 
     my $validation = Data::FormValidator->check($c->req->params, $profile);

@@ -13,6 +13,7 @@
     <section class="profile-username">
         <h2 class="profile-attribute-heading">Username</h2>
         <input value="[% c.user.username %]"
+               maxlength="30"
                name="username"
                required
         />
