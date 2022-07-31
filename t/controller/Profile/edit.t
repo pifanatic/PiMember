@@ -185,6 +185,27 @@ subtest "POST /profile/edit" => sub {
         $mech->content_contains("Profile update failed!");
     };
 
+    subtest "username already exists" => sub {
+        $mech->submit_form((
+                form_id => "profileForm",
+                fields  => {
+                    username     => "second_user",
+                    display_name => "Second User"
+                },
+            )
+        );
+
+        $mech->header_is(
+            "Status",
+            400,
+            "has correct status"
+        );
+
+        $mech->content_contains(
+            'Username &quot;second_user&quot; is already taken!'
+        );
+    };
+
     subtest "correct form-data" => sub {
         $mech->submit_form((
                 form_id => "profileForm",

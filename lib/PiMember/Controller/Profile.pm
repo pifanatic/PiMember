@@ -34,6 +34,8 @@ sub edit: Local Args(0) {
     my ($self, $c) = @_;
 
     if ($c->req->method eq "POST") {
+        my $username = $c->req->params->{username};
+
         $c->forward($c->controller("Validator")->action_for("profile"));
 
         if (!$c->stash->{validation}) {
@@ -42,6 +44,17 @@ sub edit: Local Args(0) {
                 error_msg => "Profile update failed!"
             });
             return;
+        }
+
+        if ($c->user->username ne $username &&
+            $c->model("DB::User")->find({ username => $username })) {
+                $c->res->status(400);
+                $c->stash({
+                    error_msg => 'Username "' .
+                                 $c->req->params->{username} .
+                                 '" is already taken!'
+                });
+                return;
         }
 
         $c->model("DB::User")->find($c->user->id)->update({
