@@ -21,19 +21,24 @@ unless (-d $TEST_DB_DIR) {
 $mech = Test::WWW::Mechanize::Catalyst->new(max_redirect => 0);
 
 $schema = PiMember::Schema->connect("dbi:SQLite:$TEST_DB_DIR$TEST_DB_NAME");
-$schema->deploy({
-    add_drop_table => 1,
-});
 
 $fixtures = DBIx::Class::Fixtures->new({
     config_dir => "t/lib/fixtures"
 });
 
-$fixtures->populate({
-    directory => "t/lib/fixtures",
-    schema    => $schema,
-    no_deploy => 1
-});
+reset_fixtures();
+
+sub reset_fixtures {
+    $schema->deploy({
+        add_drop_table => 1,
+    });
+
+    $fixtures->populate({
+        directory => "t/lib/fixtures",
+        schema    => $schema,
+        no_deploy => 1
+    });
+}
 
 sub login_mech {
     $mech->cookie_jar->clear;
