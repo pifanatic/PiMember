@@ -9,7 +9,7 @@ CREATE TABLE 'Users' (
     id            INTEGER   PRIMARY KEY,
     username      TEXT,
     password      TEXT,
-    first_name    TEXT
+    display_name  TEXT
 );
 
 CREATE TABLE 'Cards' (

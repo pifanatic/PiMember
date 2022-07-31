@@ -21,7 +21,7 @@
 
     <section class="profile-displayname">
         <h2 class="profile-attribute-heading">Display name</h2>
-        <input value="[% c.user.first_name %]"
+        <input value="[% c.user.display_name %]"
                maxlength="50"
                name="display_name"
                required

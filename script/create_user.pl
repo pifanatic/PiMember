@@ -11,7 +11,7 @@ my $users = $schema->resultset("User");
 
 my $error;
 my $username;
-my $first_name;
+my $display_name;
 my $password;
 
 do {
@@ -28,8 +28,8 @@ do {
 
 do {
     print "\nEnter first name: ";
-    chomp ($first_name = <>);
-} while (!$first_name);
+    chomp ($display_name = <>);
+} while (!$display_name);
 
 do {
     print "\nEnter password: ";
@@ -38,9 +38,9 @@ do {
 
 
 $users->create({
-    username   => $username,
-    first_name => $first_name,
-    password   => sha512_base64($password)
+    username     => $username,
+    display_name => $display_name,
+    password     => sha512_base64($password)
 });
 
 print "\n\n*** User '$username' created! ***\n";

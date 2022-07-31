@@ -45,8 +45,8 @@ sub edit: Local Args(0) {
         }
 
         $c->model("DB::User")->find($c->user->id)->update({
-            username   => $c->req->params->{username},
-            first_name => $c->req->params->{display_name}
+            username     => $c->req->params->{username},
+            display_name => $c->req->params->{display_name}
         });
 
         $c->res->redirect(

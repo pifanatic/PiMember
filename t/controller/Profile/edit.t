@@ -220,7 +220,7 @@ subtest "POST /profile/edit" => sub {
         );
 
         is(
-            $schema->resultset("User")->find(1)->first_name,
+            $schema->resultset("User")->find(1)->display_name,
             "New",
             "updated display_name correctly"
         );

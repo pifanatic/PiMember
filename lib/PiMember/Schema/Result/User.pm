@@ -54,7 +54,7 @@ __PACKAGE__->table("Users");
   data_type: 'text'
   is_nullable: 1
 
-=head2 first_name
+=head2 display_name
 
   data_type: 'text'
   is_nullable: 1
@@ -68,7 +68,7 @@ __PACKAGE__->add_columns(
   { data_type => "text", is_nullable => 1 },
   "password",
   { data_type => "text", is_nullable => 1 },
-  "first_name",
+  "display_name",
   { data_type => "text", is_nullable => 1 },
 );
 
@@ -117,8 +117,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07049 @ 2022-02-27 20:59:11
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:pbQ0UsfIn+ke1HFdGDDFRA
+# Created by DBIx::Class::Schema::Loader v0.07049 @ 2022-07-31 11:18:03
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:SXPSBMSjDRHic4c4QZburQ
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
