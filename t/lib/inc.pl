@@ -36,6 +36,8 @@ $fixtures->populate({
 });
 
 sub login_mech {
+    $mech->cookie_jar->clear;
+
     $mech->get("/login");
 
     $mech->submit_form((
