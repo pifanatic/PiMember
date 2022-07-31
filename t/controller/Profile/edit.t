@@ -166,6 +166,25 @@ subtest "POST /profile/edit" => sub {
         $mech->content_contains("Profile update failed!");
     };
 
+    subtest "display_name too long" => sub {
+        $mech->submit_form((
+                form_id => "profileForm",
+                fields  => {
+                    username     => "foo",
+                    display_name => "X" x 51
+                },
+            )
+        );
+
+        $mech->header_is(
+            "Status",
+            400,
+            "has correct status"
+        );
+
+        $mech->content_contains("Profile update failed!");
+    };
+
     subtest "correct form-data" => sub {
         $mech->submit_form((
                 form_id => "profileForm",

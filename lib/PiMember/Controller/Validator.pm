@@ -33,7 +33,8 @@ sub profile : Private {
             "display_name"
         ],
         constraint_methods => {
-            username => FV_length_between(1, 30)
+            username     => FV_length_between(1, 30),
+            display_name => FV_length_between(1, 50)
         }
     };
 
