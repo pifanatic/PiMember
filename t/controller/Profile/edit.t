@@ -240,5 +240,61 @@ subtest "POST /profile/edit" => sub {
             qr|New|,
             "contains correct new value for displayname"
         );
+
+        reset_fixtures;
+    };
+
+    subtest "maximum length username" => sub {
+        $mech->get("/profile/edit");
+
+        $mech->submit_form((
+                form_id => "profileForm",
+                fields  => {
+                    username     => "X" x 30,
+                    display_name => "Foo"
+                },
+            )
+        );
+
+        $mech->header_is(
+            "Status",
+            302,
+            "has correct status"
+        );
+
+        is(
+            $schema->resultset("User")->find(1)->username,
+            "X" x 30,
+            "username has been set correctly"
+        );
+
+        reset_fixtures;
+    };
+
+    subtest "maximum length display_name" => sub {
+        $mech->get("/profile/edit");
+
+        $mech->submit_form((
+                form_id => "profileForm",
+                fields  => {
+                    username     => "foo",
+                    display_name => "X" x 50
+                },
+            )
+        );
+
+        $mech->header_is(
+            "Status",
+            302,
+            "has correct status"
+        );
+
+        is(
+            $schema->resultset("User")->find(1)->display_name,
+            "X" x 50,
+            "display_name has been set correctly"
+        );
+
+        reset_fixtures;
     };
 };
