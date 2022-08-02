@@ -28,7 +28,14 @@
         />
     </section>
 
-    <button class="btn btn-primary">
-        Save
-    </button>
+    <div class="button-row">
+        <a class="btn"
+           href="[% c.uri_for(c.controller.action_for('index')) %]">
+           Cancel
+        </a>
+
+        <button class="btn btn-primary">
+            Save
+        </button>
+    </div>
 </form>

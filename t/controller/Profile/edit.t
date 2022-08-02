@@ -76,6 +76,18 @@ subtest "GET /profile/edit with login" => sub {
     );
 
     $tx->ok(
+        '//form[@id="profileForm"]//div[@class="button-row"]//a',
+        sub {
+            is(
+                $tx->node->getAttribute("href"),
+                "http://localhost/profile",
+                "href attribute correct"
+            );
+        },
+        "contains link back to profile"
+    );
+
+    $tx->ok(
         '//section[@class="profile-displayname"]/input',
         sub {
             is(
