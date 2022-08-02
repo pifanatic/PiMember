@@ -1,3 +1,11 @@
+v0.14 2022-08-02
+================
+
+- renamed first_name to display_name
+- use SASS instead of plain CSS
+- added profile page
+- added profile edit page
+
 v0.13 2022-05-11
 ================
 
