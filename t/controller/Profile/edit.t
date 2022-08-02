@@ -318,4 +318,37 @@ subtest "POST /profile/edit" => sub {
 
         reset_fixtures;
     };
+
+    subtest "update display_name without changing username" => sub {
+        $mech->get("/profile/edit");
+
+        $mech->submit_form((
+                form_id => "profileForm",
+                fields  => {
+                    username     => "<b>admin</b>",
+                    display_name => "new display_name"
+                },
+            )
+        );
+
+        $mech->header_is(
+            "Status",
+            302,
+            "has correct status"
+        );
+
+        is(
+            $schema->resultset("User")->find(1)->username,
+            "<b>admin</b>",
+            "username was left intact"
+        );
+
+        is(
+            $schema->resultset("User")->find(1)->display_name,
+            "new display_name",
+            "display_name has been set correctly"
+        );
+
+        reset_fixtures;
+    };
 };
