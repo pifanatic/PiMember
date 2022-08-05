@@ -4,7 +4,7 @@ use FindBin;
 use Test::More "no_plan";
 
 BEGIN {
-    require "$FindBin::Bin/../lib/inc.pl";
+    require "$FindBin::Bin/../../lib/inc.pl";
 }
 
 
