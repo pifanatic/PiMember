@@ -2,6 +2,7 @@ use strict;
 use warnings;
 use FindBin;
 use Test::More "no_plan";
+use Digest::SHA qw/ sha512_base64 /;
 
 BEGIN {
     require "$FindBin::Bin/../../lib/inc.pl";
@@ -145,4 +146,212 @@ subtest "GET /password/change with login" => sub {
         },
         "contains button back to profile"
     );
+};
+
+subtest "POST /password/change" => sub {
+    login_mech;
+
+    subtest "without old_password" => sub {
+        $mech->get("/password/change");
+
+        $mech->submit_form((
+            form_id => "passwordChange",
+            fields => {
+                new_password        => "X" x 10,
+                new_password_repeat => "X" x 10
+            }
+        ));
+
+        $mech->header_is(
+            "Status",
+            400,
+            "is a bad request"
+        );
+
+        $mech->content_contains(
+            "Password change failed!",
+            "contains error message"
+        );
+    };
+
+    subtest "without new_password" => sub {
+        $mech->get("/password/change");
+
+        $mech->submit_form((
+            form_id => "passwordChange",
+            fields => {
+                old_password        => "X" x 10,
+                new_password_repeat => "X" x 10
+            }
+        ));
+
+        $mech->header_is(
+            "Status",
+            400,
+            "is a bad request"
+        );
+
+        $mech->content_contains(
+            "Password change failed!",
+            "contains error message"
+        );
+    };
+
+    subtest "without new_password_repeat" => sub {
+        $mech->get("/password/change");
+
+        $mech->submit_form((
+            form_id => "passwordChange",
+            fields => {
+                old_password => "X" x 10,
+                new_password => "X" x 10
+            }
+        ));
+
+        $mech->header_is(
+            "Status",
+            400,
+            "is a bad request"
+        );
+
+        $mech->content_contains(
+            "Password change failed!",
+            "contains error message"
+        );
+    };
+
+    subtest "new_password too short" => sub {
+        $mech->get("/password/change");
+
+        $mech->submit_form((
+            form_id => "passwordChange",
+            fields => {
+                old_password        => "X" x 10,
+                new_password        => "X" x 9,
+                new_password_repeat => "X" x 10
+            }
+        ));
+
+        $mech->header_is(
+            "Status",
+            400,
+            "is a bad request"
+        );
+
+        $mech->content_contains(
+            "Password change failed!",
+            "contains error message"
+        );
+    };
+
+    subtest "new_password_repeat too short" => sub {
+        $mech->get("/password/change");
+
+        $mech->submit_form((
+            form_id => "passwordChange",
+            fields => {
+                old_password        => "X" x 10,
+                new_password        => "X" x 10,
+                new_password_repeat => "X" x 9
+            }
+        ));
+
+        $mech->header_is(
+            "Status",
+            400,
+            "is a bad request"
+        );
+
+        $mech->content_contains(
+            "Password change failed!",
+            "contains error message"
+        );
+    };
+
+    subtest "new_passwords don't match" => sub {
+        $mech->get("/password/change");
+
+        $mech->submit_form((
+            form_id => "passwordChange",
+            fields => {
+                old_password        => "X" x 10,
+                new_password        => "X" x 10,
+                new_password_repeat => "Y" x 10
+            }
+        ));
+
+        $mech->header_is(
+            "Status",
+            400,
+            "is a bad request"
+        );
+
+        $mech->content_contains(
+            "Password change failed!",
+            "contains error message"
+        );
+    };
+
+    subtest "old_password not correct" => sub {
+        $mech->get("/password/change");
+
+        $mech->submit_form((
+            form_id => "passwordChange",
+            fields  => {
+                old_password        => "NOT CORRECT",
+                new_password        => "X" x 10,
+                new_password_repeat => "X" x 10
+            }
+        ));
+
+        $mech->header_is(
+            "Status",
+            401,
+            "is not authorized"
+        );
+
+        $mech->content_contains(
+            "Current password incorrect!",
+            "contains error message"
+        );
+    };
+
+    subtest "correct form_data" => sub {
+        $mech->get("/password/change");
+
+        $mech->submit_form((
+            form_id => "passwordChange",
+            fields => {
+                old_password        => "admin",
+                new_password        => "X" x 10,
+                new_password_repeat => "X" x 10
+            }
+        ));
+
+        $mech->header_is(
+            "Status",
+            302,
+            "redirects"
+        );
+
+        $mech->header_like(
+            "Location",
+            qr|http://localhost/profile\?mid=\d{8}|,
+            "redirects to /profile"
+        );
+
+        $mech->get($mech->res->header("Location"));
+        $mech->content_contains(
+            "Password changed successfully",
+            "displays success message"
+        );
+
+        is(
+            $schema->resultset("User")->find(1)->password,
+            sha512_base64("X" x 10),
+            "updated user correctly in db"
+        );
+
+        reset_fixtures;
+    };
 };
