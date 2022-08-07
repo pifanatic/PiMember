@@ -1,0 +1,52 @@
+<div class="sub-header">
+    <div class="sub-header-left">
+        <a class="icon-button"
+           href="[% c.uri_for(c.controller('Profile').action_for('index')) %]">
+           <span class="fas fa-arrow-left"></span>
+        </a>
+    </div>
+    <h1>Change password</h1>
+    <span></span>
+</div>
+
+<form id="passwordChange" method="post" class="overlay change-password-overlay">
+    <div class="row">
+        <label for="old_password">Current password</label>
+
+        <input id="old_password"
+               name="old_password"
+               type="password"
+               required
+        />
+    </div>
+
+    <div class="row">
+        <label for="new_password">New password</label>
+
+        <input id="new_password"
+               name="new_password"
+               type="password"
+               minlength="10"
+               required
+        />
+    </div>
+
+    <div class="row">
+        <label for="new_password_repeat">Repeat new password</label>
+
+        <input id="new_password_repeat"
+               name="new_password_repeat"
+               type="password"
+               minlength="10"
+               required
+        />
+    </div>
+
+    <div class="button-row">
+        <a class="btn btn-secondary"
+           href="[% c.uri_for(c.controller("Profile").action_for("index")) %]">
+            Cancel
+        </a>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>
