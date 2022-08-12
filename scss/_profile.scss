@@ -43,10 +43,10 @@
     .button-row {
         display: flex;
         justify-content: center;
-        column-gap: 50px;
+        column-gap: 1em;
 
-        .btn {
-            width: 100px;
+        > * {
+            flex: 1;
         }
     }
 }
