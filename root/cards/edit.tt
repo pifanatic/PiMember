@@ -6,7 +6,7 @@
     [% INCLUDE cards/card_form_content.tt %]
 
     <div class="button-row">
-        <a class="btn"
+        <a class="btn btn-secondary"
            href="[% c.uri_for(c.controller.action_for('view'), [card.id]) %]">
            Cancel
         </a>

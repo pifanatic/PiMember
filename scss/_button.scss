@@ -9,13 +9,10 @@
     font-family: inherit;
     text-align: center;
 
-    background-color: #ccc;
-
     cursor: pointer;
 
     &:hover {
         transform: scale(1.05);
-        background-color: #bbb;
     }
 }
 
@@ -26,6 +23,11 @@
     &:hover {
         background-color: #0080ff;
     }
+}
+
+.btn-secondary {
+    color: #000080;
+    border: 1px solid #000080;
 }
 
 .btn-green {
