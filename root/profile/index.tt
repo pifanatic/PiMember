@@ -30,7 +30,13 @@
     </section>
 
     <section class="profile-password">
-        <h2 class="profile-attribute-heading">Password</h2>
+        <h2 class="profile-attribute-heading">
+            Password
+            <a class="password-change-link"
+               href="[% c.uri_for(c.controller('Password').action_for('change'))%]">
+               <span class="fas fa-pen change-icon"></span>Edit
+            </a>
+        </h2>
         <div class="profile-attribute-value">************</div>
     </section>
 </div>

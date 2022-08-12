@@ -81,4 +81,16 @@ subtest "GET /profile with login" => sub {
         '//section[@class="profile-password"]',
         "contains section for password"
     );
+
+    $tx->ok(
+        '//a[@class="password-change-link"]',
+        sub {
+            is(
+                $tx->node->getAttribute("href"),
+                "http://localhost/password/change",
+                "href is set correctly"
+            );
+        },
+        "contains link to password change"
+    );
 };

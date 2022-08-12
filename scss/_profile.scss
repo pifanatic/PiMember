@@ -9,6 +9,10 @@
     }
 
     h2.profile-attribute-heading {
+        display: flex;
+        align-items: center;
+        column-gap: 1em;
+
         font-size: 1.25em;
         font-weight: normal;
     }
@@ -17,6 +21,19 @@
         color: #777;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+
+    .password-change-link {
+        font-size: 14px;
+        color: blue;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        .change-icon {
+            margin-right: 0.4em;
+        }
     }
 
     input {
