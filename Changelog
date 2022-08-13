@@ -1,3 +1,18 @@
+v0.15 2023-05-07
+================
+
+- improved style of secondary buttons
+- added tests for /logout
+- added (some) tests for Controller::Root
+- added password change
+- added option to disable MathJax
+- removed psgi script
+- added some tests for /cards/learn
+- show tags below card when learning
+- fixed bug: do not turn card when typing in search input
+- use in-memory database for testing
+- don't compile SASS when testing
+
 v0.14 2022-08-02
 ================
 
