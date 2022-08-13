@@ -6,10 +6,11 @@ DROP TABLE IF EXISTS 'Tags';
 DROP TABLE IF EXISTS 'CardsTags';
 
 CREATE TABLE 'Users' (
-    id            INTEGER   PRIMARY KEY,
-    username      TEXT,
-    password      TEXT,
-    display_name  TEXT
+    id              INTEGER   PRIMARY KEY,
+    username        TEXT,
+    password        TEXT,
+    display_name    TEXT,
+    mathjax_enabled INTEGER   NOT NULL  DEFAULT 0
 );
 
 CREATE TABLE 'Cards' (

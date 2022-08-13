@@ -59,6 +59,12 @@ __PACKAGE__->table("Users");
   data_type: 'text'
   is_nullable: 1
 
+=head2 mathjax_enabled
+
+  data_type: 'integer'
+  default_value: 0
+  is_nullable: 0
+
 =cut
 
 __PACKAGE__->add_columns(
@@ -70,6 +76,8 @@ __PACKAGE__->add_columns(
   { data_type => "text", is_nullable => 1 },
   "display_name",
   { data_type => "text", is_nullable => 1 },
+  "mathjax_enabled",
+  { data_type => "integer", default_value => 0, is_nullable => 0 },
 );
 
 =head1 PRIMARY KEY
@@ -117,8 +125,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07049 @ 2022-07-31 11:18:03
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:SXPSBMSjDRHic4c4QZburQ
+# Created by DBIx::Class::Schema::Loader v0.07049 @ 2022-08-13 09:54:02
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:zmFHBeo+iNmWItAzyaL/HA
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
