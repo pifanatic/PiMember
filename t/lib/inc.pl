@@ -41,13 +41,15 @@ sub reset_fixtures {
 }
 
 sub login_mech {
+    my $username = shift || "<b>admin</b>";
+
     $mech->cookie_jar->clear;
 
     $mech->get("/login");
 
     $mech->submit_form((
             fields      => {
-                username => "<b>admin</b>",
+                username => $username,
                 password => "admin"
             },
         )
