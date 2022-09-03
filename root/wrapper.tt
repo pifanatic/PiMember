@@ -10,24 +10,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="theme-color" content="#000080"/>
 
-    <script>
-        window.MathJax = {
-            loader: {
-                load: ["input/tex-base", "output/chtml"]
-            },
-            startup: {
-                typeset: false,
-                ready: () => {
-                    MathJax.startup.defaultReady();
-                    MathJax.startup.promise.then(() => {
-                        MathJax.typeset([".card"]);
-                    });
+    [% IF c.user_exists && c.user.mathjax_enabled %]
+        <script id="setup-mathjax">
+            window.MathJax = {
+                loader: {
+                    load: ["input/tex-base", "output/chtml"]
+                },
+                startup: {
+                    typeset: false,
+                    ready: () => {
+                        MathJax.startup.defaultReady();
+                        MathJax.startup.promise.then(() => {
+                            MathJax.typeset([".card"]);
+                        });
+                    }
                 }
             }
-        }
-    </script>
+        </script>
 
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/startup.js"></script>
+        <script id="load-mathjax" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/startup.js"></script>
+    [% END %]
 </head>
 
 <body>

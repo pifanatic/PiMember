@@ -57,6 +57,34 @@ subtest "accessing / with login" => sub {
         },
         "should contain button to start learning"
     );
+
+    $tx->not_ok(
+        '//script[@id="setup-mathjax"]',
+        "should not contain script to setup mathjax"
+    );
+
+    $tx->not_ok(
+        '//script[@id="load-mathjax"]',
+        "should not contain script to load mathjax"
+    );
+
+    subtest "with mathjax enabled" => sub {
+        login_mech "second_user";
+
+        $mech->get_ok("/");
+
+        $tx = prepare_html_tests;
+
+        $tx->ok(
+            '//script[@id="setup-mathjax"]',
+            "should contain script to setup mathjax"
+        );
+
+        $tx->ok(
+            '//script[@id="load-mathjax"]',
+            "should contain script to load mathjax"
+        );
+    };
 };
 
 subtest "accessing not_existing page with login" => sub {
