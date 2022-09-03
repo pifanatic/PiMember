@@ -21,6 +21,14 @@
         color: #777;
         overflow: hidden;
         text-overflow: ellipsis;
+
+        .mathjax-enabled {
+            color: limegreen;
+        }
+
+        .mathjax-disabled {
+            color: red;
+        }
     }
 
     .password-change-link {

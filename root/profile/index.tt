@@ -39,4 +39,19 @@
         </h2>
         <div class="profile-attribute-value">************</div>
     </section>
+
+    <section class="profile-mathjax">
+        <h2 class="profile-attribute-heading">
+            MathJax
+        </h2>
+        <div class="profile-attribute-value">
+            [% IF c.user.mathjax_enabled %]
+                <span class="fas fa-check mathjax-enabled"></span>
+                enabled
+            [% ELSE %]
+                <span class="fas fa-times mathjax-disabled"></span>
+                disabled
+            [% END %]
+        </div>
+    </section>
 </div>

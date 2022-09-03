@@ -93,4 +93,33 @@ subtest "GET /profile with login" => sub {
         },
         "contains link to password change"
     );
+
+    $tx->ok(
+        '//section[@class="profile-mathjax"]',
+        "contains section for mathjax"
+    );
+
+    $tx->like(
+        '//section[@class="profile-mathjax"]' .
+            '/div[@class="profile-attribute-value"]',
+        qr/disabled/,
+        "contains correct value when mathjax is disabled"
+    );
+};
+
+subtest "mathjax enabled" => sub {
+    my $tx;
+
+    login_mech "second_user";
+
+    $mech->get("/profile");
+
+    $tx = prepare_html_tests;
+
+    $tx->like(
+        '//section[@class="profile-mathjax"]' .
+            '/div[@class="profile-attribute-value"]',
+        qr/enabled/,
+        "contains correct value when mathjax is enabled"
+    );
 };
