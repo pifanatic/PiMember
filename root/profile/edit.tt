@@ -28,6 +28,27 @@
         />
     </section>
 
+    <section class="profile-mathjax">
+        <h2 class="profile-attribute-heading">MathJax</h2>
+
+        <div class="profile-row">
+            <label for="mathjax_toggle">Enabled</label>
+            <div class="toggle">
+                <input id="mathjax_toggle"
+                       name="mathjax_enabled"
+                       type="checkbox"
+                       value="1"
+                       [% IF c.user.mathjax_enabled %]
+                           checked
+                       [% END %]
+                />
+                <span class="handle">
+                    <span class="fas fa-check toggle-icon"></span>
+                </span>
+            </div>
+        </div>
+    </section>
+
     <div class="button-row">
         <a class="btn btn-secondary"
            href="[% c.uri_for(c.controller.action_for('index')) %]">

@@ -98,6 +98,41 @@ subtest "GET /profile/edit with login" => sub {
         },
         "contains input for displayname"
     );
+
+    $tx->ok(
+        '//section[@class="profile-mathjax"]',
+        "contains section for mathjax"
+    );
+
+    $tx->ok(
+        '//section[@class="profile-mathjax"]//div[@class="toggle"]/input',
+        sub {
+            ok(
+                !$tx->node->hasAttribute("checked"),
+                "toggle input is not checked"
+            );
+        },
+        "contains unchecked mathjax toggle"
+    );
+};
+
+subtest "GET /profile/edit with second user" => sub {
+    login_mech "second_user";
+
+    $mech->get("/profile/edit");
+
+    $tx = prepare_html_tests;
+
+    $tx->ok(
+        '//section[@class="profile-mathjax"]//div[@class="toggle"]/input',
+        sub {
+            ok(
+                $tx->node->hasAttribute("checked"),
+                "toggle input is checked"
+            );
+        },
+        "contains checked mathjax toggle"
+    );
 };
 
 subtest "POST /profile/edit" => sub {
@@ -258,6 +293,12 @@ subtest "POST /profile/edit" => sub {
             "updated display_name correctly"
         );
 
+        is(
+            $schema->resultset("User")->find(1)->mathjax_enabled,
+            0,
+            "updated mathjax_enabled correctly"
+        );
+
         $tx = prepare_html_tests;
 
         $tx->like(
@@ -359,6 +400,34 @@ subtest "POST /profile/edit" => sub {
             $schema->resultset("User")->find(1)->display_name,
             "new display_name",
             "display_name has been set correctly"
+        );
+
+        reset_fixtures;
+    };
+
+    subtest "enable MathJax" => sub {
+        $mech->get("/profile/edit");
+
+        $mech->submit_form((
+                form_id => "profileForm",
+                fields  => {
+                    username        => "<b>admin</b>",
+                    display_name    => "<b>Admin</b>",
+                    mathjax_enabled => "on"
+                },
+            )
+        );
+
+        $mech->header_is(
+            "Status",
+            302,
+            "has correct status"
+        );
+
+        is(
+            $schema->resultset("User")->find(1)->mathjax_enabled,
+            1,
+            "mathjax_enabled has been set correctly"
         );
 
         reset_fixtures;
