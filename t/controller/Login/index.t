@@ -87,19 +87,3 @@ $mech->header_is(
     "http://localhost/",
     "redirects to '/' after successful login"
 );
-
-
-
-$mech->get("/login");
-
-$mech->header_is(
-    "Status",
-    302,
-    "redirects on GET /login when already logged in"
-);
-
-$mech->header_is(
-    "Location",
-    "http://localhost/",
-    "redirects to '/'"
-);

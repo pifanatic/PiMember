@@ -87,6 +87,24 @@ subtest "accessing / with login" => sub {
     };
 };
 
+subtest "accessing /login with login" => sub {
+    login_mech;
+
+    $mech->get("/login");
+
+    $mech->header_is(
+        "Status",
+        302,
+        "should redirect"
+    );
+
+    $mech->header_is(
+        "Location",
+        "http://localhost/",
+        "should redirect to /"
+    );
+};
+
 subtest "accessing not_existing page with login" => sub {
     login_mech;
 

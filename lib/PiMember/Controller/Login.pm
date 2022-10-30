@@ -22,17 +22,6 @@ Redirect to home page if user is already logged in
 
 =cut
 
-sub begin : Private {
-    my ($self, $c) = @_;
-
-    if ($c->user_exists) {
-        $c->response->redirect(
-            $c->uri_for($c->controller("Root")->action_for("index"))
-        );
-    }
-}
-
-
 =head2 index
 
 The login routine
