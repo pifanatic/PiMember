@@ -20,7 +20,9 @@ document.body.addEventListener("keyup", e => {
         "j": wrongBtn
     };
 
-    keyToElementMap[e.key]?.click();
+    if (e.target.tagName === "BODY") {
+        keyToElementMap[e.key]?.click();
+    }
 });
 
 
