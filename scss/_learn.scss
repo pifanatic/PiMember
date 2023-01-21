@@ -2,6 +2,7 @@
 .learn {
     .card {
         margin: 70px auto;
+        margin-bottom: 20px;
         transition: transform 0.8s linear;
 
         span {
@@ -35,6 +36,17 @@
                 transform: rotateY(180deg);
             }
         }
+    }
+
+    .tags {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 1em;
+        flex-wrap: wrap;
+
+        margin: 2em 0;
+        min-height: 1.5em;
     }
 
     #learnForm {

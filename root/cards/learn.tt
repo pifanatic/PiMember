@@ -33,6 +33,12 @@
             </div>
         </div>
 
+        <div class="tags">
+            [% FOREACH tag IN card.tags %]
+                [% INCLUDE tag.tt %]
+            [% END %]
+        </div>
+
         <form id="learnForm" method="post">
             <button id="answerWrong" name="correct" value="0" class="icon-button icon-button-warning" title="Wrong answer (j)">
                 <span class="fas fa-times"></span>
