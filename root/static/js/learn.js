@@ -14,16 +14,13 @@ turnButton.addEventListener("click", () => {
 });
 
 document.body.addEventListener("keyup", e => {
-    let allowedKeys = /[jkl]/,
-        keyToElementMap = {
-            "k": turnButton,
-            "l": correctBtn,
-            "j": wrongBtn
-        };
+    let keyToElementMap = {
+        "k": turnButton,
+        "l": correctBtn,
+        "j": wrongBtn
+    };
 
-    if (allowedKeys.test(e.key)) {
-        keyToElementMap[e.key].click();
-    }
+    keyToElementMap[e.key]?.click();
 });
 
 
