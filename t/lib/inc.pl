@@ -4,6 +4,7 @@ use DBIx::Class::Fixtures;
 use PiMember::Schema;
 use vars qw/$schema $mech $fixtures/;
 use Test::XPath;
+use Test::MockTime;
 
 BEGIN {
     $ENV{PIMEMBER_CONFIG_LOCAL_SUFFIX} = "testing";
@@ -64,6 +65,16 @@ sub prepare_html_tests {
             recover => 2
         }
     );
+}
+
+sub mock_time {
+    $ENV{TZ} = "UTC";
+    Test::MockTime::set_fixed_time("2023-01-15T13:37:42Z");
+}
+
+sub restore_time {
+    delete $ENV{TZ};
+    Test::MockTime::restore;
 }
 
 1;

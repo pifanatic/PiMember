@@ -189,7 +189,7 @@ $tx->ok(
     sub {
         like(
             $tx->node->textContent,
-            qr/Test Card 3 Frontside/,
+            qr|Test Card 3 <b>Frontside</b>|,
             "correct text content"
         );
         is(
@@ -206,7 +206,7 @@ $tx->ok(
     sub {
         like(
             $tx->node->textContent,
-            qr/Test Card 3 Backside/,
+            qr|Test Card 3 <b>Backside</b>|,
             "correct text content"
         );
         is(
