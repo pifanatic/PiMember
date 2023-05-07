@@ -7,6 +7,7 @@ use Test::MockTime;
 
 BEGIN {
     $ENV{PIMEMBER_CONFIG_LOCAL_SUFFIX} = "testing";
+    $ENV{TESTING} = 1;
 }
 
 use Test::WWW::Mechanize::Catalyst::WithContext "PiMember";

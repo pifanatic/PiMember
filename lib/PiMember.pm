@@ -65,17 +65,18 @@ __PACKAGE__->config(
     },
 );
 
-# compile SCSS to CSS
-my $sass = CSS::Sass->new(
-    output_style => SASS_STYLE_COMPRESSED
-);
+unless ($ENV{TESTING}) {
+    # compile SCSS to CSS
+    my $sass = CSS::Sass->new(
+        output_style => SASS_STYLE_COMPRESSED
+    );
 
-my $css = $sass->compile_file("scss/styles.scss");
+    my $css = $sass->compile_file("scss/styles.scss");
 
-open my $fh, ">", "root/static/styles.css";
-print $fh $css;
-close $fh;
-
+    open my $fh, ">", "root/static/styles.css";
+    print $fh $css;
+    close $fh;
+}
 
 # Start the application
 __PACKAGE__->setup();
