@@ -139,7 +139,7 @@ $tx->not_ok(
 # Tests for empty Trash
 #
 
-$schema->resultset("Card")->delete_all;
+$mech->c->model("DB::Card")->delete_all;
 
 $mech->get_ok("/trash");
 

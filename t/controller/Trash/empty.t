@@ -93,7 +93,7 @@ $tx->like(
 );
 
 is(
-    $schema->resultset("Card")->search({
+    $mech->c->model("DB::Card")->search({
         in_trash => 1
     })->count,
     0,
@@ -101,7 +101,7 @@ is(
 );
 
 is(
-    $schema->resultset("Tag")->search({
+    $mech->c->model("DB::Tag")->search({
         name => "tag_to_be_deleted"
     })->count,
     0,

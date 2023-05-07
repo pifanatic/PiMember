@@ -1,7 +1,6 @@
 use strict;
 use warnings;
 use DBIx::Class::Fixtures;
-use PiMember::Schema;
 use vars qw/$schema $mech $fixtures/;
 use Test::XPath;
 use Test::MockTime;
@@ -10,18 +9,12 @@ BEGIN {
     $ENV{PIMEMBER_CONFIG_LOCAL_SUFFIX} = "testing";
 }
 
-use Test::WWW::Mechanize::Catalyst "PiMember";
+use Test::WWW::Mechanize::Catalyst::WithContext "PiMember";
 
-my $TEST_DB_DIR = "t/lib/db/";
-my $TEST_DB_NAME = "pimember.db";
+$mech = Test::WWW::Mechanize::Catalyst::WithContext->new(max_redirect => 0);
+$mech->get("/");
 
-unless (-d $TEST_DB_DIR) {
-    mkdir $TEST_DB_DIR;
-}
-
-$mech = Test::WWW::Mechanize::Catalyst->new(max_redirect => 0);
-
-$schema = PiMember::Schema->connect("dbi:SQLite:$TEST_DB_DIR$TEST_DB_NAME");
+$schema = $mech->c->model("DB")->schema;
 
 $fixtures = DBIx::Class::Fixtures->new({
     config_dir => "t/lib/fixtures"

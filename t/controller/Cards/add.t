@@ -199,8 +199,8 @@ $mech->content_contains(
     "shows success notification after adding a new card"
 );
 
-$card = $schema->resultset("Card")->find({ frontside => "New Card Frontside" });
-$tag  = $schema->resultset("Tag")->find({ name => "new_tag" });
+$card = $mech->c->model("DB::Card")->find({ frontside => "New Card Frontside" });
+$tag  = $mech->c->model("DB::Tag")->find({ name => "new_tag" });
 
 ok(
     $card,
@@ -297,18 +297,18 @@ is(
 );
 
 is(
-    $schema->resultset("Tag")->search({ name => "tag_01" })->count,
+    $mech->c->model("DB::Tag")->search({ name => "tag_01" })->count,
     1,
     "did not create a new row in database for already existing tag"
 );
 
 ok(
-    $schema->resultset("CardsTag")->find({ card_id => 6, tag_id => 1 }),
+    $mech->c->model("DB::CardsTag")->find({ card_id => 6, tag_id => 1 }),
     "created the correct cards_tag row for the first tag"
 );
 
 ok(
-    $schema->resultset("CardsTag")->find({ card_id => 6, tag_id => 4 }),
+    $mech->c->model("DB::CardsTag")->find({ card_id => 6, tag_id => 4 }),
     "created the correct cards_tag row for the second tag"
 );
 

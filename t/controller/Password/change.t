@@ -347,7 +347,7 @@ subtest "POST /password/change" => sub {
         );
 
         is(
-            $schema->resultset("User")->find(1)->password,
+            $mech->c->model("DB::User")->find(1)->password,
             sha512_base64("X" x 10),
             "updated user correctly in db"
         );

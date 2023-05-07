@@ -324,7 +324,7 @@ $tx->is(
 # Tests for empty card list
 #
 
-$schema->resultset("Card")->delete_all;
+$mech->c->model("DB::Card")->delete_all;
 
 $mech->get_ok("/cards");
 
