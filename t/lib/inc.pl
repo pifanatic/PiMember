@@ -1,24 +1,25 @@
 use strict;
 use warnings;
 use DBIx::Class::Fixtures;
+use DBICx::TestDatabase;
 use vars qw/$schema $mech $fixtures/;
 use Test::XPath;
 use Test::MockTime;
+use PiMember ();
 
 BEGIN {
-    $ENV{PIMEMBER_CONFIG_LOCAL_SUFFIX} = "testing";
     $ENV{TESTING} = 1;
 
     $ENV{TZ} = "UTC";
     Test::MockTime::set_fixed_time("2023-01-15T13:37:42Z");
 }
 
-use Test::WWW::Mechanize::Catalyst::WithContext "PiMember";
+$schema = DBICx::TestDatabase->new("PiMember::Schema");
+PiMember->model("DB")->schema($schema);
 
-$mech = Test::WWW::Mechanize::Catalyst::WithContext->new(max_redirect => 0);
-$mech->get("/");
+use Test::WWW::Mechanize::Catalyst "PiMember";
 
-$schema = $mech->c->model("DB")->schema;
+$mech = Test::WWW::Mechanize::Catalyst->new(max_redirect => 0);
 
 $fixtures = DBIx::Class::Fixtures->new({
     config_dir => "t/lib/fixtures"

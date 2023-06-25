@@ -97,7 +97,7 @@ subtest "GET /cards/learn with login and due card" => sub {
 subtest "GET /cards/learn with no due card" => sub {
     login_mech;
 
-    $mech->c->model("DB::Card")->delete_all;
+    $schema->resultset("Card")->delete_all;
 
     $mech->get("/cards/learn");
 
@@ -145,7 +145,7 @@ subtest "POST /learn" => sub {
             "should redirect to /cards/learn"
         );
 
-        $updated_card = $mech->c->model("DB::Card")->find(3);
+        $updated_card = $schema->resultset("Card")->find(3);
 
         is(
             $updated_card->rating,
@@ -200,7 +200,7 @@ subtest "POST /learn" => sub {
             "should redirect to /cards/learn"
         );
 
-        $updated_card = $mech->c->model("DB::Card")->find(3);
+        $updated_card = $schema->resultset("Card")->find(3);
 
         is(
             $updated_card->rating,

@@ -282,19 +282,19 @@ subtest "POST /profile/edit" => sub {
         );
 
         is(
-            $mech->c->model("DB::User")->find(1)->username,
+            $schema->resultset("User")->find(1)->username,
             "new",
             "updated username correctly"
         );
 
         is(
-            $mech->c->model("DB::User")->find(1)->display_name,
+            $schema->resultset("User")->find(1)->display_name,
             "New",
             "updated display_name correctly"
         );
 
         is(
-            $mech->c->model("DB::User")->find(1)->mathjax_enabled,
+            $schema->resultset("User")->find(1)->mathjax_enabled,
             0,
             "updated mathjax_enabled correctly"
         );
@@ -337,7 +337,7 @@ subtest "POST /profile/edit" => sub {
         );
 
         is(
-            $mech->c->model("DB::User")->find(1)->username,
+            $schema->resultset("User")->find(1)->username,
             "X" x 30,
             "username has been set correctly"
         );
@@ -364,7 +364,7 @@ subtest "POST /profile/edit" => sub {
         );
 
         is(
-            $mech->c->model("DB::User")->find(1)->display_name,
+            $schema->resultset("User")->find(1)->display_name,
             "X" x 50,
             "display_name has been set correctly"
         );
@@ -391,13 +391,13 @@ subtest "POST /profile/edit" => sub {
         );
 
         is(
-            $mech->c->model("DB::User")->find(1)->username,
+            $schema->resultset("User")->find(1)->username,
             "<b>admin</b>",
             "username was left intact"
         );
 
         is(
-            $mech->c->model("DB::User")->find(1)->display_name,
+            $schema->resultset("User")->find(1)->display_name,
             "new display_name",
             "display_name has been set correctly"
         );
@@ -425,7 +425,7 @@ subtest "POST /profile/edit" => sub {
         );
 
         is(
-            $mech->c->model("DB::User")->find(1)->mathjax_enabled,
+            $schema->resultset("User")->find(1)->mathjax_enabled,
             1,
             "mathjax_enabled has been set correctly"
         );
