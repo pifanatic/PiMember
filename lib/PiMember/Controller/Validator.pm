@@ -99,6 +99,37 @@ sub password_change : Private {
     });
 }
 
+=head2 setup_account
+
+Check if the given form-data is a valid to set up an account
+
+=cut
+
+sub setup_account : Private {
+    my ($self, $c) = @_;
+
+    my $profile = {
+        required => [
+            "username",
+            "display_name",
+            "password",
+            "confirm_password"
+        ],
+        constraint_methods => {
+            username         => $username_constraint,
+            display_name     => $display_name_constraint,
+            password         => $password_constraint,
+            confirm_password => must_match("password")
+        }
+    };
+
+    my $validation = Data::FormValidator->check($c->req->params, $profile);
+
+    $c->stash({
+        validation => $validation
+    });
+}
+
 1;
 
 =encoding utf8

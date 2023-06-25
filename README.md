@@ -28,16 +28,13 @@ installed. If this is the case you can simply run
 to generate a new SQLite database that contains all necessary tables for
 PiMember to work.
 
-## Create a user
-
-Use the provided `create_user.pl` script to create a user for the application:
-
-```
-    $ script/create_user.pl
-```
-
 ## Start the server
 
 ```
     $ script/pimember_server.pl
 ```
+
+## Create your account
+
+Point your browser to your PiMember instance and you will be greeted by a form
+to set up your user account.

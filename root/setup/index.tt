@@ -1,0 +1,47 @@
+<div class="sub-header">
+    <h1>Set up PiMember</h1>
+</div>
+
+<div class="login-wrapper overlay">
+    <form id="setup_form" method="post">
+        <div class="row">
+            <label for="username">Username</label>
+            <input id="username"
+                   name="username"
+                   maxlength="30"
+                   required
+            />
+        </div>
+
+        <div class="row">
+            <label for="display_name">Display name</label>
+            <input id="display_name"
+                   name="display_name"
+                   maxlength="50"
+                   required
+            />
+        </div>
+
+        <div class="row">
+            <label for="password">Password</label>
+            <input id="password"
+                   name="password"
+                   type="password"
+                   minlength="10"
+                   required
+            />
+        </div>
+
+        <div class="row">
+            <label for="confirm_password">Confirm password</label>
+            <input id="confirm_password"
+                   name="confirm_password"
+                   type="password"
+                   minlength="10"
+                   required
+            />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>

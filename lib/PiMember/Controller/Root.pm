@@ -29,14 +29,21 @@ Common routines that need to be done for all requests.
 sub begin : Private {
     my ($self, $c) = @_;
 
-    if ($c->user_exists && $c->req->path eq "login") {
+    if ($c->model("DB::User")->count == 0 && $c->req->path ne "setup") {
+        $c->response->redirect(
+            $c->uri_for($c->controller("Setup")->action_for("index"))
+        );
+        $c->detach;
+    }
+
+    if ($c->user_exists && $c->req->path =~ /^(login|setup)$/) {
         $c->response->redirect(
             $c->uri_for($c->controller("Root")->action_for("index"))
         );
         $c->detach;
     }
 
-    if (!$c->user_exists && $c->req->path ne "login") {
+    if (!$c->user_exists && $c->req->path !~ /^(login|setup)$/) {
         $c->response->redirect(
             $c->uri_for($c->controller("Login")->action_for("index"))
         );
