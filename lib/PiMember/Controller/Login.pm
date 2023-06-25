@@ -16,12 +16,6 @@ BEGIN { extends "Catalyst::Controller"; }
 
 =head1 METHODS
 
-=head2 begin
-
-Redirect to home page if user is already logged in
-
-=cut
-
 =head2 index
 
 The login routine
