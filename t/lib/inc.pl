@@ -8,6 +8,9 @@ use Test::MockTime;
 BEGIN {
     $ENV{PIMEMBER_CONFIG_LOCAL_SUFFIX} = "testing";
     $ENV{TESTING} = 1;
+
+    $ENV{TZ} = "UTC";
+    Test::MockTime::set_fixed_time("2023-01-15T13:37:42Z");
 }
 
 use Test::WWW::Mechanize::Catalyst::WithContext "PiMember";
@@ -59,16 +62,6 @@ sub prepare_html_tests {
             recover => 2
         }
     );
-}
-
-sub mock_time {
-    $ENV{TZ} = "UTC";
-    Test::MockTime::set_fixed_time("2023-01-15T13:37:42Z");
-}
-
-sub restore_time {
-    delete $ENV{TZ};
-    Test::MockTime::restore;
 }
 
 1;

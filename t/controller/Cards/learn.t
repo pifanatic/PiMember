@@ -124,7 +124,6 @@ subtest "GET /cards/learn with no due card" => sub {
 
 subtest "POST /learn" => sub {
     login_mech;
-    mock_time;
 
     subtest "with correct answer" => sub {
         my $updated_card;
@@ -235,6 +234,4 @@ subtest "POST /learn" => sub {
 
         reset_fixtures;
     };
-
-    restore_time;
 };
