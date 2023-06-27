@@ -18,8 +18,31 @@ Validates form-data
 
 BEGIN { extends "Catalyst::Controller"; }
 
+my $username_constraint     = FV_length_between(1, 30);
+my $display_name_constraint = FV_length_between(1, 50);
+my $password_constraint     = FV_min_length(10);
 
 =head1 METHODS
+
+=head2 must_match
+
+Check if a given value matches the current constraint value
+
+=cut
+
+sub must_match {
+    my $value = shift;
+
+    return sub {
+        my $dfv       = shift;
+        my $data      = $dfv->get_filtered_data;
+        my $new_value = $data->{$value} || "";
+
+        return $dfv->get_current_constraint_value
+                eq
+                $new_value;
+    }
+};
 
 =head2 profile
 
@@ -36,8 +59,8 @@ sub profile : Private {
             "display_name"
         ],
         constraint_methods => {
-            username     => FV_length_between(1, 30),
-            display_name => FV_length_between(1, 50)
+            username     => $username_constraint,
+            display_name => $display_name_constraint
         }
     };
 
@@ -64,18 +87,10 @@ sub password_change : Private {
             "new_password_repeat"
         ],
         constraint_methods => {
-            new_password        => FV_min_length(10),
+            new_password        => $password_constraint,
             new_password_repeat => [
-                FV_min_length(10),
-                sub {
-                    my $dfv          = shift;
-                    my $data         = $dfv->get_filtered_data;
-                    my $new_password = $data->{new_password} || "";
-
-                    return $dfv->get_current_constraint_value
-                           eq
-                           $new_password;
-                }
+                $password_constraint,
+                must_match("new_password")
             ]
         }
     };
