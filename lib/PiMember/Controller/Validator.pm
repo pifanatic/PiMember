@@ -88,10 +88,7 @@ sub password_change : Private {
         ],
         constraint_methods => {
             new_password        => $password_constraint,
-            new_password_repeat => [
-                $password_constraint,
-                must_match("new_password")
-            ]
+            new_password_repeat => must_match("new_password")
         }
     };
 
