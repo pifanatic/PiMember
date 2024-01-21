@@ -65,6 +65,12 @@ __PACKAGE__->table("Users");
   default_value: 0
   is_nullable: 0
 
+=head2 max_rating
+
+  data_type: 'integer'
+  default_value: 0
+  is_nullable: 0
+
 =cut
 
 __PACKAGE__->add_columns(
@@ -77,6 +83,8 @@ __PACKAGE__->add_columns(
   "display_name",
   { data_type => "text", is_nullable => 1 },
   "mathjax_enabled",
+  { data_type => "integer", default_value => 0, is_nullable => 0 },
+  "max_rating",
   { data_type => "integer", default_value => 0, is_nullable => 0 },
 );
 
@@ -125,8 +133,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07049 @ 2022-08-13 09:54:02
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:zmFHBeo+iNmWItAzyaL/HA
+# Created by DBIx::Class::Schema::Loader v0.07049 @ 2024-01-21 11:26:34
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:ytMquk95h+iXwH/jpc3lQQ
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

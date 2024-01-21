@@ -10,7 +10,8 @@ CREATE TABLE 'Users' (
     username        TEXT,
     password        TEXT,
     display_name    TEXT,
-    mathjax_enabled INTEGER   NOT NULL  DEFAULT 0
+    mathjax_enabled INTEGER   NOT NULL  DEFAULT 0,
+    max_rating      INTEGER   NOT NULL  DEFAULT 0
 );
 
 CREATE TABLE 'Cards' (
