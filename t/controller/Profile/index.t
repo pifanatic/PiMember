@@ -105,9 +105,21 @@ subtest "GET /profile with login" => sub {
         qr/disabled/,
         "contains correct value when mathjax is disabled"
     );
+
+    $tx->ok(
+        '//section[@class="profile-max-rating"]',
+        "contains section for max-rating"
+    );
+
+    $tx->like(
+        '//section[@class="profile-max-rating"]' .
+            '/div[@class="profile-attribute-value"]',
+        qr/Unlimited/,
+        "contains correct value when max_rating is 0"
+    );
 };
 
-subtest "mathjax enabled" => sub {
+subtest "GET /profile with alternative user" => sub {
     my $tx;
 
     login_mech "second_user";
@@ -121,5 +133,12 @@ subtest "mathjax enabled" => sub {
             '/div[@class="profile-attribute-value"]',
         qr/enabled/,
         "contains correct value when mathjax is enabled"
+    );
+
+    $tx->like(
+        '//section[@class="profile-max-rating"]' .
+            '/div[@class="profile-attribute-value"]',
+        qr/25/,
+        "contains correct value when max_rating is 25"
     );
 };

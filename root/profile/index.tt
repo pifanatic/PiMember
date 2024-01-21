@@ -54,4 +54,17 @@
             [% END %]
         </div>
     </section>
+
+    <section class="profile-max-rating">
+        <h2 class="profile-attribute-heading">
+            Maximum card rating
+        </h2>
+        <div class="profile-attribute-value">
+            [% IF c.user.max_rating == 0 %]
+                Unlimited
+            [% ELSE %]
+                [% c.user.max_rating %]
+            [% END %]
+        </div>
+    </section>
 </div>
