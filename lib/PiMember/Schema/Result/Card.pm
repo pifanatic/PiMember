@@ -16,6 +16,8 @@ use warnings;
 use Moose;
 use MooseX::NonMoose;
 use MooseX::MarkAsMethods autoclean => 1;
+use List::Util qw/ min /;
+
 extends 'DBIx::Class::Core';
 
 =head1 COMPONENTS LOADED
@@ -267,6 +269,10 @@ sub update_for_correct_answer {
     my ($self) = @_;
 
     my $new_rating = $self->rating + 1;
+
+    if ($self->user->max_rating > 0) {
+        $new_rating = min $new_rating, $self->user->max_rating;
+    }
 
     $self->update({
         rating          => $new_rating,

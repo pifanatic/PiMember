@@ -234,4 +234,54 @@ subtest "POST /learn" => sub {
 
         reset_fixtures;
     };
+
+    subtest "with low max_rating" => sub {
+        $schema->resultset("User")->find(1)->update({
+            max_rating => 5
+        });
+
+        $mech->get("/cards/learn");
+
+        $mech->form_id("learnForm");
+        $mech->click_button(id => "answerCorrect");
+
+        $mech->header_is(
+            "Status",
+            302,
+            "has correct status"
+        );
+
+        is(
+            $schema->resultset("Card")->find(3)->rating,
+            5,
+            "has set the rating to user's max rating"
+        );
+
+        reset_fixtures;
+    };
+
+    subtest "with high max_rating" => sub {
+        $schema->resultset("User")->find(1)->update({
+            max_rating => 50
+        });
+
+        $mech->get("/cards/learn");
+
+        $mech->form_id("learnForm");
+        $mech->click_button(id => "answerCorrect");
+
+        $mech->header_is(
+            "Status",
+            302,
+            "has correct status"
+        );
+
+        is(
+            $schema->resultset("Card")->find(3)->rating,
+            7,
+            "has increased the rating by 1"
+        );
+
+        reset_fixtures;
+    };
 };
