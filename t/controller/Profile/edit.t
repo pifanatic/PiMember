@@ -114,6 +114,23 @@ subtest "GET /profile/edit with login" => sub {
         },
         "contains unchecked mathjax toggle"
     );
+
+    $tx->ok(
+        '//section[@class="profile-max-rating"]',
+        "contains section for max-rating"
+    );
+
+    $tx->ok(
+        '//section[@class="profile-max-rating"]/input',
+        sub {
+            is(
+                $tx->node->getAttribute("value"),
+                "",
+                "max rating input has correct value"
+            );
+        },
+        "contains input for max-rating"
+    );
 };
 
 subtest "GET /profile/edit with second user" => sub {
@@ -132,6 +149,18 @@ subtest "GET /profile/edit with second user" => sub {
             );
         },
         "contains checked mathjax toggle"
+    );
+
+    $tx->ok(
+        '//section[@class="profile-max-rating"]/input',
+        sub {
+            is(
+                $tx->node->getAttribute("value"),
+                "25",
+                "max rating input has correct value"
+            );
+        },
+        "contains input for max-rating"
     );
 };
 

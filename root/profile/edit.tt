@@ -49,6 +49,14 @@
         </div>
     </section>
 
+    <section class="profile-max-rating">
+        <h2 class="profile-attribute-heading">Maximum card rating</h2>
+        <input value="[% c.user.max_rating > 0 ? c.user.max_rating : '' %]"
+               name="max_rating"
+               type="number"
+        />
+    </section>
+
     <div class="button-row">
         <a class="btn btn-secondary"
            href="[% c.uri_for(c.controller.action_for('index')) %]">
