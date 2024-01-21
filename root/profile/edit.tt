@@ -54,6 +54,7 @@
         <input value="[% c.user.max_rating > 0 ? c.user.max_rating : '' %]"
                name="max_rating"
                type="number"
+               min="0"
         />
     </section>
 

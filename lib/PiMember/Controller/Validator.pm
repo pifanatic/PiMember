@@ -44,6 +44,20 @@ sub must_match {
     }
 };
 
+=head2 is_integer
+
+Check if a given value is a integer
+
+=cut
+
+sub is_integer {
+    return sub {
+        my $dfv = shift;
+
+        $dfv->get_current_constraint_value =~ /^\d*$/
+    }
+}
+
 =head2 profile
 
 Check if the given form-data is a valid profile
@@ -58,9 +72,13 @@ sub profile : Private {
             "username",
             "display_name"
         ],
+        optional => [
+            "max_rating"
+        ],
         constraint_methods => {
             username     => $username_constraint,
-            display_name => $display_name_constraint
+            display_name => $display_name_constraint,
+            max_rating   => is_integer
         }
     };
 

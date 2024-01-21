@@ -287,7 +287,8 @@ subtest "POST /profile/edit" => sub {
                 form_id => "profileForm",
                 fields  => {
                     username     => "new",
-                    display_name => "New"
+                    display_name => "New",
+                    max_rating   => 25
                 },
             )
         );
@@ -328,6 +329,12 @@ subtest "POST /profile/edit" => sub {
             "updated mathjax_enabled correctly"
         );
 
+        is(
+            $schema->resultset("User")->find(1)->max_rating,
+            25,
+            "updated max_rating correctly"
+        );
+
         $tx = prepare_html_tests;
 
         $tx->like(
@@ -342,6 +349,13 @@ subtest "POST /profile/edit" => sub {
                 '/div[@class="profile-attribute-value"]',
             qr|New|,
             "contains correct new value for displayname"
+        );
+
+        $tx->like(
+            '//section[@class="profile-max-rating"]' .
+                '/div[@class="profile-attribute-value"]',
+            qr/25/,
+            "contains correct new value for max_rating"
         );
 
         reset_fixtures;
@@ -457,6 +471,56 @@ subtest "POST /profile/edit" => sub {
             $schema->resultset("User")->find(1)->mathjax_enabled,
             1,
             "mathjax_enabled has been set correctly"
+        );
+
+        reset_fixtures;
+    };
+
+    subtest "set max_rating to a string" => sub {
+        $mech->get("/profile/edit");
+
+        $mech->submit_form((
+                form_id => "profileForm",
+                fields  => {
+                    username        => "<b>admin</b>",
+                    display_name    => "<b>Admin</b>",
+                    max_rating      => "foo123"
+                },
+            )
+        );
+
+        $mech->header_is(
+            "Status",
+            400,
+            "has correct status"
+        );
+
+        reset_fixtures;
+    };
+
+    subtest "set max_rating to a float" => sub {
+        $mech->get("/profile/edit");
+
+        $mech->submit_form((
+                form_id => "profileForm",
+                fields  => {
+                    username        => "<b>admin</b>",
+                    display_name    => "<b>Admin</b>",
+                    max_rating      => 13.37
+                },
+            )
+        );
+
+        $mech->header_is(
+            "Status",
+            400,
+            "has correct status"
+        );
+
+        is(
+            $schema->resultset("User")->find(1)->max_rating,
+            0,
+            "left max_rating intact"
         );
 
         reset_fixtures;
