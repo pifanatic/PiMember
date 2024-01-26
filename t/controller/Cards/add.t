@@ -209,7 +209,7 @@ ok(
 
 is(
     $card->id,
-    7,
+    8,
     "set correct id for new card in database"
 );
 
@@ -303,12 +303,12 @@ is(
 );
 
 ok(
-    $schema->resultset("CardsTag")->find({ card_id => 7, tag_id => 1 }),
+    $schema->resultset("CardsTag")->find({ card_id => 8, tag_id => 1 }),
     "created the correct cards_tag row for the first tag"
 );
 
 ok(
-    $schema->resultset("CardsTag")->find({ card_id => 7, tag_id => 4 }),
+    $schema->resultset("CardsTag")->find({ card_id => 8, tag_id => 4 }),
     "created the correct cards_tag row for the second tag"
 );
 
