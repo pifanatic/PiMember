@@ -94,10 +94,11 @@ $tx->like(
 
 is(
     $schema->resultset("Card")->search({
+        user_id  => 1,
         in_trash => 1
     })->count,
     0,
-    "no in_trash cards are left in database"
+    "no in_trash cards are left in database for this user"
 );
 
 is(
