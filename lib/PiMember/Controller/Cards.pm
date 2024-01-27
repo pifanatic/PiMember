@@ -184,27 +184,6 @@ sub learn : Local Args(0) {
 
     my $tag = $c->req->query_parameters->{tag};
 
-
-    if ($c->req->method eq "GET") {
-        $c->forward($self->action_for("get_due_cards"));
-
-        if ($tag) {
-            $c->stash->{cards_rs} = $c->stash->{cards_rs}->search(
-                {
-                    "tag.name" => lc $tag
-                },
-                {
-                    join => { cards_tags => { tag => "cards_tags" } }
-                }
-            );
-
-            $c->stash({ tag => $tag });
-        }
-
-        $c->stash({ card => $c->stash->{cards_rs}->first });
-        $c->detach;
-    }
-
     if ($c->req->method eq "POST") {
         my $correct = $c->req->params->{correct};
         my $card_id = $c->req->params->{id};
@@ -218,7 +197,26 @@ sub learn : Local Args(0) {
         $c->response->redirect(
             $c->uri_for($self->action_for("learn"), $c->req->query_parameters)
         );
+
+        $c->detach;
     }
+
+    $c->forward($self->action_for("get_due_cards"));
+
+    if ($tag) {
+        $c->stash->{cards_rs} = $c->stash->{cards_rs}->search(
+            {
+                "tag.name" => lc $tag
+            },
+            {
+                join => { cards_tags => { tag => "cards_tags" } }
+            }
+        );
+
+        $c->stash({ tag => $tag });
+    }
+
+    $c->stash({ card => $c->stash->{cards_rs}->first });
 }
 
 =head2 search
