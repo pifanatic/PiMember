@@ -122,6 +122,168 @@ subtest "GET /cards/learn with no due card" => sub {
     reset_fixtures;
 };
 
+subtest "GET /cards/learn with tag (with a due card)" => sub {
+    login_mech;
+
+    $mech->get_ok("/cards/learn?tag=tag_01");
+
+    $tx = prepare_html_tests;
+
+    $tx->ok(
+        '//div[@class="sub-header-right"]/a[1]',
+        sub {
+            is(
+                $tx->node->getAttribute("href"),
+                "http://localhost/cards/1",
+                "correct href attribute"
+            )
+        },
+        "contains link to view card"
+    );
+
+    $tx->ok(
+        '//div[@class="sub-header-right"]/a[2]',
+        sub {
+            is(
+                $tx->node->getAttribute("href"),
+                "http://localhost/cards/1/edit",
+                "correct href attribute"
+            )
+        },
+        "contains link to edit card"
+    );
+
+    $tx->like(
+        '//div[@id="front-text"]',
+        qr/Test Card 1 Frontside/,
+        "contains front side of due card"
+    );
+
+    $tx->like(
+        '//div[@id="back-text"]',
+        qr/Test Card 1 Backside/,
+        "contains back side of due card"
+    );
+
+    $tx->ok(
+        '//form[@id="learnForm"]/input',
+        sub {
+            is(
+                $tx->node->getAttribute("value"),
+                "1",
+                "contains correct value"
+            );
+            is(
+                $tx->node->getAttribute("hidden"),
+                "",
+                "input is hidden"
+            );
+        },
+        "contains hidden input with card id"
+    );
+
+    $tx->ok(
+        '//script[@src="http://localhost/static/js/learn.js"]',
+        "contains script element to load learn.js"
+    );
+};
+
+subtest "GET /cards/learn with tag (with due card, case-insensitive)" => sub {
+    login_mech;
+
+    $mech->get_ok("/cards/learn?tag=TAG_01");
+
+    $tx = prepare_html_tests;
+
+    $tx->ok(
+        '//div[@class="sub-header-right"]/a[1]',
+        sub {
+            is(
+                $tx->node->getAttribute("href"),
+                "http://localhost/cards/1",
+                "correct href attribute"
+            )
+        },
+        "contains link to view card"
+    );
+
+    $tx->ok(
+        '//div[@class="sub-header-right"]/a[2]',
+        sub {
+            is(
+                $tx->node->getAttribute("href"),
+                "http://localhost/cards/1/edit",
+                "correct href attribute"
+            )
+        },
+        "contains link to edit card"
+    );
+
+    $tx->like(
+        '//div[@id="front-text"]',
+        qr/Test Card 1 Frontside/,
+        "contains front side of due card"
+    );
+
+    $tx->like(
+        '//div[@id="back-text"]',
+        qr/Test Card 1 Backside/,
+        "contains back side of due card"
+    );
+
+    $tx->ok(
+        '//form[@id="learnForm"]/input',
+        sub {
+            is(
+                $tx->node->getAttribute("value"),
+                "1",
+                "contains correct value"
+            );
+            is(
+                $tx->node->getAttribute("hidden"),
+                "",
+                "input is hidden"
+            );
+        },
+        "contains hidden input with card id"
+    );
+
+    $tx->ok(
+        '//script[@src="http://localhost/static/js/learn.js"]',
+        "contains script element to load learn.js"
+    );
+};
+
+subtest "GET /cards/learn with no due tag" => sub {
+    login_mech;
+
+    $mech->get("/cards/learn?tag=fofofo");
+
+    $tx = prepare_html_tests;
+
+    $mech->content_contains(
+        'You have learned all cards with the "fofofo" tag!',
+        "contains finished message"
+    );
+
+    $mech->content_contains(
+        "However there are 3 other cards due:",
+        "contains hint for other cards"
+    );
+
+    $tx->ok(
+        '//a[@class="learn-link"]',
+        sub {
+            is(
+                $tx->node->getAttribute("href"),
+                "http://localhost/cards/learn",
+                "correct href attribute"
+            )
+        },
+        "contains link to learn other cards"
+    );
+};
+
 subtest "POST /learn" => sub {
     login_mech;
 
