@@ -208,12 +208,6 @@ ok(
 );
 
 is(
-    $card->id,
-    8,
-    "set correct id for new card in database"
-);
-
-is(
     $card->frontside,
     "New Card Frontside",
     "set correct frontside for new card in database"
@@ -302,14 +296,16 @@ is(
     "did not create a new row in database for already existing tag"
 );
 
-ok(
-    $schema->resultset("CardsTag")->find({ card_id => 8, tag_id => 1 }),
-    "created the correct cards_tag row for the first tag"
+is(
+    ($card->tags)[0]->name,
+    "tag_01",
+    "sets first tag correctly"
 );
 
-ok(
-    $schema->resultset("CardsTag")->find({ card_id => 8, tag_id => 4 }),
-    "created the correct cards_tag row for the second tag"
+is(
+    ($card->tags)[1]->name,
+    "new_tag",
+    "sets second tag correctly"
 );
 
 $mech->submit_form(
