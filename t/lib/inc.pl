@@ -1,7 +1,6 @@
 use strict;
 use warnings;
 use DBIx::Class::Fixtures;
-use DBICx::TestDatabase;
 use vars qw/$schema $mech $fixtures/;
 use Test::XPath;
 use Test::MockTime;
@@ -14,7 +13,11 @@ BEGIN {
     Test::MockTime::set_fixed_time("2023-01-15T13:37:42Z");
 }
 
-$schema = DBICx::TestDatabase->new("PiMember::Schema");
+$schema = PiMember::Schema->connect({
+    dsn            => 'dbi:SQLite::memory:',
+    on_connect_do  => q{PRAGMA foreign_keys = ON},
+    sqlite_unicode => 1
+});
 PiMember->model("DB")->schema($schema);
 
 use Test::WWW::Mechanize::Catalyst "PiMember";
