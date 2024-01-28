@@ -138,6 +138,16 @@ sub edit : Chained("get_card_by_id") Args(0) {
     my ($self, $c) = @_;
 
     if ($c->req->method eq "POST") {
+        $c->forward($c->controller("Validator")->action_for("card"));
+
+        if (!$c->stash->{validation}) {
+            $c->res->status(400);
+            $c->stash({
+                error_msg => "Could not edit card!"
+            });
+            return;
+        }
+
         $c->stash->{card} = $c->model("DB")->update_card(
             $c->stash->{card},
             {

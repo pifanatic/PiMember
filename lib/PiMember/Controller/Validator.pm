@@ -148,6 +148,29 @@ sub setup_account : Private {
     });
 }
 
+=head2 card
+
+Check if the given form-data is a valid card
+
+=cut
+
+sub card : Private {
+    my ($self, $c) = @_;
+
+    my $profile = {
+        required => [
+            "frontside",
+            "backside"
+        ]
+    };
+
+    my $validation = Data::FormValidator->check($c->req->params, $profile);
+
+    $c->stash({
+        validation => $validation
+    });
+}
+
 1;
 
 =encoding utf8
