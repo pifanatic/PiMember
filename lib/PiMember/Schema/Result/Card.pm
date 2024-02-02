@@ -232,8 +232,11 @@ has is_due => (
 sub _build_is_due {
     my ($self) = @_;
 
-    return !$self->in_trash &&
-           DateTime->compare(
+    if ($self->in_trash) {
+        return 0;
+    }
+
+    return DateTime->compare(
                $self->due,
                DateTime->now(time_zone => "local")
            ) eq -1;
