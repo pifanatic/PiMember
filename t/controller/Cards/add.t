@@ -390,3 +390,109 @@ subtest "POST /cards/add without form-data" => sub {
         "shows error notification when adding a new card without any form data"
     );
 };
+
+subtest "POST /cards/add without tags" => sub {
+    my $card;
+
+    $mech->submit_form(
+        form_id => "cardForm",
+        fields => {
+            frontside => "No Tags Frontside",
+            backside  => "No Tags Backside",
+            tags      => ""
+        }
+    );
+
+    $mech->header_is(
+        "Status",
+        302,
+        "redirects after adding a new card"
+    );
+
+    $mech->header_like(
+        "Location",
+        qr|^http://localhost/cards/add\?mid=\d{8}$|,
+        "redirects to the correct location after adding a new card"
+    );
+
+    $mech->get($mech->res->header("Location"));
+    $mech->content_contains(
+        "New card has been created!",
+        "shows success notification after adding a new card"
+    );
+
+    $card = $schema->resultset("Card")->find({
+        frontside => "No Tags Frontside"
+    });
+
+    ok(
+        $card,
+        "created the new card in database"
+    );
+
+    is(
+        $card->frontside,
+        "No Tags Frontside",
+        "set correct frontside for new card in database"
+    );
+
+    is(
+        $card->backside,
+        "No Tags Backside",
+        "set correct backside for new card in database"
+    );
+
+    is(
+        $card->due,
+        DateTime->today->iso8601,
+        "set today as due date for new card in database"
+    );
+
+    is(
+        $card->last_seen,
+        undef,
+        "set correct last_seen date for new card in database"
+    );
+
+    is(
+        $card->created,
+        DateTime->today->iso8601,
+        "set correct created date for new card in database"
+    );
+
+    is(
+        $card->rating,
+        0,
+        "set correct rating for new card in database"
+    );
+
+    is(
+        $card->correct_answers,
+        0,
+        "set correct correct_answers for new card in database"
+    );
+
+    is(
+        $card->wrong_answers,
+        0,
+        "set correct wrong_answers for new card in database"
+    );
+
+    is(
+        $card->in_trash,
+        0,
+        "set correct in_trash for new card in database"
+    );
+
+    is(
+        $card->user_id,
+        1,
+        "set correct user_id for new card in database"
+    );
+
+    is(
+        $card->tags->count,
+        0,
+        "did not create any tags"
+    );
+};
