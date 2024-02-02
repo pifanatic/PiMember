@@ -185,3 +185,20 @@ subtest "view cards with no tags" => sub {
         "contains text for no tags"
     );
 };
+
+subtest "view cards with success rate 0 of 0" => sub {
+    $schema->resultset("Card")->find(1)->update({
+        correct_answers => 0,
+        wrong_answers   => 0
+    });
+
+    $mech->get("/cards/1");
+
+    $tx = prepare_html_tests;
+
+    $tx->like(
+        '//span[@id="success-item"]',
+        qr/0 of 0\s*\(0 %\)/,
+        "contains correct success item"
+    );
+};
