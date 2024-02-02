@@ -70,7 +70,7 @@
                 <i class="icon fas fa-tags fa-fw"></i>
                 Tags
             </span>
-            <div>
+            <div id="tags">
                 [% IF card.tags %]
                     [% FOREACH tag IN card.tags %]
                         [% INCLUDE tag.tt %]
@@ -82,7 +82,7 @@
         </div>
     </div>
     <div class="row">
-        <span class="stat-row-item">
+        <span id="created-item" class="stat-row-item">
             <span class="label">
                 <i class="icon far fa-calendar fa-fw"></i>
                 Created on
@@ -90,7 +90,7 @@
             [% card.created.dmy('.') %]
         </span>
 
-        <span class="stat-row-item">
+        <span id="last-learned-item" class="stat-row-item">
             <span class="label">
                 <i class="icon far fa-calendar-check fa-fw"></i>
                 Last learned on
@@ -98,7 +98,7 @@
             [% card.last_seen.dmy('.') %]
         </span>
 
-        <span class="stat-row-item">
+        <span id="due-item" class="stat-row-item">
             <span class="label">
                 <i class="icon far fa-clock fa-fw"></i>
                 Due
@@ -106,7 +106,7 @@
             [% card.due.dmy('.') %]
         </span>
 
-        <span class="stat-row-item">
+        <span id="success-item" class="stat-row-item">
             <span class="label">
                 <i class="icon far fa-lightbulb fa-fw"></i>
                 Learn success
@@ -115,7 +115,7 @@
             ([% card.success_rate %] %)
         </span>
 
-        <span class="stat-row-item">
+        <span id="rating-item" class="stat-row-item">
             <span class="label">
                 <i class="icon far fa-star fa-fw"></i>
                 Rating
@@ -125,4 +125,7 @@
     </div>
 </div>
 
-<script src="[% c.uri_for('/static/js/view.js', { v => c.config.version }) %]" type="module"></script>
+<script id="viewCardScript" 
+        src="[% c.uri_for('/static/js/view.js', { v => c.config.version }) %]"
+        type="module">
+</script>
