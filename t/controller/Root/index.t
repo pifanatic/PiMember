@@ -141,3 +141,18 @@ subtest "accessing any path without any user in database" => sub {
 
     reset_fixtures;
 };
+
+subtest "provoking an error" => sub {
+    $mech->get("/error");
+
+    $mech->header_is(
+        "Status",
+        500,
+        "has status 500"
+    );
+
+    $mech->content_contains(
+        "500 - Internal Server Error",
+        "contains error message"
+    );
+};

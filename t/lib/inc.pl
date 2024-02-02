@@ -19,6 +19,7 @@ $schema = PiMember::Schema->connect({
     sqlite_unicode => 1
 });
 PiMember->model("DB")->schema($schema);
+PiMember->log->disable("fatal");
 
 use Test::WWW::Mechanize::Catalyst "PiMember";
 

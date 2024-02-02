@@ -90,10 +90,22 @@ sub end : ActionClass("RenderView") {
         $c->log->fatal($_) for @{$c->error};
         $c->clear_errors;
 
+        $c->res->status(500);
+
         $c->stash({
             template => "error.tt"
         });
     }
+}
+
+=head2 error
+
+Provoke an application error
+
+=cut
+
+sub error : Local {
+    1 / 0;
 }
 
 __PACKAGE__->meta->make_immutable;
