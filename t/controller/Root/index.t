@@ -121,3 +121,23 @@ subtest "accessing not_existing page with login" => sub {
         "contains Not Found hint"
     );
 };
+
+subtest "accessing any path without any user in database" => sub {
+    $schema->resultset("User")->delete_all;
+
+    $mech->get("/cards");
+
+    $mech->header_is(
+        "Status",
+        302,
+        "redirects"
+    );
+
+    $mech->header_is(
+        "Location",
+        "http://localhost/setup",
+        "redirects to /setup"
+    );
+
+    reset_fixtures;
+};
