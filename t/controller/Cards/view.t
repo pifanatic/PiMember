@@ -114,7 +114,7 @@ subtest "view card" => sub {
     $tx->like(
         '//span[@id="rating-item"]',
         qr/0/,
-        "contains rating rate"
+        "contains rating"
     );
 
     $tx->ok(
