@@ -14,6 +14,14 @@
 
     <div class="sub-header-right">
         [% IF card.in_trash == 0 %]
+            [% IF card.is_active %]
+                <a class="icon-button"
+                   title="Deactivate"
+                   href="[% c.uri_for(c.controller.action_for("deactivate"), [card.id]) %]">
+                   <i class="fas fa-pause"></i>
+                </a>
+            [% END %]
+
             <a class="icon-button"
                title="Move to trash"
                href="[% c.uri_for(c.controller.action_for("movetotrash"), [card.id]) %]">

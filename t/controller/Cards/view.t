@@ -47,7 +47,18 @@ subtest "view card" => sub {
     );
 
     $tx->ok(
-        '//div[@class="sub-header-right"]/a[@class="icon-button"]',
+        '//div[@class="sub-header-right"]/a[@class="icon-button"][1]',
+        sub {
+            is(
+                $tx->node->getAttribute("href"),
+                "http://localhost/cards/1/deactivate"
+            );
+        },
+        "has link to deactivate card"
+    );
+
+    $tx->ok(
+        '//div[@class="sub-header-right"]/a[@class="icon-button"][2]',
         sub {
             is(
                 $tx->node->getAttribute("href"),
