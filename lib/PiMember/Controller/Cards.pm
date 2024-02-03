@@ -366,6 +366,30 @@ sub deactivate : Chained("get_card_by_id") Args(0) {
     );
 }
 
+=head2 activate
+
+Activate a card regardless whether it's already active or not
+
+=cut
+
+sub activate : Chained("get_card_by_id") Args(0) {
+    my ($self, $c) = @_;
+
+    $c->stash->{card}->update({ is_active => 1 });
+
+    $c->forward($self->action_for("update_queue"));
+
+    my $status_msg = "Card has been activated";
+
+    $c->response->redirect(
+        $c->uri_for(
+            $c->controller->action_for("view"),
+            [ $c->stash->{card}->id ],
+            { mid => $c->set_status_msg($status_msg) }
+        )
+    );
+}
+
 =head2 update_queue
 
 Update the queue of cards that are due
