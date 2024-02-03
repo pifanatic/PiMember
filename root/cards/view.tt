@@ -20,6 +20,12 @@
                    href="[% c.uri_for(c.controller.action_for("deactivate"), [card.id]) %]">
                    <i class="fas fa-pause"></i>
                 </a>
+            [% ELSE %]
+                <a class="icon-button"
+                   title="Activate"
+                   href="[% c.uri_for(c.controller.action_for("activate"), [card.id]) %]">
+                   <i class="fas fa-play"></i>
+                </a>
             [% END %]
 
             <a class="icon-button"

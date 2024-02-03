@@ -236,4 +236,26 @@ subtest "view inactive card" => sub {
         qr/INACTIVE/,
         "contains status 'INACTIVE'"
     );
+
+    $tx->ok(
+        '//div[@class="sub-header-right"]/a[@class="icon-button"][1]',
+        sub {
+            is(
+                $tx->node->getAttribute("href"),
+                "http://localhost/cards/8/activate"
+            );
+        },
+        "has link to activate card"
+    );
+
+    $tx->ok(
+        '//div[@class="sub-header-right"]/a[@class="icon-button"][2]',
+        sub {
+            is(
+                $tx->node->getAttribute("href"),
+                "http://localhost/cards/8/movetotrash"
+            );
+        },
+        "has link to move card to trash"
+    );
 };
