@@ -117,6 +117,12 @@ subtest "view card" => sub {
         "contains rating"
     );
 
+    $tx->like(
+        '//span[@id="status-item"]',
+        qr/ACTIVE/,
+        "contains status 'ACTIVE'"
+    );
+
     $tx->ok(
         '//script[@id="viewCardScript"]',
         sub {
@@ -172,6 +178,12 @@ subtest "view card in trash" => sub {
         },
         "has link to delete card permanently"
     );
+
+    $tx->like(
+        '//span[@id="status-item"]',
+        qr/IN TRASH/,
+        "contains status 'IN TRASH'"
+    );
 };
 
 subtest "view cards with no tags" => sub {
@@ -200,5 +212,17 @@ subtest "view cards with success rate 0 of 0" => sub {
         '//span[@id="success-item"]',
         qr/0 of 0\s*\(0 %\)/,
         "contains correct success item"
+    );
+};
+
+subtest "view inactive card" => sub {
+    $mech->get("/cards/8");
+
+    $tx = prepare_html_tests;
+
+    $tx->like(
+        '//span[@id="status-item"]',
+        qr/INACTIVE/,
+        "contains status 'INACTIVE'"
     );
 };

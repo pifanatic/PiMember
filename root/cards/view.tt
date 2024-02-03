@@ -82,6 +82,20 @@
         </div>
     </div>
     <div class="row">
+        <span id="status-item" class="stat-row-item">
+            <span class="label">
+                <i class="icon fas fa-info-circle fa-fw"></i>
+                Status
+            </span>
+            [% IF card.in_trash %]
+                <span class="toast toast-red">IN TRASH</span>
+            [% ELSIF card.is_active %]
+                <span class="toast toast-green">ACTIVE</span>
+            [% ELSE %]
+                <span class="toast toast-grey">INACTIVE</span>
+            [% END %]
+        </span>
+
         <span id="created-item" class="stat-row-item">
             <span class="label">
                 <i class="icon far fa-calendar fa-fw"></i>

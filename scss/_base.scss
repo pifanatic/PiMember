@@ -164,3 +164,22 @@ span.tag {
 span.highlight {
     background-color: yellow;
 }
+
+span.toast {
+    color: white;
+    border-radius: 0.5em;
+    padding: 0.1em 0.5em;
+    font-size: 0.8em;
+}
+
+span.toast-red {
+    background-color: red;
+}
+
+span.toast-green {
+    background-color: green;
+}
+
+span.toast-grey {
+    background-color: grey;
+}
