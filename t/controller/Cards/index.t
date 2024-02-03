@@ -46,7 +46,7 @@ $tx->like(
 
 $tx->like(
     '//div[@class="sub-header-left"]',
-    qr/3 cards total/,
+    qr/4 cards total/,
     "sub-header contains correct number of cards"
 );
 
@@ -63,8 +63,8 @@ $tx->like(
 
 $tx->is(
     'count(//div[@class="list-item"])',
-    3,
-    "contains three list-item elements (all that are not in trash)"
+    4,
+    "contains four list-item elements (all that are not in trash)"
 );
 
 $tx->ok(
@@ -252,7 +252,7 @@ $tx->like(
 
 $tx->is(
     'count(//div[@class="list-item"])',
-    2,
+    3,
     "tag-filtered cards list contains two list-items"
 );
 
@@ -281,7 +281,7 @@ $tx->like(
 
 $tx->is(
     'count(//div[@class="list-item"])',
-    2,
+    3,
     "tag-filtered cards list filters lower-case"
 );
 

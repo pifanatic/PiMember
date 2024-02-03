@@ -49,7 +49,7 @@ subtest "GET /tags with tags existing" => sub {
 
     $tx->like(
         '//div[@class="list-item"][1]/div[@class="cell"][1]',
-        qr/2/,
+        qr/3/,
         "contains amount of first tag"
     );
 

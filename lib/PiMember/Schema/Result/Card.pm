@@ -240,7 +240,7 @@ has is_due => (
 sub _build_is_due {
     my ($self) = @_;
 
-    if ($self->in_trash) {
+    if ($self->in_trash || !$self->is_active) {
         return 0;
     }
 

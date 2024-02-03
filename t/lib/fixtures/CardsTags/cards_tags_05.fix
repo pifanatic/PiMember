@@ -1,0 +1,5 @@
+$HASH1 = {
+    id      => 5,
+    card_id => 8,
+    tag_id  => 1
+};

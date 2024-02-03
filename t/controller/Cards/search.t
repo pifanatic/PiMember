@@ -84,14 +84,14 @@ subtest "search for text on frontside" => sub {
 
     $tx->like(
         '//span[@class="sub-header-left"]',
-        qr/3 cards found for "Frontside"/,
+        qr/4 cards found for "Frontside"/,
         "sub-header contains correct text"
     );
 
     $tx->is(
         'count(//div[@class="list-item"])',
-        3,
-        "card list should have 3 elements"
+        4,
+        "card list should have 4 elements"
     );
 
     $tx->like(
@@ -110,6 +110,12 @@ subtest "search for text on frontside" => sub {
         '//div[@class="list-item"][3]//a[1]',
         qr/Test Card 3 <b>Frontside<\/b>/,
         "contains third matching card"
+    );
+
+    $tx->like(
+        '//div[@class="list-item"][4]//a[1]',
+        qr/Test Card 8 Frontside/,
+        "contains fourth matching card"
     );
 };
 
@@ -122,14 +128,14 @@ subtest "search for text on frontside case-insensitively" => sub {
 
     $tx->like(
         '//span[@class="sub-header-left"]',
-        qr/3 cards found for "FRONTSIDE"/,
+        qr/4 cards found for "FRONTSIDE"/,
         "sub-header contains correct text"
     );
 
     $tx->is(
         'count(//div[@class="list-item"])',
-        3,
-        "card list should have 3 elements"
+        4,
+        "card list should have 4 elements"
     );
 
     $tx->like(
@@ -149,6 +155,12 @@ subtest "search for text on frontside case-insensitively" => sub {
         qr/Test Card 3 <b>Frontside<\/b>/,
         "contains third matching card"
     );
+
+    $tx->like(
+        '//div[@class="list-item"][4]//a[1]',
+        qr/Test Card 8 Frontside/,
+        "contains fourth matching card"
+    );
 };
 
 subtest "search for text on backside" => sub {
@@ -160,14 +172,14 @@ subtest "search for text on backside" => sub {
 
     $tx->like(
         '//span[@class="sub-header-left"]',
-        qr/3 cards found for "Backside"/,
+        qr/4 cards found for "Backside"/,
         "sub-header contains correct text"
     );
 
     $tx->is(
         'count(//div[@class="list-item"])',
-        3,
-        "card list should have 3 elements"
+        4,
+        "card list should have 4 elements"
     );
 
     $tx->like(
@@ -186,6 +198,12 @@ subtest "search for text on backside" => sub {
         '//div[@class="list-item"][3]//a[2]',
         qr/Test Card 3 <b>Backside<\/b>/,
         "contains third matching card"
+    );
+
+    $tx->like(
+        '//div[@class="list-item"][4]//a[2]',
+        qr/Test Card 8 Backside/,
+        "contains fourth matching card"
     );
 };
 
@@ -198,14 +216,14 @@ subtest "search for text on Backside case-insensitively" => sub {
 
     $tx->like(
         '//span[@class="sub-header-left"]',
-        qr/3 cards found for "BACKSIDE"/,
+        qr/4 cards found for "BACKSIDE"/,
         "sub-header contains correct text"
     );
 
     $tx->is(
         'count(//div[@class="list-item"])',
-        3,
-        "card list should have 3 elements"
+        4,
+        "card list should have 4 elements"
     );
 
     $tx->like(
@@ -224,5 +242,11 @@ subtest "search for text on Backside case-insensitively" => sub {
         '//div[@class="list-item"][3]//a[2]',
         qr/Test Card 3 <b>Backside<\/b>/,
         "contains third matching card"
+    );
+
+    $tx->like(
+        '//div[@class="list-item"][4]//a[2]',
+        qr/Test Card 8 Backside/,
+        "contains fourth matching card"
     );
 };

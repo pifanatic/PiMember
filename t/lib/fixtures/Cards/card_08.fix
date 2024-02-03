@@ -1,0 +1,14 @@
+$HASH1 = {
+    id              => 8,
+    frontside       => "Test Card 8 Frontside",
+    backside        => "Test Card 8 Backside",
+    due             => '2021-01-01T00:00:00',
+    last_seen       => '2021-01-01T15:33:32',
+    created         => '2021-01-01T00:00:00',
+    rating          => 0,
+    correct_answers => 2,
+    wrong_answers   => 1,
+    in_trash        => 0,
+    user_id         => 1,
+    is_active       => 0
+};
