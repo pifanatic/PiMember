@@ -16,8 +16,6 @@ use warnings;
 use Moose;
 use MooseX::NonMoose;
 use MooseX::MarkAsMethods autoclean => 1;
-use List::Util qw/ min /;
-
 extends 'DBIx::Class::Core';
 
 =head1 COMPONENTS LOADED
@@ -98,6 +96,12 @@ __PACKAGE__->table("Cards");
   is_foreign_key: 1
   is_nullable: 0
 
+=head2 is_active
+
+  data_type: 'int'
+  default_value: 1
+  is_nullable: 0
+
 =cut
 
 __PACKAGE__->add_columns(
@@ -123,6 +127,8 @@ __PACKAGE__->add_columns(
   { data_type => "integer", default_value => 0, is_nullable => 0 },
   "user_id",
   { data_type => "integer", is_foreign_key => 1, is_nullable => 0 },
+  "is_active",
+  { data_type => "int", default_value => 1, is_nullable => 0 },
 );
 
 =head1 PRIMARY KEY
@@ -170,8 +176,10 @@ __PACKAGE__->belongs_to(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07049 @ 2022-03-30 16:52:32
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:N6b+mhIrVeIOYvvyhWCeDw
+# Created by DBIx::Class::Schema::Loader v0.07049 @ 2024-02-03 12:13:58
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:fkscW055+fPNNu/ATGEoRA
+
+use List::Util qw/ min /;
 
 =head1 ADDITIONAL ACCESSORS
 

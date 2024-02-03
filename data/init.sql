@@ -26,6 +26,7 @@ CREATE TABLE 'Cards' (
     wrong_answers           INTEGER,
     in_trash                INTEGER     NOT NULL    DEFAULT 0,
     user_id                 INTEGER     NOT NULL,
+    is_active               INTEGER     NOT NULL    DEFAULT 1,
     FOREIGN KEY(user_id) REFERENCES Users(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 

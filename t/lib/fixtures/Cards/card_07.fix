@@ -9,5 +9,6 @@ $HASH1 = {
     correct_answers => 2,
     wrong_answers   => 1,
     in_trash        => 1,
-    user_id         => 2
+    user_id         => 2,
+    is_active       => 1
 };

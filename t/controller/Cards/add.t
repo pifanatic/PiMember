@@ -268,6 +268,12 @@ subtest "POST /cards/add" => sub {
         "set correct user_id for new card in database"
     );
 
+    is(
+        $card->is_active,
+        1,
+        "set correct is_active for new card in database"
+    );
+
     ok(
         $tag,
         "created a new tag in database"
@@ -488,6 +494,12 @@ subtest "POST /cards/add without tags" => sub {
         $card->user_id,
         1,
         "set correct user_id for new card in database"
+    );
+
+    is(
+        $card->is_active,
+        1,
+        "set correct is_active for new card in database"
     );
 
     is(
